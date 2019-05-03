@@ -1,0 +1,967 @@
+<!-- Creator     : groff version 1.22.4 -->
+<!-- CreationDate: Thu May  2 21:00:17 2019 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="../version.css">
+<meta name="generator" content="groff -Thtml, see www.gnu.org">
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="Content-Style" content="text/css">
+<style type="text/css">
+       p       { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       pre     { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       table   { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       h1      { text-align: center }
+</style>
+<title>CommonCodes - </title>
+
+</head>
+<body>
+
+<h1 align="center">CommonCodes</h1>
+
+<a href="#NAME">NAME</a><br>
+<a href="#DESCRIPTION">DESCRIPTION</a><br>
+<a href="#STATUS CODE TABLE">STATUS CODE TABLE</a><br>
+<a href="#FOOTNOTES">FOOTNOTES</a><br>
+<a href="#AUTHOR">AUTHOR</a><br>
+
+<hr>
+
+
+<h2>NAME
+<a name="NAME"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">CommonCodes -
+Standardized list of commonly used exit statuses</p>
+
+<h2>DESCRIPTION
+<a name="DESCRIPTION"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>CommonCodes</b>
+is an attempt to standardize the meaning of exit statuses of
+programs written for Unix like systems.</p>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>CommonCodes</b>
+includes the 15 exit codes defined by <b>BSD</b> in
+<i>sysexits.h</i> that range from 64 to 78.</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>GNU Bash</b>
+uses the exit status 2 to indicate incorrect usage of a
+shell builtins. <b>Bash</b> also uses codes above 125 for
+special exit statuses like termination by a sent signal.
+<b><br>
+CommonCodes</b> adopts both of these rules, using 2 as a
+generic usage error and not defining any codes above
+125.</p>
+
+<p style="margin-left:11%; margin-top: 1em">Some ranges
+have been kept empty so that developers may add error
+messages of their own, tailored to the program that they are
+writing. <br>
+If such</p>
+
+<h2>STATUS CODE TABLE
+<a name="STATUS CODE TABLE"></a>
+</h2>
+
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="1%">
+
+
+<p style="margin-top: 1em">0</p></td>
+<td width="10%"></td>
+<td width="10%">
+
+
+<p style="margin-top: 1em">success</p></td>
+<td width="68%">
+</td></tr>
+</table>
+
+<p style="margin-left:22%;">The program executed
+successfully or the <b>--help</b> or the <b>--version</b>
+options were specified.</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="1%">
+
+
+<p style="margin-top: 1em">1</p></td>
+<td width="10%"></td>
+<td width="32%">
+
+
+<p style="margin-top: 1em">generic error<b>[</b>:
+<i>info</i><b>]</b></p> </td>
+<td width="46%">
+</td></tr>
+</table>
+
+<p style="margin-left:22%;">Any other error that
+doesn&rsquo;t fit in any other category.</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="1%">
+
+
+<p style="margin-top: 1em">2</p></td>
+<td width="10%"></td>
+<td width="41%">
+
+
+<p style="margin-top: 1em">generic usage error<b>[</b>:
+<i>info</i><b>]</b></p> </td>
+<td width="37%">
+</td></tr>
+</table>
+
+<p style="margin-left:22%;">Any other program usage error
+that doesn&rsquo;t fit in any other category.</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="1%">
+
+
+<p style="margin-top: 1em">3</p></td>
+<td width="10%"></td>
+<td width="69%">
+
+
+<p style="margin-top: 1em"><b>[</b><i>option</i>:
+<b>]</b>missing argument(s)<b>[</b>:
+<i>arguments</i><b>...]</b></p> </td>
+<td width="9%">
+</td></tr>
+</table>
+
+<p style="margin-left:22%;">Not enough arguments have been
+passed down to the program or to an option of the
+program.</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="1%">
+
+
+<p style="margin-top: 1em">4</p></td>
+<td width="10%"></td>
+<td width="50%">
+
+
+<p style="margin-top: 1em"><b>[</b><i>option</i>:
+<b>]</b>too many arguments<b>[</b>: <i>n</i><b>]</b></p></td>
+<td width="28%">
+</td></tr>
+</table>
+
+<p style="margin-left:22%;">Too many arguments have been
+passed down to the program or to an option of the
+program.</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="1%">
+
+
+<p style="margin-top: 1em">5</p></td>
+<td width="10%"></td>
+<td width="67%">
+
+
+<p style="margin-top: 1em"><b>[</b><i>option</i>:
+<b>]</b><i>argument</i>: invalid argument<b>[</b>:
+<i>info</i><b>]</b></p> </td>
+<td width="11%">
+</td></tr>
+</table>
+
+<p style="margin-left:22%;">The argument is invalid and
+cannot be used.</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="1%">
+
+
+<p style="margin-top: 1em">6</p></td>
+<td width="10%"></td>
+<td width="69%">
+
+
+<p style="margin-top: 1em"><b>[</b><i>option</i>:
+<b>]</b><i>argument</i>: not a<b>[</b>n<b>]
+(</b>number<b>|</b>integer<b>)</b></p> </td>
+<td width="9%">
+</td></tr>
+</table>
+
+<p style="margin-left:22%;">The argument is not a valid
+number or is not a valid integer. <br>
+If a valid decimal number has been entered and this exit
+status is returned then you must convert the decimal number
+into an integer.</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="1%">
+
+
+<p style="margin-top: 1em">7</p></td>
+<td width="10%"></td>
+<td width="66%">
+
+
+<p style="margin-top: 1em"><b>[</b><i>option</i>:
+<b>]</b><i>argument</i>: does not match: <i>pattern</i></p></td>
+<td width="12%">
+</td></tr>
+</table>
+
+<p style="margin-left:22%;">The argument does not match the
+pattern provided. The pattern can be glob, regex or any
+other pattern matching system.</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="9%">
+
+
+<p style="margin-top: 1em">8 - 15</p></td>
+<td width="2%"></td>
+<td width="32%">
+
+
+<p style="margin-top: 1em"><b>(custom usage errors)</b></p></td>
+<td width="46%">
+</td></tr>
+</table>
+
+<p style="margin-left:22%;">Usage errors defined by the
+developer of the program. These should always be
+documented.</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p style="margin-top: 1em">16</p></td>
+<td width="8%"></td>
+<td width="78%">
+
+
+<p style="margin-top: 1em"><i>item</i>: no such
+<i>itemtype</i><b>[[</b>, <i>itemtype</i><b>]...</b> or
+<i>itemtype</i><b>]</b></p> </td></tr>
+</table>
+
+<p style="margin-left:22%;">The item in question could not
+be found. <i><br>
+item</i> can be things like paths, etc. and <i>itemtype</i>
+can be things like regular files, directories, etc.</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p style="margin-top: 1em">17</p></td>
+<td width="8%"></td>
+<td width="78%">
+
+
+<p style="margin-top: 1em"><i>item</i>: not
+a<b>[</b>n<b>]</b> <i>itemtype</i><b>[[</b>,
+<i>itemtype</i><b>]...</b> or <i>itemtype</i><b>]</b></p></td></tr>
+</table>
+
+<p style="margin-left:22%;">The item in question is of the
+wrong type.</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p style="margin-top: 1em">18</p></td>
+<td width="8%"></td>
+<td width="36%">
+
+
+<p style="margin-top: 1em">?</p></td>
+<td width="42%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p>19</p></td>
+<td width="8%"></td>
+<td width="36%">
+
+
+<p>?</p></td>
+<td width="42%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p>20</p></td>
+<td width="8%"></td>
+<td width="36%">
+
+
+<p>?</p></td>
+<td width="42%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p>21</p></td>
+<td width="8%"></td>
+<td width="36%">
+
+
+<p>?</p></td>
+<td width="42%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p>22</p></td>
+<td width="8%"></td>
+<td width="36%">
+
+
+<p>?</p></td>
+<td width="42%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p>23</p></td>
+<td width="8%"></td>
+<td width="36%">
+
+
+<p>?</p></td>
+<td width="42%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p>24</p></td>
+<td width="8%"></td>
+<td width="36%">
+
+
+<p>arithmetic error<b>[</b>: <i>info</i><b>]</b></p></td>
+<td width="42%">
+</td></tr>
+</table>
+
+<p style="margin-left:22%;">A general arithmetic error
+occured.</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p style="margin-top: 1em">25</p></td>
+<td width="8%"></td>
+<td width="27%">
+
+
+<p style="margin-top: 1em">divided by 0 error</p></td>
+<td width="51%">
+</td></tr>
+</table>
+
+<p style="margin-left:22%;">A division by 0 was tried to be
+executed and there was no fallback option.</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p style="margin-top: 1em">26</p></td>
+<td width="8%"></td>
+<td width="40%">
+
+
+
+<p style="margin-top: 1em"><b>(</b>overflow<b>|</b>underflow<b>)</b>
+error</p> </td>
+<td width="38%">
+</td></tr>
+</table>
+
+<p style="margin-left:22%;">An overflow or underflow
+happened and it has critical effects on the program.</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p style="margin-top: 1em">27</p></td>
+<td width="8%"></td>
+<td width="30%">
+
+
+<p style="margin-top: 1em">?</p></td>
+<td width="48%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p>28</p></td>
+<td width="8%"></td>
+<td width="30%">
+
+
+<p>memory error<b>[</b>: <i>info</i><b>]</b></p></td>
+<td width="48%">
+</td></tr>
+</table>
+
+<p style="margin-left:22%;">A general memory error
+occured.</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p style="margin-top: 1em">29</p></td>
+<td width="8%"></td>
+<td width="26%">
+
+
+<p style="margin-top: 1em">not enough memory</p></td>
+<td width="52%">
+</td></tr>
+</table>
+
+<p style="margin-left:22%;">There was not enough memory to
+allocate a block of data.</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p style="margin-top: 1em">30</p></td>
+<td width="8%"></td>
+<td width="33%">
+
+
+<p style="margin-top: 1em">?</p></td>
+<td width="45%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p>31</p></td>
+<td width="8%"></td>
+<td width="33%">
+
+
+<p>emergency stop<b>[</b>: <i>info</i><b>]</b></p></td>
+<td width="45%">
+</td></tr>
+</table>
+
+<p style="margin-left:22%;">The program was intentionally
+halted by the developer because a value is invalid and
+can&rsquo;t be worked with.</p>
+
+<p style="margin-left:11%;">32 - 63</p>
+
+<p style="margin-left:22%;"><b>(custom errors)</b> <br>
+General custom errors defined by the developer. These should
+always be documented.</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p>64</p></td>
+<td width="8%"></td>
+<td width="49%">
+
+
+<p>command line usage error<b>[</b>:
+<i>info</i><b>]</b></p> </td>
+<td width="29%">
+</td></tr>
+</table>
+
+<p style="margin-left:22%;">The command was used
+incorrectly, e.g., with the wrong number of arguments, a bad
+flag, a bad syntax in a parameter, or whatever.</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p style="margin-top: 1em">65</p></td>
+<td width="8%"></td>
+<td width="38%">
+
+
+<p style="margin-top: 1em">data format error<b>[</b>:
+<i>info</i><b>]</b></p> </td>
+<td width="40%">
+</td></tr>
+</table>
+
+<p style="margin-left:22%;">The input data was incorrect in
+some way.</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p style="margin-top: 1em">66</p></td>
+<td width="8%"></td>
+<td width="38%">
+
+
+<p style="margin-top: 1em">cannot open input<b>[</b>:
+<i>info</i><b>]</b></p> </td>
+<td width="40%">
+</td></tr>
+</table>
+
+<p style="margin-left:22%;">An input file (not a system
+file) did not exist or was not readable. This could also
+include errors like &quot;No message&quot; to a mailer (if
+it cared to catch it).</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p style="margin-top: 1em">67</p></td>
+<td width="8%"></td>
+<td width="38%">
+
+
+<p style="margin-top: 1em">addressee unknown<b>[</b>:
+<i>info</i><b>]</b></p> </td>
+<td width="40%">
+</td></tr>
+</table>
+
+<p style="margin-left:22%;">The user specified did not
+exist.</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p style="margin-top: 1em">68</p></td>
+<td width="8%"></td>
+<td width="38%">
+
+
+<p style="margin-top: 1em">host name unknown<b>[</b>:
+<i>info</i><b>]</b></p> </td>
+<td width="40%">
+</td></tr>
+</table>
+
+<p style="margin-left:22%;">The host specified did not
+exist.</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p style="margin-top: 1em">69</p></td>
+<td width="8%"></td>
+<td width="41%">
+
+
+<p style="margin-top: 1em">service unavailable<b>[</b>:
+<i>info</i><b>]</b></p> </td>
+<td width="37%">
+</td></tr>
+</table>
+
+<p style="margin-left:22%;">A service is unavailable. This
+can occur if a support program or file does not exist.</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p style="margin-top: 1em">70</p></td>
+<td width="8%"></td>
+<td width="47%">
+
+
+<p style="margin-top: 1em">internal software error<b>[</b>:
+<i>info</i><b>]</b></p> </td>
+<td width="31%">
+</td></tr>
+</table>
+
+<p style="margin-left:22%;">An internal software error has
+been detected.</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p style="margin-top: 1em">71</p></td>
+<td width="8%"></td>
+<td width="30%">
+
+
+<p style="margin-top: 1em">system error<b>[</b>:
+<i>info</i><b>]</b></p> </td>
+<td width="48%">
+</td></tr>
+</table>
+
+<p style="margin-left:22%;">An operating system error has
+been detected.</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p style="margin-top: 1em">72</p></td>
+<td width="8%"></td>
+<td width="49%">
+
+
+<p style="margin-top: 1em">critical OS file
+missing<b>[</b>: <i>info</i><b>]</b></p></td>
+<td width="29%">
+</td></tr>
+</table>
+
+<p style="margin-left:22%;">Some system file (e.g.,
+/etc/passwd, /etc/utmp, etc.) does not exist, cannot be
+opened, or has some sort of error (e.g., syntax error).</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p style="margin-top: 1em">73</p></td>
+<td width="8%"></td>
+<td width="60%">
+
+
+<p style="margin-top: 1em">can&rsquo;t create (user) output
+file<b>[</b>: <i>info</i><b>]</b></p></td>
+<td width="18%">
+</td></tr>
+</table>
+
+<p style="margin-left:22%;">A (user specified) output file
+cannot be created.</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p style="margin-top: 1em">74</p></td>
+<td width="8%"></td>
+<td width="40%">
+
+
+<p style="margin-top: 1em">input/output error<b>[</b>:
+<i>info</i><b>]</b></p> </td>
+<td width="38%">
+</td></tr>
+</table>
+
+<p style="margin-left:22%;">An error occurred while doing
+I/O on some file.</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p style="margin-top: 1em">75</p></td>
+<td width="8%"></td>
+<td width="30%">
+
+
+<p style="margin-top: 1em">temp failure<b>[</b>:
+<i>info</i><b>]</b></p> </td>
+<td width="48%">
+</td></tr>
+</table>
+
+<p style="margin-left:22%;">Temporary failure, indicating
+something that is not really an error.</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p style="margin-top: 1em">76</p></td>
+<td width="8%"></td>
+<td width="49%">
+
+
+<p style="margin-top: 1em">remote error in
+protocol<b>[</b>: <i>info</i><b>]</b></p></td>
+<td width="29%">
+</td></tr>
+</table>
+
+<p style="margin-left:22%;">The remote system returned
+something that was &quot;not possible&quot; during a
+protocol exchange.</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p style="margin-top: 1em">77</p></td>
+<td width="8%"></td>
+<td width="38%">
+
+
+<p style="margin-top: 1em">permission denied<b>[</b>:
+<i>info</i><b>]</b></p> </td>
+<td width="40%">
+</td></tr>
+</table>
+
+<p style="margin-left:22%;">You did not have sufficient
+permission to perform the operation.</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p style="margin-top: 1em">78</p></td>
+<td width="8%"></td>
+<td width="41%">
+
+
+<p style="margin-top: 1em">configuration error<b>[</b>:
+<i>info</i><b>]</b></p> </td>
+<td width="37%">
+</td></tr>
+</table>
+
+<p style="margin-left:22%;">Something was found in an
+unconfigured or misconfigured state.</p>
+
+<p style="margin-left:11%;">79 - 99</p>
+
+<p style="margin-left:22%;"><b>(custom configuration
+errors)</b> <br>
+Configuration, property and setting errors defined by the
+developer. These should always be documented.</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="4%">
+
+
+<p>100</p></td>
+<td width="7%"></td>
+<td width="46%">
+
+
+<p>generic internal fault<b>[</b>: <i>info</i><b>]</b></p></td>
+<td width="32%">
+</td></tr>
+</table>
+
+<p style="margin-left:22%;">General internal fault. <br>
+An internal fault happens when preconditions prevent the
+program to advance to a stage where user input is
+awaited.</p>
+
+<p style="margin-left:11%;">101 - 123</p>
+
+<p style="margin-left:22%;"><b>(custom internal faults)</b>
+<br>
+Different internal faults, defined by the developer. These
+should always be documented.</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="4%">
+
+
+<p>124</p></td>
+<td width="7%"></td>
+<td width="56%">
+
+
+<p>script was <b>[</b>not <b>]</b>called interactively</p></td>
+<td width="22%">
+</td></tr>
+</table>
+
+<p style="margin-left:22%;">The script can either only be
+executed interactively (using command &quot;.&quot; or
+&quot;source&quot;), or not interactively (executing via
+&quot;./&quot;).</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="4%">
+
+
+<p style="margin-top: 1em">125</p></td>
+<td width="7%"></td>
+<td width="20%">
+
+
+<p style="margin-top: 1em">unknown error</p></td>
+<td width="58%">
+</td></tr>
+</table>
+
+<p style="margin-left:22%;">Cause of error is not known,
+not even to the developer.</p>
+
+<h2>FOOTNOTES
+<a name="FOOTNOTES"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Since exit code
+2 (generic usage error) and exit code 64 (command line usage
+error) are basically the same, it is recommended to use code
+2 when distributing for <b>GNU/Linux</b> systems and code 64
+when distributing for <b>BSD</b> systems.</p>
+
+<h2>AUTHOR
+<a name="AUTHOR"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Michael
+Federczuk &lt;federczuk.michael@hotmail.com&gt;</p>
+<hr>
+</body>
+</html>
