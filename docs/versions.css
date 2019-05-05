@@ -7,8 +7,11 @@
 #version-date_container { text-align: center; }
 #version-date_text      { font-style: italic; }
 
-.synopsis_placeholder { text-decoration: underline; }
 .synopsis_controls { font-weight: bold; }
+.synopsis_placeholder {
+	font-style: italic;
+	text-decoration: underline;
+}
 
 #footer {
 	margin-top: 1em;
