@@ -7,6 +7,31 @@
 #version-date_container { text-align: center; }
 #version-date_text      { font-style: italic; }
 
+#version-warning_container { text-align: center; }
+#version-warning_text      { color: #FF0000; }
+#version-warning_text::selection { background: #FF0000; }
+#version-warning_text a:link,
+#version-warning_text a:visited {
+	color: #DF0000;
+	text-decoration: underline;
+}
+#version-warning_text a:hover {
+	color: #BF0000;
+	text-decoration: none;
+}
+#version-warning_text a:active {
+	color: #9F0000;
+	text-decoration: none;
+}
+#version-warning_text a:link::selection         { background: #FF0000; }
+#version-warning_text a:link::-moz-selection    { background: #FF0000; }
+#version-warning_text a:visited::selection      { background: #DF0000; }
+#version-warning_text a:visited::-moz-selection { background: #DF0000; }
+#version-warning_text a:hover::selection       { background: #BF0000; }
+#version-warning_text a:hover::-moz-selection  { background: #BF0000; }
+#version-warning_text a:active::selection      { background: #9F0000; }
+#version-warning_text a:active::-moz-selection { background: #9F0000; }
+
 .synopsis_controls { font-weight: bold; }
 .synopsis_placeholder {
 	font-style: italic;
