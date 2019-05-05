@@ -48,7 +48,7 @@ that range from 64 to 78.
 
 .B GNU
 .B Bash
-uses the exit status 2 to indicate incorrect usage of a shell builtins.
+uses the exit status 2 to indicate incorrect usage of shell builtins.
 .B Bash
 also uses codes above 125 for special exit statuses like termination by a sent
 signal.
@@ -130,11 +130,17 @@ The item in question is of the wrong type.
 .IP 20
 ?
 .IP 21
-?
+.rbi "network error" "[" "" ": " "" "info" "" "]"
+.br
+A general network error occurred.
 .IP 22
-?
+no network connection
+.br
+No network connection is established.
 .IP 23
-?
+connection timed out
+.br
+A network request took too long and timed out.
 .IP 24
 .rbi "arithmetic error" "[" "" ": " "" "info" "" "]"
 .br
@@ -154,11 +160,13 @@ An overflow or underflow happened and it has critical effects on the program.
 .br
 A general memory error occured.
 .IP 29
-not enough memory
+.rbi "not enough " "[" "" "heap " "]" "" "memory"
 .br
-There was not enough memory to allocate a block of data.
+There was not enough free memory on the heap to allocate a block of data.
 .IP 30
-?
+stack overflow error
+.br
+A stack overflow occurred.
 .IP 31
 .rbi "emergency stop" "[" "" ": " "" "info" "" "]"
 .br
