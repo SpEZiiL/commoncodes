@@ -8,6 +8,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased] - 2019-05-06 ##
 
+### Added ###
+
+* `commoncodes.h` C header file
+
 ### Changed ###
 
 * Tweaked description of code 100 a bit
