@@ -26,11 +26,14 @@
 #define CC_GEN_USAGE_ERR 2 /* generic usage error */
 #define CC_MISS_ARGS     3 /* missing arguments */
 #define CC_TOO_MANY_ARGS 4 /* too many arguments */
-#define CC_INV_ARG       5 /* invalid argument */
-#define CC_NO_NUM        6 /* not a number */
-#define CC_NO_INT        6 /* not an integer */
-#define CC_NO_MATCH      7 /* does not match */
-/* 8 - 15: custom usage errors */
+#define CC_INV_OPT       5 /* invalid option */
+#define CC_INV_ARG       6 /* invalid argument */
+#define CC_NO_EMPTY_ARG  7 /* may not be empty */
+#define CC_NO_BLANK_ARG  7 /* may not be blank */
+#define CC_NO_NUM        8 /* not a number */
+#define CC_NO_INT        8 /* not an integer */
+#define CC_NO_MATCH      9 /* does not match */
+/* 10 - 15: custom usage errors */
 #define CC_NO_SUCH_ITEMTYPE 16 /* no such itemtype */
 #define CC_NOT_A_ITEMTYPE   17 /* not a itemtype */
 #define CC_NOT_AN_ITEMTYPE  17 /* not an itemtype */

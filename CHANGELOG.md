@@ -1,4 +1,4 @@
-<!-- markdownlint-disable MD024 MD007 -->
+<!-- markdownlint-disable MD024 MD007 MD033 -->
 
 # Changelog #
 
@@ -14,7 +14,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed ###
 
-* Tweaked description of code 100 a bit
+* Status 100 & 124: Tweaked description a bit
+* Inserted status "_option_: invalid option" between status "too many arguments" and "_argument_: invalid argument"
+	* Status "too many arguments" stays code 4
+	* Status "_option_: invalid option" is now 5
+	* Status "_argument_: invalid argument" is now 6
+* Inserted status "argument #_n_: may not be empty/blank" between status "_argument_: invalid argument" and "_argument_: not a number/integer"
+	* Status "_argument_: invalid argument" is now code 6
+	* Status "argument #_n_: may not be empty/blank" is now code 7
+	* Status "_argument_: not a number/integer" is now code 8
 
 [Unreleased]: https://github.com/SpEZiiL/commoncodes/compare/v0.2.0...develop
 
@@ -22,16 +30,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added ###
 
-* Other Errors
-	* 21: network error
-	* 22: no network connection
-	* 23: connection timed out
-	* 30: stack overflow error
+* Status 21: network error
+* Status 22: no network connection
+* Status 23: connection timed out
+* Status 30: stack overflow error
 
 ### Changed ###
 
-* Other Errors
-	* 29: not enough memory -> not enough [heap ]memory
+* Status 29: Tweaked message a bit
+	* "not enough memory" → "not enough <b>[</b>heap <b>]</b>memory"
 
 [0.2.0]: https://speziil.github.io/commoncodes/v/0.2.0.html
 

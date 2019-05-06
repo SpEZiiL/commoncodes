@@ -134,11 +134,24 @@
 			</tr>
 			<tr>
 				<td>5</td>
+				<td><span class="synopsis_placeholder">option</span>: invalid option</td>
+				<td>The entered option is not specified in the program.</td>
+			</tr>
+			<tr>
+				<td>6</td>
 				<td><span class="synopsis_controls">[</span><span class="synopsis_placeholder">option</span>: <span class="synopsis_controls">]</span><span class="synopsis_placeholder">argument</span>: invalid argument<span class="synopsis_controls">[</span>: <span class="synopsis_placeholder">info</span><span class="synopsis_controls">]</span></td>
 				<td>The argument is invalid and cannot be used.</td>
 			</tr>
 			<tr>
-				<td>6</td>
+				<td>7</td>
+				<td>argument #<span class="synopsis_placeholder">n</span>: may not be <span class="synopsis_controls">(</span>empty<span class="synopsis_controls">|</span>blank<span class="synopsis_controls">)</span></td>
+				<td>
+					Program can not work with empty or blank argument.<br>
+					"Blank" means none or only whitespace characters.
+				</td>
+			</tr>
+			<tr>
+				<td>8</td>
 				<td><span class="synopsis_controls">[</span><span class="synopsis_placeholder">option</span>: <span class="synopsis_controls">]</span><span class="synopsis_placeholder">argument</span>: not a<span class="synopsis_controls">[</span>n<span class="synopsis_controls">]</span> <span class="synopsis_controls">(</span>number<span class="synopsis_controls">|</span>integer<span class="synopsis_controls">)</span></td>
 				<td>
 					The argument is not a valid number or is not a valid integer.<br>
@@ -148,7 +161,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td>7</td>
+				<td>9</td>
 				<td><span class="synopsis_controls">[</span><span class="synopsis_placeholder">option</span>: <span class="synopsis_controls">]</span><span class="synopsis_placeholder">argument</span>: does not match: <span class="synopsis_placeholder">pattern</span></td>
 				<td>
 					The argument does not match the pattern provided. The
@@ -157,7 +170,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td>8 - 15</td>
+				<td>10 - 15</td>
 				<td><span class="synopsis_controls">(custom usage errors)</span></td>
 				<td>
 					Usage errors defined by the developer of the program. These
@@ -393,9 +406,9 @@
 				<td>124</td>
 				<td>script was <span class="synopsis_controls">[</span>not <span class="synopsis_controls">]</span>called interactively</td>
 				<td>
-					The script can either only be executed interactively (using
-					command "." or "source"), or not interactively (executing
-					via "./").
+					The shell script can either only be executed interactively
+					(using command "." or "source"), or not interactively
+					(executing via "./").
 				</td>
 			</tr>
 			<tr>

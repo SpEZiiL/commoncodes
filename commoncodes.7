@@ -109,10 +109,20 @@ program.
 Too many arguments have been passed down to the program or to an option of the
 program.
 .IP 5
+.bir "" "option" ": invalid option"
+.br
+The entered option is not specified in the program.
+.IP 6
 .bir "[" "option" ": " "]" "argument" ": invalid argument" "[" "" ": " "" "info" "" "]"
 .br
 The argument is invalid  and cannot be used.
-.IP 6
+.IP 7
+.rbi "argument #" "" "n" ": may not be " "(" "" "empty" "|" "" "blank" ")"
+.br
+Program can not work with empty or blank argument.
+.br
+"Blank" means none or only whitespace characters.
+.IP 8
 .bir "[" "option" ": " "]" "argument" ": not a" "[" "" "n" "]" "" " " "(" "" "number" "|" "" "integer" ")"
 .br
 The argument is not a valid number or is not a valid integer.
@@ -120,12 +130,12 @@ The argument is not a valid number or is not a valid integer.
 If a valid decimal number has been entered and this exit status is returned then
 you must convert the decimal number into an integer.
 .br
-.IP 7
+.IP 9
 .bir "[" "option" ": " "]" "argument" ": does not match: " "" "pattern"
 .br
 The argument does not match the pattern provided. The pattern can be glob, regex
 or any other pattern matching system.
-.IP "8 - 15"
+.IP "10 - 15"
 .B "(custom usage errors)"
 .br
 Usage errors defined by the developer of the program. These should always be
@@ -282,7 +292,7 @@ documented.
 .IP 124
 .rbi "script was " "[" "" "not " "]" "" "called interactively"
 .br
-The script can either only be executed interactively (using command "." or
+The shell script can either only be executed interactively (using command "." or
 "source"), or not interactively (executing via "./").
 .IP 125
 unknown error
