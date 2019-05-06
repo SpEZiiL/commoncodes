@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>CommonCodes v0.1.0</title>
+	<title>CommonCodes v0.3.0</title>
 	<meta charset="utf-8">
 	<meta name="author" content="Michael Federczuk">
 	<meta name="description" content="Standardized list of commonly used exit statuses">
@@ -13,22 +13,23 @@
 	<div id="header">
 	<div id="version-links_container">
 		[
-		<span class="version-links_other"><a href="0.3.0.html">v0.3.0 (unreleased)</a></span> |
+		<span id="version-links_current">v0.3.0 (unreleased)</span> |
 		<span class="version-links_other"><a href="0.2.0.html">v0.2.0</a></span> |
-		<span id="version-links_current">v0.1.0</span>
+		<span class="version-links_other"><a href="0.1.0.html">v0.1.0</a></span>
 		]
 	</div>
 	</div>
 
 	<div id="content">
-	<h1>CommonCodes v0.1.0</h1>
-
-	<div id="version-date_container"><span id="version-date_text">May 2, 2019</span></div>
+	<h1>CommonCodes v0.3.0</h1>
+	
+	<div id="version-date_container"><span id="version-date_text">May 6, 2019</span></div>
 
 	<div id="version-warning_container">
 		<span id="version-warning_text">
-			You are viewing and older version of CommonCodes,
-			click <a href="latest.html">here</a> to view the latest version.
+			You are viewing and unreleased version of CommonCodes,
+			click <a href="latest.html">here</a> to view the latest released
+			version.
 		</span>
 	</div>
 
@@ -45,7 +46,7 @@
 
 	<p>
 		<strong>GNU</strong> <strong>Bash</strong> uses the exit status 2 to
-		indicate incorrect usage of a shell builtins.
+		indicate incorrect usage of shell builtins.
 		<strong>Bash</strong> also uses codes above 125 for special exit
 		statuses like termination by a sent signal.<br>
 		<strong>CommonCodes</strong> adopts both of these rules, using 2 as
@@ -59,13 +60,36 @@
 		documented, either in the <code>--help</code> summary or in the
 		manpage.
 	</p>
+
+	<p>
+		In the following table, these rules apply for the messages:
+	</p>
+
+	<ul>
+		<li>
+			Italic and/or underlined symbols are placeholders for other text
+			that should get replaced for real messages.
+		</li>
+		<li>
+			Text and symbols in bold square brackets may be ommitted in real
+			messages.
+		</li>
+		<li>
+			Text and symbols followed by bold ellipsis may be repeated one or
+			more times in real messages.
+		</li>
+		<li>
+			In real messages, only one field of text and symbols may be
+			displayed if they are separated by bold vertical bars(<span class="synopsis_controls">|</span>).
+		</li>
+	</ul>
 	</div>
 
 	<table id="status-code-table" class="info-table">
 		<caption>Status Codes</caption>
 		<thead>
 			<tr>
-				<th>Code</th>
+				<th>Exit Code</th>
 				<th>Message</th>
 				<th>Description</th>
 			</tr>
@@ -171,23 +195,23 @@
 			</tr>
 			<tr>
 				<td>21</td>
-				<td>?</td>
-				<td></td>
+				<td>network error<span class="synopsis_controls">[</span>: <span class="synopsis_placeholder">info</span><span class="synopsis_controls">]</span></td>
+				<td>A general network error occurred.</td>
 			</tr>
 			<tr>
 				<td>22</td>
-				<td>?</td>
-				<td></td>
+				<td>no network connection</td>
+				<td>No network connection is established.</td>
 			</tr>
 			<tr>
 				<td>23</td>
-				<td>?</td>
-				<td></td>
+				<td>connection timed out</td>
+				<td>A network request took too long and timed out.</td>
 			</tr>
 			<tr>
 				<td>24</td>
 				<td>arithmetic error<span class="synopsis_controls">[</span>: <span class="synopsis_placeholder">info</span><span class="synopsis_controls">]</span></td>
-				<td>A general arithmetic error occured.</td>
+				<td>A general arithmetic error occurred.</td>
 			</tr>
 			<tr>
 				<td>25</td>
@@ -210,17 +234,17 @@
 			<tr>
 				<td>28</td>
 				<td>memory error<span class="synopsis_controls">[</span>: <span class="synopsis_placeholder">info</span><span class="synopsis_controls">]</span></td>
-				<td>A general memory error occured.</td>
+				<td>A general memory error occurred.</td>
 			</tr>
 			<tr>
 				<td>29</td>
-				<td>not enough memory</td>
-				<td>There was not enough memory to allocate a block of data.</td>
+				<td>not enough <span class="synopsis_controls">[</span>heap <span class="synopsis_controls">]</span>memory</td>
+				<td>There was not enough free memory on the heap to allocate a block of data.</td>
 			</tr>
 			<tr>
 				<td>30</td>
-				<td>?</td>
-				<td></td>
+				<td>stack overflow error</td>
+				<td>A stack overflow occurred.</td>
 			</tr>
 			<tr>
 				<td>31</td>
@@ -354,7 +378,7 @@
 				<td>
 					General internal fault.<br>
 					An internal fault happens when preconditions prevent the
-					program to advance to a stage where user input is awaited.
+					program to advance to a next stage of execution.
 				</td>
 			</tr>
 			<tr>
