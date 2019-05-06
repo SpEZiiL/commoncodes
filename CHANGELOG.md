@@ -24,6 +24,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 	* Status "_argument_: invalid argument" is now code 6
 	* Status "argument #_n_: may not be empty/blank" is now code 7
 	* Status "_argument_: not a number/integer" is now code 8
+* Moved statuses 21 - 26 one code up  
+  e.g.: 21 → 22, and 26 → 27
 
 [Unreleased]: https://github.com/SpEZiiL/commoncodes/compare/v0.2.0...develop
 

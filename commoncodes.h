@@ -40,14 +40,14 @@
 /* #define CC_ 18 */
 /* #define CC_ 19 */
 /* #define CC_ 20 */
-#define CC_NET_ERR       21 /* network error */
-#define CC_NO_NET_CON    22 /* no network connection */
-#define CC_CON_TIMED_OUT 23 /* connection timed out */
-#define CC_ARIT_ERR      24 /* arithmetic error */
-#define CC_DIV_BY_0_ERR  25 /* divied by 0 error */
-#define CC_OFLOW_ERR     26 /* overflow error */
-#define CC_UFLOW_ERR     26 /* underflow error */
-/* #define CC_ 27 */
+/* #define CC_ 21 */
+#define CC_NET_ERR         22 /* network error */
+#define CC_NO_NET_CON      23 /* no network connection */
+#define CC_CON_TIMED_OUT   24 /* connection timed out */
+#define CC_ARIT_ERR        25 /* arithmetic error */
+#define CC_DIV_BY_0_ERR    26 /* divied by 0 error */
+#define CC_OFLOW_ERR       27 /* overflow error */
+#define CC_UFLOW_ERR       27 /* underflow error */
 #define CC_MEM_ERR         28 /* memory error */
 #define CC_NO_MEM          29 /* not enough memory */
 #define CC_NO_HMEM         29 /* not enough heap memory */
