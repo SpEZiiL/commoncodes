@@ -12,27 +12,36 @@
 <body>
 	<div id="header">
 	<div id="version-links_container">
-		[
-		<span class="version-links_other"><a href="0.3.0.html">v0.3.0 (unreleased)</a></span> |
-		<span class="version-links_other"><a href="0.2.0.html">v0.2.0</a></span> |
-		<span id="version-links_current">v0.1.0</span>
-		]
-	</div>
-	</div>
+		<span id="version-links_text">
+			[
+			<span class="version-links_other"><a href="0.3.0.html">v0.3.0 (unreleased)</a></span> |
+			<span class="version-links_other"><a href="0.2.0.html">v0.2.0</a></span> |
+			<span id="version-links_current">v0.1.0</span>
+			]
+		</span> <!-- #version-links_text -->
+	</div> <!-- #version-links_container -->
+	</div> <!-- #header -->
 
-	<div id="content">
+	<div id="body">
+	<div id="page-intro">
 	<h1>CommonCodes v0.1.0</h1>
 
-	<div id="version-date_container"><span id="version-date_text">May 2, 2019</span></div>
+	<div id="version-date_container">
+		<span id="version-date_text">May 2, 2019</span>
+	</div> <!-- #version-date_container -->
 
 	<div id="version-warning_container">
 		<span id="version-warning_text">
-			You are viewing and older version of CommonCodes,
-			click <a href="latest.html">here</a> to view the latest version.
-		</span>
-	</div>
+			You are viewing and older version of CommonCodes, click
+			<a href="latest.html">here</a> to view the latest version.
+		</span> <!-- #version-warning_text -->
+	</div> <!-- #version-warning_container -->
+	</div> <!-- #page-intro -->
 
-	<div id="description">
+	<div id="release-content">
+	<div id="section_description" class="pagesection">
+	<h2>Description</h2>
+
 	<p>
 		<strong>CommonCodes</strong> is an attempt to standardize the
 		meaning of exit statuses of programs written for Unix like systems.
@@ -59,7 +68,10 @@
 		documented, either in the <code>--help</code> summary or in the
 		manpage.
 	</p>
-	</div>
+	</div> <!-- #section_description.pagesection -->
+
+	<div id="section_status-code-table" class="pagesection">
+	<h2>Status Code Table</h2>
 
 	<table id="status-code-table" class="info-table">
 		<caption>Status Codes</caption>
@@ -380,9 +392,10 @@
 				<td>Cause of error is not known, not even to the developer.</td>
 			</tr>
 		</tbody>
-	</table>
+	</table> <!-- #status-code-table.info-table -->
+	</div> <!-- #section_status-code-table.pagesection -->
 
-	<div id="footnotes">
+	<div id="section_footnotes" class="pagesection">
 	<h2>Footnotes</h2>
 
 	<p>
@@ -391,12 +404,13 @@
 		when distributing for <strong>GNU/Linux</strong> systems and code 64
 		when distributing for <strong>BSD</strong> systems.
 	</p>
-	</div>
-	</div>
+	</div> <!-- #section_footnotes.pagesection -->
+	</div> <!-- #release-content -->
+	</div> <!-- #body -->
 
 	<div id="footer">
-		&copy; 2019 Michael Federczuk
-		<address>&lt;<a href="mailto:federczuk.michael@hotmail.com">federczuk.michael@hotmail.com</a>&gt;</address>
-	</div>
+		<span id="footer_copyright-notice">&copy; 2019 Michael Federczuk</span>
+		<address id="footer_email-address">&lt;<a href="mailto:federczuk.michael@hotmail.com">federczuk.michael@hotmail.com</a>&gt;</address>
+	</div> <!-- #footer -->
 </body>
 </html>
