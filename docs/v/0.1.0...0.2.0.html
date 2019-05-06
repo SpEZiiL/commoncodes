@@ -1,43 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>CommonCodes v0.3.0</title>
+	<title>CommonCodes v0.2.0</title>
 	<meta charset="utf-8">
 	<meta name="author" content="Michael Federczuk">
 	<meta name="description" content="Standardized list of commonly used exit statuses">
 	<meta name="keywords" content="commoncodes">
 	<link rel="stylesheet" type="text/css" href="https://speziil.github.io/css-dark-theme/v/latest.css">
 	<link rel="stylesheet" type="text/css" href="../versions.css">
+	<link rel="stylesheet" type="text/css" href="../diff.css">
 </head>
 <body>
 	<div id="header">
 	<div id="version-links_container">
 		<span id="version-links_text">
 			[
-			<span id="version-links_current">v0.3.0 (unreleased)</span> |
+			<span class="version-links_other"><a href="0.3.0.html">v0.3.0 (unreleased)</a></span> |
 			<span class="version-links_other"><a href="0.2.0...0.3.0.html">...</a></span> |
 			<span class="version-links_other"><a href="0.2.0.html">v0.2.0</a></span> |
-			<span class="version-links_other"><a href="0.1.0...0.2.0.html">...</a></span> |
+			<span id="version-links_current">...</span> |
 			<span class="version-links_other"><a href="0.1.0.html">v0.1.0</a></span>
 			]
-		</span>
+		</span> <!-- #version-links_text -->
 	</div> <!-- #version-links_container -->
-	</div> <!-- #header -->
+	</div> <!-- #header-->
 
 	<div id="body">
 	<div id="page-intro">
-	<h1>CommonCodes v0.3.0</h1>
+	<h1>CommonCodes v0.2.0</h1>
 	
 	<div id="version-date_container">
-		<span id="version-date_text">May 6, 2019</span>
+		<span id="version-date_text">May 5, 2019</span>
 	</div> <!-- #version-date_container -->
 
-	<div id="version-warning_container">
-		<span id="version-warning_text">
-			You are viewing and unreleased version of CommonCodes, click
-			<a href="latest.html">here</a> to view the latest released version.
-		</span> <!-- #version-warning_text -->
-	</div> <!-- #version-warning_container -->
+	<div id="version-notice_container">
+		<span id="version-notice_text">latest release</span>
+	</div> <!-- #version-notice_container -->
 	</div> <!-- #page-intro -->
 
 	<div id="release-content">
@@ -56,7 +54,7 @@
 
 	<p>
 		<strong>GNU</strong> <strong>Bash</strong> uses the exit status 2 to
-		indicate incorrect usage of shell builtins.
+		indicate incorrect usage of <span class="diff_deletion">a </span> shell builtins.
 		<strong>Bash</strong> also uses codes above 125 for special exit
 		statuses like termination by a sent signal.<br>
 		<strong>CommonCodes</strong> adopts both of these rules, using 2 as
@@ -71,6 +69,7 @@
 		manpage.
 	</p>
 
+	<div class="diff_addition">
 	<p>
 		In the following table, these rules apply for the messages:
 	</p>
@@ -93,6 +92,7 @@
 			displayed if they are separated by bold vertical bars(<span class="synopsis_controls">|</span>).
 		</li>
 	</ul>
+	</div>
 	</div> <!-- #section_description.pagesection -->
 
 	<div id="section_status-code-table" class="pagesection">
@@ -147,24 +147,11 @@
 			</tr>
 			<tr>
 				<td>5</td>
-				<td><span class="synopsis_placeholder">option</span>: invalid option</td>
-				<td>The entered option is not specified in the program.</td>
-			</tr>
-			<tr>
-				<td>6</td>
 				<td><span class="synopsis_controls">[</span><span class="synopsis_placeholder">option</span>: <span class="synopsis_controls">]</span><span class="synopsis_placeholder">argument</span>: invalid argument<span class="synopsis_controls">[</span>: <span class="synopsis_placeholder">info</span><span class="synopsis_controls">]</span></td>
 				<td>The argument is invalid and cannot be used.</td>
 			</tr>
 			<tr>
-				<td>7</td>
-				<td>argument #<span class="synopsis_placeholder">n</span>: may not be <span class="synopsis_controls">(</span>empty<span class="synopsis_controls">|</span>blank<span class="synopsis_controls">)</span></td>
-				<td>
-					Program can not work with empty or blank argument.<br>
-					"Blank" means none or only whitespace characters.
-				</td>
-			</tr>
-			<tr>
-				<td>8</td>
+				<td>6</td>
 				<td><span class="synopsis_controls">[</span><span class="synopsis_placeholder">option</span>: <span class="synopsis_controls">]</span><span class="synopsis_placeholder">argument</span>: not a<span class="synopsis_controls">[</span>n<span class="synopsis_controls">]</span> <span class="synopsis_controls">(</span>number<span class="synopsis_controls">|</span>integer<span class="synopsis_controls">)</span></td>
 				<td>
 					The argument is not a valid number or is not a valid integer.<br>
@@ -174,7 +161,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td>9</td>
+				<td>7</td>
 				<td><span class="synopsis_controls">[</span><span class="synopsis_placeholder">option</span>: <span class="synopsis_controls">]</span><span class="synopsis_placeholder">argument</span>: does not match: <span class="synopsis_placeholder">pattern</span></td>
 				<td>
 					The argument does not match the pattern provided. The
@@ -183,7 +170,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td>10 - 15</td>
+				<td>8 - 15</td>
 				<td><span class="synopsis_controls">(custom usage errors)</span></td>
 				<td>
 					Usage errors defined by the developer of the program. These
@@ -221,18 +208,18 @@
 			</tr>
 			<tr>
 				<td>21</td>
-				<td>network error<span class="synopsis_controls">[</span>: <span class="synopsis_placeholder">info</span><span class="synopsis_controls">]</span></td>
-				<td>A general network error occurred.</td>
+				<td><span class="diff_addition">network error<span class="synopsis_controls">[</span>: <span class="synopsis_placeholder">info</span><span class="synopsis_controls">]</span></span><span class="diff_deletion">?</span></td>
+				<td><span class="diff_addition">A general network error occurred.</span></td>
 			</tr>
 			<tr>
 				<td>22</td>
-				<td>no network connection</td>
-				<td>No network connection is established.</td>
+				<td><span class="diff_addition">no network connection</span><span class="diff_deletion">?</span></td>
+				<td><span class="diff_addition">No network connection is established.</span></td>
 			</tr>
 			<tr>
 				<td>23</td>
-				<td>connection timed out</td>
-				<td>A network request took too long and timed out.</td>
+				<td><span class="diff_addition">connection timed out</span><span class="diff_deletion">?</span></td>
+				<td><span class="diff_addition">A network request took too long and timed out.</span></td>
 			</tr>
 			<tr>
 				<td>24</td>
@@ -264,13 +251,13 @@
 			</tr>
 			<tr>
 				<td>29</td>
-				<td>not enough <span class="synopsis_controls">[</span>heap <span class="synopsis_controls">]</span>memory</td>
-				<td>There was not enough free memory on the heap to allocate a block of data.</td>
+				<td>not enough <span class="diff_addition"><span class="synopsis_controls">[</span>heap <span class="synopsis_controls">]</span></span>memory</td>
+				<td>There was not enough <span class="diff_addition">free </span>memory <span class="diff_addition">on the heap </span>to allocate a block of data.</td>
 			</tr>
 			<tr>
 				<td>30</td>
-				<td>stack overflow error</td>
-				<td>A stack overflow occurred.</td>
+				<td><span class="diff_addition">stack overflow error</span><span class="diff_deletion">?</span></td>
+				<td><span class="diff_addition">A stack overflow occurred.</span></td>
 			</tr>
 			<tr>
 				<td>31</td>
@@ -404,7 +391,7 @@
 				<td>
 					General internal fault.<br>
 					An internal fault happens when preconditions prevent the
-					program to advance to a next stage of execution.
+					program to advance to a stage where user input is awaited.
 				</td>
 			</tr>
 			<tr>
@@ -419,9 +406,9 @@
 				<td>124</td>
 				<td>script was <span class="synopsis_controls">[</span>not <span class="synopsis_controls">]</span>called interactively</td>
 				<td>
-					The shell script can either only be executed interactively
-					(using command "." or "source"), or not interactively
-					(executing via "./").
+					The script can either only be executed interactively (using
+					command "." or "source"), or not interactively (executing
+					via "./").
 				</td>
 			</tr>
 			<tr>
@@ -443,15 +430,6 @@
 		when distributing for <strong>BSD</strong> systems.
 	</p>
 	</div> <!-- #section_footnotes.pagesection -->
-
-	<div id="section_see-also" class="pagesection">
-		<h2>See Also</h2>
-
-		<p>
-			&lt;<a href="https://github.com/SpEZiiL/commoncodes" title="CommonCodes GitHub Repository">https://github.com/SpEZiiL/commoncodes</a>&gt;
-		</p>
-	</div> <!-- #section_see-also.pagesection -->
-
 	</div> <!-- #release-content -->
 	</div> <!-- #body -->
 

@@ -41,7 +41,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * Status 29: Tweaked message a bit
 	* "not enough memory" → "not enough <b>[</b>heap <b>]</b>memory"
 
-[0.2.0]: https://speziil.github.io/commoncodes/v/0.2.0.html
+[0.2.0]: https://speziil.github.io/commoncodes/v/0.1.0...0.2.0.html
 
 ## [0.1.0] - 2019-05-03 ##
 

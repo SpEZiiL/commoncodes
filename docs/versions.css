@@ -16,7 +16,8 @@ h1 {
 #version-date_container { text-align: center; }
 #version-date_text      { font-style: italic; }
 
-#version-warning_container {
+#version-warning_container,
+#version-notice_container {
 	text-align: center;
 	margin-top: 0.25rem;
 }
