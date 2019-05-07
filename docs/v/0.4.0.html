@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>CommonCodes v0.2.0</title>
+	<title>CommonCodes v0.4.0</title>
 	<meta charset="utf-8">
 	<meta name="author" content="Michael Federczuk">
 	<meta name="description" content="Standardized list of commonly used exit statuses">
@@ -14,30 +14,31 @@
 	<div id="version-links_container">
 		<span id="version-links_text">
 			[
-			<span class="version-links_other"><a href="0.4.0.html">v0.4.0</a></span> |
+			<span id="version-links_current">v0.4.0</span> |
 			<span class="version-links_other"><a href="0.3.0...0.4.0.html">...</a></span> |
 			<span class="version-links_other"><a href="0.3.0.html">v0.3.0</a></span> |
 			<span class="version-links_other"><a href="0.2.0...0.3.0.html">...</a></span> |
-			<span id="version-links_current">v0.2.0</span> |
+			<span class="version-links_other"><a href="0.2.0.html">v0.2.0</a></span> |
 			<span class="version-links_other"><a href="0.1.0...0.2.0.html">...</a></span> |
 			<span class="version-links_other"><a href="0.1.0.html">v0.1.0</a></span>
 			]
-		</span> <!-- #version-links_text -->
+		</span>
 	</div> <!-- #version-links_container -->
 	</div> <!-- #header -->
 
 	<div id="body">
 	<div id="page-intro">
-	<h1>CommonCodes v0.2.0</h1>
+	<h1>CommonCodes v0.4.0</h1>
 	
 	<div id="version-date_container">
-		<span id="version-date_text">May 5, 2019</span>
+		<span id="version-date_text">May 7, 2019</span>
 	</div> <!-- #version-date_container -->
 
+	
 	<div id="version-warning_container">
 		<span id="version-warning_text">
-			You are viewing and older version of CommonCodes, click
-			<a href="latest.html">here</a> to view the latest version.
+			You are viewing and unreleased version of CommonCodes, click
+			<a href="latest.html">here</a> to view the latest released version.
 		</span> <!-- #version-warning_text -->
 	</div> <!-- #version-warning_container -->
 	</div> <!-- #page-intro -->
@@ -149,11 +150,24 @@
 			</tr>
 			<tr>
 				<td>5</td>
+				<td><span class="synopsis_placeholder">option</span>: invalid option</td>
+				<td>The entered option is not specified in the program.</td>
+			</tr>
+			<tr>
+				<td>6</td>
 				<td><span class="synopsis_controls">[</span><span class="synopsis_placeholder">option</span>: <span class="synopsis_controls">]</span><span class="synopsis_placeholder">argument</span>: invalid argument<span class="synopsis_controls">[</span>: <span class="synopsis_placeholder">info</span><span class="synopsis_controls">]</span></td>
 				<td>The argument is invalid and cannot be used.</td>
 			</tr>
 			<tr>
-				<td>6</td>
+				<td>7</td>
+				<td>argument #<span class="synopsis_placeholder">n</span>: may not be <span class="synopsis_controls">(</span>empty<span class="synopsis_controls">|</span>blank<span class="synopsis_controls">)</span></td>
+				<td>
+					Program can not work with empty or blank argument.<br>
+					"Blank" means none or only whitespace characters.
+				</td>
+			</tr>
+			<tr>
+				<td>8</td>
 				<td><span class="synopsis_controls">[</span><span class="synopsis_placeholder">option</span>: <span class="synopsis_controls">]</span><span class="synopsis_placeholder">argument</span>: not a<span class="synopsis_controls">[</span>n<span class="synopsis_controls">]</span> <span class="synopsis_controls">(</span>number<span class="synopsis_controls">|</span>integer<span class="synopsis_controls">)</span></td>
 				<td>
 					The argument is not a valid number or is not a valid integer.<br>
@@ -163,7 +177,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td>7</td>
+				<td>9</td>
 				<td><span class="synopsis_controls">[</span><span class="synopsis_placeholder">option</span>: <span class="synopsis_controls">]</span><span class="synopsis_placeholder">argument</span>: does not match: <span class="synopsis_placeholder">pattern</span></td>
 				<td>
 					The argument does not match the pattern provided. The
@@ -172,7 +186,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td>8 - 15</td>
+				<td>10 - 15</td>
 				<td><span class="synopsis_controls">(custom usage errors)</span></td>
 				<td>
 					Usage errors defined by the developer of the program. These
@@ -210,41 +224,41 @@
 			</tr>
 			<tr>
 				<td>21</td>
+				<td>?</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>22</td>
 				<td>network error<span class="synopsis_controls">[</span>: <span class="synopsis_placeholder">info</span><span class="synopsis_controls">]</span></td>
 				<td>A general network error occurred.</td>
 			</tr>
 			<tr>
-				<td>22</td>
+				<td>23</td>
 				<td>no network connection</td>
 				<td>No network connection is established.</td>
 			</tr>
 			<tr>
-				<td>23</td>
+				<td>24</td>
 				<td>connection timed out</td>
 				<td>A network request took too long and timed out.</td>
 			</tr>
 			<tr>
-				<td>24</td>
+				<td>25</td>
 				<td>arithmetic error<span class="synopsis_controls">[</span>: <span class="synopsis_placeholder">info</span><span class="synopsis_controls">]</span></td>
 				<td>A general arithmetic error occurred.</td>
 			</tr>
 			<tr>
-				<td>25</td>
+				<td>26</td>
 				<td>divided by 0 error</td>
 				<td>A division by 0 was tried to be executed and there was no fallback option.</td>
 			</tr>
 			<tr>
-				<td>26</td>
+				<td>27</td>
 				<td><span class="synopsis_controls">(</span>overflow<span class="synopsis_controls">|</span>underflow<span class="synopsis_controls">)</span> error</td>
 				<td>
 					An overflow or underflow happened and it has critical
 					effects on the program.
 				</td>
-			</tr>
-			<tr>
-				<td>27</td>
-				<td>?</td>
-				<td></td>
 			</tr>
 			<tr>
 				<td>28</td>
@@ -393,7 +407,7 @@
 				<td>
 					General internal fault.<br>
 					An internal fault happens when preconditions prevent the
-					program to advance to a stage where user input is awaited.
+					program to advance to a next stage of execution.
 				</td>
 			</tr>
 			<tr>
@@ -408,9 +422,9 @@
 				<td>124</td>
 				<td>script was <span class="synopsis_controls">[</span>not <span class="synopsis_controls">]</span>called interactively</td>
 				<td>
-					The script can either only be executed interactively (using
-					command "." or "source"), or not interactively (executing
-					via "./").
+					The shell script can either only be executed interactively
+					(using command "." or "source"), or not interactively
+					(executing via "./").
 				</td>
 			</tr>
 			<tr>
@@ -432,6 +446,14 @@
 		when distributing for <strong>BSD</strong> systems.
 	</p>
 	</div> <!-- #section_footnotes.pagesection -->
+
+	<div id="section_see-also" class="pagesection">
+		<h2>See Also</h2>
+
+		<p>
+			&lt;<a href="https://github.com/SpEZiiL/commoncodes" title="CommonCodes GitHub Repository">https://github.com/SpEZiiL/commoncodes</a>&gt;
+		</p>
+	</div> <!-- #section_see-also.pagesection -->
 	</div> <!-- #release-content -->
 	</div> <!-- #body -->
 
