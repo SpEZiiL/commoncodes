@@ -1,0 +1,126 @@
+0 success
+1 generic error[: <info>]
+2 generic usage error[: <info>]
+3 [<option>: ]missing argument\(s)[: <arguments>...]
+4 [<option>: ]too many arguments[: <n>]
+5 <option>: invalid option
+6 [<option>: ]<argument>: invalid argument[: <info>]
+7 [<option>: ]argument [#<n>: ]may not be (empty|blank)
+8 [<option>: ]<argument>: not a[n] (number|integer)
+9 [<option>: ]<argument>: does not match: <patttern>
+10 <<(custom usage error)>>
+11 <<(custom usage error)>>
+12 <<(custom usage error)>>
+13 <<(custom usage error)>>
+14 <<(custom usage error)>>
+15 <<(custom usage error)>>
+16 <item>: no such <itemtype>[[, <itemtype>]... or <itemtype>]
+17 <item>: not a[n] <itemtype>[[, <itemtype>]... or <itemtype>]
+18 ?
+19 ?
+20 ?
+21 ?
+22 network error[: info]
+23 no network connection
+24 connection timed out
+25 arithmetic error[: info]
+26 divided by 0 error
+27 (overflow|underflow) error
+28 memory error[: info]
+29 not enough [heap ]memory
+30 stack overflow error
+31 emergency stop[: info]
+32 <<(custom error)>>
+33 <<(custom error)>>
+34 <<(custom error)>>
+35 <<(custom error)>>
+36 <<(custom error)>>
+37 <<(custom error)>>
+38 <<(custom error)>>
+39 <<(custom error)>>
+40 <<(custom error)>>
+41 <<(custom error)>>
+42 <<(custom error)>>
+43 <<(custom error)>>
+44 <<(custom error)>>
+45 <<(custom error)>>
+46 <<(custom error)>>
+47 <<(custom error)>>
+48 <<(custom error)>>
+49 <<(custom error)>>
+50 <<(custom error)>>
+51 <<(custom error)>>
+52 <<(custom error)>>
+53 <<(custom error)>>
+54 <<(custom error)>>
+55 <<(custom error)>>
+56 <<(custom error)>>
+57 <<(custom error)>>
+58 <<(custom error)>>
+59 <<(custom error)>>
+60 <<(custom error)>>
+61 <<(custom error)>>
+62 <<(custom error)>>
+63 <<(custom error)>>
+64 command line usage error[: info]
+65 data format error[: info]
+66 cannot open input[: info]
+67 addresse unknown[: info]
+68 hosts name unknown[: info]
+69 service unavailable[: info]
+70 internal software error[: info]
+71 system error[: info]
+72 critical OS file missing[: info]
+73 can't create (user) output file[: info]
+74 input/output errorv
+75 temp failure[: info]
+76 remote error in protocol[: info]
+77 permission denied[: info]
+78 configuration error[: info]
+79 <<(custom configuration error)>>
+80 <<(custom configuration error)>>
+81 <<(custom configuration error)>>
+82 <<(custom configuration error)>>
+83 <<(custom configuration error)>>
+84 <<(custom configuration error)>>
+85 <<(custom configuration error)>>
+86 <<(custom configuration error)>>
+87 <<(custom configuration error)>>
+88 <<(custom configuration error)>>
+89 <<(custom configuration error)>>
+90 <<(custom configuration error)>>
+91 <<(custom configuration error)>>
+92 <<(custom configuration error)>>
+93 <<(custom configuration error)>>
+94 <<(custom configuration error)>>
+95 <<(custom configuration error)>>
+96 <<(custom configuration error)>>
+97 <<(custom configuration error)>>
+98 <<(custom configuration error)>>
+99 <<(custom configuration error)>>
+100 generic internal fault[: info]
+101 <<(custom internal fault)>>
+102 <<(custom internal fault)>>
+103 <<(custom internal fault)>>
+104 <<(custom internal fault)>>
+105 <<(custom internal fault)>>
+106 <<(custom internal fault)>>
+107 <<(custom internal fault)>>
+108 <<(custom internal fault)>>
+109 <<(custom internal fault)>>
+110 <<(custom internal fault)>>
+111 <<(custom internal fault)>>
+112 <<(custom internal fault)>>
+113 <<(custom internal fault)>>
+114 <<(custom internal fault)>>
+115 <<(custom internal fault)>>
+116 <<(custom internal fault)>>
+117 <<(custom internal fault)>>
+118 <<(custom internal fault)>>
+119 <<(custom internal fault)>>
+120 <<(custom internal fault)>>
+121 <<(custom internal fault)>>
+122 <<(custom internal fault)>>
+123 <<(custom internal fault)>>
+124 script was [not ]called interactively
+125 unknown error
