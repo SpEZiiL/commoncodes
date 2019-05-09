@@ -8,6 +8,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased] - 2019-05-09 ##
 
+### Added ###
+
+* Common placeholder explanation for to description
+* Status 3 & 4: Added explanation for placeholder to description
+
 ### Changed ###
 
 * Status 7 & 3: Tweaked messages a bit
@@ -43,6 +48,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * Status 22: no network connection
 * Status 23: connection timed out
 * Status 30: stack overflow error
+* Explanation for the message synopsis to description
 
 ### Changed ###
 

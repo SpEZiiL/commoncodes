@@ -80,6 +80,23 @@ are separated by bold vertical bars(\c
 .BI | \c
 ).
 
+Some status messages have the suffix
+.bir "[" "" ": " "" "info" "" "]" " "
+appendend to them and a lot of usage errors about arguments also contain the
+placeholder
+.bir "" "option" "."
+.br
+.I "info"
+may be more information on what the error represents and why it happened.
+.br
+.I "option"
+may be either a
+.B "POSIX"
+short option or a
+.B "GNU"
+long option, if that option received the argument that is invalid except the
+program itself.
+
 .SH STATUS CODE TABLE
 .B
 .IP "Exit Code" 12
@@ -103,11 +120,17 @@ Any other program usage error that doesn't fit in any other category.
 .br
 Not enough arguments have been passed down to the program or to an option of the
 program.
+.br
+.I "arguments"
+may be the placeholder name of the missing arguments.
 .IP 4
 .bir "[" "option" ": " "]" "" "too many arguments" "[" "" ": " "" "n" "" "]"
 .br
 Too many arguments have been passed down to the program or to an option of the
 program.
+.br
+.I "n"
+may be the amount of arguments that are not needed.
 .IP 5
 .bir "" "option" ": invalid option"
 .br

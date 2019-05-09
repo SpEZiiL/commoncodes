@@ -95,6 +95,19 @@
 			displayed if they are separated by bold vertical bars(<span class="synopsis_controls">|</span>).
 		</li>
 	</ul>
+
+	<p class="diff_addition">
+		Some status messages have the suffix
+		<span class="synopsis_controls">[</span>: <span class="synopsis_placeholder">info</span><span class="synopsis_controls">]</span>
+		appendend to them and a lot of usage errors about arguments also contain
+		the placeholder <span class="synopsis_placeholder">option</span>.<br>
+		<span class="synopsis_placeholder">info</span> may be more information
+		on what the error represents and why it happened.<br>
+		<span class="synopsis_placeholder">option</span> may be either a
+		<strong>POSIX</strong> short option or a <strong>GNU</strong> long
+		option, if that option received the argument that is invalid except the
+		program itself.
+	</p>
 	</div> <!-- #section_description.pagesection -->
 
 	<div id="section_status-code-table" class="pagesection">
@@ -136,7 +149,9 @@
 				<td><span class="synopsis_controls">[</span><span class="synopsis_placeholder">option</span>: <span class="synopsis_controls">]</span>missing argument<span class="diff_addition"><span class="synopsis_controls">[</span></span><span class="diff_deletion">(</span>s<span class="diff_addition"><span class="synopsis_controls">]</span></span><span class="diff_deletion">)</span><span class="synopsis_controls">[</span>: <span class="synopsis_placeholder">arguments</span><span class="synopsis_controls">...]</span></td>
 				<td>
 					Not enough arguments have been passed down to the program or
-					to an option of the program.
+					to an option of the program.<span class="diff_addition">¶<br>
+					<span class="synopsis_placeholder">arguments</span> may be
+					the placeholder name of the missing arguments.</span>
 				</td>
 			</tr>
 			<tr>
@@ -144,7 +159,9 @@
 				<td><span class="synopsis_controls">[</span><span class="synopsis_placeholder">option</span>: <span class="synopsis_controls">]</span>too many arguments<span class="synopsis_controls">[</span>: <span class="synopsis_placeholder">n</span><span class="synopsis_controls">]</span></td>
 				<td>
 					Too many arguments have been passed down to the program or
-					to an option of the program.
+					to an option of the program.<span class="diff_addition">¶<br>
+					<span class="synopsis_placeholder">n</span> may be the
+					amount of arguments that are not needed.</span>
 				</td>
 			</tr>
 			<tr>
