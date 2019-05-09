@@ -5,7 +5,7 @@
 4 [<option>: ]too many arguments[: <n>]
 5 <option>: invalid option
 6 [<option>: ]<argument>: invalid argument[: <info>]
-7 [<option>: ]argument [#<n>: ]may not be (empty|blank)
+7 [<option>: ]argument [<n>: ]may not be (empty|blank)
 8 [<option>: ]<argument>: not a[n] [non-negative |unsigned ](number|integer)
 9 [<option>: ]<argument>: does not match: <patttern>
 10 <<(custom usage error)>>
