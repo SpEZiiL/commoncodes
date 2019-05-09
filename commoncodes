@@ -1,7 +1,7 @@
 0 success
 1 generic error[: <info>]
 2 generic usage error[: <info>]
-3 [<option>: ]missing argument\(s)[: <arguments>...]
+3 [<option>: ]missing argument[s][: <arguments>...]
 4 [<option>: ]too many arguments[: <n>]
 5 <option>: invalid option
 6 [<option>: ]<argument>: invalid argument[: <info>]
