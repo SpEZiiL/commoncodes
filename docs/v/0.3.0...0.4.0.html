@@ -184,12 +184,12 @@
 			</tr>
 			<tr>
 				<td>8</td>
-				<td><span class="synopsis_controls">[</span><span class="synopsis_placeholder">option</span>: <span class="synopsis_controls">]</span><span class="synopsis_placeholder">argument</span>: not a<span class="synopsis_controls">[</span>n<span class="synopsis_controls">]</span> <span class="synopsis_controls">(</span>number<span class="synopsis_controls">|</span>integer<span class="synopsis_controls">)</span></td>
+				<td><span class="synopsis_controls">[</span><span class="synopsis_placeholder">option</span>: <span class="synopsis_controls">]</span><span class="synopsis_placeholder">argument</span>: not a<span class="synopsis_controls">[</span>n<span class="synopsis_controls">]</span> <span class="diff_addition"><span class="synopsis_controls">[</span>non-negative <span class="synopsis_controls">|</span>unsigned <span class="synopsis_controls">]</span></span><span class="synopsis_controls">(</span>number<span class="synopsis_controls">|</span>integer<span class="synopsis_controls">)</span></td>
 				<td>
-					The argument is not a valid number or is not a valid integer.<br>
+					The argument is not a valid number or is not a valid integer.<span class="diff_deletion">¶<br>
 					If a valid decimal number has been entered and this exit
 					status is returned then you must convert the decimal number
-					into an integer.
+					into an integer.</span>
 				</td>
 			</tr>
 			<tr>

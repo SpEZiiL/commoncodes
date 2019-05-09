@@ -31,7 +31,9 @@
 #define CC_NO_EMPTY_ARG  7 /* may not be empty */
 #define CC_NO_BLANK_ARG  7 /* may not be blank */
 #define CC_NO_NUM        8 /* not a number */
+#define CC_NO_NO_NEG_NUM 8 /* not a non-negative number */
 #define CC_NO_INT        8 /* not an integer */
+#define CC_NO_UINT       8 /* not an unsigned integer */
 #define CC_NO_MATCH      9 /* does not match */
 /* 10 - 15: custom usage errors */
 #define CC_NO_SUCH_ITEMTYPE 16 /* no such itemtype */

@@ -16,6 +16,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed ###
 
 * Status 7 & 3: Tweaked messages a bit
+* Status 8: Tweaked message and description
+
+[Unreleased]: https://github.com/SpEZiiL/commoncodes/compare/v0.3.0...develop
 
 ## [0.3.0] - 2019-05-06 ##
 
