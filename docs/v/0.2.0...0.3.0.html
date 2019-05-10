@@ -44,8 +44,8 @@
 	<h2>Description</h2>
 
 	<p>
-		<strong>CommonCodes</strong> is an attempt to standardize the
-		meaning of exit statuses of programs written for Unix like systems.
+		<strong>CommonCodes</strong> is an attempt to standardize the meaning of
+		exit statuses of programs written for Unix like systems.
 	</p>
 
 	<p>
@@ -66,8 +66,7 @@
 		Some ranges have been kept empty so that developers may add error
 		messages of their own, tailored to the program that they are writing.<br>
 		If codes in these ranges are defined then they should always be
-		documented, either in the <code>--help</code> summary or in the
-		manpage.
+		documented, either in the <code>--help</code> summary or in the manpage.
 	</p>
 
 	<p>
@@ -118,7 +117,9 @@
 			<tr>
 				<td>1</td>
 				<td>generic error<span class="synopsis_controls">[</span>: <span class="synopsis_placeholder">info</span><span class="synopsis_controls">]</span></td>
-				<td>Any other error that doesn't fit in any other category.</td>
+				<td>
+					Any other error that doesn't fit in any other category.
+				</td>
 			</tr>
 			<tr>
 				<td>2</td>
@@ -147,14 +148,22 @@
 			<tr>
 				<td>5</td>
 				<td><span class="diff_deletion"><span class="synopsis_controls">[</span></span><span class="synopsis_placeholder">option</span>: <span class="diff_deletion"><span class="diff_deletion"><span class="synopsis_controls">]</span><span class="synopsis_placeholder">argument</span>: </span></span>invalid <span class="diff_addition">option</span><span class="diff_deletion">argument<span class="synopsis_controls">[</span>: <span class="synopsis_placeholder">info</span><span class="synopsis_controls">]</span></span></td>
-				<td>The <span class="diff_addition">entered option is not specified in the program</span><span class="diff_deletion">argument is invalid and cannot be used</span>.</td>
+				<td>
+					The <span class="diff_addition">entered option is not
+						specified in the program</span><span class="diff_deletion">argument
+							is invalid and cannot be used</span>.
+				</td>
 			</tr>
 			<tr>
 				<td>6</td>
 				<td><span class="synopsis_controls">[</span><span class="synopsis_placeholder">option</span>: <span class="synopsis_controls">]</span><span class="synopsis_placeholder">argument</span>: <span class="diff_addition">invalid argument<span class="synopsis_controls">[</span>: <span class="synopsis_placeholder">info</span><span class="synopsis_controls">]</span></span><span class="diff_deletion">not a<span class="synopsis_controls">[</span>n<span class="synopsis_controls">]</span> <span class="synopsis_controls">(</span>number<span class="synopsis_controls">|</span>integer<span class="synopsis_controls">)</span></span></td>
 				<td>
-					The argument is <span class="diff_addition">invalid and cannot be used</span><span class="diff_deletion">not a valid number or is not a valid integer</span>.<br>
-					<span class="diff_deletion">If a valid decimal number has been entered and this exit status is returned then you must convert the decimal number into an integer. </span>
+					The argument is <span class="diff_addition">invalid and
+						cannot be used</span><span class="diff_deletion">not a
+							valid number or is not a valid integer</span>.<br>
+					<span class="diff_deletion">If a valid decimal number has
+						been entered and this exit status is returned then you
+						must convert the decimal number into an integer. </span>
 				</td>
 			</tr>
 			<tr>
@@ -164,9 +173,12 @@
 					<span class="diff_deletion"><span class="synopsis_controls">[</span><span class="synopsis_placeholder">option</span>: <span class="synopsis_controls">]</span><span class="synopsis_placeholder">argument</span>: does not match: <span class="synopsis_placeholder">pattern</span></span>
 				</td>
 				<td>
-					<span class="diff_addition">Program can not work with empty or blank argument.¶<br>
+					<span class="diff_addition">Program can not work with empty
+						or blank argument.¶<br>
 					"Blank" means none or only whitespace characters.</span><br>
-					<span class="diff_deletion">The argument does not match the pattern provided. The pattern can be glob, regex or any other pattern matching system. </span>
+					<span class="diff_deletion">The argument does not match the
+						pattern provided. The pattern can be glob, regex or any
+						other pattern matching system.</span>
 				</td>
 			</tr>
 			<tr class="diff_addition">
@@ -183,8 +195,8 @@
 				<td>9</td>
 				<td><span class="synopsis_controls">[</span><span class="synopsis_placeholder">option</span>: <span class="synopsis_controls">]</span><span class="synopsis_placeholder">argument</span>: does not match: <span class="synopsis_placeholder">pattern</span></td>
 				<td>
-					The argument does not match the pattern provided. The
-					pattern can be glob, regex or any other pattern matching
+					The argument does not match the pattern provided.
+					The pattern can be glob, regex or any other pattern matching
 					system.
 				</td>
 			</tr>
@@ -192,8 +204,8 @@
 				<td><span class="diff_addition">10</span><span class="diff_deletion">8</span> - 15</td>
 				<td><span class="synopsis_controls">(custom usage errors)</span></td>
 				<td>
-					Usage errors defined by the developer of the program. These
-					should always be documented.
+					Usage errors defined by the developer of the program.
+					These should always be documented.
 				</td>
 			</tr>
 			<tr>
@@ -201,14 +213,17 @@
 				<td><span class="synopsis_placeholder">item</span>: no such <span class="synopsis_placeholder">itemtype</span><span class="synopsis_controls">[[</span>, <span class="synopsis_placeholder">itemtype</span><span class="synopsis_controls">]...</span> or <span class="synopsis_placeholder">itemtype</span><span class="synopsis_controls">]</span></td>
 				<td>
 					The item in question could not be found.<br>
-					<span class="synopsis_placeholder">item</span> can be things like paths, etc. and <span class="synopsis_placeholder">itemtype</span>
+					<span class="synopsis_placeholder">item</span> can be things
+					like paths, etc. and <span class="synopsis_placeholder">itemtype</span>
 					can be things like regular files, directories, etc.
 				</td>
 			</tr>
 			<tr>
 				<td>17</td>
 				<td><span class="synopsis_placeholder">item</span>: not a<span class="synopsis_controls">[</span>n<span class="synopsis_controls">]</span> <span class="synopsis_placeholder">itemtype</span><span class="synopsis_controls">[[</span>, <span class="synopsis_placeholder">itemtype</span><span class="synopsis_controls">]...</span> or <span class="synopsis_placeholder">itemtype</span><span class="synopsis_controls">]</span></td>
-				<td>The item in question is of the wrong type.</td>
+				<td>
+					The item in question is of the wrong type.
+				</td>
 			</tr>
 			<tr>
 				<td>18</td>
@@ -228,56 +243,87 @@
 			<tr>
 				<td>21</td>
 				<td><span class="diff_addition">?</span><span class="diff_deletion">network error<span class="synopsis_controls">[</span>: <span class="synopsis_placeholder">info</span><span class="synopsis_controls">]</span></span></td>
-				<td><span class="diff_deletion">A general network error occurred.</span></td>
+				<td>
+					<span class="diff_deletion">A general network error occurred.</span>
+				</td>
 			</tr>
 			<tr>
 				<td>22</td>
 				<td><span class="diff_addition">network error<span class="synopsis_controls">[</span>: <span class="synopsis_placeholder">info</span><span class="synopsis_controls">]</span></span><span class="diff_deletion">no network connection</span></td>
-				<td><span class="diff_addition">A general network error occurred</span><span class="diff_deletion">No network connection is established</span>.</td>
+				<td>
+					<span class="diff_addition">A general network error
+						occurred</span><span class="diff_deletion">No network
+							connection is established</span>.
+				</td>
 			</tr>
 			<tr>
 				<td>23</td>
 				<td><span class="diff_addition">no network connection</span><span class="diff_deletion">connection timed out</span></td>
-				<td><span class="diff_addition">No network connection is established</span><span class="diff_deletion">A network request took too long and timed out</span>.</td>
+				<td>
+					<span class="diff_addition">No network connection is
+						established</span><span class="diff_deletion">A network
+							request took too long and timed out</span>.
+				</td>
 			</tr>
 			<tr>
 				<td>24</td>
 				<td><span class="diff_addition">connection timed out</span><span class="diff_deletion">arithmetic error<span class="synopsis_controls">[</span>: <span class="synopsis_placeholder">info</span><span class="synopsis_controls">]</span></span></td>
-				<td>A <span class="diff_addition">network request took too long and timed out</span><span class="diff_deletion">general arithmetic error occurred</span>.</td>
+				<td>
+					A <span class="diff_addition">network request took too long
+						and timed out</span><span class="diff_deletion">general
+							arithmetic error occurred</span>.
+				</td>
 			</tr>
 			<tr>
 				<td>25</td>
 				<td><span class="diff_addition">arithmetic</span><span class="diff_deletion">divided by 0</span> error<span class="diff_addition"><span class="synopsis_controls">[</span>: <span class="synopsis_placeholder">info</span><span class="synopsis_controls">]</span></span></td>
-				<td>A <span class="diff_addition">general arithmetic error occurred</span><span class="diff_deletion">division by 0 was tried to be executed and there was no fallback option</span>.</td>
+				<td>
+					A <span class="diff_addition">general arithmetic error
+						occurred</span><span class="diff_deletion">division by 0
+							was tried to be executed and there was no fallback
+							option</span>.
+				</td>
 			</tr>
 			<tr>
 				<td>26</td>
 				<td><span class="diff_addition">divided by 0</span><span class="diff_deletion"><span class="synopsis_controls">(</span>overflow<span class="synopsis_controls">|</span>underflow<span class="synopsis_controls">)</span></span> error</td>
-				<td><span class="diff_addition">A division by 0 was tried to be executed and there was no fallback option</span><span class="diff_deletion">An overflow or underflow happened and it has critical
-					effects on the program</span>.</td>
+				<td>
+					<span class="diff_addition">A division by 0 was tried to be
+						executed and there was no fallback
+						option</span><span class="diff_deletion">An overflow or
+							underflow happened and it has critical effects on
+							the program</span>.
+				</td>
 			</tr>
 			<tr>
 				<td>27</td>
 				<td><span class="diff_addition"><span class="synopsis_controls">(</span>overflow<span class="synopsis_controls">|</span>underflow<span class="synopsis_controls">)</span> error</span><span class="diff_deletion">?</span></td>
 				<td>
-					<span class="diff_addition">An overflow or underflow happened and it has critical
-					effects on the program</span>.
+					<span class="diff_addition">An overflow or underflow
+						happened and it has critical effects on the program</span>.
 				</td>
 			</tr>
 			<tr>
 				<td>28</td>
 				<td>memory error<span class="synopsis_controls">[</span>: <span class="synopsis_placeholder">info</span><span class="synopsis_controls">]</span></td>
-				<td>A general memory error occurred.</td>
+				<td>
+					A general memory error occurred.
+				</td>
 			</tr>
 			<tr>
 				<td>29</td>
 				<td>not enough <span class="synopsis_controls">[</span>heap <span class="synopsis_controls">]</span>memory</td>
-				<td>There was not enough free memory on the heap to allocate a block of data.</td>
+				<td>
+					There was not enough free memory on the heap to allocate a
+					block of data.
+				</td>
 			</tr>
 			<tr>
 				<td>30</td>
 				<td>stack overflow error</td>
-				<td>A stack overflow occurred.</td>
+				<td>
+					A stack overflow occurred.
+				</td>
 			</tr>
 			<tr>
 				<td>31</td>
@@ -307,44 +353,55 @@
 			<tr>
 				<td>65</td>
 				<td>data format error<span class="synopsis_controls">[</span>: <span class="synopsis_placeholder">info</span><span class="synopsis_controls">]</span></td>
-				<td>The input data was incorrect in some way.</td>
+				<td>
+					The input data was incorrect in some way.
+				</td>
 			</tr>
 			<tr>
 				<td>66</td>
 				<td>cannot open input<span class="synopsis_controls">[</span>: <span class="synopsis_placeholder">info</span><span class="synopsis_controls">]</span></td>
 				<td>
 					An input file (not a system file) did not exist or was not
-					readable. This could also include errors like "No message"
-					to a mailer (if it cared to catch it).
+					readable.
+					This could also include errors like "No message" to a mailer
+					(if it cared to catch it).
 				</td>
 			</tr>
 			<tr>
 				<td>67</td>
 				<td>addressee unknown<span class="synopsis_controls">[</span>: <span class="synopsis_placeholder">info</span><span class="synopsis_controls">]</span></td>
-				<td>The user specified did not exist.</td>
+				<td>
+					The user specified did not exist.
+				</td>
 			</tr>
 			<tr>
 				<td>68</td>
 				<td>host name unknown<span class="synopsis_controls">[</span>: <span class="synopsis_placeholder">info</span><span class="synopsis_controls">]</span></td>
-				<td>The host specified did not exist.</td>
+				<td>
+					The host specified did not exist.
+				</td>
 			</tr>
 			<tr>
 				<td>69</td>
 				<td>service unavailable<span class="synopsis_controls">[</span>: <span class="synopsis_placeholder">info</span><span class="synopsis_controls">]</span></td>
 				<td>
-					A service is unavailable. This can occur if a support
-					program or file does not exist.
+					A service is unavailable.
+					This can occur if a support program or file does not exist.
 				</td>
 			</tr>
 			<tr>
 				<td>70</td>
 				<td>internal software error<span class="synopsis_controls">[</span>: <span class="synopsis_placeholder">info</span><span class="synopsis_controls">]</span></td>
-				<td>An internal software error has been detected.</td>
+				<td>
+					An internal software error has been detected.
+				</td>
 			</tr>
 			<tr>
 				<td>71</td>
 				<td>system error<span class="synopsis_controls">[</span>: <span class="synopsis_placeholder">info</span><span class="synopsis_controls">]</span></td>
-				<td>An operating system error has been detected.</td>
+				<td>
+					An operating system error has been detected.
+				</td>
 			</tr>
 			<tr>
 				<td>72</td>
@@ -358,12 +415,16 @@
 			<tr>
 				<td>73</td>
 				<td>can't create (user) output file<span class="synopsis_controls">[</span>: <span class="synopsis_placeholder">info</span><span class="synopsis_controls">]</span></td>
-				<td>A (user specified) output file cannot be created.</td>
+				<td>
+					A (user specified) output file cannot be created.
+				</td>
 			</tr>
 			<tr>
 				<td>74</td>
 				<td>input/output error<span class="synopsis_controls">[</span>: <span class="synopsis_placeholder">info</span><span class="synopsis_controls">]</span></td>
-				<td>An error occurred while doing I/O on some file.</td>
+				<td>
+					An error occurred while doing I/O on some file.
+				</td>
 			</tr>
 			<tr>
 				<td>75</td>
@@ -402,7 +463,8 @@
 				<td><span class="synopsis_controls">(custom configuration errors)</span></td>
 				<td>
 					Configuration, property and setting errors defined by the
-					developer. These should always be documented.
+					developer.
+					These should always be documented.
 				</td>
 			</tr>
 			<tr>
@@ -411,30 +473,34 @@
 				<td>
 					General internal fault.<br>
 					An internal fault happens when preconditions prevent the
-					program to advance to a <span class="diff_addition">next </span>stage <span class="diff_addition">of execution</span><span class="diff_deletion">where user input is awaited</span>.
+					program to advance to a <span class="diff_addition">next </span>stage
+					<span class="diff_addition">of execution</span><span class="diff_deletion">where
+						user input is awaited</span>.
 				</td>
 			</tr>
 			<tr>
 				<td>101 - 123</td>
 				<td><span class="synopsis_controls">(custom internal faults)</span></td>
 				<td>
-					Different internal faults, defined by the developer. These
-					should always be documented.
+					Different internal faults, defined by the developer.
+					These should always be documented.
 				</td>
 			</tr>
 			<tr>
 				<td>124</td>
 				<td>script was <span class="synopsis_controls">[</span>not <span class="synopsis_controls">]</span>called interactively</td>
 				<td>
-					The <span class="diff_addition">shell </span>script can either only be executed interactively
-					(using command "." or "source"), or not interactively
-					(executing via "./").
+					The <span class="diff_addition">shell </span>script can
+					either only be executed interactively (using command "." or
+					"source"), or not interactively (executing via "./").
 				</td>
 			</tr>
 			<tr>
 				<td>125</td>
 				<td>unknown error</td>
-				<td>Cause of error is not known, not even to the developer.</td>
+				<td>
+					Cause of error is not known, not even to the developer.
+				</td>
 			</tr>
 		</tbody>
 	</table> <!-- #status-code-table.info-table -->

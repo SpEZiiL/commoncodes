@@ -46,8 +46,8 @@
 	<h2>Description</h2>
 
 	<p>
-		<strong>CommonCodes</strong> is an attempt to standardize the
-		meaning of exit statuses of programs written for Unix like systems.
+		<strong>CommonCodes</strong> is an attempt to standardize the meaning of
+		exit statuses of programs written for Unix like systems.
 	</p>
 
 	<p>
@@ -60,16 +60,15 @@
 		indicate incorrect usage of a shell builtins.
 		<strong>Bash</strong> also uses codes above 125 for special exit
 		statuses like termination by a sent signal.<br>
-		<strong>CommonCodes</strong> adopts both of these rules, using 2 as
-		a generic usage error and not defining any codes above 125.
+		<strong>CommonCodes</strong> adopts both of these rules, using 2 as a
+		generic usage error and not defining any codes above 125.
 	</p>
 
 	<p>
 		Some ranges have been kept empty so that developers may add error
 		messages of their own, tailored to the program that they are writing.<br>
 		If codes in these ranges are defined then they should always be
-		documented, either in the <code>--help</code> summary or in the
-		manpage.
+		documented, either in the <code>--help</code> summary or in the manpage.
 	</p>
 	</div> <!-- #section_description.pagesection -->
 
@@ -97,7 +96,9 @@
 			<tr>
 				<td>1</td>
 				<td>generic error<span class="synopsis_controls">[</span>: <span class="synopsis_placeholder">info</span><span class="synopsis_controls">]</span></td>
-				<td>Any other error that doesn't fit in any other category.</td>
+				<td>
+					Any other error that doesn't fit in any other category.
+				</td>
 			</tr>
 			<tr>
 				<td>2</td>
@@ -126,7 +127,9 @@
 			<tr>
 				<td>5</td>
 				<td><span class="synopsis_controls">[</span><span class="synopsis_placeholder">option</span>: <span class="synopsis_controls">]</span><span class="synopsis_placeholder">argument</span>: invalid argument<span class="synopsis_controls">[</span>: <span class="synopsis_placeholder">info</span><span class="synopsis_controls">]</span></td>
-				<td>The argument is invalid and cannot be used.</td>
+				<td>
+					The argument is invalid and cannot be used.
+				</td>
 			</tr>
 			<tr>
 				<td>6</td>
@@ -142,8 +145,8 @@
 				<td>7</td>
 				<td><span class="synopsis_controls">[</span><span class="synopsis_placeholder">option</span>: <span class="synopsis_controls">]</span><span class="synopsis_placeholder">argument</span>: does not match: <span class="synopsis_placeholder">pattern</span></td>
 				<td>
-					The argument does not match the pattern provided. The
-					pattern can be glob, regex or any other pattern matching
+					The argument does not match the pattern provided.
+					The pattern can be glob, regex or any other pattern matching
 					system.
 				</td>
 			</tr>
@@ -151,8 +154,8 @@
 				<td>8 - 15</td>
 				<td><span class="synopsis_controls">(custom usage errors)</span></td>
 				<td>
-					Usage errors defined by the developer of the program. These
-					should always be documented.
+					Usage errors defined by the developer of the program.
+					These should always be documented.
 				</td>
 			</tr>
 			<tr>
@@ -160,14 +163,17 @@
 				<td><span class="synopsis_placeholder">item</span>: no such <span class="synopsis_placeholder">itemtype</span><span class="synopsis_controls">[[</span>, <span class="synopsis_placeholder">itemtype</span><span class="synopsis_controls">]...</span> or <span class="synopsis_placeholder">itemtype</span><span class="synopsis_controls">]</span></td>
 				<td>
 					The item in question could not be found.<br>
-					<span class="synopsis_placeholder">item</span> can be things like paths, etc. and <span class="synopsis_placeholder">itemtype</span>
+					<span class="synopsis_placeholder">item</span> can be things
+					like paths, etc. and <span class="synopsis_placeholder">itemtype</span>
 					can be things like regular files, directories, etc.
 				</td>
 			</tr>
 			<tr>
 				<td>17</td>
 				<td><span class="synopsis_placeholder">item</span>: not a<span class="synopsis_controls">[</span>n<span class="synopsis_controls">]</span> <span class="synopsis_placeholder">itemtype</span><span class="synopsis_controls">[[</span>, <span class="synopsis_placeholder">itemtype</span><span class="synopsis_controls">]...</span> or <span class="synopsis_placeholder">itemtype</span><span class="synopsis_controls">]</span></td>
-				<td>The item in question is of the wrong type.</td>
+				<td>
+					The item in question is of the wrong type.
+				</td>
 			</tr>
 			<tr>
 				<td>18</td>
@@ -202,12 +208,17 @@
 			<tr>
 				<td>24</td>
 				<td>arithmetic error<span class="synopsis_controls">[</span>: <span class="synopsis_placeholder">info</span><span class="synopsis_controls">]</span></td>
-				<td>A general arithmetic error occured.</td>
+				<td>
+					A general arithmetic error occured.
+				</td>
 			</tr>
 			<tr>
 				<td>25</td>
 				<td>divided by 0 error</td>
-				<td>A division by 0 was tried to be executed and there was no fallback option.</td>
+				<td>
+					A division by 0 was tried to be executed and there was no
+					fallback option.
+				</td>
 			</tr>
 			<tr>
 				<td>26</td>
@@ -225,12 +236,16 @@
 			<tr>
 				<td>28</td>
 				<td>memory error<span class="synopsis_controls">[</span>: <span class="synopsis_placeholder">info</span><span class="synopsis_controls">]</span></td>
-				<td>A general memory error occured.</td>
+				<td>
+					A general memory error occured.
+				</td>
 			</tr>
 			<tr>
 				<td>29</td>
 				<td>not enough memory</td>
-				<td>There was not enough memory to allocate a block of data.</td>
+				<td>
+					There was not enough memory to allocate a block of data.
+				</td>
 			</tr>
 			<tr>
 				<td>30</td>
@@ -265,44 +280,55 @@
 			<tr>
 				<td>65</td>
 				<td>data format error<span class="synopsis_controls">[</span>: <span class="synopsis_placeholder">info</span><span class="synopsis_controls">]</span></td>
-				<td>The input data was incorrect in some way.</td>
+				<td>
+					The input data was incorrect in some way.
+				</td>
 			</tr>
 			<tr>
 				<td>66</td>
 				<td>cannot open input<span class="synopsis_controls">[</span>: <span class="synopsis_placeholder">info</span><span class="synopsis_controls">]</span></td>
 				<td>
 					An input file (not a system file) did not exist or was not
-					readable. This could also include errors like "No message"
-					to a mailer (if it cared to catch it).
+					readable.
+					This could also include errors like "No message" to a mailer
+					(if it cared to catch it).
 				</td>
 			</tr>
 			<tr>
 				<td>67</td>
 				<td>addressee unknown<span class="synopsis_controls">[</span>: <span class="synopsis_placeholder">info</span><span class="synopsis_controls">]</span></td>
-				<td>The user specified did not exist.</td>
+				<td>
+					The user specified did not exist.
+				</td>
 			</tr>
 			<tr>
 				<td>68</td>
 				<td>host name unknown<span class="synopsis_controls">[</span>: <span class="synopsis_placeholder">info</span><span class="synopsis_controls">]</span></td>
-				<td>The host specified did not exist.</td>
+				<td>
+					The host specified did not exist.
+				</td>
 			</tr>
 			<tr>
 				<td>69</td>
 				<td>service unavailable<span class="synopsis_controls">[</span>: <span class="synopsis_placeholder">info</span><span class="synopsis_controls">]</span></td>
 				<td>
-					A service is unavailable. This can occur if a support
-					program or file does not exist.
+					A service is unavailable.
+					This can occur if a support program or file does not exist.
 				</td>
 			</tr>
 			<tr>
 				<td>70</td>
 				<td>internal software error<span class="synopsis_controls">[</span>: <span class="synopsis_placeholder">info</span><span class="synopsis_controls">]</span></td>
-				<td>An internal software error has been detected.</td>
+				<td>
+					An internal software error has been detected.
+				</td>
 			</tr>
 			<tr>
 				<td>71</td>
 				<td>system error<span class="synopsis_controls">[</span>: <span class="synopsis_placeholder">info</span><span class="synopsis_controls">]</span></td>
-				<td>An operating system error has been detected.</td>
+				<td>
+					An operating system error has been detected.
+				</td>
 			</tr>
 			<tr>
 				<td>72</td>
@@ -316,12 +342,16 @@
 			<tr>
 				<td>73</td>
 				<td>can't create (user) output file<span class="synopsis_controls">[</span>: <span class="synopsis_placeholder">info</span><span class="synopsis_controls">]</span></td>
-				<td>A (user specified) output file cannot be created.</td>
+				<td>
+					A (user specified) output file cannot be created.
+				</td>
 			</tr>
 			<tr>
 				<td>74</td>
 				<td>input/output error<span class="synopsis_controls">[</span>: <span class="synopsis_placeholder">info</span><span class="synopsis_controls">]</span></td>
-				<td>An error occurred while doing I/O on some file.</td>
+				<td>
+					An error occurred while doing I/O on some file.
+				</td>
 			</tr>
 			<tr>
 				<td>75</td>
@@ -360,7 +390,8 @@
 				<td><span class="synopsis_controls">(custom configuration errors)</span></td>
 				<td>
 					Configuration, property and setting errors defined by the
-					developer. These should always be documented.
+					developer.
+					These should always be documented.
 				</td>
 			</tr>
 			<tr>
@@ -376,8 +407,8 @@
 				<td>101 - 123</td>
 				<td><span class="synopsis_controls">(custom internal faults)</span></td>
 				<td>
-					Different internal faults, defined by the developer. These
-					should always be documented.
+					Different internal faults, defined by the developer.
+					These should always be documented.
 				</td>
 			</tr>
 			<tr>
@@ -392,7 +423,9 @@
 			<tr>
 				<td>125</td>
 				<td>unknown error</td>
-				<td>Cause of error is not known, not even to the developer.</td>
+				<td>
+					Cause of error is not known, not even to the developer.
+				</td>
 			</tr>
 		</tbody>
 	</table> <!-- #status-code-table.info-table -->
