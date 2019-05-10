@@ -41,10 +41,6 @@
 #define CC_NO_SUCH_ITEMTYPE 20 /* no such itemtype */
 #define CC_NOT_A_ITEMTYPE   21 /* not a itemtype */
 #define CC_NOT_AN_ITEMTYPE  21 /* not an itemtype */
-/* #define CC_ 18 */
-/* #define CC_ 19 */
-/* #define CC_ 20 */
-/* #define CC_ 21 */
 #define CC_NET_ERR         22 /* network error */
 #define CC_NO_NET_CON      23 /* no network connection */
 #define CC_CON_TIMED_OUT   24 /* connection timed out */
