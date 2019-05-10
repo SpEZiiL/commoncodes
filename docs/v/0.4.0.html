@@ -30,7 +30,7 @@
 	<h1>CommonCodes v0.4.0</h1>
 	
 	<div id="version-date_container">
-		<span id="version-date_text">May 9, 2019</span>
+		<span id="version-date_text">May 10, 2019</span>
 	</div> <!-- #version-date_container -->
 
 	<div id="version-warning_container">
@@ -170,11 +170,24 @@
 			</tr>
 			<tr>
 				<td>6</td>
+				<td><span class="synopsis_placeholder">option</span>: unexpected option</td>
+				<td>
+					The seen option at this position with the set combination
+					and order of arguments and other options is invalid.
+				</td>
+			</tr>
+			<tr>
+				<td>7</td>
 				<td><span class="synopsis_controls">[</span><span class="synopsis_placeholder">option</span>: <span class="synopsis_controls">]</span><span class="synopsis_placeholder">argument</span>: invalid argument<span class="synopsis_controls">[</span>: <span class="synopsis_placeholder">info</span><span class="synopsis_controls">]</span></td>
 				<td>The argument is invalid and cannot be used.</td>
 			</tr>
 			<tr>
-				<td>7</td>
+				<td>8</td>
+				<td><span class="synopsis_placeholder">argument</span>: unknown <span class="synopsis_controls">[</span>sub<span class="synopsis_controls">]</span>command</td>
+				<td>The entered (sub)command of the program is not known.</td>
+			</tr>
+			<tr>
+				<td>9</td>
 				<td><span class="synopsis_controls">[</span><span class="synopsis_placeholder">option</span>: <span class="synopsis_controls">]</span>argument <span class="synopsis_controls">[</span><span class="synopsis_placeholder">n</span>: <span class="synopsis_controls">]</span>may not be <span class="synopsis_controls">(</span>empty<span class="synopsis_controls">|</span>blank<span class="synopsis_controls">)</span></td>
 				<td>
 					Program can not work with empty or blank argument.<br>
@@ -182,12 +195,17 @@
 				</td>
 			</tr>
 			<tr>
-				<td>8</td>
-				<td><span class="synopsis_controls">[</span><span class="synopsis_placeholder">option</span>: <span class="synopsis_controls">]</span><span class="synopsis_placeholder">argument</span>: not a<span class="synopsis_controls">[</span>n<span class="synopsis_controls">]</span> <span class="synopsis_controls">[</span>non-negative <span class="synopsis_controls">|</span>unsigned <span class="synopsis_controls">]</span><span class="synopsis_controls">(</span>number<span class="synopsis_controls">|</span>integer<span class="synopsis_controls">)</span></td>
+				<td>10</td>
+				<td><span class="synopsis_controls">[</span><span class="synopsis_placeholder">option</span>: <span class="synopsis_controls">]</span><span class="synopsis_placeholder">argument</span>: not a <span class="synopsis_controls">(</span>number<span class="synopsis_controls">|</span>integer<span class="synopsis_controls">)</span></td>
 				<td>The argument is not a valid number or is not a valid integer.</td>
 			</tr>
 			<tr>
-				<td>9</td>
+				<td>11</td>
+				<td><span class="synopsis_controls">[</span><span class="synopsis_placeholder">option</span>: <span class="synopsis_controls">]</span><span class="synopsis_placeholder">argument</span>: out of range<span class="synopsis_controls">[</span> (<span class="synopsis_placeholder">relational_op</span> <span class="synopsis_placeholder">limit</span>)<span class="synopsis_controls">]</span></td>
+				<td>The numerical argument is out of the given range.</td>
+			</tr>
+			<tr>
+				<td>12</td>
 				<td><span class="synopsis_controls">[</span><span class="synopsis_placeholder">option</span>: <span class="synopsis_controls">]</span><span class="synopsis_placeholder">argument</span>: does not match: <span class="synopsis_placeholder">pattern</span></td>
 				<td>
 					The argument does not match the pattern provided. The
@@ -196,7 +214,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td>10 - 15</td>
+				<td>13 - 19</td>
 				<td><span class="synopsis_controls">(custom usage errors)</span></td>
 				<td>
 					Usage errors defined by the developer of the program. These
@@ -204,7 +222,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td>16</td>
+				<td>20</td>
 				<td><span class="synopsis_placeholder">item</span>: no such <span class="synopsis_placeholder">itemtype</span><span class="synopsis_controls">[[</span>, <span class="synopsis_placeholder">itemtype</span><span class="synopsis_controls">]...</span> or <span class="synopsis_placeholder">itemtype</span><span class="synopsis_controls">]</span></td>
 				<td>
 					The item in question could not be found.<br>
@@ -213,29 +231,9 @@
 				</td>
 			</tr>
 			<tr>
-				<td>17</td>
+				<td>21</td>
 				<td><span class="synopsis_placeholder">item</span>: not a<span class="synopsis_controls">[</span>n<span class="synopsis_controls">]</span> <span class="synopsis_placeholder">itemtype</span><span class="synopsis_controls">[[</span>, <span class="synopsis_placeholder">itemtype</span><span class="synopsis_controls">]...</span> or <span class="synopsis_placeholder">itemtype</span><span class="synopsis_controls">]</span></td>
 				<td>The item in question is of the wrong type.</td>
-			</tr>
-			<tr>
-				<td>18</td>
-				<td>?</td>
-				<td></td>
-			</tr>
-			<tr>
-				<td>19</td>
-				<td>?</td>
-				<td></td>
-			</tr>
-			<tr>
-				<td>20</td>
-				<td>?</td>
-				<td></td>
-			</tr>
-			<tr>
-				<td>21</td>
-				<td>?</td>
-				<td></td>
 			</tr>
 			<tr>
 				<td>22</td>

@@ -19,26 +19,28 @@
 #ifndef _COMMONCODES_H
 #define _COMMONCODES_H
 
-/* See <https://speziil.github.io/commoncodes/v/0.3.0.html> for more info */
+/* See <https://speziil.github.io/commoncodes/v/0.4.0.html> for more info */
 
-#define CC_SUCCESS       0 /* success */
-#define CC_GEN_ERR       1 /* generic error */
-#define CC_GEN_USAGE_ERR 2 /* generic usage error */
-#define CC_MISS_ARGS     3 /* missing arguments */
-#define CC_TOO_MANY_ARGS 4 /* too many arguments */
-#define CC_INV_OPT       5 /* invalid option */
-#define CC_INV_ARG       6 /* invalid argument */
-#define CC_NO_EMPTY_ARG  7 /* may not be empty */
-#define CC_NO_BLANK_ARG  7 /* may not be blank */
-#define CC_NO_NUM        8 /* not a number */
-#define CC_NO_NO_NEG_NUM 8 /* not a non-negative number */
-#define CC_NO_INT        8 /* not an integer */
-#define CC_NO_UINT       8 /* not an unsigned integer */
-#define CC_NO_MATCH      9 /* does not match */
-/* 10 - 15: custom usage errors */
-#define CC_NO_SUCH_ITEMTYPE 16 /* no such itemtype */
-#define CC_NOT_A_ITEMTYPE   17 /* not a itemtype */
-#define CC_NOT_AN_ITEMTYPE  17 /* not an itemtype */
+#define CC_SUCCESS        0 /* success */
+#define CC_GEN_ERR        1 /* generic error */
+#define CC_GEN_USAGE_ERR  2 /* generic usage error */
+#define CC_MISS_ARGS      3 /* missing arguments */
+#define CC_TOO_MANY_ARGS  4 /* too many arguments */
+#define CC_INV_OPT        5 /* invalid option */
+#define CC_UNEX_OPT       6 /* unexpected option */
+#define CC_INV_ARG        7 /* invalid argument */
+#define CC_UNKNOWN_SUBCMD 8 /* unknown subcommand */
+#define CC_UNKNOWN_CMD    8 /* unknown command */
+#define CC_NO_EMPTY_ARG   9 /* may not be empty */6
+#define CC_NO_BLANK_ARG   9 /* may not be blank */
+#define CC_NO_NUM         10 /* not a number */
+#define CC_NO_INT         10 /* not an integer */
+#define CC_OUT_OF_RANGE   11 /* out of range */
+#define CC_NO_MATCH       12 /* does not match */
+/* 13 - 19: custom usage errors */
+#define CC_NO_SUCH_ITEMTYPE 20 /* no such itemtype */
+#define CC_NOT_A_ITEMTYPE   21 /* not a itemtype */
+#define CC_NOT_AN_ITEMTYPE  21 /* not an itemtype */
 /* #define CC_ 18 */
 /* #define CC_ 19 */
 /* #define CC_ 20 */

@@ -6,17 +6,25 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased] - 2019-05-09 ##
+## [Unreleased] - 2019-05-10 ##
 
 ### Added ###
 
 * Common placeholder explanation for to description
 * Status 3 & 4: Added explanation for placeholder to description
+* Inserted between code 5 & 6: &lt;option&gt;: unexpected option
+* Inserted between code 7 & 8: &lt;argument&gt;: unknown [sub]command
+* Inserted between code 10 & 11: [&lt;option&gt;: ]&lt;argument&gt;: out of
+  range[ (&lt;relational_op&gt; &lt;limit&gt;)]
 
 ### Changed ###
 
 * Status 7 & 3: Tweaked messages a bit
 * Status 8: Tweaked message and description
+* Moved a lot of usage errors up a few codes (because of new statuses)
+* Statuses 10 - 15 → 13 - 19
+* Status 16 → 20
+* Status 17 → 21
 
 [Unreleased]: https://github.com/SpEZiiL/commoncodes/compare/v0.3.0...develop
 
@@ -30,14 +38,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed ###
 
 * Status 100 & 124: Tweaked description a bit
-* Inserted status "_option_: invalid option" between status "too many arguments" and "_argument_: invalid argument"
+* Inserted status "&lt;option&gt;: invalid option" between status "too many
+  arguments" and "&lt;argument&gt;: invalid argument"
 	* Status "too many arguments" stays code 4
-	* Status "_option_: invalid option" is now 5
-	* Status "_argument_: invalid argument" is now 6
-* Inserted status "argument #_n_: may not be empty/blank" between status "_argument_: invalid argument" and "_argument_: not a number/integer"
-	* Status "_argument_: invalid argument" is now code 6
-	* Status "argument #_n_: may not be empty/blank" is now code 7
-	* Status "_argument_: not a number/integer" is now code 8
+	* Status "&lt;option&gt;: invalid option" is now 5
+	* Status "&lt;argument&gt;: invalid argument" is now 6
+* Inserted status "argument #&lt;n&gt;: may not be empty/blank" between status
+  "&lt;argument&gt;: invalid argument" and "&lt;argument&gt;: not a
+  number/integer"
+	* Status "&lt;argument&gt;: invalid argument" is now code 6
+	* Status "argument #&lt;n&gt;: may not be empty/blank" is now code 7
+	* Status "&lt;argument&gt;: not a number/integer" is now code 8
 * Moved statuses 21 - 26 one code up  
   e.g.: 21 → 22, and 26 → 27
 
@@ -56,7 +67,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed ###
 
 * Status 29: Tweaked message a bit
-	* "not enough memory" → "not enough <b>[</b>heap <b>]</b>memory"
+	* "not enough memory" → "not enough [heap ]memory"
 
 [0.2.0]: https://speziil.github.io/commoncodes/v/0.1.0...0.2.0.html
 

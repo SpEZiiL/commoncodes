@@ -4,22 +4,22 @@
 3 [<option>: ]missing argument[s][: <arguments>...]
 4 [<option>: ]too many arguments[: <n>]
 5 <option>: invalid option
-6 [<option>: ]<argument>: invalid argument[: <info>]
-7 [<option>: ]argument [<n>: ]may not be (empty|blank)
-8 [<option>: ]<argument>: not a[n] [non-negative |unsigned ](number|integer)
-9 [<option>: ]<argument>: does not match: <patttern>
-10 <<(custom usage error)>>
-11 <<(custom usage error)>>
-12 <<(custom usage error)>>
+6 <option>: unexpected option
+7 [<option>: ]<argument>: invalid argument[: <info>]
+8 <argument>: unknown [sub]command
+9 [<option>: ]argument [<n>: ]may not be (empty|blank)
+10 [<option>: ]<argument>: not a[n] (number|integer)
+11 [<option>: ]<argument>: out of range[ \(<relational op> <limit>)]
+12 [<option>: ]<argument>: does not match: <patttern>
 13 <<(custom usage error)>>
 14 <<(custom usage error)>>
 15 <<(custom usage error)>>
-16 <item>: no such <itemtype>[[, <itemtype>]... or <itemtype>]
-17 <item>: not a[n] <itemtype>[[, <itemtype>]... or <itemtype>]
-18 ?
-19 ?
-20 ?
-21 ?
+16 <<(custom usage error)>>
+17 <<(custom usage error)>>
+18 <<(custom usage error)>>
+19 <<(custom usage error)>>
+20 <item>: no such <itemtype>[[, <itemtype>]... or <itemtype>]
+21 <item>: not a[n] <itemtype>[[, <itemtype>]... or <itemtype>]
 22 network error[: info]
 23 no network connection
 24 connection timed out
