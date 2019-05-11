@@ -6,7 +6,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased] - 2019-05-10 ##
+## [Unreleased] - 2019-05-11 ##
 
 [Unreleased]: https://github.com/SpEZiiL/commoncodes/compare/v0.3.0...develop
 
@@ -16,7 +16,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * Inserted between status 7 & 8: &lt;argument&gt;: unknown [sub]command
 * Inserted between status 10 & 11: [&lt;option&gt;: ]&lt;argument&gt;: out of
   range[ (&lt;relational_op&gt; &lt;limit&gt;)]
-* Common placeholder explanation to description
+* Common placeholder and CommonCodes usage explanation to description
 * Status 3 & 4: Added explanation for placeholder to description
 * grep(1) to See Also page section
 
