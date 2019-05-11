@@ -31,29 +31,25 @@
 #define CC_INV_ARG        7 /* invalid argument */
 #define CC_UNKNOWN_SUBCMD 8 /* unknown subcommand */
 #define CC_UNKNOWN_CMD    8 /* unknown command */
-#define CC_NO_EMPTY_ARG   9 /* may not be empty */6
+#define CC_NO_EMPTY_ARG   9 /* may not be empty */
 #define CC_NO_BLANK_ARG   9 /* may not be blank */
 #define CC_NO_NUM         10 /* not a number */
 #define CC_NO_INT         10 /* not an integer */
 #define CC_OUT_OF_RANGE   11 /* out of range */
 #define CC_NO_MATCH       12 /* does not match */
-/* 13 - 19: custom usage errors */
-#define CC_NO_SUCH_ITEMTYPE 20 /* no such itemtype */
-#define CC_NOT_A_ITEMTYPE   21 /* not a itemtype */
-#define CC_NOT_AN_ITEMTYPE  21 /* not an itemtype */
-#define CC_NET_ERR         22 /* network error */
-#define CC_NO_NET_CON      23 /* no network connection */
-#define CC_CON_TIMED_OUT   24 /* connection timed out */
-#define CC_ARIT_ERR        25 /* arithmetic error */
-#define CC_DIV_BY_0_ERR    26 /* divied by 0 error */
-#define CC_OFLOW_ERR       27 /* overflow error */
-#define CC_UFLOW_ERR       27 /* underflow error */
-#define CC_MEM_ERR         28 /* memory error */
-#define CC_NO_MEM          29 /* not enough memory */
-#define CC_NO_HMEM         29 /* not enough heap memory */
-#define CC_STACK_OFLOW_ERR 30 /* stack overflow error */
-#define CC_EMERG_STOP      31 /* emergency stop */
-/* 32 - 63: custom errors */
+/* 13 - 23: custom usage errors */
+#define CC_NO_SUCH_ITEMTYPE 24 /* no such itemtype */
+#define CC_NOT_A_ITEMTYPE   25 /* not a itemtype */
+#define CC_NOT_AN_ITEMTYPE  25 /* not an itemtype */
+#define CC_NET_ERR          26 /* network error */
+#define CC_NO_NET_CON       27 /* no network connection */
+#define CC_CON_TIMED_OUT    28 /* connection timed out */
+#define CC_ARIT_ERR         29 /* arithmetic error */
+#define CC_DIV_BY_0_ERR     30 /* divied by 0 error */
+#define CC_OFLOW_ERR        31 /* overflow error */
+#define CC_UFLOW_ERR        31 /* underflow error */
+/* 32 - 47: custom feedback statuses */
+/* 48 - 63: custom errors */
 /* BSD errors */
 #define CC_USAGE       64 /* command line usage error */
 #define CC_DATAERR     65 /* data format error */
@@ -71,9 +67,14 @@
 #define CC_NOPERM      77 /* permission denied */
 #define CC_CONFIG      78 /* configuration error */
 /* BSD errors end */
-/* 79 - 99: custom configuration errors */
+/* 79 - 98: custom configuration errors */
+#define CC_MEM_ERR           99 /* memory error */
+#define CC_NO_MEM           100 /* not enough memory */
+#define CC_NO_HMEM          100 /* not enough heap memory */
+#define CC_STACK_OFLOW_ERR  101 /* stack overflow error */
 #define CC_GEN_INTERN_FAULT 100 /* generic internal fault */
-/* 101 - 123: custom internal faults */
+/* 101 - 122: custom internal faults */
+#define CC_EMERG_STOP                      123 /* emergency stop */
 #define CC_SCRIPT_CALLED_INTERACTIVELY     124 /* script was called interactively */
 #define CC_SCRIPT_NOT_CALLED_INTERACTIVELY 124 /* script was not called interactively */
 #define CC_UNKNOWN_ERR                     125 /* unknown error */

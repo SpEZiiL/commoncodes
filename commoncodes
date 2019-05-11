@@ -18,34 +18,34 @@
 17 <<(custom usage error)>>
 18 <<(custom usage error)>>
 19 <<(custom usage error)>>
-20 <item>: no such <itemtype>[[, <itemtype>]... or <itemtype>]
-21 <item>: not a[n] <itemtype>[[, <itemtype>]... or <itemtype>]
-22 network error[: info]
-23 no network connection
-24 connection timed out
-25 arithmetic error[: info]
-26 divided by 0 error
-27 (overflow|underflow) error
-28 memory error[: info]
-29 not enough [heap ]memory
-30 stack overflow error
-31 emergency stop[: info]
-32 <<(custom error)>>
-33 <<(custom error)>>
-34 <<(custom error)>>
-35 <<(custom error)>>
-36 <<(custom error)>>
-37 <<(custom error)>>
-38 <<(custom error)>>
-39 <<(custom error)>>
-40 <<(custom error)>>
-41 <<(custom error)>>
-42 <<(custom error)>>
-43 <<(custom error)>>
-44 <<(custom error)>>
-45 <<(custom error)>>
-46 <<(custom error)>>
-47 <<(custom error)>>
+20 <<(custom usage error)>>
+21 <<(custom usage error)>>
+22 <<(custom usage error)>>
+23 <<(custom usage error)>>
+24 <item>: no such <itemtype>[[, <itemtype>]... or <itemtype>]
+25 <item>: not a[n] <itemtype>[[, <itemtype>]... or <itemtype>]
+26 network error[: info]
+27 no network connection
+28 connection timed out
+29 arithmetic error[: info]
+30 divided by 0 error
+31 (overflow|underflow) error
+32 <<(custom feedback status)>>
+33 <<(custom feedback status)>>
+34 <<(custom feedback status)>>
+35 <<(custom feedback status)>>
+36 <<(custom feedback status)>>
+37 <<(custom feedback status)>>
+38 <<(custom feedback status)>>
+39 <<(custom feedback status)>>
+40 <<(custom feedback status)>>
+41 <<(custom feedback status)>>
+42 <<(custom feedback status)>>
+43 <<(custom feedback status)>>
+44 <<(custom feedback status)>>
+45 <<(custom feedback status)>>
+46 <<(custom feedback status)>>
+47 <<(custom feedback status)>>
 48 <<(custom error)>>
 49 <<(custom error)>>
 50 <<(custom error)>>
@@ -97,10 +97,10 @@
 96 <<(custom configuration error)>>
 97 <<(custom configuration error)>>
 98 <<(custom configuration error)>>
-99 <<(custom configuration error)>>
-100 generic internal fault[: info]
-101 <<(custom internal fault)>>
-102 <<(custom internal fault)>>
+99 memory error[: info]
+100 not enough [heap ]memory
+101 stack overflow error
+102 generic internal fault[: info]
 103 <<(custom internal fault)>>
 104 <<(custom internal fault)>>
 105 <<(custom internal fault)>>
@@ -121,6 +121,6 @@
 120 <<(custom internal fault)>>
 121 <<(custom internal fault)>>
 122 <<(custom internal fault)>>
-123 <<(custom internal fault)>>
+123 emergency stop[: info]
 124 script was [not ]called interactively
 125 unknown error

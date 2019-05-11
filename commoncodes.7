@@ -30,7 +30,7 @@
 .\}
 ..
 
-.TH commoncodes 7 "0.4.0" "May 10, 2019" "CommonCodes man page"
+.TH commoncodes 7 "0.4.0" "May 11, 2019" "CommonCodes man page"
 .SH NAME
 CommonCodes \- Standardized list of commonly used exit statuses
 
@@ -172,14 +172,14 @@ may either be the minumum, floor, maximum or ceiling value.
 .IP 12
 .bir "[" "option" ": " "]" "argument" ": does not match: " "" "pattern"
 .br
-The argument does not match the pattern provided. The pattern can be glob, regex
-or any other pattern matching system.
-.IP "13 - 19"
+The argument does not match the pattern provided.
+The pattern can be glob, regex or any other pattern matching system.
+.IP "13 - 23"
 .B "(custom usage errors)"
 .br
-Usage errors defined by the developer of the program. These should always be
-documented.
-.IP 20
+Usage errors defined by the developer of the program.
+These should always be documented.
+.IP 24
 .bir "" "item" ": no such " "" "itemtype" "" "[[" "" ", " "" "itemtype" "" "]..." "" " or " "" "itemtype" "" "]"
 .br
 The item in question could not be found.
@@ -188,56 +188,48 @@ The item in question could not be found.
 can be things like paths, etc. and
 .I itemtype
 can be things like regular files, directories, etc.
-.IP 21
+.IP 25
 .bir "" "item" ": not a" "[" "" "n" "]" "" " " "" "itemtype" "" "[[" "" ", " "" "itemtype" "" "]..." "" " or " "" "itemtype" "" "]"
 .br
 The item in question is of the wrong type.
-.IP 22
+.IP 26
 .rbi "network error" "[" "" ": " "" "info" "" "]"
 .br
 A general network error occurred.
-.IP 23
+.IP 27
 no network connection
 .br
 No network connection is established.
-.IP 24
+.IP 28
 connection timed out
 .br
 A network request took too long and timed out.
-.IP 25
+.IP 29
 .rbi "arithmetic error" "[" "" ": " "" "info" "" "]"
 .br
 A general arithmetic error occured.
-.IP 26
+.IP 30
 divided by 0 error
 .br
 A division by 0 was tried to be executed and there was no fallback option.
-.IP 27
+.IP 31
 .bir "(" "" "overflow" "|" "" "underflow" ")" "" " error"
 .br
 An overflow or underflow happened and it has critical effects on the program.
-.IP 28
-.rbi "memory error" "[" "" ": " "" "info" "" "]"
+.IP "32 - 47"
+.B (custom feedback statuses)
 .br
-A general memory error occured.
-.IP 29
-.rbi "not enough " "[" "" "heap " "]" "" "memory"
+Custom exit codes defined by the developer that aren't actually errors, but
+rather, feedback for the program user.
 .br
-There was not enough free memory on the heap to allocate a block of data.
-.IP 30
-stack overflow error
-.br
-A stack overflow occurred.
-.IP 31
-.rbi "emergency stop" "[" "" ": " "" "info" "" "]"
-.br
-The program was intentionally halted by the developer because a value is invalid
-and can't be worked with.
-.IP "32 - 63"
+For example, the program
+.B grep
+exits with code 1 when it couldn't match an entered pattern.
+.IP "48 - 63"
 .B (custom errors)
 .br
-General custom errors defined by the developer. These should always be
-documented.
+General custom errors defined by the developer.
+These should always be documented.
 .IP 64
 .rbi "command line usage error" "[" "" ": " "" "info" "" "]"
 .br
@@ -250,8 +242,9 @@ The input data was incorrect in some way.
 .IP 66
 .rbi "cannot open input" "[" "" ": " "" "info" "" "]"
 .br
-An input file (not a system file) did not exist or was not readable.  This could
-also include errors like "No message" to a mailer (if it cared to catch it).
+An input file (not a system file) did not exist or was not readable.
+This could also include errors like "No message" to a mailer (if it cared to
+catch it).
 .IP 67
 .rbi "addressee unknown" "[" "" ": " "" "info" "" "]"
 .br
@@ -263,8 +256,8 @@ The host specified did not exist.
 .IP 69
 .rbi "service unavailable" "[" "" ": " "" "info" "" "]"
 .br
-A service is unavailable.  This can occur if a support program or file does not
-exist.
+A service is unavailable.
+This can occur if a support program or file does not exist.
 .IP 70
 .rbi "internal software error" "[" "" ": " "" "info" "" "]"
 .br
@@ -303,23 +296,40 @@ You did not have sufficient permission to perform the operation.
 .rbi "configuration error" "[" "" ": " "" "info" "" "]"
 .br
 Something was found in an unconfigured or misconfigured state.
-.IP "79 - 99"
+.IP "79 - 98"
 .B (custom configuration errors)
 .br
-Configuration, property and setting errors defined by the developer. These
-should always be documented.
+Configuration, property and setting errors defined by the developer.
+These should always be documented.
+.IP 99
+.rbi "memory error" "[" "" ": " "" "info" "" "]"
+.br
+A general memory error occured.
 .IP 100
+.rbi "not enough " "[" "" "heap " "]" "" "memory"
+.br
+There was not enough free memory on the heap to allocate a block of data.
+.IP 101
+stack overflow error
+.br
+A stack overflow occurred.
+.IP 102
 .rbi "generic internal fault" "[" "" ": " "" "info" "" "]"
 .br
 General internal fault.
 .br
 An internal fault happens when preconditions prevent the program to advance to a
 next stage of execution.
-.IP "101 - 123"
+.IP "103 - 122"
 .B (custom internal faults)
 .br
-Different internal faults, defined by the developer. These should always be
-documented.
+Different internal faults, defined by the developer.
+These should always be documented.
+.IP 123
+.rbi "emergency stop" "[" "" ": " "" "info" "" "]"
+.br
+The program was intentionally halted by the developer because a value is invalid
+and can't be worked with.
 .IP 124
 .rbi "script was " "[" "" "not " "]" "" "called interactively"
 .br
@@ -340,7 +350,7 @@ systems and code 64 when distributing for
 systems.
 
 .SH SEE ALSO
-<https://github.com/SpEZiiL/commoncodes>
+<https://github.com/SpEZiiL/commoncodes>, grep(1)
 
 .SH AUTHOR
 Michael Federczuk <federczuk.michael@hotmail.com>

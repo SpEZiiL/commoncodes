@@ -30,7 +30,7 @@
 	<h1>CommonCodes v0.4.0</h1>
 	
 	<div id="version-date_container">
-		<span id="version-date_text">May 10, 2019</span>
+		<span id="version-date_text">May 11, 2019</span>
 	</div> <!-- #version-date_container -->
 
 	<div id="version-warning_container">
@@ -225,7 +225,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td>13 - 19</td>
+				<td>13 - 23</td>
 				<td><span class="synopsis_controls">(custom usage errors)</span></td>
 				<td>
 					Usage errors defined by the developer of the program.
@@ -233,7 +233,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td>20</td>
+				<td>24</td>
 				<td><span class="synopsis_placeholder">item</span>: no such <span class="synopsis_placeholder">itemtype</span><span class="synopsis_controls">[[</span>, <span class="synopsis_placeholder">itemtype</span><span class="synopsis_controls">]...</span> or <span class="synopsis_placeholder">itemtype</span><span class="synopsis_controls">]</span></td>
 				<td>
 					The item in question could not be found.<br>
@@ -243,42 +243,42 @@
 				</td>
 			</tr>
 			<tr>
-				<td>21</td>
+				<td>25</td>
 				<td><span class="synopsis_placeholder">item</span>: not a<span class="synopsis_controls">[</span>n<span class="synopsis_controls">]</span> <span class="synopsis_placeholder">itemtype</span><span class="synopsis_controls">[[</span>, <span class="synopsis_placeholder">itemtype</span><span class="synopsis_controls">]...</span> or <span class="synopsis_placeholder">itemtype</span><span class="synopsis_controls">]</span></td>
 				<td>
 					The item in question is of the wrong type.
 				</td>
 			</tr>
 			<tr>
-				<td>22</td>
+				<td>26</td>
 				<td>network error<span class="synopsis_controls">[</span>: <span class="synopsis_placeholder">info</span><span class="synopsis_controls">]</span></td>
 				<td>
 					A general network error occurred.
 				</td>
 			</tr>
 			<tr>
-				<td>23</td>
+				<td>27</td>
 				<td>no network connection</td>
 				<td>
 					No network connection is established.
 				</td>
 			</tr>
 			<tr>
-				<td>24</td>
+				<td>28</td>
 				<td>connection timed out</td>
 				<td>
 					A network request took too long and timed out.
 				</td>
 			</tr>
 			<tr>
-				<td>25</td>
+				<td>29</td>
 				<td>arithmetic error<span class="synopsis_controls">[</span>: <span class="synopsis_placeholder">info</span><span class="synopsis_controls">]</span></td>
 				<td>
 					A general arithmetic error occurred.
 				</td>
 			</tr>
 			<tr>
-				<td>26</td>
+				<td>30</td>
 				<td>divided by 0 error</td>
 				<td>
 					A division by 0 was tried to be executed and there was no
@@ -286,7 +286,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td>27</td>
+				<td>31</td>
 				<td><span class="synopsis_controls">(</span>overflow<span class="synopsis_controls">|</span>underflow<span class="synopsis_controls">)</span> error</td>
 				<td>
 					An overflow or underflow happened and it has critical
@@ -294,37 +294,17 @@
 				</td>
 			</tr>
 			<tr>
-				<td>28</td>
-				<td>memory error<span class="synopsis_controls">[</span>: <span class="synopsis_placeholder">info</span><span class="synopsis_controls">]</span></td>
+				<td>32 - 47</td>
+				<td><span class="synopsis_controls">(custom feedback statuses)</span></td>
 				<td>
-					A general memory error occurred.
+					Custom exit codes defined by the developer that aren't
+					actually errors, but rather, feedback for the program user.<br>
+					For example, the program <strong>grep</strong> exits with
+					code 1 when it couldn't match an entered pattern.
 				</td>
 			</tr>
 			<tr>
-				<td>29</td>
-				<td>not enough <span class="synopsis_controls">[</span>heap <span class="synopsis_controls">]</span>memory</td>
-				<td>
-					There was not enough free memory on the heap to allocate a
-					block of data.
-				</td>
-			</tr>
-			<tr>
-				<td>30</td>
-				<td>stack overflow error</td>
-				<td>
-					A stack overflow occurred.
-				</td>
-			</tr>
-			<tr>
-				<td>31</td>
-				<td>emergency stop<span class="synopsis_controls">[</span>: <span class="synopsis_placeholder">info</span><span class="synopsis_controls">]</span></td>
-				<td>
-					The program was intentionally halted by the developer
-					because a value is invalid and can't be worked with.
-				</td>
-			</tr>
-			<tr>
-				<td>32 - 63</td>
+				<td>48 - 63</td>
 				<td><span class="synopsis_controls">(custom errors)</span></td>
 				<td>
 					General custom errors defined by the developer.
@@ -449,7 +429,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td>79 - 99</td>
+				<td>79 - 98</td>
 				<td><span class="synopsis_controls">(custom configuration errors)</span></td>
 				<td>
 					Configuration, property and setting errors defined by the
@@ -458,7 +438,29 @@
 				</td>
 			</tr>
 			<tr>
+				<td>99</td>
+				<td>memory error<span class="synopsis_controls">[</span>: <span class="synopsis_placeholder">info</span><span class="synopsis_controls">]</span></td>
+				<td>
+					A general memory error occurred.
+				</td>
+			</tr>
+			<tr>
 				<td>100</td>
+				<td>not enough <span class="synopsis_controls">[</span>heap <span class="synopsis_controls">]</span>memory</td>
+				<td>
+					There was not enough free memory on the heap to allocate a
+					block of data.
+				</td>
+			</tr>
+			<tr>
+				<td>101</td>
+				<td>stack overflow error</td>
+				<td>
+					A stack overflow occurred.
+				</td>
+			</tr>
+			<tr>
+				<td>102</td>
 				<td>generic internal fault<span class="synopsis_controls">[</span>: <span class="synopsis_placeholder">info</span><span class="synopsis_controls">]</span></td>
 				<td>
 					General internal fault.<br>
@@ -467,11 +469,19 @@
 				</td>
 			</tr>
 			<tr>
-				<td>101 - 123</td>
+				<td>103 - 122</td>
 				<td><span class="synopsis_controls">(custom internal faults)</span></td>
 				<td>
 					Different internal faults, defined by the developer.
 					These should always be documented.
+				</td>
+			</tr>
+			<tr>
+				<td>123</td>
+				<td>emergency stop<span class="synopsis_controls">[</span>: <span class="synopsis_placeholder">info</span><span class="synopsis_controls">]</span></td>
+				<td>
+					The program was intentionally halted by the developer
+					because a value is invalid and can't be worked with.
 				</td>
 			</tr>
 			<tr>
@@ -509,7 +519,8 @@
 		<h2>See Also</h2>
 
 		<p>
-			&lt;<a href="https://github.com/SpEZiiL/commoncodes" title="CommonCodes GitHub Repository">https://github.com/SpEZiiL/commoncodes</a>&gt;
+			&lt;<a href="https://github.com/SpEZiiL/commoncodes" title="CommonCodes GitHub Repository">https://github.com/SpEZiiL/commoncodes</a>&gt;,
+			<a href="https://linux.die.net/man/1/grep">grep(1)</a>
 		</p>
 	</div> <!-- #section_see-also.pagesection -->
 	</div> <!-- #release-content -->

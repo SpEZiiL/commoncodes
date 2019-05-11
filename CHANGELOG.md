@@ -16,17 +16,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * Inserted between status 7 & 8: &lt;argument&gt;: unknown [sub]command
 * Inserted between status 10 & 11: [&lt;option&gt;: ]&lt;argument&gt;: out of
   range[ (&lt;relational_op&gt; &lt;limit&gt;)]
-* Common placeholder explanation for to description
+* Common placeholder explanation to description
 * Status 3 & 4: Added explanation for placeholder to description
+* grep(1) to See Also page section
 
 ### Changed ###
 
 * Status 7 & 3: Tweaked messages a bit
 * Status 8: Tweaked message and description
-* Moved a lot of usage errors up a few codes (because of new statuses)
-* Statuses 10 - 15 → 13 - 19
+* Statuses 10 - 15 → 13 - 23
 * Status 16 → 20
 * Status 17 → 21
+* Moved memory errors and emergency stop error up inbetween the custom
+  configuration errors and the internal faults
+* Statuses 32 - 47: custom feedback statuses
 
 ## [0.3.0] - 2019-05-06 ##
 
