@@ -145,54 +145,40 @@
 					to an option of the program.
 				</td>
 			</tr>
-			<tr>
+			<tr class="diff_addition">
 				<td>5</td>
-				<td><span class="diff_deletion"><span class="synopsis_controls">[</span></span><span class="synopsis_placeholder">option</span>: <span class="diff_deletion"><span class="diff_deletion"><span class="synopsis_controls">]</span><span class="synopsis_placeholder">argument</span>: </span></span>invalid <span class="diff_addition">option</span><span class="diff_deletion">argument<span class="synopsis_controls">[</span>: <span class="synopsis_placeholder">info</span><span class="synopsis_controls">]</span></span></td>
+				<td><span class="synopsis_placeholder">option</span>: invalid option</td>
 				<td>
-					The <span class="diff_addition">entered option is not
-						specified in the program</span><span class="diff_deletion">argument
-							is invalid and cannot be used</span>.
+					The entered option is not specified in the program.
 				</td>
 			</tr>
 			<tr>
-				<td>6</td>
-				<td><span class="synopsis_controls">[</span><span class="synopsis_placeholder">option</span>: <span class="synopsis_controls">]</span><span class="synopsis_placeholder">argument</span>: <span class="diff_addition">invalid argument<span class="synopsis_controls">[</span>: <span class="synopsis_placeholder">info</span><span class="synopsis_controls">]</span></span><span class="diff_deletion">not a<span class="synopsis_controls">[</span>n<span class="synopsis_controls">]</span> <span class="synopsis_controls">(</span>number<span class="synopsis_controls">|</span>integer<span class="synopsis_controls">)</span></span></td>
+				<td><span class="diff_addition">6</span><span class="diff_deletion">5</span></td>
+				<td><span class="synopsis_controls">[</span><span class="synopsis_placeholder">option</span>: <span class="synopsis_controls">]</span><span class="synopsis_placeholder">argument</span>: invalid argument<span class="synopsis_controls">[</span>: <span class="synopsis_placeholder">info</span><span class="synopsis_controls">]</span></td>
 				<td>
-					The argument is <span class="diff_addition">invalid and
-						cannot be used</span><span class="diff_deletion">not a
-							valid number or is not a valid integer</span>.<br>
-					<span class="diff_deletion">If a valid decimal number has
-						been entered and this exit status is returned then you
-						must convert the decimal number into an integer. </span>
-				</td>
-			</tr>
-			<tr>
-				<td>7</td>
-				<td>
-					<span class="diff_addition">argument #<span class="synopsis_placeholder">n</span>: may not be <span class="synopsis_controls">(</span>empty<span class="synopsis_controls">|</span>blank<span class="synopsis_controls">)</span></span><br>
-					<span class="diff_deletion"><span class="synopsis_controls">[</span><span class="synopsis_placeholder">option</span>: <span class="synopsis_controls">]</span><span class="synopsis_placeholder">argument</span>: does not match: <span class="synopsis_placeholder">pattern</span></span>
-				</td>
-				<td>
-					<span class="diff_addition">Program can not work with empty
-						or blank argument.¶<br>
-					"Blank" means none or only whitespace characters.</span><br>
-					<span class="diff_deletion">The argument does not match the
-						pattern provided. The pattern can be glob, regex or any
-						other pattern matching system.</span>
+					The argument is invalid and cannot be used.
 				</td>
 			</tr>
 			<tr class="diff_addition">
-				<td>8</td>
+				<td>7</td>
+				<td>argument #<span class="synopsis_placeholder">n</span>: may not be <span class="synopsis_controls">(</span>empty<span class="synopsis_controls">|</span>blank<span class="synopsis_controls">)</span></td>
+				<td>
+					Program can not work with empty or blank argument.<br>
+					"Blank" means none or only whitespace characters.
+				</td>
+			</tr>
+			<tr>
+				<td><span class="diff_addition">8</span><span class="diff_deletion">6</span></td>
 				<td><span class="synopsis_controls">[</span><span class="synopsis_placeholder">option</span>: <span class="synopsis_controls">]</span><span class="synopsis_placeholder">argument</span>: not a<span class="synopsis_controls">[</span>n<span class="synopsis_controls">]</span> <span class="synopsis_controls">(</span>number<span class="synopsis_controls">|</span>integer<span class="synopsis_controls">)</span></td>
 				<td>
-					The argument is not a valid number or is not a valid integer.¶<br>
+					The argument is not a valid number or is not a valid integer.<br>
 					If a valid decimal number has been entered and this exit
 					status is returned then you must convert the decimal number
 					into an integer.
 				</td>
 			</tr>
-			<tr class="diff_addition">
-				<td>9</td>
+			<tr>
+				<td><span class="diff_addition">9</span><span class="diff_deletion">7</span></td>
 				<td><span class="synopsis_controls">[</span><span class="synopsis_placeholder">option</span>: <span class="synopsis_controls">]</span><span class="synopsis_placeholder">argument</span>: does not match: <span class="synopsis_placeholder">pattern</span></td>
 				<td>
 					The argument does not match the pattern provided.
@@ -240,68 +226,59 @@
 				<td>?</td>
 				<td></td>
 			</tr>
-			<tr>
+			<tr class="diff_addition">
 				<td>21</td>
-				<td><span class="diff_addition">?</span><span class="diff_deletion">network error<span class="synopsis_controls">[</span>: <span class="synopsis_placeholder">info</span><span class="synopsis_controls">]</span></span></td>
+				<td>?</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>2<span class="diff_addition">2</span><span class="diff_deletion">1</span></td>
+				<td>network error<span class="synopsis_controls">[</span>: <span class="synopsis_placeholder">info</span><span class="synopsis_controls">]</span></td>
 				<td>
-					<span class="diff_deletion">A general network error occurred.</span>
+					A general network error occurred.
 				</td>
 			</tr>
 			<tr>
-				<td>22</td>
-				<td><span class="diff_addition">network error<span class="synopsis_controls">[</span>: <span class="synopsis_placeholder">info</span><span class="synopsis_controls">]</span></span><span class="diff_deletion">no network connection</span></td>
+				<td>2<span class="diff_addition">3</span><span class="diff_deletion">2</span></td>
+				<td>no network connection</td>
 				<td>
-					<span class="diff_addition">A general network error
-						occurred</span><span class="diff_deletion">No network
-							connection is established</span>.
+					No network connection is established.
 				</td>
 			</tr>
 			<tr>
-				<td>23</td>
-				<td><span class="diff_addition">no network connection</span><span class="diff_deletion">connection timed out</span></td>
+				<td>2<span class="diff_addition">4</span><span class="diff_deletion">3</span></td>
+				<td>connection timed out</td>
 				<td>
-					<span class="diff_addition">No network connection is
-						established</span><span class="diff_deletion">A network
-							request took too long and timed out</span>.
+					A network request took too long and timed out.
 				</td>
 			</tr>
 			<tr>
-				<td>24</td>
-				<td><span class="diff_addition">connection timed out</span><span class="diff_deletion">arithmetic error<span class="synopsis_controls">[</span>: <span class="synopsis_placeholder">info</span><span class="synopsis_controls">]</span></span></td>
+				<td>2<span class="diff_addition">5</span><span class="diff_deletion">4</span></td>
+				<td>arithmetic error<span class="synopsis_controls">[</span>: <span class="synopsis_placeholder">info</span><span class="synopsis_controls">]</span></td>
 				<td>
-					A <span class="diff_addition">network request took too long
-						and timed out</span><span class="diff_deletion">general
-							arithmetic error occurred</span>.
+					A general arithmetic error occurred.
 				</td>
 			</tr>
 			<tr>
-				<td>25</td>
-				<td><span class="diff_addition">arithmetic</span><span class="diff_deletion">divided by 0</span> error<span class="diff_addition"><span class="synopsis_controls">[</span>: <span class="synopsis_placeholder">info</span><span class="synopsis_controls">]</span></span></td>
+				<td>2<span class="diff_addition">6</span><span class="diff_deletion">5</span></td>
+				<td>divided by 0 error</td>
 				<td>
-					A <span class="diff_addition">general arithmetic error
-						occurred</span><span class="diff_deletion">division by 0
-							was tried to be executed and there was no fallback
-							option</span>.
+					A division by 0 was tried to be executed and there was no
+					fallback option.
 				</td>
 			</tr>
 			<tr>
-				<td>26</td>
-				<td><span class="diff_addition">divided by 0</span><span class="diff_deletion"><span class="synopsis_controls">(</span>overflow<span class="synopsis_controls">|</span>underflow<span class="synopsis_controls">)</span></span> error</td>
+				<td>2<span class="diff_addition">7</span><span class="diff_deletion">6</span></td>
+				<td><span class="synopsis_controls">(</span>overflow<span class="synopsis_controls">|</span>underflow<span class="synopsis_controls">)</span> error</td>
 				<td>
-					<span class="diff_addition">A division by 0 was tried to be
-						executed and there was no fallback
-						option</span><span class="diff_deletion">An overflow or
-							underflow happened and it has critical effects on
-							the program</span>.
+					An overflow or underflow happened and it has critical
+					effects on the program.
 				</td>
 			</tr>
-			<tr>
+			<tr class="diff_deletion">
 				<td>27</td>
-				<td><span class="diff_addition"><span class="synopsis_controls">(</span>overflow<span class="synopsis_controls">|</span>underflow<span class="synopsis_controls">)</span> error</span><span class="diff_deletion">?</span></td>
-				<td>
-					<span class="diff_addition">An overflow or underflow
-						happened and it has critical effects on the program</span>.
-				</td>
+				<td>?</td>
+				<td></td>
 			</tr>
 			<tr>
 				<td>28</td>
