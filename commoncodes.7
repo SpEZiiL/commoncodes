@@ -37,7 +37,9 @@ CommonCodes \- Standardized list of commonly used exit statuses
 .SH DESCRIPTION
 .B CommonCodes
 is an attempt to standardize the meaning of exit statuses of programs written
-for Unix like systems.
+for
+.B Unix
+like systems.
 
 .B CommonCodes
 includes the 15 exit codes defined by
@@ -57,13 +59,21 @@ signal.
 adopts both of these rules, using 2 as a generic usage error and not defining
 any codes above 125.
 
+If you're going to use the
+.B CommonCodes
+standard in your program, be sure to document it. A good place would be both the
+.I --help
+summary and the programs manpage.
+.br
+It is recommended to always add which exact version is being used.
+
 Some ranges have been kept empty so that developers may add error messages of
 their own, tailored to the program that they are writing.
 .br
-If codes in these ranges are defined then they should always be documented,
-either in the
+If statuses in these ranges are defined then they should always be documented.
+Again in the
 .I --help
-summary or in the manpage.
+summary and in the manpage.
 
 In the following table, these rules apply for the messages:
 .IP \[bu] 2
