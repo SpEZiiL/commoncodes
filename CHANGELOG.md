@@ -23,6 +23,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed ###
 
 * Status 7 & 3: Tweaked messages a bit
+* Status 9: Added to description a bit
 * Status 8: Tweaked message and description
 * Statuses 10 - 15 → 13 - 23
 * Status 16 → 20
