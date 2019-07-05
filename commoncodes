@@ -96,12 +96,12 @@
 95 <<(custom configuration error)>>
 96 <<(custom configuration error)>>
 97 <<(custom configuration error)>>
-98 <<(custom configuration error)>>
-99 memory error[: info]
-100 not enough [heap ]memory
-101 stack overflow error
-102 generic internal fault[: info]
-103 <<(custom internal fault)>>
+98 <path>: too many levels of symbolic links
+99 <path>: filename too long
+100 memory error[: info]
+101 not enough [heap ]memory
+102 stack overflow error
+103 generic internal fault[: info]
 104 <<(custom internal fault)>>
 105 <<(custom internal fault)>>
 106 <<(custom internal fault)>>
