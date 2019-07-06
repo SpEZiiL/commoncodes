@@ -159,12 +159,12 @@
 			</tr>
 			<tr>
 				<td>3</td>
-				<td><span class="synopsis_controls">[</span><span class="synopsis_placeholder">option</span>: <span class="synopsis_controls">]</span>missing argument<span class="synopsis_controls">[</span>s<span class="synopsis_controls">]</span><span class="synopsis_controls">[</span>: <span class="synopsis_placeholder">arguments</span><span class="synopsis_controls">...]</span></td>
+				<td><span class="synopsis_controls">[</span><span class="synopsis_placeholder">option</span>: <span class="synopsis_controls">]</span>missing argument<span class="diff_addition"><span class="synopsis_controls">[</span></span><span class="diff_deletion">(</span>s<span class="diff_deletion">)</span><span class="diff_addition"><span class="synopsis_controls">]</span></span><span class="synopsis_controls">[</span>: <span class="synopsis_placeholder">arguments</span><span class="synopsis_controls">...]</span></td>
 				<td>
 					Not enough arguments have been passed down to the program or
-					to an option of the program.<br>
+					to an option of the program.<span class="diff_addition">¶<br>
 					<span class="synopsis_placeholder">arguments</span> may be
-					the placeholder name of the missing arguments.
+					the placeholder name of the missing arguments.</span>
 				</td>
 			</tr>
 			<tr>
@@ -172,9 +172,9 @@
 				<td><span class="synopsis_controls">[</span><span class="synopsis_placeholder">option</span>: <span class="synopsis_controls">]</span>too many arguments<span class="synopsis_controls">[</span>: <span class="synopsis_placeholder">n</span><span class="synopsis_controls">]</span></td>
 				<td>
 					Too many arguments have been passed down to the program or
-					to an option of the program.<br>
+					to an option of the program.<span class="diff_addition">¶<br>
 					<span class="synopsis_placeholder">n</span> may be the
-					amount of arguments that are not needed.
+					amount of arguments that are not needed.</span>
 				</td>
 			</tr>
 			<tr>
@@ -208,7 +208,7 @@
 			</tr>
 			<tr>
 				<td><span class="diff_addition">9</span><span class="diff_deletion">7</span></td>
-				<td><span class="synopsis_controls">[</span><span class="synopsis_placeholder">option</span>: <span class="synopsis_controls">]</span>argument <span class="synopsis_controls">[</span><span class="synopsis_placeholder">n</span>: <span class="synopsis_controls">]</span>may not be <span class="synopsis_controls">(</span>empty<span class="synopsis_controls">|</span>blank<span class="synopsis_controls">)</span></td>
+				<td><span class="diff_addition"><span class="synopsis_controls">[</span><span class="synopsis_placeholder">option</span>: <span class="synopsis_controls">]</span></span>argument <span class="diff_addition"><span class="synopsis_controls">[</span></span><span class="diff_deletion">#</span><span class="synopsis_placeholder">n</span>: <span class="diff_addition"><span class="synopsis_controls">]</span></span>may not be <span class="synopsis_controls">(</span>empty<span class="synopsis_controls">|</span>blank<span class="synopsis_controls">)</span></td>
 				<td>
 					Program can not work with empty or blank argument.<br>
 					"Blank" means none or only whitespace characters.<span class="diff_addition">¶<br>
@@ -219,16 +219,24 @@
 			</tr>
 			<tr>
 				<td><span class="diff_addition">10</span><span class="diff_deletion">8</span></td>
-				<td><span class="synopsis_controls">[</span><span class="synopsis_placeholder">option</span>: <span class="synopsis_controls">]</span><span class="synopsis_placeholder">argument</span>: not a <span class="synopsis_controls">(</span>number<span class="synopsis_controls">|</span>integer<span class="synopsis_controls">)</span></td>
+				<td><span class="synopsis_controls">[</span><span class="synopsis_placeholder">option</span>: <span class="synopsis_controls">]</span><span class="synopsis_placeholder">argument</span>: not a<span class="synopsis_controls">[</span>n<span class="synopsis_controls">]</span> <span class="synopsis_controls">(</span>number<span class="synopsis_controls">|</span>integer<span class="synopsis_controls">)</span></td>
 				<td>
-					The argument is not a valid number or is not a valid integer.
+					The argument is not a valid number or is not a valid integer.<span class="diff_deletion">¶<br>
+					If a valid decimal number has been entered and this exit
+					status is returned then you must convert the decimal number
+					into an integer.</span>
 				</td>
 			</tr>
 			<tr class="diff_addition">
 				<td>11</td>
 				<td><span class="synopsis_controls">[</span><span class="synopsis_placeholder">option</span>: <span class="synopsis_controls">]</span><span class="synopsis_placeholder">argument</span>: out of range<span class="synopsis_controls">[</span> (<span class="synopsis_placeholder">relational_op</span> <span class="synopsis_placeholder">limit</span>)<span class="synopsis_controls">]</span></td>
 				<td>
-					The numerical argument is out of the given range.
+					The numerical argument is out of the given range.<br>
+					<span class="synopsis_placeholder">relational_op</span> may
+					be the four relational operators: <code>&lt;=</code>,
+					<code>&lt;</code>, <code>></code> or <code>>=</code><br>
+					<span class="synopsis_placeholder">limit</span> may either
+					be the minumum, floor, maximum or ceiling value.
 				</td>
 			</tr>
 			<tr>

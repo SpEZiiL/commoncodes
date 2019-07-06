@@ -210,7 +210,7 @@
 			</tr>
 			<tr>
 				<td>10</td>
-				<td><span class="synopsis_controls">[</span><span class="synopsis_placeholder">option</span>: <span class="synopsis_controls">]</span><span class="synopsis_placeholder">argument</span>: not a <span class="synopsis_controls">(</span>number<span class="synopsis_controls">|</span>integer<span class="synopsis_controls">)</span></td>
+				<td><span class="synopsis_controls">[</span><span class="synopsis_placeholder">option</span>: <span class="synopsis_controls">]</span><span class="synopsis_placeholder">argument</span>: not a<span class="synopsis_controls">[</span>n<span class="synopsis_controls">]</span> <span class="synopsis_controls">(</span>number<span class="synopsis_controls">|</span>integer<span class="synopsis_controls">)</span></td>
 				<td>
 					The argument is not a valid number or is not a valid integer.
 				</td>
@@ -219,7 +219,12 @@
 				<td>11</td>
 				<td><span class="synopsis_controls">[</span><span class="synopsis_placeholder">option</span>: <span class="synopsis_controls">]</span><span class="synopsis_placeholder">argument</span>: out of range<span class="synopsis_controls">[</span> (<span class="synopsis_placeholder">relational_op</span> <span class="synopsis_placeholder">limit</span>)<span class="synopsis_controls">]</span></td>
 				<td>
-					The numerical argument is out of the given range.
+					The numerical argument is out of the given range.<br>
+					<span class="synopsis_placeholder">relational_op</span> may
+					be the four relational operators: <code>&lt;=</code>,
+					<code>&lt;</code>, <code>></code> or <code>>=</code><br>
+					<span class="synopsis_placeholder">limit</span> may either
+					be the minumum, floor, maximum or ceiling value.
 				</td>
 			</tr>
 			<tr>
