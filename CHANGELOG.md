@@ -47,16 +47,27 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added ###
 
-* `commoncodes.h` C header file
-* Inserted between status 4 & 5: &lt;option&gt;: invalid option
-* Inserted between status 6 & 7: argument #&lt;n&gt;: may not be empty/blank
-* **See Also** page section with GitHub repo link
+* new status 5: `<option>: invalid option`
+* new status 7: `argument #<n>: may not be (empty|blank)`
+* `commoncodes.h` **C** header file
+* "**See Also**" page section with GitHub repo link
 
 ### Changed ###
 
-* Status 100 & 124: Tweaked description a bit
-* Moved statuses 21 - 26 one code up  
-  e.g.: 21 → 22, and 26 → 27
+* status 5(`invalid argument`) position: moved one code up
+* status 6(`not a number`) and status 7(`does not match`) positions: moved two
+  codes up
+* status 21(`network error`) to status 26(`overflow/underflow error`) positions:
+  moved one code up
+* status 100(`internal fault`) description
+	* _"**[...]** to a stage where user input is awaited."_ →
+	  _"**[...]** to a next stage of execution."_
+* status 124(`interactive script call`) description
+	* _"The script can **[...]**"_ → _"The shell script can **[...]**"_
+
+### Removed ###
+
+* statuses 8 and 9: `(custom usage errors)`
 
 ## [0.2.0] - 2019-05-05 ##
 
@@ -72,7 +83,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed ###
 
-* status 29: tweaked message & description
+* status 29(`not enough memory`) message and description
 	* message: `not enough memory` → `not enough [heap ]memory`"
 	* description: _"**[...]** not enough memory to allocate **[...]**"_ →
 	  _"**[...]** not enough free memory on the heap to allocate **[...]**"_
