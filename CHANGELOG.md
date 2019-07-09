@@ -81,11 +81,41 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added ###
 
-* Usage Errors
-	* 2 - 15
-* Some Other Errors
-	* 16, 17, 24 - 26, 28, 29, 31 - 63
-* **BSD** Errors
-	* 64 - 78
-* Miscellaneous Errors
-	* 1, 79 - 125
+* status 0: `sucess`
+* status 1: `generic error[: <info>]`
+* status 2: `generic usage error[: <info>]`
+* status 3: `[<option>: ]missing argument(s)[: <arguments>...]`
+* status 4: `[<option>: ]too many arguments[: <n>]`
+* status 5: `[<option>: ]<argument>: invalid argument[: <info>]`
+* status 6: `[<option>: ]<argument>: not a[n] (number|integer)`
+* status 7: `[<option>: ]<argument>: does not match: <pattern>`
+* status 8 - 15: `(custom usage errors)`
+* status 16: `<item>: no such <itemtype>[[, <itemtype>]... or <itemtype>]`
+* status 17: `<item>: not a[n] <itemtype>[[, <itemtype>]... or <itemtype>]`
+* status 24: `arithmetic error[: <info>]`
+* status 25: `divided by 0 error`
+* status 26: `(overflow|underflow) error`
+* status 28: `memory error[: <info>]`
+* status 29: `not enough memory`
+* status 31: `emergency stop[: <info>]`
+* status 32 - 63: `(custom errors)`
+* status 64: `command line usage error[: <info>]`
+* status 65: `data format eror[: <info>]`
+* status 66: `cannot open input[: <info>]`
+* status 67: `addressee unknown[: <info>]`
+* status 68: `host name unknoen[: <info>]`
+* status 69: `service unavailable[: <info>]`
+* status 70: `internal software error[: <info>]`
+* status 71: `system error[: <info>]`
+* status 72: `critical OS file missing[: <info>]`
+* status 73: `can't create (user) output file[: <info>]`
+* status 74: `input/output error[: <info>]`
+* status 75: `temp failure[: <info>]`
+* status 76: `remote error in protocol[: <info>]`
+* status 77: `permission denied[: <info>]`
+* status 78: `configuration error[: <info>]`
+* status 79 - 99: `(custom configuration errors)`
+* status 100: `generic internal fault[: <info>]`
+* status 101 - 123: `(custom internal faults)`
+* status 124: `script was [not ]called interactively`
+* status 125: `unknown error`
