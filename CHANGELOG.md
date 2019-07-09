@@ -64,16 +64,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added ###
 
-* Status 21: network error
-* Status 22: no network connection
-* Status 23: connection timed out
-* Status 30: stack overflow error
-* Explanation for the message synopsis to description
+* status 21: `network error[: <info>]`
+* status 22: `no network connection`
+* status 23: `connection timed out`
+* status 30: `stack overflow error`
+* explanation for the message synopsis to description
 
 ### Changed ###
 
-* Status 29: Tweaked message a bit
-	* "not enough memory" → "not enough [heap ]memory"
+* status 29: tweaked message & description
+	* message: `not enough memory` → `not enough [heap ]memory`"
+	* description: _"**[...]** not enough memory to allocate **[...]**"_ →
+	  _"**[...]** not enough free memory on the heap to allocate **[...]**"_
 
 ## [0.1.0] - 2019-05-03 ##
 
