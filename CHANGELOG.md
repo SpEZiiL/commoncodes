@@ -21,25 +21,45 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added ###
 
-* Inserted between status 5 & 6: &lt;option&gt;: unexpected option
-* Inserted between status 7 & 8: &lt;argument&gt;: unknown [sub]command
-* Inserted between status 10 & 11: [&lt;option&gt;: ]&lt;argument&gt;: out of
-  range[ (&lt;relational_op&gt; &lt;limit&gt;)]
-* Common placeholder and CommonCodes usage explanation to description
-* Status 3 & 4: Added explanation for placeholder to description
-* grep(1) to See Also page section
+* new status 6: `<option>: unexpected option`
+* new status 8: `<argument>: unknown [sub]command`
+* new status 11: `[<option>: ]<argument>: out of range[ (<relational_op> <limit>)]`
+* new statuses 32 - 47: `(custom feedback error)`
+* to status 3 (`missing arguments`) description
+	* _"**[...]**¶&lt;arguments&gt; may be the placeholder name of the missing arguments."_
+* to status 4 (`too many arguments`) description
+	* _"**[...]**¶&lt;n&gt; may be the amount of arguments that are not needed."_
+* to status 7 (`may not be empty`) description
+	* _"**[...]**¶&lt;n&gt; is the position of the argument that is empty/blank and is only really needed when the program/option needs multiple arguments."_
+* `[: <info>]` and `<option>` placeholder explanation to description
+* `grep(1)` to "**See Also**" page section
 
 ### Changed ###
 
-* Status 7 & 3: Tweaked messages a bit
-* Status 9: Added to description a bit
-* Status 8: Tweaked message and description
-* Statuses 10 - 15 → 13 - 23
-* Status 16 → 20
-* Status 17 → 21
-* Moved memory errors and emergency stop error up inbetween the custom
-  configuration errors and the internal faults
-* Statuses 32 - 47: custom feedback statuses
+* status 6 (`invalid argument`) position to 7
+* statuses 7 (`may not be empty`) & 8 (`not a number`) positions to 9 & 10
+* status 9 (`does not match`) position to 12
+* status range 10 - 15 (`(custom usage errors)`) to 13 - 23 (+5)
+* statuses 16 (`no such itemtype`) & 17 (`not an itemtype`) positions to 24 & 25
+* statuses 22 (`network error`) - 27 (`overflow/underflow error`) positions to
+  26 - 31
+* statuses 28 (`memory error`) - 30 (`stack overflow`) positions to 99 - 101
+* status 31 (`emergency stop`) position to 123
+* status range 32 - 63 (`(custom errors)`) to 48 - 63 (-16)
+* status range 79 - 99 (`(custom configuration errors)`) to 79 - 98 (-1)
+* status 100 (`generic internal fault`) position to 102
+* status range 101 - 123 (`(custom internal faults)`) to 103 - 122 (-2)
+* status 3 (`missing arguments`) message
+	* `[<option>: ]missing argument(s)[: <arguments>...]` →
+	  `[<option>: ]missing argument[s][: <argument>...]`
+* status 7 (`may not be empty`) message
+	* `argument #<n>: may not be (empty|blank)` →
+	  `[<option>:]argument [<n>:]may not be (empty|blank)`
+
+### Removed ###
+
+* from status 8 (`not a number`) description
+	* _"**[...]**¶If a valid decimal number has been entered and this exit status is returned then you must convert the decimal number into an integer."_
 
 ## [0.3.0] - 2019-05-06 ##
 
