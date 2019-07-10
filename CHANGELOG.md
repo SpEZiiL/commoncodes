@@ -12,8 +12,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added ###
 
-* Inserted between Status 97 & 98: &lt;path&gt;: too many levels of symbolic link
-* Inserted between Status 98 & 99: &lt;path&gt;: filename too long
+* new status 98: `<path>: too many levels of symbolic link`
+* new status 99: `<path>: filename too long`
+
+### Changed ###
+
+* status range 79 - 98 (`(custom configuration errors)`) to 79 - 97 (-1)
+* statuses 99 (`memory error`) - 102 (`generic internal fault`) positions to
+  100 - 103
+* status range 103 - 122 (`(custom internal faults)`) to 104 - 122 (-1)
 
 ## [1.0.0] - 2019-05-11 ##
 
