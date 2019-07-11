@@ -24,12 +24,12 @@
 23 <<(custom usage error)>>
 24 <item>: no such <itemtype>[[, <itemtype>]... or <itemtype>]
 25 <item>: not a[n] <itemtype>[[, <itemtype>]... or <itemtype>]
-26 network error[: info]
-27 no network connection
-28 connection timed out
-29 arithmetic error[: info]
-30 divided by 0 error
-31 (overflow|underflow) error
+26
+27
+28 network error[: info]
+29 no network connection
+30 connection timed out
+31 arithmetic error[: info]
 32 <<(custom feedback status)>>
 33 <<(custom feedback status)>>
 34 <<(custom feedback status)>>

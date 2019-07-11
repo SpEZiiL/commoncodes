@@ -17,6 +17,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed ###
 
+* statuses 26 (`network error[: <info>]`) - 29 (`arithmetic error[: <info>]`)
+  positions to 28 - 31
 * status range 79 - 98 (`(custom configuration errors)`) to 79 - 97 (-1)
 * statuses 99 (`memory error`) - 102 (`generic internal fault`) positions to
   100 - 103
@@ -81,15 +83,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed ###
 
-* status 5(`invalid argument`) position: moved one code up
-* status 6(`not a number`) and status 7(`does not match`) positions: moved two
+* status 5 (`invalid argument`) position: moved one code up
+* status 6 (`not a number`) and status 7 (`does not match`) positions: moved two
   codes up
-* status 21(`network error`) to status 26(`overflow/underflow error`) positions:
+* status 21 (`network error`) to status 26 (`overflow/underflow error`) positions:
   moved one code up
-* status 100(`internal fault`) description
+* status 100 (`internal fault`) description
 	* _"**[...]** to a stage where user input is awaited."_ →
 	  _"**[...]** to a next stage of execution."_
-* status 124(`interactive script call`) description
+* status 124 (`interactive script call`) description
 	* _"The script can **[...]**"_ → _"The shell script can **[...]**"_
 
 ### Removed ###
@@ -110,7 +112,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed ###
 
-* status 29(`not enough memory`) message and description
+* status 29 (`not enough memory`) message and description
 	* message: `not enough memory` → `not enough [heap ]memory`"
 	* description: _"**[...]** not enough memory to allocate **[...]**"_ →
 	  _"**[...]** not enough free memory on the heap to allocate **[...]**"_
