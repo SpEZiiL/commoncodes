@@ -1,0 +1,38 @@
+{p CommonCodes} is an attempt to standardize the meaning of exit statuses of
+ programs written for {p Unix} like systems.
+
+{p CommonCodes} includes the 15 exit codes defined by {p BSD} in {c sysexits.h}
+ that range from 64 to 78.
+
+{p GNU} {p Bash} uses the exit status 2 to indicate incorrect usage of shell
+ builtins. {p Bash} also uses codes above 125 for special exit statuses like
+ termination by a sent signal.
+{p CommonCodes} adopts both of these rules, using 2 as a generic usage error and
+ not defining any codes above 125.
+
+If you're going to use the {p CommonCodes} standard in your program, be sure to
+ document it. A good place would be both the {c --help} summary and the programs
+ manpage.
+It is recommended to always add which exact version is being used.
+
+Some ranges have been kept empty so that developers may add error messages of
+ their own, tailored to the program that they are writing.
+If statuses in these ranges are defined then they should always be documented.
+ Again in the {c --help} summary and in the manpage.
+
+In the following table, these rules apply for the messages:
+
+* Italic and/or underlined symbols are placeholders for other text that should
+   get replaced for real messages.
+* Text and symbols in bold square brackets may be ommitted in real messages.
+* Text and symbols followed by bold ellipsis may be repeated one or more times
+   in real messages.
+* In real messages, only one field of text and symbols may be displayed if they
+   are separated by bold vertical bars(|).
+
+Some status messages have the suffix {s [: info]} appendend to them and a lot of
+ usage errors about arguments also contain the placeholder {sp option}
+{sp info} may be more information on what the error represents and why it
+ happened.
+{sp option} may be either a {p POSIX} short option or a {p GNU} long option, if
+ that option received the argument that is invalid except the program itself.

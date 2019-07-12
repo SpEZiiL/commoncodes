@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 * new status 98: `<path>: too many levels of symbolic link`
 * new status 99: `<path>: filename too long`
+* `glob(7)` and `regex(7)` to **See Also** page section
 
 ### Changed ###
 
@@ -23,6 +24,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * statuses 99 (`memory error`) - 102 (`generic internal fault`) positions to
   100 - 103
 * status range 103 - 122 (`(custom internal faults)`) to 104 - 122 (-1)
+
+### Removed ###
+
+* status 30: `divided by 0 error`
+* status 31: `(overflow|underflow) error`
 
 ## [1.0.0] - 2019-05-11 ##
 
