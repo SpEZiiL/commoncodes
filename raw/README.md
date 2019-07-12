@@ -39,6 +39,13 @@ The files in this directory hold the raw data of **CommonCodes**.
 * [`author`](./author)  
   A list of authors.  
   Each line is on author and they will be separated with commas
+* [`version`](./version)  
+  A file with three values:
+  * `version` - which specified the current version of **CommonCodes**
+  * `date` - the last date this version of **CommonCodes** was changed
+  * `latest_release` - if this version is the latest release or not  
+    used for the web page format to know if to change the notice at the
+     beginning of the page
 
 ## Description Format ##
 
