@@ -69,8 +69,8 @@ The command is specified right after the opening brace. After whitespace, the
 
 In this example the word `Lorem` is formatted with the command `p`, which stands
  for _"proper name"_ and the text `Pellentesque et` is formatted with the
- command `c`, which stands for `code` and will generate the text in a monospace
- font.
+ command `c`, which stands for _"code"_ and will generate the text in a
+ monospace font.
 
 These formatting commands are defined:
 
@@ -95,3 +95,7 @@ These formatting commands are defined:
 * `sc` - _synopsis control_  
   Formats the text the same way as square brackets, parenthesis and ellipsis are
    displayed in the `s` command  
+* `cb`/`cbo` - curly brace (open)  
+  Inserts an open curly brace
+* `cbc` - curly brace closed
+  Inserts a closed curly brace
