@@ -95,7 +95,7 @@ These formatting commands are defined:
 * `sc` - _synopsis control_  
   Formats the text the same way as square brackets, parenthesis and ellipsis are
    displayed in the `s` command  
-* `cb`/`cbo` - curly brace (open)  
+* `cb`/`cbo` - _curly brace (open)_  
   Inserts an open curly brace
-* `cbc` - curly brace closed
+* `cbc` - _curly brace closed_  
   Inserts a closed curly brace
