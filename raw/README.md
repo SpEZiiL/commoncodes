@@ -8,7 +8,7 @@ The files in this directory hold the raw data of **CommonCodes**.
 * [`description`](./description)  
   The first section in the web page and the second in the man page  
   Text around curly braces(`{}`) are specially formatted  
-  Dependent on the format, what exactly is done differs
+  Dependent on the format, what exactly is done differs  
   Read more about this format in the [next section](#description-format) of this
    file
 * [`status-code-table`](./status-code-table)  
@@ -31,23 +31,24 @@ The files in this directory hold the raw data of **CommonCodes**.
   Same format as the [`description`](./description) file
 * [`see also`](./see-also)  
   The last section with some links and references  
-  Lines beginning with `plainlink:` will be put into angle brackets(`<>`) and in
-   the we page it will be wrapped inside an `a` tag
-  If a line is beginning with `manlink:` nothing is done in the man page format
-   but in the web page format the man section and the page will be put into the
-    link described by the line beginning with `mansite:`
+  Lines beginning with `plainlink:` will be put into angle brackets(`<>`) in the
+   manpage and in the web page it will be wrapped inside an `a` tag  
+  If a line begins with `manlink:` nothing is done in the man page format but in
+   the web page format the man section and the page will be put into the link
+   described by the line that beginns with `mansite:`
 * [`author`](./author)  
   A list of authors.  
-  Each line is on author and they will be separated with commas
+  Each line is one author and they will be separated with commas
 * [`version`](./version)  
   A file with three values:
   * `version` - which specified the current version of **CommonCodes**
   * `date` - the last date this version of **CommonCodes** was changed
   * `latest_release` - if this version is the latest release or not  
-    used for the web page format to know if to change the notice at the
-     beginning of the page
+    used for the status line at the beginning of the web page format
 
 ## Description Format ##
+
+### Line Breaks ###
 
 A new line translates to an actual new line in the different formats except
  when the next line starts with an extra space.
@@ -59,10 +60,36 @@ A new line translates to an actual new line in the different formats except
 The first two dummy text sentences will be generated in the same line, the rest
  of the text will be generated on a new line.
 
+### Paragraphs ###
+
+A new paragraph starts with two new lines
+
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+	Vestibulum porta purus quis.
+	
+	Aenean at nisl vitae urna bibendum scelerisque sed non ex.
+	Curabitur. 
+
+### Lists ###
+
+Lists can be created by putting an asterisk(`*`) at the beginning of a paragraph.  
+Any new asterisk at the beginning of a line is another item in the list.
+
+	* foo
+	* bar
+
+A list is NOT created after a single line break.
+
+	Lorem ipsum dolor sit amet.
+	* foo
+	* bar
+
+### Formatting Commands ###
+
 Any text in curly braces(`{}`) will be differently formatted. How they are
- formatted depends on what command with it is used.  
-The command is specified right after the opening brace. After whitespace, the
- text to format is written.
+ formatted depends on what command is used.  
+The command is specified after the opening brace. After whitespace, the text to
+ format is written.
 
 	{p Lorem} ipsum dolor sit amet, consectetur adipiscing elit.
 	 {c Pellentesque et} arcu fermentum, cursus erat iaculis. 
