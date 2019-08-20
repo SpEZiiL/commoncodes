@@ -37,7 +37,7 @@
 12 [<option>: ]<argument>: does not match: <patttern>
   The argument does not match the pattern provided. The pattern can be glob,
    regex or any other pattern matching system.
-13 - 23 <<(custom usage errors)>>
+13-23 <<(custom usage errors)>>
   Usage errors defined by the developer of the program. These should always be
    documented.
 24 <item>: no such <itemtype>[[, <itemtype>]... or <itemtype>]
@@ -56,12 +56,12 @@
   A network request took too long and timed out.
 31 arithmetic error[: info]
   A general arithmetic error occurred.
-32 - 47 <<(custom feedback statuses)>>
+32-47 <<(custom feedback statuses)>>
   Custom exit codes defined by the developer that aren't actually errors, but
    rather, feedback for the program user.
   For example, the program ${se grep} exits with code 1 when it couldn't match
    an entered pattern
-48 - 63 <<(custom errors)>>
+48-63 <<(custom errors)>>
   General custom errors defined by the developer. These should always be
    documented.
 64 command line usage error[: info]
@@ -115,7 +115,7 @@
   Generic internal fault.
   An internal fault happens when preconditions prevent the program to advance to
    a next stage of execution.
-104 - 122 <<(custom internal fault)>>
+104-122 <<(custom internal fault)>>
   Different internal faults, defined by the developer. These should always be
    documented.
 123 emergency stop[: info]

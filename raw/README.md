@@ -6,33 +6,33 @@ The files in this directory hold the raw data of **CommonCodes**.
   The first section in the man page, copied over after trimming and compressing
    whitespace
 * [`description`](./description)  
-  The first section in the web page and the second in the man page  
-  Text around curly braces(`{}`) are specially formatted  
-  Dependent on the format, what exactly is done differs  
+  The first section in the web page and the second in the man page.  
+  Text around curly braces(`{}`) are specially formatted.  
+  Dependent on the format, what exactly is done differs.  
   Read more about this format in the [next section](#description-format) of this
    file
 * [`status-code-table`](./status-code-table)  
-  The table with all the status codes  
+  The table with all the status codes.  
   Each status has three parts to it:
-  1. The exit code  
-     Which is in the first line, at the beginning of the line  
-     If after whitespace there is a dash(`-`) and another number it means that
-      this entire range is the same status
+  1. The exit code(s)  
+     Placed at the beginning of a line. Needs to be a number.  
+     If there are two codes, separated by a dash(`-`), the two numbers are
+      interpreted as beginning and end of a code range
   2. The status message  
-     Also in the first line after the exit code and whitespace, it has a special
-      format, similiar to usage patterns
+     After the exit code, separated by whitespace, it has a special format,
+     similiar to command usage patterns
   3. The description  
-     After the first line, each line beginning with two spaces belongs to the
-      description  
+     Written after the exit code and status message line.  
+     Each line of the description needs to start with two spaces.  
      The entirety of the description uses the same format as the
       [`description`](./description) file
 * [`footnotes`](./footnotes)  
-  Section after the status code table  
+  Section after the status code table.  
   Same format as the [`description`](./description) file
 * [`see also`](./see-also)  
-  The last section with some links and references  
+  The last section with some links and references.  
   Lines beginning with `plainlink:` will be put into angle brackets(`<>`) in the
-   manpage and in the web page it will be wrapped inside an `a` tag  
+   manpage and in the web page it will be wrapped inside an `a` tag.  
   If a line begins with `manlink:` nothing is done in the man page format but in
    the web page format the man section and the page will be put into the link
    described by the line that beginns with `mansite:`
