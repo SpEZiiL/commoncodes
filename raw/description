@@ -1,5 +1,5 @@
-{p CommonCodes} is an attempt to standardize the meaning of exit statuses of
- programs written for {p Unix} like systems.
+{p CommonCodes} is an attempt to create a standardized list of program exit
+ statuses.
 
 {p CommonCodes} includes the 15 exit codes defined by {p BSD} in {c sysexits.h}
  that range from 64 to 78.
