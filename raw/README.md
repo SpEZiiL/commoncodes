@@ -20,7 +20,7 @@ The files in this directory hold the raw data of **CommonCodes**.
       interpreted as beginning and end of a code range
   2. The status message  
      After the exit code, separated by whitespace, it has a special format,
-     similiar to command usage patterns
+     similar to command usage patterns
   3. The description  
      Written after the exit code and status message line.  
      Each line of the description needs to start with two spaces.  
@@ -55,7 +55,7 @@ A new line translates to an actual new line in the different formats except
 
 	Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 	 Vestibulum porta purus quis.
-	Aenean at nisl vitae urna bibendum scelerisque sed non ex. Curabitur. 
+	Aenean at nisl vitae urna bibendum scelerisque sed non ex. Curabitur.
 
 The first two dummy text sentences will be generated in the same line, the rest
  of the text will be generated on a new line.
@@ -92,7 +92,7 @@ The command is specified after the opening brace. After whitespace, the text to
  format is written.
 
 	{p Lorem} ipsum dolor sit amet, consectetur adipiscing elit.
-	 {c Pellentesque et} arcu fermentum, cursus erat iaculis. 
+	 {c Pellentesque et} arcu fermentum, cursus erat iaculis.
 
 In this example the word `Lorem` is formatted with the command `p`, which stands
  for _"proper name"_ and the text `Pellentesque et` is formatted with the
