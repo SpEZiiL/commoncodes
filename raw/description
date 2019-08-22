@@ -24,7 +24,7 @@ In the following table, these rules apply for the messages:
 
 * Italic and/or underlined symbols are placeholders for other text that should
    get replaced for real messages.
-* Text and symbols in bold square brackets may be ommitted in real messages.
+* Text and symbols in bold square brackets may be omitted in real messages.
 * Text and symbols followed by bold ellipsis may be repeated one or more times
    in real messages.
 * In real messages, only one field of text and symbols may be displayed if they
