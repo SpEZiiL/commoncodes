@@ -5,11 +5,15 @@
 * [ ] Added New Status
 * [ ] Changed Status
 * [ ] Removed Status
-* [ ] Text/Grammer Fix
-* [ ] Other: ___
+* [ ] Change or Adjustment Applied
+* [ ] Enhancement or Feature Implementation
+* [ ] Error or Bug Fix
+* [ ] Text or Grammar Fix
+* [ ] Formatting or Style Fix
+* [ ] Other: _____
 
-Closes Issue: ___
+Closes Issue: _____
 
 ## Summary ##
 
-What did you change or add to what files?
+Describe your changes in detail.
