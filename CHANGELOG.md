@@ -32,6 +32,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * status 12 (`does not match`) message (typo fix)
   * `[<option>: ]<argument>: does not match: <patttern>` →
     `[<option>: ]<argument>: does not match: <pattern>`
+* status 74 (`input/output error`) message (typo fix)
+  * `input/output errorv` → `input/output error`
 
 ### Removed ###
 
