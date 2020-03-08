@@ -105,6 +105,7 @@
   Configuration, property and setting errors defined by the developer. These
    should always be documented.
 98 <path>: too many levels of symbolic links
+  Too many symlinks were encountered when trying to resolve the realpath.
 99 <filename>: filename too long
   The name of the file is too long.
   Important distinction: this should be a {s filename} and {e NOT} a {s pathname}.
