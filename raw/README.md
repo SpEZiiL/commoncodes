@@ -2,16 +2,16 @@
 
 The files in this directory hold the raw data of **CommonCodes**.
 
-* [`name`](./name)  
+* [`name`](./v2/name)  
   The first section in the man page, copied over after trimming and compressing
    whitespace
-* [`description`](./description)  
+* [`description`](./v2/description)  
   The first section in the web page and the second in the man page.  
   Text around curly braces(`{}`) are specially formatted.  
   Dependent on the format, what exactly is done differs.  
   Read more about this format in the [next section](#description-format) of this
    file
-* [`status-code-table`](./status-code-table)  
+* [`status-code-table`](./v2/status-code-table)  
   The table with all the status codes.  
   Each status has three parts to it:
   1. The exit code(s)  
@@ -25,21 +25,21 @@ The files in this directory hold the raw data of **CommonCodes**.
      Written after the exit code and status message line.  
      Each line of the description needs to start with two spaces.  
      The entirety of the description uses the same format as the
-      [`description`](./description) file
-* [`footnotes`](./footnotes)  
+      [`description`](./v2/description) file
+* [`footnotes`](./v2/footnotes)  
   Section after the status code table.  
-  Same format as the [`description`](./description) file
-* [`see also`](./see-also)  
+  Same format as the [`description`](./v2/description) file
+* [`see also`](./v2/see-also)  
   The last section with some links and references.  
   Lines beginning with `plainlink:` will be put into angle brackets(`<>`) in the
    manpage and in the web page it will be wrapped inside an `a` tag.  
   If a line begins with `manlink:` nothing is done in the man page format but in
    the web page format the man section and the page will be put into the link
    described by the line that beginns with `mansite:`
-* [`author`](./author)  
+* [`author`](./v2/author)  
   A list of authors.  
   Each line is one author and they will be separated with commas
-* [`version`](./version)  
+* [`version`](./v2/version)  
   A file with three values:
   * `version` - which specified the current version of **CommonCodes**
   * `date` - the last date this version of **CommonCodes** was changed
