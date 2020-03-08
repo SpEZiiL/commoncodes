@@ -26,6 +26,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * statuses 99 (`memory error`) - 102 (`generic internal fault`) positions to
   100 - 103
 * status range 103 - 122 (`(custom internal faults)`) to 104 - 122 (-1)
+* status 103 (`generic internal fault`) description
+  * _"General internal fault.**[...]**"_ → _"Generic internal fault.**[...]**"_
 * status 9 (`may not be empty`) description
   * _"Program can not **[...]**"_ → _"The program can not **[...]**"_
 * status 6 (`unexpected option`) description
@@ -35,13 +37,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed ###
 
 * wording in description
-* status 12 (`does not match`) message (typo fix)
-  * `[<option>: ]<argument>: does not match: <patttern>` →
-    `[<option>: ]<argument>: does not match: <pattern>`
-* status 74 (`input/output error`) message (typo fix)
-  * `input/output errorv` → `input/output error`
-* status 67 (`addressee unknown`) message (typo fix)
-  * `addresse unknown` → `addressee unknown`
+* status 11 (`out of range`) description (typo fix)
+  * _"**[...]** be the minumum, floor, maximum **[...]**"_ →
+     _"**[...]** be the minimum, floor, maximum **[...]**"_
 
 ### Removed ###
 
