@@ -21,6 +21,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed ###
 
+* message format explanation in description
 * statuses 26 (`network error[: <info>]`) - 29 (`arithmetic error[: <info>]`)
   positions to 28 - 31
 * status range 79 - 98 (`(custom configuration errors)`) to 79 - 97 (-1)
