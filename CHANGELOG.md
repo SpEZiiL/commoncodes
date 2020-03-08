@@ -31,6 +31,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed ###
 
+* wording in description
 * status 12 (`does not match`) message (typo fix)
   * `[<option>: ]<argument>: does not match: <patttern>` →
     `[<option>: ]<argument>: does not match: <pattern>`

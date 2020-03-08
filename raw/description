@@ -35,4 +35,4 @@ Some status messages have the suffix {s [: info]} appendend to them and a lot of
 {sp info} may be more information on what the error represents and why it
  happened.
 {sp option} may be either a {p POSIX} short option or a {p GNU} long option, if
- that option received the argument that is invalid except the program itself.
+ that option received the argument that is invalid instead the program itself.
