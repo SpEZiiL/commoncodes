@@ -48,7 +48,7 @@
   The item in question already exists and is of type {mp itemtype}.
 26 <item>: not a[n] <itemtype>[[, <itemtype>]... or <itemtype>]
   The item in question is of the wrong type.
-27
+27 TODO
 28 network error[: <info>]
   A general network error occurred.
 29 no network connection
