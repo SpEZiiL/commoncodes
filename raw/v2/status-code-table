@@ -106,6 +106,8 @@
    should always be documented.
 98 <path>: too many levels of symbolic links
 99 <filename>: filename too long
+  The name of the file is too long.
+  Important distinction: this should be a {s filename} and {e NOT} a {s pathname}.
 100 memory error[: <info>]
   A general memory error occurred.
 101 not enough [heap ]memory
