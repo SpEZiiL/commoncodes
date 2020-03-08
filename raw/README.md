@@ -107,7 +107,7 @@ These formatting commands are defined:
 
 * `e` - _emphasis_  
   Formats the text italic in web pages and underlined in man pages
-* `se` - _strong emphasis_  
+* `s` - _strong emphasis_  
   Formats the text bold in web and man pages
 * `p` - _proper name_  
   Defines the text as a proper name  
