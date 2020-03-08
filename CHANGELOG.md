@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased] ##
 
-[Unreleased]: https://github.com/SpEZiiL/commoncodes/compare/v1.0.0...develop
+[Unreleased]: https://github.com/mfederczuk/commoncodes/compare/v1.0.0...develop
 
 ### Added ###
 
@@ -40,7 +40,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.0.0] - 2019-05-11 ##
 
-[1.0.0]: https://speziil.github.io/commoncodes/v/0.3.0...1.0.0.html
+[1.0.0]: https://mfederczuk.github.io/commoncodes/v/0.3.0...1.0.0.html
 
 ### Added ###
 
@@ -86,7 +86,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.3.0] - 2019-05-06 ##
 
-[0.3.0]: https://speziil.github.io/commoncodes/v/0.2.0...0.3.0.html
+[0.3.0]: https://mfederczuk.github.io/commoncodes/v/0.2.0...0.3.0.html
 
 ### Added ###
 
@@ -114,7 +114,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.2.0] - 2019-05-05 ##
 
-[0.2.0]: https://speziil.github.io/commoncodes/v/0.1.0...0.2.0.html
+[0.2.0]: https://mfederczuk.github.io/commoncodes/v/0.1.0...0.2.0.html
 
 ### Added ###
 
@@ -133,7 +133,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.1.0] - 2019-05-03 ##
 
-[0.1.0]: https://speziil.github.io/commoncodes/v/0.1.0.html
+[0.1.0]: https://mfederczuk.github.io/commoncodes/v/0.1.0.html
 
 ### Added ###
 

@@ -19,7 +19,7 @@
 #ifndef _COMMONCODES_H
 #define _COMMONCODES_H
 
-/* See <https://speziil.github.io/commoncodes/v/1.0.0.html> for more info */
+/* See <https://mfederczuk.github.io/commoncodes/v/1.0.0.html> for more info */
 
 #define CC_SUCCESS        0 /* success */
 #define CC_GEN_ERR        1 /* generic error */
