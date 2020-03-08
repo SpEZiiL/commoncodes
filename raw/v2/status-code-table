@@ -100,7 +100,7 @@
   You did not have sufficient permission to perform the operation.
 78 configuration error[: info]
   Something was found in an unconfigured or misconfigured state.
-79-97 <<(custom configuration error)>>
+79-97 <<(custom configuration errors)>>
   Configuration, property and setting errors defined by the developer. These
    should always be documented.
 98 <path>: too many levels of symbolic links
@@ -115,7 +115,7 @@
   Generic internal fault.
   An internal fault happens when preconditions prevent the program to advance to
    a next stage of execution.
-104-122 <<(custom internal fault)>>
+104-122 <<(custom internal faults)>>
   Different internal faults, defined by the developer. These should always be
    documented.
 123 emergency stop[: info]
