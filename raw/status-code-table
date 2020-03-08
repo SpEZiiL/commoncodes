@@ -23,7 +23,7 @@
 8 <argument>: unknown [sub]command
   The entered (sub)command of the program is not known.
 9 [<option>: ]argument [<n>: ]may not be (empty|blank)
-  Program can not work with empty or blank argument.
+  The program can not work with empty or blank argument.
   "Blank" means none or only whitespace characters.
   {sp n} is the position of the argument that is empty/blank and is only really
    needed when the program/option needs multiple arguments.
