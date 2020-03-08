@@ -89,7 +89,7 @@
    cannot be opened, or has some sort of error (e.g., syntax error).
 73 can't create (user) output file[: <info>]
   A (user specified) output file cannot be created.
-74 input/output error
+74 input/output error[: <info>]
   An error occurred while doing I/O on some file.
 75 temp failure[: <info>]
   Temporary failure, indicating something that is not really an error.
