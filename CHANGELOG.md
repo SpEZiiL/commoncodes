@@ -1,4 +1,4 @@
-<!-- markdownlint-disable MD024 MD007 MD033 -->
+<!-- markdownlint-disable MD024 -->
 
 # Changelog #
 
@@ -41,11 +41,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * new status 11: `[<option>: ]<argument>: out of range[ (<relational_op> <limit>)]`
 * new statuses 32 - 47: `(custom feedback error)`
 * to status 3 (`missing arguments`) description
-	* _"**[...]**¶&lt;arguments&gt; may be the placeholder name of the missing arguments."_
+  * _"**[...]**¶&lt;arguments&gt; may be the placeholder name of the missing arguments."_
 * to status 4 (`too many arguments`) description
-	* _"**[...]**¶&lt;n&gt; may be the amount of arguments that are not needed."_
+  * _"**[...]**¶&lt;n&gt; may be the amount of arguments that are not needed."_
 * to status 7 (`may not be empty`) description
-	* _"**[...]**¶&lt;n&gt; is the position of the argument that is empty/blank and is only really needed when the program/option needs multiple arguments."_
+  * _"**[...]**¶&lt;n&gt; is the position of the argument that is empty/blank and is only really needed when the program/option needs multiple arguments."_
 * `[: <info>]` and `<option>` placeholder explanation to description
 * `grep(1)` to "**See Also**" page section
 
@@ -65,16 +65,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * status 100 (`generic internal fault`) position to 102
 * status range 101 - 123 (`(custom internal faults)`) to 103 - 122 (-2)
 * status 3 (`missing arguments`) message
-	* `[<option>: ]missing argument(s)[: <arguments>...]` →
-	  `[<option>: ]missing argument[s][: <argument>...]`
+  * `[<option>: ]missing argument(s)[: <arguments>...]` →
+    `[<option>: ]missing argument[s][: <argument>...]`
 * status 7 (`may not be empty`) message
-	* `argument #<n>: may not be (empty|blank)` →
-	  `[<option>:]argument [<n>:]may not be (empty|blank)`
+  * `argument #<n>: may not be (empty|blank)` →
+    `[<option>:]argument [<n>:]may not be (empty|blank)`
 
 ### Removed ###
 
 * from status 8 (`not a number`) description
-	* _"**[...]**¶If a valid decimal number has been entered and this exit status is returned then you must convert the decimal number into an integer."_
+  * _"**[...]**¶If a valid decimal number has been entered and this exit status is returned then you must convert the decimal number into an integer."_
 
 ## [0.3.0] - 2019-05-06 ##
 
@@ -95,10 +95,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * status 21 (`network error`) to status 26 (`overflow/underflow error`) positions:
   moved one code up
 * status 100 (`internal fault`) description
-	* _"**[...]** to a stage where user input is awaited."_ →
-	  _"**[...]** to a next stage of execution."_
+  * _"**[...]** to a stage where user input is awaited."_ →
+    _"**[...]** to a next stage of execution."_
 * status 124 (`interactive script call`) description
-	* _"The script can **[...]**"_ → _"The shell script can **[...]**"_
+  * _"The script can **[...]**"_ → _"The shell script can **[...]**"_
 
 ### Removed ###
 
@@ -119,9 +119,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed ###
 
 * status 29 (`not enough memory`) message and description
-	* message: `not enough memory` → `not enough [heap ]memory`"
-	* description: _"**[...]** not enough memory to allocate **[...]**"_ →
-	  _"**[...]** not enough free memory on the heap to allocate **[...]**"_
+  * message: `not enough memory` → `not enough [heap ]memory`"
+  * description: _"**[...]** not enough memory to allocate **[...]**"_ →
+    _"**[...]** not enough free memory on the heap to allocate **[...]**"_
 
 ## [0.1.0] - 2019-05-03 ##
 
