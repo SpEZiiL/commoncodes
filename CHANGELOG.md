@@ -27,6 +27,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * statuses 99 (`memory error`) - 102 (`generic internal fault`) positions to
   100 - 103
 * status range 103 - 122 (`(custom internal faults)`) to 104 - 122 (-1)
+* swap status 25 (`item not an itemtype`) and status 26 (`item already exists`)
 * status 103 (`generic internal fault`) description
   * _"General internal fault.**[...]**"_ → _"Generic internal fault.**[...]**"_
 * status 9 (`may not be empty`) description
