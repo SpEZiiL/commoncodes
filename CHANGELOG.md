@@ -147,7 +147,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added ###
 
-* status 0: `sucess`
+* status 0: `success`
 * status 1: `generic error[: <info>]`
 * status 2: `generic usage error[: <info>]`
 * status 3: `[<option>: ]missing argument(s)[: <arguments>...]`
