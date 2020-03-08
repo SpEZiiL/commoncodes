@@ -20,7 +20,7 @@ The files in this directory hold the raw data of **CommonCodes**.
       interpreted as beginning and end of a code range
   2. The status message  
      After the exit code, separated by whitespace, it has a special format,
-     similar to command usage patterns
+      similar to command usage patterns
   3. The description  
      Written after the exit code and status message line.  
      Each line of the description needs to start with two spaces.  
