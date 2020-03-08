@@ -36,17 +36,13 @@ The files in this directory hold the raw data of **CommonCodes**.
   If a line begins with `manlink:` nothing is done in the man page format but in
    the web page format the man section and the page will be put into the link
    described by the line that beginns with `mansite:`
-* [`author`](./v2/author)  
-  A list of authors.  
-  Each line is one author and they will be separated with commas
-* [`version`](./v2/version)  
-  A file with three values:
-  * `version` - the full version name of **CommonCodes**
-  * `date` - the last date this version of **CommonCodes** was changed
-* [copyright](./v2/copyright)  
-  A file with two values:
-  * `years` - all years in which a revision of **CommonCodes** was released
-  * `holder` - the copyright holder of **CommonCodes**
+* [`metadata.yaml`](./v2/metadata.yaml)  
+  Holds metadata for the specific version of **CommonCodes**
+  * `authors` - the full list of contributors
+  * `copyright_years` - the full list of yeards in which revisions were released
+  * `copyright_holder` - the copyright holder
+  * `version` - the full version name
+  * `date` - the last date this version was changed
 
 ## Description Format ##
 
