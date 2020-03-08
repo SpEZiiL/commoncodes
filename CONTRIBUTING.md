@@ -1,40 +1,34 @@
-# How To Contribute to CommonCodes #
+# CommonCodes Contribution Guidelines #
 
-Thanks for taking the time to contribute to this project!
+Here are a few rules and guidelines you need to follow if you want to contribute
+ to this project.  
+It's much appreciated if you do decide to contribute something, whether it is
+ an issue or a pull request!
 
-In this short document you're going to read how to report bugs or errors,
-request new features or other changes and how to contribute to the source files!
+For any sort of contribution you will need to accept and follow the
+ [code of conduct](./CODE_OF_CONDUCT.md). Here's the short version if you don't
+ have the time to read through it all: *Don't be a dick to anyone.*  
+I have nothing against swearing or joking around, but don't go too far.  
+Everyone should feel welcome and accepted here, doesn't matter who they are.
 
-## Reports and Requests ##
+The main and only language in this repository is **English**. Please refrain
+ from speaking any other language.  
+Nobody will go after you for writing a few words in another language, just don't
+ write entire sentences in a language that isn't English.
 
-If you want to submit a bug or other error report or want to suggest a new
-feature or some other change, then you can do so by [creating a new issue][new_issue].
+This project **strictly** adheres to [Semantic Versioning] and a
+ [changelog](./CHANGELOG.md) file is kept based on the [Keep a Changelog] format.
 
-But before you do, make sure that...
+[Creating a new issue] is an easy and fast way to contribute.  
+There are several issue templates to help you contribute suggestions, requests,
+ reports or questions. While it is recommended to use these templates, it's not
+ mandatory.
 
-* There isn't already a issue open for this specific (or similiar)
-  problem/request
-* The feature you want to request is appropriate
+Follow both the [Code Style Guides] and the [Git Guides] of this project and
+ always use the pull request template.
 
-If all of those points apply to your report/request, then please open a new
-issue and help improve **CommonCodes**!
-
-[new_issue]: https://github.com/SpEZiiL/%%REPO_NAME%%/issues/new/choose "Create new Issue"
-
-## Contributions ##
-
-If you don't wanna wait for someone to fix the problem you have, or to implement
-the new feature, you can just do it yourself!
-
-First, though, go through this list of important bullet points:
-
-* The main and only language this project uses is English, be sure that you can
-  properly communicate with other people
-* Agree and follow our [Code of Conduct](CODE_OF_CONDUCT.md)
-
-This project strictly adheres to [Semantic Versioning][semver].
-
-After your done with editing the code, add your change to the
-[CHANGELOG.md](CHANGELOG.md) file.
-
-[semver]: https://semver.org/spec/v2.0.0.html "Semantic Versioning v2.0.0"
+[Semantic Versioning]: https://semver.org/spec/v2.0.0.html "Semantic Versioning v2.0.0"
+[Keep a Changelog]: https://keepachangelog.com/en/1.0.0/ "Keep a Changelog v1.0.0"
+[Creating a new issue]: https://github.com/mfederczuk/commoncodes/issues/new/choose "Create new Issue"
+[Code Style Guides]: https://mfederczuk.github.io/code-guides "Code Style Guides"
+[Git Guides]: https://mfederczuk.github.io/git-guides "Git Guides"

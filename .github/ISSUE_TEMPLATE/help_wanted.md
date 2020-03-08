@@ -6,7 +6,7 @@ labels: help wanted
 
 # Help Wanted #
 
-**Issue**: _____
+**On Issue**: _____
 
 ## Description ##
 

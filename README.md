@@ -1,8 +1,11 @@
 # CommonCodes #
 
-[version-shield]: https://img.shields.io/badge/version-1.0.0-blue.svg
-[latest-release]: https://mfederczuk.github.io/commoncodes/v/1.0.0.html "Latest Release"
-[![version: 1.0.0][version-shield]][latest-release]
+[version_shield]: https://img.shields.io/badge/version-1.0.0-blue.svg
+[latest_release]: https://mfederczuk.github.io/commoncodes/v/1.0.0.html "Latest Release"
+[![version: 1.0.0][version_shield]][latest_release]
+[![Changelog](https://img.shields.io/badge/-Changelog-blue.svg)](./CHANGELOG.md "Changelog")
+
+## About ##
 
 **CommonCodes** is an attempt to create a standardized list of program exit
  statuses.
@@ -22,5 +25,11 @@ Now, you can't really call this a proper standardization. I wanted a full list
  of statuses, where every code from 0 to 255 was defined to have some meaning.
  But this was just something that did not exist... until now.
 
-I would greatly appreciate it if you would contribute! Just make sure to read
- through the [CONTRIBUTING.md](./CONTRIBUTING.md) file.
+## Contributing ##
+
+Read through the [CommonCodes Contribution Guidelines](./CONTRIBUTING.md)
+ if you want to contribute to this project.
+
+## License ##
+
+[GNU GPLv3+](./LICENSE)
