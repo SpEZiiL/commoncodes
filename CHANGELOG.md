@@ -28,6 +28,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * status range 103 - 122 (`(custom internal faults)`) to 104 - 122 (-1)
 * status 9 (`may not be empty`) description
   * _"Program can not **[...]**"_ → _"The program can not **[...]**"_
+* status 6 (`unexpected option`) description
+  * _"The seen option at this position with the set of combination and **[...]**"_ →
+     _"The spotted option at this position with the combination and **[...]**"_
 
 ### Fixed ###
 

@@ -16,7 +16,7 @@
 5 <option>: invalid option
   The entered option is not specified in the program.
 6 <option>: unexpected option
-  The seen option at this position with the set of combination and order of
+  The spotted option at this position with the combination and order of
    arguments and other options is invalid.
 7 [<option>: ]<argument>: invalid argument[: <info>]
   The argument is invalid and cannot be used.
