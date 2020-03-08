@@ -35,8 +35,8 @@
    or {c >=}
   {sp limit} may either be the minimum, floor, maximum or ceiling value.
 12 [<option>: ]<argument>: does not match: <pattern>
-  The argument does not match the pattern provided. The pattern can be glob,
-   regex or any other pattern matching system.
+  The argument does not match the pattern provided. The pattern can be {p glob},
+   {p regex} or any other pattern matching system.
 13-23 <<(custom usage errors)>>
   Usage errors defined by the developer of the program. These should always be
    documented.
