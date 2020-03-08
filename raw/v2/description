@@ -30,9 +30,9 @@ In the following table, these rules apply for the messages:
 * In real messages, only one field of text and symbols may be displayed if they
    are separated by bold vertical bars(|).
 
-Some status messages have the suffix {s [: info]} appendend to them and a lot of
- usage errors about arguments also contain the placeholder {sp option}.
-{sp info} may be more information on what the error represents and why it
+Some status messages have the suffix {m [: info]} appendend to them and a lot of
+ usage errors about arguments also contain the placeholder {mp option}.
+{mp info} may be more information on what the error represents and why it
  happened.
-{sp option} may be either a {p POSIX} short option or a {p GNU} long option, if
+{mp option} may be either a {p POSIX} short option or a {p GNU} long option, if
  that option received the argument that is invalid instead the program itself.

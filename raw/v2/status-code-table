@@ -8,11 +8,11 @@
 3 [<option>: ]missing argument[s][: <arguments>...]
   Not enough arguments have been passed down to the program or to an option of
    the program.
-  {sp arguments} may be the placeholder name of the missing arguments.
+  {mp arguments} may be the placeholder name of the missing arguments.
 4 [<option>: ]too many arguments[: <n>]
   Too many arguments have been passed down to the program or to an option of the
    program.
-  {sp n} may be the amount of arguments that are not needed.
+  {mp n} may be the amount of arguments that are not needed.
 5 <option>: invalid option
   The entered option is not specified in the program.
 6 <option>: unexpected option
@@ -25,15 +25,15 @@
 9 [<option>: ]argument [<n>: ]may not be (empty|blank)
   The program can not work with empty or blank argument.
   "Blank" means none or only whitespace characters.
-  {sp n} is the position of the argument that is empty/blank and is only really
+  {mp n} is the position of the argument that is empty/blank and is only really
    needed when the program/option needs multiple arguments.
 10 [<option>: ]<argument>: not a[n] (number|integer)
   The argument is not a valid number or is not a valid integer.
 11 [<option>: ]<argument>: out of range[ \(<relational_op> <limit>)]
   The numerical argument is out of the given range.
-  {sp relational_opt} may be the four relational operators: {c <=}, {c <}, {c >}
+  {mp relational_opt} may be the four relational operators: {c <=}, {c <}, {c >}
    or {c >=}
-  {sp limit} may either be the minimum, floor, maximum or ceiling value.
+  {mp limit} may either be the minimum, floor, maximum or ceiling value.
 12 [<option>: ]<argument>: does not match: <pattern>
   The argument does not match the pattern provided. The pattern can be {p glob},
    {p regex} or any other pattern matching system.
@@ -42,7 +42,7 @@
    documented.
 24 <item>: no such <itemtype>[[, <itemtype>]... or <itemtype>]
   The item in question could not be found.
-  {sp item} can be things like paths, etc. and {sp itemtype} can be things like
+  {mp item} can be things like paths, etc. and {mp itemtype} can be things like
    regular files, directories, etc.
 25 <item>: not a[n] <itemtype>[[, <itemtype>]... or <itemtype>]
   The item in question is of the wrong type.

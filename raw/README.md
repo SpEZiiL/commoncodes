@@ -115,17 +115,17 @@ These formatting commands are defined:
 * `c` - _code_  
   Displays this text in a monospace font in the web page  
   In the man page, the text is made bold
-* `s` - _synopsis_  
+* `m` - _message_  
   A special command that formats the text the same way the status message in the
    status code table is formatted
-* `sp` - _synopsis placeholder_  
+* `mp` - _message placeholder_  
   Formats the text the same way as any text in angle brackets is displayed in
-   the `s` command  
+   the `m` command  
   In web pages, the text is made italic and is underlined  
   In man pages, the text is only underlined
-* `sc` - _synopsis control_  
+* `mc` - _message control_  
   Formats the text the same way as square brackets, parenthesis and ellipsis are
-   displayed in the `s` command  
+   displayed in the `m` command  
 * `cb`/`cbo` - _curly brace (open)_  
   Inserts an open curly brace
 * `cbc` - _curly brace closed_  
