@@ -31,7 +31,7 @@
   The argument is not a valid number or is not a valid integer.
 11 [<option>: ]<argument>: out of range[ \(<relational_op> <limit>)]
   The numerical argument is out of the given range.
-  {mp relational_opt} may be the four relational operators: {c <=}, {c <}, {c >}
+  {mp relational_op} may be the four relational operators: {c <=}, {c <}, {c >}
    or {c >=}
   {mp limit} may either be the minimum, floor, maximum or ceiling value.
 12 [<option>: ]<argument>: does not match: <pattern>
@@ -59,8 +59,8 @@
 32-47 <<(custom feedback statuses)>>
   Custom exit codes defined by the developer that aren't actually errors, but
    rather, feedback for the program user. These should always be documented.
-  For example, the program ${p grep} exits with code 1 when it couldn't match an
-   entered pattern
+  For example, the program {p grep} exits with code 1 when it couldn't match an
+   entered pattern.
 48-63 <<(custom errors)>>
   General custom errors defined by the developer. These should always be
    documented.
@@ -75,7 +75,7 @@
    it).
 67 addressee unknown[: <info>]
   The user specified did not exist.
-68 hosts name unknown[: <info>]
+68 host name unknown[: <info>]
   The host specified did not exist.
 69 service unavailable[: <info>]
   A service is unavailable. This can occur if a support program or file does not
