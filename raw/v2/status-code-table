@@ -48,13 +48,13 @@
   The item in question is of the wrong type.
 26
 27
-28 network error[: info]
+28 network error[: <info>]
   A general network error occurred.
 29 no network connection
   No network connection is established.
 30 connection timed out
   A network request took too long and timed out.
-31 arithmetic error[: info]
+31 arithmetic error[: <info>]
   A general arithmetic error occurred.
 32-47 <<(custom feedback statuses)>>
   Custom exit codes defined by the developer that aren't actually errors, but
@@ -64,61 +64,61 @@
 48-63 <<(custom errors)>>
   General custom errors defined by the developer. These should always be
    documented.
-64 command line usage error[: info]
+64 command line usage error[: <info>]
   The command was used incorrectly, e.g., with the wrong number of arguments, a
    bad flag, a bad syntax in a parameter, or whatever.
-65 data format error[: info]
+65 data format error[: <info>]
   The input data was incorrect in some way.
-66 cannot open input[: info]
+66 cannot open input[: <info>]
   An input file (not a system file) did not exist or was not readable. This
    could also include errors like "No message" to a mailer (if it cared to catch
    it).
-67 addresse unknown[: info]
+67 addresse unknown[: <info>]
   The user specified did not exist.
-68 hosts name unknown[: info]
+68 hosts name unknown[: <info>]
   The host specified did not exist.
-69 service unavailable[: info]
+69 service unavailable[: <info>]
   A service is unavailable. This can occur if a support program or file does not
    exist.
-70 internal software error[: info]
+70 internal software error[: <info>]
   An internal software error has been detected.
-71 system error[: info]
+71 system error[: <info>]
   An operating system error has been detected.
-72 critical OS file missing[: info]
+72 critical OS file missing[: <info>]
   Some system file (e.g., {c /etc/passwd}, {c /etc/utmp}, etc.) does not exist,
    cannot be opened, or has some sort of error (e.g., syntax error).
-73 can't create (user) output file[: info]
+73 can't create (user) output file[: <info>]
   A (user specified) output file cannot be created.
 74 input/output error
   An error occurred while doing I/O on some file.
-75 temp failure[: info]
+75 temp failure[: <info>]
   Temporary failure, indicating something that is not really an error.
-76 remote error in protocol[: info]
+76 remote error in protocol[: <info>]
   The remote system returned something that was "not possible" during a protocol
    exchange.
-77 permission denied[: info]
+77 permission denied[: <info>]
   You did not have sufficient permission to perform the operation.
-78 configuration error[: info]
+78 configuration error[: <info>]
   Something was found in an unconfigured or misconfigured state.
 79-97 <<(custom configuration errors)>>
   Configuration, property and setting errors defined by the developer. These
    should always be documented.
 98 <path>: too many levels of symbolic links
 99 <path>: filename too long
-100 memory error[: info]
+100 memory error[: <info>]
   A general memory error occurred.
 101 not enough [heap ]memory
   There was not enough free memory on the heap to allocate a block of data.
 102 stack overflow error
   A stack overflow occurred.
-103 generic internal fault[: info]
+103 generic internal fault[: <info>]
   Generic internal fault.
   An internal fault happens when preconditions prevent the program to advance to
    a next stage of execution.
 104-122 <<(custom internal faults)>>
   Different internal faults, defined by the developer. These should always be
    documented.
-123 emergency stop[: info]
+123 emergency stop[: <info>]
   The program was intentionally halted by the developer because a value is
    invalid and can't be worked with.
 124 script was [not ]called interactively
