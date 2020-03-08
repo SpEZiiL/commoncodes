@@ -29,13 +29,15 @@ The files in this directory hold the raw data of **CommonCodes**.
 * [`footnotes`](./v2/footnotes)  
   Section after the status code table.  
   Same format as the [`description`](./v2/description) file
-* [`see also`](./v2/see-also)  
-  The last section with some links and references.  
-  Lines beginning with `plainlink:` will be put into angle brackets(`<>`) in the
-   manpage and in the web page it will be wrapped inside an `a` tag.  
-  If a line begins with `manlink:` nothing is done in the man page format but in
-   the web page format the man section and the page will be put into the link
-   described by the line that beginns with `mansite:`
+* [`see_also.yaml`](./v2/see_also.yaml)  
+  The last section with some links and references.
+  * `links` - a list of URLs or man page references  
+    URLs will be wrapped into angle brackets.  
+    In the web page, the link is also wrapped in an `a` tag.  
+    Man page references will also be wrapped into `a` tags in the web page and
+     will reference to the link specified in the `mansite` field
+  * `mansite` - the URL of an online man site. This link must contain a
+     `%%SECTION%%` and a `%%PAGE%%` substring.
 * [`metadata.yaml`](./v2/metadata.yaml)  
   Holds metadata for the specific version of **CommonCodes**
   * `authors` - the full list of contributors

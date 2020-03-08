@@ -1,6 +1,0 @@
-plainlink: https://github.com/mfederczuk/commoncodes
-manlink: grep(1)
-manlink: glob(7)
-manlink: regex(7)
-
-mansite: https://linux.die.net/man/%%SECTION%%/%%PAGE%%
