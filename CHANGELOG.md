@@ -13,7 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added ###
 
 * new status 98: `<path>: too many levels of symbolic link`
-* new status 99: `<path>: filename too long`
+* new status 99: `<filename>: filename too long`
 * new status 26: `<item>: <itemtype> already exists`
 * `glob(7)` and `regex(7)` to **See Also** page section
 * to status range 32 - 47 (`(custom feedback statuses)`) description

@@ -105,7 +105,7 @@
   Configuration, property and setting errors defined by the developer. These
    should always be documented.
 98 <path>: too many levels of symbolic links
-99 <path>: filename too long
+99 <filename>: filename too long
 100 memory error[: <info>]
   A general memory error occurred.
 101 not enough [heap ]memory
