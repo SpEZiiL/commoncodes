@@ -15,6 +15,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * new status 98: `<path>: too many levels of symbolic link`
 * new status 99: `<path>: filename too long`
 * `glob(7)` and `regex(7)` to **See Also** page section
+* to status range 32 - 47 (`(custom feedback statuses)`) description
+  * _"**[...]** These should always be documented."_
 
 ### Changed ###
 
