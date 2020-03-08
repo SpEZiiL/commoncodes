@@ -85,8 +85,8 @@
 71 system error[: info]
   An operating system error has been detected.
 72 critical OS file missing[: info]
-  Some system file (e.g., /etc/passwd, /etc/utmp, etc.) does not exist, cannot
-   be opened, or has some sort of error (e.g., syntax error).
+  Some system file (e.g., {c /etc/passwd}, {c /etc/utmp}, etc.) does not exist,
+   cannot be opened, or has some sort of error (e.g., syntax error).
 73 can't create (user) output file[: info]
   A (user specified) output file cannot be created.
 74 input/output error
@@ -122,7 +122,7 @@
   The program was intentionally halted by the developer because a value is
    invalid and can't be worked with.
 124 script was [not ]called interactively
-  The shell script can either only be executed interactively (using command "."
-   or "source"), or not interactively (executing via "./").
+  The shell script can either only be executed interactively (using command
+   "{c .}" or "{c source}"), or not interactively (executing via "{c ./}").
 125 unknown error
   Cause of error is not known, not even to the developer.
