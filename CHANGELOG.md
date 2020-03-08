@@ -161,10 +161,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * status 31: `emergency stop[: <info>]`
 * status 32 - 63: `(custom errors)`
 * status 64: `command line usage error[: <info>]`
-* status 65: `data format eror[: <info>]`
+* status 65: `data format error[: <info>]`
 * status 66: `cannot open input[: <info>]`
 * status 67: `addressee unknown[: <info>]`
-* status 68: `host name unknoen[: <info>]`
+* status 68: `host name unknown[: <info>]`
 * status 69: `service unavailable[: <info>]`
 * status 70: `internal software error[: <info>]`
 * status 71: `system error[: <info>]`
