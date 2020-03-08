@@ -34,7 +34,7 @@
   {sp relational_opt} may be the four relational operators: {c <=}, {c <}, {c >}
    or {c >=}
   {sp limit} may either be the minimum, floor, maximum or ceiling value.
-12 [<option>: ]<argument>: does not match: <patttern>
+12 [<option>: ]<argument>: does not match: <pattern>
   The argument does not match the pattern provided. The pattern can be glob,
    regex or any other pattern matching system.
 13-23 <<(custom usage errors)>>

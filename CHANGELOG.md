@@ -27,6 +27,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * status 9 (`may not be empty`) description
   * _"Program can not **[...]**"_ → _"The program can not **[...]**"_
 
+### Fixed ###
+
+* status 12 (`does not match`) message (typo fix)
+  * `[<option>: ]<argument>: does not match: <patttern>` →
+    `[<option>: ]<argument>: does not match: <pattern>`
+
 ### Removed ###
 
 * status 30: `divided by 0 error`
