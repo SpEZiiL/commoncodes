@@ -68,7 +68,7 @@ A new paragraph starts with two new lines
 	Vestibulum porta purus quis.
 	
 	Aenean at nisl vitae urna bibendum scelerisque sed non ex.
-	Curabitur. 
+	Curabitur.
 
 ### Lists ###
 
