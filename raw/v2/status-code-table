@@ -73,7 +73,7 @@
   An input file (not a system file) did not exist or was not readable. This
    could also include errors like "No message" to a mailer (if it cared to catch
    it).
-67 addresse unknown[: <info>]
+67 addressee unknown[: <info>]
   The user specified did not exist.
 68 hosts name unknown[: <info>]
   The host specified did not exist.

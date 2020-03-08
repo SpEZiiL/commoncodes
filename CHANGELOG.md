@@ -37,6 +37,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     `[<option>: ]<argument>: does not match: <pattern>`
 * status 74 (`input/output error`) message (typo fix)
   * `input/output errorv` → `input/output error`
+* status 67 (`addressee unknown`) message (typo fix)
+  * `addresse unknown` → `addressee unknown`
 
 ### Removed ###
 
