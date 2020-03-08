@@ -43,8 +43,6 @@ The files in this directory hold the raw data of **CommonCodes**.
   A file with three values:
   * `version` - the full version name of **CommonCodes**
   * `date` - the last date this version of **CommonCodes** was changed
-  * `latest_release` - if this version is the latest release or not  
-    used for the status line at the beginning of the web page format
 * [copyright](./v2/copyright)  
   A file with two values:
   * `years` - all years in which a revision of **CommonCodes** was released
