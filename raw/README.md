@@ -41,7 +41,7 @@ The files in this directory hold the raw data of **CommonCodes**.
   Each line is one author and they will be separated with commas
 * [`version`](./v2/version)  
   A file with three values:
-  * `version` - which specified the current version of **CommonCodes**
+  * `version` - the full version name of **CommonCodes**
   * `date` - the last date this version of **CommonCodes** was changed
   * `latest_release` - if this version is the latest release or not  
     used for the status line at the beginning of the web page format
