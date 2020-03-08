@@ -2,16 +2,16 @@
 
 The files in this directory hold the raw data of **CommonCodes**.
 
-* [`name`](./v2/name)  
+* [`name.desc`](./v2/name.desc)  
   The first section in the man page, copied over after trimming and compressing
    whitespace
-* [`description`](./v2/description)  
+* [`description.desc`](./v2/description.desc)  
   The first section in the web page and the second in the man page.  
   Text around curly braces(`{}`) are specially formatted.  
   Dependent on the format, what exactly is done differs.  
   Read more about this format in the [next section](#description-format) of this
    file
-* [`status-code-table`](./v2/status-code-table)  
+* [`status_code_table`](./v2/status_code_table)  
   The table with all the status codes.  
   Each status has three parts to it:
   1. The exit code(s)  
@@ -26,7 +26,7 @@ The files in this directory hold the raw data of **CommonCodes**.
      Each line of the description needs to start with two spaces.  
      The entirety of the description uses the same format as the
       [`description`](./v2/description) file
-* [`footnotes`](./v2/footnotes)  
+* [`footnotes.desc`](./v2/footnotes.desc)  
   Section after the status code table.  
   Same format as the [`description`](./v2/description) file
 * [`see_also.yaml`](./v2/see_also.yaml)  
