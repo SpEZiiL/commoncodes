@@ -29,7 +29,7 @@
    needed when the program/option needs multiple arguments.
 10 [<option>: ]<argument>: not a[n] (number|integer)
   The argument is not a valid number or is not a valid integer.
-11 [<option>: ]<argument>: out of range[ \(<relational_op> <limit>)]
+11 [<option>: ]<argument>: out of range[ \(<relational_op> <limit>\)]
   The numerical argument is out of the given range.
   {mp relational_op} may be the four relational operators: {c <=}, {c <}, {c >}
    or {c >=}
