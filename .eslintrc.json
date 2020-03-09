@@ -1,7 +1,8 @@
 {
 	"env": {
 		"browser": true,
-		"es6": true
+		"es6": true,
+		"node": true
 	},
 	"extends": [
 		"eslint:recommended",
@@ -21,6 +22,7 @@
 		"@typescript-eslint"
 	],
 	"rules": {
+		"@typescript-eslint/no-inferrable-types": "warn",
 		"@typescript-eslint/no-namespace": "off",
 		"arrow-parens": "warn",
 		"camelcase": "warn",
@@ -33,7 +35,13 @@
 		"prefer-const": "warn",
 		"quotes": "warn",
 		"semi": "error",
-		"space-unary-ops": "warn",
+		"space-unary-ops": [
+			"warn",
+			{
+				"words": false,
+				"nonwords": false
+			}
+		],
 		"spaced-comment": "warn"
 	}
 }
