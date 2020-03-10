@@ -1,13 +1,13 @@
 import Exception from "./Exception";
 
-export abstract class MessageAtom {
+export abstract class StatusMessageAtom {
 	abstract toString(): string;
 }
 
-export namespace MessageAtom {
+export namespace StatusMessageAtom {
 	// <>
 	// <<>>
-	export class Placeholder extends MessageAtom {
+	export class Placeholder extends StatusMessageAtom {
 		constructor(readonly placeholder: string,
 		            readonly special: boolean = false) {
 			super();
@@ -34,7 +34,7 @@ export namespace MessageAtom {
 	}
 
 	// foobar
-	export class Literal extends MessageAtom {
+	export class Literal extends StatusMessageAtom {
 		constructor(readonly literal: string) {
 			super();
 		}
@@ -54,8 +54,8 @@ export namespace MessageAtom {
 
 	// ()
 	// []
-	export class Group extends MessageAtom {
-		constructor(readonly atoms: ReadonlyArray<MessageAtom>,
+	export class Group extends StatusMessageAtom {
+		constructor(readonly atoms: ReadonlyArray<StatusMessageAtom>,
 		            readonly optional: boolean = false) {
 			super();
 		}
@@ -70,8 +70,8 @@ export namespace MessageAtom {
 	}
 
 	// ...
-	export class Iteration extends MessageAtom {
-		constructor(readonly atom: MessageAtom) {
+	export class Iteration extends StatusMessageAtom {
+		constructor(readonly atom: StatusMessageAtom) {
 			super();
 		}
 
@@ -81,9 +81,9 @@ export namespace MessageAtom {
 	}
 
 	// |
-	export class Alteration extends MessageAtom {
-		constructor(readonly leftAtoms: ReadonlyArray<MessageAtom>,
-		            readonly rightAtoms: ReadonlyArray<MessageAtom>) {
+	export class Alteration extends StatusMessageAtom {
+		constructor(readonly leftAtoms: ReadonlyArray<StatusMessageAtom>,
+		            readonly rightAtoms: ReadonlyArray<StatusMessageAtom>) {
 			super();
 		}
 
@@ -93,15 +93,15 @@ export namespace MessageAtom {
 	}
 }
 
-export class Message {
-	constructor(readonly atoms: ReadonlyArray<MessageAtom>) {}
+export class StatusMessage {
+	constructor(readonly atoms: ReadonlyArray<StatusMessageAtom>) {}
 
 	toString(): string {
 		return this.atoms.join("");
 	}
 }
 
-export class MessageSyntaxError extends Exception {
+export class StatusMessageSyntaxError extends Exception {
 	constructor(faultyMessage: string,
 	            detailMessage: string,
 	            cause: (Exception | null) = null) {
@@ -109,8 +109,8 @@ export class MessageSyntaxError extends Exception {
 	}
 }
 
-export function parseMessage(raw: string): Message {
-	let atoms: MessageAtom[] = [];
+export function parseStatusMessage(raw: string): StatusMessage {
+	let atoms: StatusMessageAtom[] = [];
 
 	const l = raw.length;
 	for(let i = 0; i < l; ) {
@@ -118,17 +118,17 @@ export function parseMessage(raw: string): Message {
 
 		if(raw.substr(i, 3) === "...") {
 			if(atoms.length === 0) {
-				throw new MessageSyntaxError(raw, "Cannot iterate over nothing");
+				throw new StatusMessageSyntaxError(raw, "Cannot iterate over nothing");
 			}
 
 			const lastAtom = atoms[atoms.length - 1];
-			if(lastAtom instanceof MessageAtom.Iteration) {
-				throw new MessageSyntaxError(raw, "Cannot iterate over another iteration");
-			} else if(lastAtom instanceof MessageAtom.Literal) {
-				throw new MessageSyntaxError(raw, "Cannot iterate over a literal");
+			if(lastAtom instanceof StatusMessageAtom.Iteration) {
+				throw new StatusMessageSyntaxError(raw, "Cannot iterate over another iteration");
+			} else if(lastAtom instanceof StatusMessageAtom.Literal) {
+				throw new StatusMessageSyntaxError(raw, "Cannot iterate over a literal");
 			}
 
-			atoms[atoms.length - 1] = new MessageAtom.Iteration(lastAtom);
+			atoms[atoms.length - 1] = new StatusMessageAtom.Iteration(lastAtom);
 
 			i += 3;
 		} else if(c === "<") {
@@ -159,18 +159,18 @@ export function parseMessage(raw: string): Message {
 					}
 				})();
 
-				throw new MessageSyntaxError(raw, detailMessage);
+				throw new StatusMessageSyntaxError(raw, detailMessage);
 			}
 
 			try {
-				atoms.push(new MessageAtom.Placeholder(placeholder, special));
+				atoms.push(new StatusMessageAtom.Placeholder(placeholder, special));
 			} catch(err) {
-				throw new MessageSyntaxError(raw, "Problematic placeholder", err);
+				throw new StatusMessageSyntaxError(raw, "Problematic placeholder", err);
 			}
 
 			i += (!special ? 1 : 2);
 		} else if(c === ">") {
-			throw new MessageSyntaxError(raw, "Unmatched placeholder");
+			throw new StatusMessageSyntaxError(raw, "Unmatched placeholder");
 		} else if(c === "(" || c === "[") {
 			const optional = c === "[";
 
@@ -193,18 +193,18 @@ export function parseMessage(raw: string): Message {
 				contents += c;
 			}
 			if(parenStack.length !== 0) {
-				throw new MessageSyntaxError(raw, "Unmatched group");
+				throw new StatusMessageSyntaxError(raw, "Unmatched group");
 			}
 
-			atoms.push(new MessageAtom.Group(parseMessage(contents).atoms, optional));
+			atoms.push(new StatusMessageAtom.Group(parseStatusMessage(contents).atoms, optional));
 
 			++i;
 		} else if(c === ")" || c === "]") {
-			throw new MessageSyntaxError(raw, "Unmatched group");
+			throw new StatusMessageSyntaxError(raw, "Unmatched group");
 		} else if(c === "|") {
 			const leftAtoms = atoms;
-			const rightAtoms = parseMessage(raw.substring(i + 1)).atoms;
-			atoms = [new MessageAtom.Alteration(leftAtoms, rightAtoms)];
+			const rightAtoms = parseStatusMessage(raw.substring(i + 1)).atoms;
+			atoms = [new StatusMessageAtom.Alteration(leftAtoms, rightAtoms)];
 			i = l;
 		} else {
 			if(c === "\\" && (i + 1) < l) {
@@ -213,15 +213,15 @@ export function parseMessage(raw: string): Message {
 			}
 
 			const lastAtom = atoms[atoms.length - 1];
-			if(lastAtom instanceof MessageAtom.Literal) {
-				atoms[atoms.length - 1] = new MessageAtom.Literal(lastAtom.literal + c);
+			if(lastAtom instanceof StatusMessageAtom.Literal) {
+				atoms[atoms.length - 1] = new StatusMessageAtom.Literal(lastAtom.literal + c);
 			} else {
-				atoms.push(new MessageAtom.Literal(c));
+				atoms.push(new StatusMessageAtom.Literal(c));
 			}
 
 			++i;
 		}
 	}
 
-	return new Message(atoms);
+	return new StatusMessage(atoms);
 }
