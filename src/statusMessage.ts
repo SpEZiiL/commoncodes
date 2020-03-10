@@ -55,7 +55,7 @@ export namespace StatusMessageAtom {
 	// ()
 	// []
 	export class Group extends StatusMessageAtom {
-		constructor(readonly atoms: ReadonlyArray<StatusMessageAtom>,
+		constructor(readonly atoms: readonly StatusMessageAtom[],
 		            readonly optional: boolean = false) {
 			super();
 		}
@@ -82,8 +82,8 @@ export namespace StatusMessageAtom {
 
 	// |
 	export class Alteration extends StatusMessageAtom {
-		constructor(readonly leftAtoms: ReadonlyArray<StatusMessageAtom>,
-		            readonly rightAtoms: ReadonlyArray<StatusMessageAtom>) {
+		constructor(readonly leftAtoms: readonly StatusMessageAtom[],
+		            readonly rightAtoms: readonly StatusMessageAtom[]) {
 			super();
 		}
 
@@ -94,7 +94,7 @@ export namespace StatusMessageAtom {
 }
 
 export class StatusMessage {
-	constructor(readonly atoms: ReadonlyArray<StatusMessageAtom>) {}
+	constructor(readonly atoms: readonly StatusMessageAtom[]) {}
 
 	toString(): string {
 		return this.atoms.join("");
