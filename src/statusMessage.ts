@@ -13,11 +13,11 @@ export namespace StatusMessageAtom {
 
 			if(!special) {
 				if(placeholder.match(/^\w+$/i) === null) {
-					throw Error("Invalid placeholder");
+					throw new Exception("Invalid placeholder");
 				}
 			} else {
 				if(placeholder.includes(">>")) {
-					throw Error("Invalid placeholder");
+					throw new Exception("Invalid placeholder");
 				}
 			}
 
