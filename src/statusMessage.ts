@@ -102,10 +102,56 @@ export class StatusMessage {
 }
 
 export class StatusMessageSyntaxError extends Exception {
-	constructor(faultyMessage: string,
-	            detailMessage: string,
+	constructor(readonly faultyStatusMessage: string,
+	            readonly rangeStart: number,
+	            readonly rangeLength: number,
+	            readonly problem: StatusMessageSyntaxError.Problem,
 	            cause: (Exception | null) = null) {
-		super(`${faultyMessage}: ${detailMessage}`, cause);
+		super(`${faultyStatusMessage}: ${problem.getMessage()}`, cause);
+	}
+}
+
+export namespace StatusMessageSyntaxError {
+	export class Problem {
+		private static _values: Problem[] = [];
+
+		private constructor(readonly ordinal: number,
+		                    private readonly name: string,
+		                    private readonly message: string) {
+		}
+
+		getMessage(): string {
+			return this.message;
+		}
+
+		toString(): string {
+			return this.name;
+		}
+
+		static readonly ITERATED_OVER_NOTHING               = new Problem(0,  "ITERATED_OVER_NOTHING",               "Iteration over nothing");
+		static readonly ITERATED_OVER_ITERATION             = new Problem(1,  "ITERATED_OVER_ITERATION",             "Iteration over iteration");
+		static readonly ITERATED_OVER_LITERAL               = new Problem(2,  "ITERATED_OVER_LITERAL",               "Iteration over literal");
+		static readonly UNMATCHED_PLACEHOLDER_BEGIN         = new Problem(3,  "UNMATCHED_PLACEHOLDER_BEGIN",         "Placeholder was never closed");
+		static readonly UNMATCHED_PLACEHOLDER_END           = new Problem(4,  "UNMATCHED_PLACEHOLDER_END",           "Placeholder was never opened");
+		static readonly UNMATCHED_SPECIAL_PLACEHOLDER_BEGIN = new Problem(5,  "UNMATCHED_SPECIAL_PLACEHOLDER_BEGIN", "Special placeholder was never closed");
+		static readonly UNMATCHED_SPECIAL_PLACEHOLDER_END   = new Problem(6,  "UNMATCHED_SPECIAL_PLACEHOLDER_END",   "Special placeholder was never opened");
+		static readonly INVALID_PLACEHOLDER                 = new Problem(7,  "INVALID_PLACEHOLDER",                 "Invalid placeholder");
+		static readonly INVALID_SPECIAL_PLACEHOLDER         = new Problem(8,  "INVALID_SPECIAL_PLACEHOLDER",         "Invalid special placeholder");
+		static readonly UNMATCHED_GROUP_OPEN                = new Problem(9,  "UNMATCHED_GROUP_OPEN",                "Group was never closed");
+		static readonly UNMATCHED_GROUP_CLOSE               = new Problem(10, "UNMATCHED_GROUP_CLOSE",               "Group was never opened");
+		static readonly UNMATCHED_OPTIONAL_GROUP_OPEN       = new Problem(10, "UNMATCHED_OPTIONAL_GROUP_OPEN",       "Optional group was never closed");
+		static readonly UNMATCHED_OPTIONAL_GROUP_CLOSE      = new Problem(11, "UNMATCHED_OPTIONAL_GROUP_CLOSE",      "Optional group was never opened");
+
+		static from(name: string): (Problem | null) {
+			for(const value of Problem._values) {
+				if(value.name === name) return value;
+			}
+			return null;
+		}
+
+		static values(): readonly Problem[] {
+			return Problem._values;
+		}
 	}
 }
 
@@ -118,14 +164,14 @@ export function parseStatusMessage(str: string): StatusMessage {
 
 		if(str.substr(i, 3) === "...") {
 			if(atoms.length === 0) {
-				throw new StatusMessageSyntaxError(str, "Cannot iterate over nothing");
+				throw new StatusMessageSyntaxError(str, i, 3, StatusMessageSyntaxError.Problem.ITERATED_OVER_NOTHING);
 			}
 
 			const lastAtom = atoms[atoms.length - 1];
 			if(lastAtom instanceof StatusMessageAtom.Iteration) {
-				throw new StatusMessageSyntaxError(str, "Cannot iterate over another iteration");
+				throw new StatusMessageSyntaxError(str, i - 3, 6, StatusMessageSyntaxError.Problem.ITERATED_OVER_ITERATION);
 			} else if(lastAtom instanceof StatusMessageAtom.Literal) {
-				throw new StatusMessageSyntaxError(str, "Cannot iterate over a literal");
+				throw new StatusMessageSyntaxError(str, i, 3, StatusMessageSyntaxError.Problem.ITERATED_OVER_LITERAL);
 			}
 
 			atoms[atoms.length - 1] = new StatusMessageAtom.Iteration(lastAtom);
@@ -151,61 +197,80 @@ export function parseStatusMessage(str: string): StatusMessage {
 			}
 
 			if(!match) {
-				const detailMessage = ((): string => {
-					if(!special) {
-						return "Unmatched placeholder";
-					} else {
-						return "Unmatched special placeholder";
-					}
-				})();
-
-				throw new StatusMessageSyntaxError(str, detailMessage);
+				if(!special) {
+					throw new StatusMessageSyntaxError(str, i - placeholder.length - 1, 1, StatusMessageSyntaxError.Problem.UNMATCHED_PLACEHOLDER_BEGIN);
+				} else {
+					throw new StatusMessageSyntaxError(str, i - placeholder.length - 2, 2, StatusMessageSyntaxError.Problem.UNMATCHED_SPECIAL_PLACEHOLDER_BEGIN);
+				}
 			}
 
 			try {
 				atoms.push(new StatusMessageAtom.Placeholder(placeholder, special));
 			} catch(err) {
-				throw new StatusMessageSyntaxError(str, "Problematic placeholder", err);
+				if(!special) {
+					throw new StatusMessageSyntaxError(str, i - placeholder.length - 1, 1 + placeholder.length, StatusMessageSyntaxError.Problem.INVALID_PLACEHOLDER, err);
+				} else {
+					throw new StatusMessageSyntaxError(str, i - placeholder.length - 2, 2 + placeholder.length, StatusMessageSyntaxError.Problem.INVALID_SPECIAL_PLACEHOLDER, err);
+				}
 			}
 
 			i += (!special ? 1 : 2);
+		} else if(str.substr(i, 2) === ">>") {
+			throw new StatusMessageSyntaxError(str, i, 2, StatusMessageSyntaxError.Problem.UNMATCHED_SPECIAL_PLACEHOLDER_END);
 		} else if(c === ">") {
-			throw new StatusMessageSyntaxError(str, "Unmatched placeholder");
+			throw new StatusMessageSyntaxError(str, i, 1, StatusMessageSyntaxError.Problem.UNMATCHED_PLACEHOLDER_END);
 		} else if(c === "(" || c === "[") {
-			const optional = c === "[";
-
+			const begin = i;
 			let contents = "";
 
-			const parenStack: ("(" | "[")[] = [c];
+			let parenLvl = 1;
 			for(++i; i < l; ++i) {
-				c = str[i];
-				if(c === "(" || c === "[") {
-					parenStack.push(c);
-				} else if(c === ")" || c === "]") {
-					const lastParen = parenStack[parenStack.length - 1];
-					if((lastParen === "(" && c === ")") ||
-					   (lastParen === "[" && c === "]")) {
-						parenStack.pop();
-					}
+				if(str[i] === c) {
+					++parenLvl;
+				} else if((c === "(" && str[i] === ")") ||
+				          (c === "[" && str[i] === "]")) {
+					--parenLvl;
 				}
 
-				if(parenStack.length === 0) break;
-				contents += c;
-			}
-			if(parenStack.length !== 0) {
-				throw new StatusMessageSyntaxError(str, "Unmatched group");
+				if(parenLvl === 0) break;
+				contents += str[i];
 			}
 
-			atoms.push(new StatusMessageAtom.Group(parseStatusMessage(contents).atoms, optional));
+			if(parenLvl !== 0) {
+				if(c === "(") {
+					throw new StatusMessageSyntaxError(str, begin, 1, StatusMessageSyntaxError.Problem.UNMATCHED_GROUP_OPEN);
+				} else {
+					throw new StatusMessageSyntaxError(str, begin, 1, StatusMessageSyntaxError.Problem.UNMATCHED_OPTIONAL_GROUP_OPEN);
+				}
+			}
+
+			try {
+				atoms.push(new StatusMessageAtom.Group(parseStatusMessage(contents).atoms, c !== "("));
+			} catch(err) {
+				if(err instanceof StatusMessageSyntaxError) {
+					throw new StatusMessageSyntaxError(str, begin + 1 + err.rangeStart, err.rangeLength, err.problem, err);
+				}
+				throw err;
+			}
 
 			++i;
-		} else if(c === ")" || c === "]") {
-			throw new StatusMessageSyntaxError(str, "Unmatched group");
+		} else if(c === ")") {
+			throw new StatusMessageSyntaxError(str, i, 1, StatusMessageSyntaxError.Problem.UNMATCHED_GROUP_CLOSE);
+		} else if(c === "]") {
+			throw new StatusMessageSyntaxError(str, i, 1, StatusMessageSyntaxError.Problem.UNMATCHED_OPTIONAL_GROUP_CLOSE);
 		} else if(c === "|") {
-			const leftAtoms = atoms;
-			const rightAtoms = parseStatusMessage(str.substring(i + 1)).atoms;
-			atoms = [new StatusMessageAtom.Alteration(leftAtoms, rightAtoms)];
-			i = l;
+			try {
+				const leftAtoms = atoms;
+				++i;
+				const rightAtoms = parseStatusMessage(str.substring(i)).atoms;
+				atoms = [new StatusMessageAtom.Alteration(leftAtoms, rightAtoms)];
+				i = l;
+			} catch(err) {
+				if(err instanceof StatusMessageSyntaxError) {
+					throw new StatusMessageSyntaxError(str, i + err.rangeStart, err.rangeLength, err.problem, err);
+				}
+				throw err;
+			}
 		} else {
 			if(c === "\\" && (i + 1) < l) {
 				++i;
