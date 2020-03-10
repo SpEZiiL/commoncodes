@@ -116,6 +116,7 @@ export namespace StatusMessageSyntaxError {
 		private constructor(readonly ordinal: number,
 		                    private readonly name: string,
 		                    private readonly message: string) {
+			Problem._values.push(this);
 		}
 
 		getMessage(): string {
