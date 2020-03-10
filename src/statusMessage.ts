@@ -3,7 +3,6 @@ import Exception from "./Exception";
 export abstract class StatusMessageAtom {
 	abstract toString(): string;
 }
-
 export namespace StatusMessageAtom {
 	// <>
 	// <<>>
@@ -110,7 +109,6 @@ export class StatusMessageSyntaxError extends Exception {
 		super(`${faultyStatusMessage}: ${problem.getMessage()}`, cause);
 	}
 }
-
 export namespace StatusMessageSyntaxError {
 	export class Problem {
 		private static _values: Problem[] = [];
