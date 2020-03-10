@@ -109,30 +109,30 @@ export class StatusMessageSyntaxError extends Exception {
 	}
 }
 
-export function parseStatusMessage(raw: string): StatusMessage {
+export function parseStatusMessage(str: string): StatusMessage {
 	let atoms: StatusMessageAtom[] = [];
 
-	const l = raw.length;
+	const l = str.length;
 	for(let i = 0; i < l; ) {
-		let c = raw[i];
+		let c = str[i];
 
-		if(raw.substr(i, 3) === "...") {
+		if(str.substr(i, 3) === "...") {
 			if(atoms.length === 0) {
-				throw new StatusMessageSyntaxError(raw, "Cannot iterate over nothing");
+				throw new StatusMessageSyntaxError(str, "Cannot iterate over nothing");
 			}
 
 			const lastAtom = atoms[atoms.length - 1];
 			if(lastAtom instanceof StatusMessageAtom.Iteration) {
-				throw new StatusMessageSyntaxError(raw, "Cannot iterate over another iteration");
+				throw new StatusMessageSyntaxError(str, "Cannot iterate over another iteration");
 			} else if(lastAtom instanceof StatusMessageAtom.Literal) {
-				throw new StatusMessageSyntaxError(raw, "Cannot iterate over a literal");
+				throw new StatusMessageSyntaxError(str, "Cannot iterate over a literal");
 			}
 
 			atoms[atoms.length - 1] = new StatusMessageAtom.Iteration(lastAtom);
 
 			i += 3;
 		} else if(c === "<") {
-			const special = (raw[i + 1] === "<");
+			const special = (str[i + 1] === "<");
 
 			let placeholder = "";
 
@@ -141,13 +141,13 @@ export function parseStatusMessage(raw: string): StatusMessage {
 			let match = false;
 			for(; i < l; ++i) {
 				if(!special) {
-					match = raw[i] === ">";
+					match = str[i] === ">";
 				} else {
-					match = raw.substr(i, 2) === ">>";
+					match = str.substr(i, 2) === ">>";
 				}
 				if(match) break;
 
-				placeholder += raw[i];
+				placeholder += str[i];
 			}
 
 			if(!match) {
@@ -159,18 +159,18 @@ export function parseStatusMessage(raw: string): StatusMessage {
 					}
 				})();
 
-				throw new StatusMessageSyntaxError(raw, detailMessage);
+				throw new StatusMessageSyntaxError(str, detailMessage);
 			}
 
 			try {
 				atoms.push(new StatusMessageAtom.Placeholder(placeholder, special));
 			} catch(err) {
-				throw new StatusMessageSyntaxError(raw, "Problematic placeholder", err);
+				throw new StatusMessageSyntaxError(str, "Problematic placeholder", err);
 			}
 
 			i += (!special ? 1 : 2);
 		} else if(c === ">") {
-			throw new StatusMessageSyntaxError(raw, "Unmatched placeholder");
+			throw new StatusMessageSyntaxError(str, "Unmatched placeholder");
 		} else if(c === "(" || c === "[") {
 			const optional = c === "[";
 
@@ -178,7 +178,7 @@ export function parseStatusMessage(raw: string): StatusMessage {
 
 			const parenStack: ("(" | "[")[] = [c];
 			for(++i; i < l; ++i) {
-				c = raw[i];
+				c = str[i];
 				if(c === "(" || c === "[") {
 					parenStack.push(c);
 				} else if(c === ")" || c === "]") {
@@ -193,23 +193,23 @@ export function parseStatusMessage(raw: string): StatusMessage {
 				contents += c;
 			}
 			if(parenStack.length !== 0) {
-				throw new StatusMessageSyntaxError(raw, "Unmatched group");
+				throw new StatusMessageSyntaxError(str, "Unmatched group");
 			}
 
 			atoms.push(new StatusMessageAtom.Group(parseStatusMessage(contents).atoms, optional));
 
 			++i;
 		} else if(c === ")" || c === "]") {
-			throw new StatusMessageSyntaxError(raw, "Unmatched group");
+			throw new StatusMessageSyntaxError(str, "Unmatched group");
 		} else if(c === "|") {
 			const leftAtoms = atoms;
-			const rightAtoms = parseStatusMessage(raw.substring(i + 1)).atoms;
+			const rightAtoms = parseStatusMessage(str.substring(i + 1)).atoms;
 			atoms = [new StatusMessageAtom.Alteration(leftAtoms, rightAtoms)];
 			i = l;
 		} else {
 			if(c === "\\" && (i + 1) < l) {
 				++i;
-				c = raw[i];
+				c = str[i];
 			}
 
 			const lastAtom = atoms[atoms.length - 1];
