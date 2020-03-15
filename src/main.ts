@@ -7,6 +7,8 @@ import { parseDescription } from "./description";
 import { ExitStatusTable } from "./exitStatus";
 import { SeeAlsoLink } from "./seeAlsoLink";
 
+const GENERATED_DATE = new Date();
+
 const ROOT_DIR = realpathSync(__dirname + "/..");
 const RAW_DIR = realpathSync(ROOT_DIR + "/raw");
 
