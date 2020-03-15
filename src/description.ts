@@ -1,4 +1,4 @@
-import Exception from "./Exception";
+import Exception from "@mfederczuk/custom-exception";
 
 export abstract class Element {
 	abstract toString(): string;

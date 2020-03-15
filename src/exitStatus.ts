@@ -1,5 +1,5 @@
+import Exception from "@mfederczuk/custom-exception";
 import { Description, parseDescription } from "./description";
-import Exception from "./Exception";
 import { parseStatusMessage, StatusMessage } from "./statusMessage";
 
 export interface ExitStatus {
