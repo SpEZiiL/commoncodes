@@ -1,6 +1,6 @@
 import { readdirSync, readFileSync, realpathSync } from "fs";
 import * as jsyaml from "js-yaml";
-import * as parsePerson from "parse-author";
+import parsePerson from "parse-author";
 import { SemVer } from "semver";
 import CommonCodesData from "./CommonCodesData";
 import { parseDescription } from "./description";
