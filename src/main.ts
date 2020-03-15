@@ -27,7 +27,7 @@ const majorVersions = ((): number[] => {
 		if(match !== null) majorVersions.push(Number(match[1]));
 	});
 
-	return majorVersions;
+	return majorVersions.sort();
 })();
 
 const dataSet = majorVersions.map((majorVersion): CommonCodesData => {
