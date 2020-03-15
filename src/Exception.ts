@@ -19,4 +19,11 @@ export default class Exception extends Error {
 			this._cause = cause;
 		}
 	}
+
+	static fromError(err: Error): Exception {
+		const exc = new Exception(err.message);
+		exc.name = err.name;
+		exc.stack = err.stack;
+		return exc;
+	}
 }
