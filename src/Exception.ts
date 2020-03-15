@@ -6,8 +6,7 @@ export default class Exception extends Error {
 		super(typeof(message) === "string" ? message : "");
 		this.name = new.target.name;
 		this.message = (typeof(message) === "string" ? message : "");
-		// eslint-disable-next-line @typescript-eslint/no-explicit-any
-		(this as any)["__proto__"] = new.target.prototype;
+		Object.setPrototypeOf(this, new.target.prototype);
 		this._cause = (cause instanceof Exception ? cause : null);
 	}
 
