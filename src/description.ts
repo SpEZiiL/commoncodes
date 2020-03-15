@@ -148,7 +148,7 @@ export class Description {
 	}
 }
 
-/** paramer str shouldn't contain line breaks */
+/** parameter str shouldn't contain line breaks */
 function parseInlineElementes(str: string): readonly InlineElement[] {
 	const elements: InlineElement[] = [];
 
