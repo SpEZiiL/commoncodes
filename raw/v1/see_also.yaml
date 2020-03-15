@@ -1,5 +1,5 @@
 links:
-  - https://github.com/mfederczuk/commoncodes
+  - https://github.com/mfederczuk/commoncodes "CommonCodes Repository Page"
   - grep(1)
 
 mansite: https://linux.die.net/man/%%SECTION%%/%%PAGE%%
