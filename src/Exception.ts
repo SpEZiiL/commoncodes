@@ -2,12 +2,20 @@ export default class Exception extends Error {
 	private _cause: (Exception | null);
 
 	constructor(message: (string | null) = null,
-	            cause: (Exception | null) = null) {
+	            cause: (Exception | Error | null) = null) {
 		super(typeof(message) === "string" ? message : "");
 		this.name = new.target.name;
 		this.message = (typeof(message) === "string" ? message : "");
+
 		Object.setPrototypeOf(this, new.target.prototype);
-		this._cause = (cause instanceof Exception ? cause : null);
+
+		if(cause instanceof Exception) {
+			this._cause = cause;
+		} else if(cause instanceof Error) {
+			this._cause = Exception.fromError(cause);
+		} else {
+			this._cause = null;
+		}
 	}
 
 	get cause(): (Exception | null) {
