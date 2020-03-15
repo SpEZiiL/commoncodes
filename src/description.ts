@@ -77,7 +77,7 @@ export namespace InlineElement {
 
 			static readonly EMPHASIS            = new Type(0, "EMPHASIS",            "e");
 			static readonly STRONG_EMPHASIS     = new Type(1, "STRONG_EMPHASIS",     "s");
-			static readonly PROPER_NAMES        = new Type(2, "PROPER_NAMES",        "p");
+			static readonly PROPER_NAME         = new Type(2, "PROPER_NAME",         "p");
 			static readonly CODE                = new Type(3, "CODE",                "c");
 			static readonly MESSAGE             = new Type(4, "MESSAGE",             "m");
 			static readonly MESSAGE_PLACEHOLDER = new Type(5, "MESSAGE_PLACEHOLDER", "mp");
