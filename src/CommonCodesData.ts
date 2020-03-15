@@ -2,7 +2,7 @@ import { Author as Person } from "parse-author";
 import { SemVer } from "semver";
 import { Description } from "./description";
 import { ExitStatusTable } from "./exitStatus";
-import ManpageReference from "./ManpageReference";
+import { SeeAlsoLink } from "./seeAlsoLink";
 
 export default interface CommonCodesData {
 	readonly metadata: {
@@ -20,7 +20,7 @@ export default interface CommonCodesData {
 	readonly exitStatusTable: ExitStatusTable;
 	readonly footnotes: Description;
 	readonly seeAlso: {
-		readonly links: readonly (URL | ManpageReference)[];
+		readonly links: readonly SeeAlsoLink[];
 		readonly mansite: string;
 	};
 // eslint-disable-next-line semi

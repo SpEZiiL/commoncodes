@@ -5,7 +5,7 @@ import { SemVer } from "semver";
 import CommonCodesData from "./CommonCodesData";
 import { parseDescription } from "./description";
 import { ExitStatusTable } from "./exitStatus";
-import ManpageReference from "./ManpageReference";
+import { SeeAlsoLink } from "./seeAlsoLink";
 
 const ROOT_DIR = realpathSync(__dirname + "/..");
 const RAW_DIR = realpathSync(ROOT_DIR + "/raw");
@@ -82,11 +82,9 @@ const dataSet = majorVersions.map((majorVersion): CommonCodesData => {
 		exitStatusTable: exitStatusTable,
 		footnotes: footnotes,
 		seeAlso: {
-			links: seeAlso.links.map((link): (URL | ManpageReference) => {
-				const manpageRef = ManpageReference.from(link);
-				if(manpageRef !== null) return manpageRef;
-				return new URL(link);
-			}),
+			links: seeAlso.links.map(SeeAlsoLink.from).filter((seeAlsoLink) => {
+				return seeAlsoLink !== null;
+			}) as SeeAlsoLink[],
 			mansite: seeAlso.mansite
 		}
 	};
