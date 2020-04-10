@@ -207,9 +207,9 @@ export function parseStatusMessage(str: string): StatusMessage {
 				atoms.push(new StatusMessageAtom.Placeholder(placeholder, special));
 			} catch(err) {
 				if(!special) {
-					throw new StatusMessageSyntaxError(str, i - placeholder.length - 1, 1 + placeholder.length, StatusMessageSyntaxError.Problem.INVALID_PLACEHOLDER, err);
+					throw new StatusMessageSyntaxError(str, i - placeholder.length, placeholder.length, StatusMessageSyntaxError.Problem.INVALID_PLACEHOLDER, err);
 				} else {
-					throw new StatusMessageSyntaxError(str, i - placeholder.length - 2, 2 + placeholder.length, StatusMessageSyntaxError.Problem.INVALID_SPECIAL_PLACEHOLDER, err);
+					throw new StatusMessageSyntaxError(str, i - placeholder.length, placeholder.length, StatusMessageSyntaxError.Problem.INVALID_SPECIAL_PLACEHOLDER, err);
 				}
 			}
 
