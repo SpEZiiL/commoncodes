@@ -1,7 +1,9 @@
+import Exception from "@mfederczuk/custom-exception";
 import { readdirSync, readFileSync, realpathSync } from "fs";
 import * as jsyaml from "js-yaml";
 import parsePerson from "parse-author";
 import { SemVer } from "semver";
+import * as typesafeArray from "typesafe-array";
 import CommonCodesData from "./CommonCodesData";
 import { parseDescription } from "./description";
 import { ExitStatusTable } from "./exitStatus";
@@ -37,18 +39,27 @@ const dataSet = majorVersions.map((majorVersion): CommonCodesData => {
 
 	const metadataFileContents = readFileSync(`${versionDir}/${METADATA_FILENAME}`).toString();
 	const metadata = jsyaml.safeLoad(metadataFileContents) as {
-		readonly authors: readonly string[];
+		readonly authors?: unknown;
 
 		// eslint-disable-next-line camelcase
-		readonly copyright_years: readonly number[];
+		readonly copyright_years?: unknown;
 		// eslint-disable-next-line camelcase
-		readonly copyright_holder: string;
+		readonly copyright_holder?: unknown;
 
 		// eslint-disable-next-line camelcase
-		readonly release_version: string;
+		readonly release_version?: unknown;
 		// eslint-disable-next-line camelcase
-		readonly release_date: Date;
+		readonly release_date?: unknown;
 	};
+
+	if(!typesafeArray.string[1](metadata.authors) ||
+	   !typesafeArray.number[1](metadata.copyright_years) ||
+	   typeof(metadata.copyright_holder) !== "string" ||
+	   typeof(metadata.release_version) !== "string" ||
+	   !(metadata.release_date instanceof Date)) {
+
+		throw new Exception(`Invalid ${METADATA_FILENAME} file`);
+	}
 
 	const nameFileContents = readFileSync(`${versionDir}/${NAME_FILENAME}`).toString();
 	const name = parseDescription(nameFileContents);
@@ -64,9 +75,15 @@ const dataSet = majorVersions.map((majorVersion): CommonCodesData => {
 
 	const seeAlsoFileContents = readFileSync(`${versionDir}/${SEE_ALSO_FILENAME}`).toString();
 	const seeAlso = jsyaml.safeLoad(seeAlsoFileContents) as {
-		readonly links: readonly string[];
-		readonly mansite: string;
+		readonly links?: unknown;
+		readonly mansite?: unknown;
 	};
+
+	if(!typesafeArray.string[1](seeAlso.links) ||
+	   typeof(seeAlso.mansite) !== "string") {
+
+		throw new Exception(`Invalid ${SEE_ALSO_FILENAME} file`);
+	}
 
 	return {
 		metadata: {
