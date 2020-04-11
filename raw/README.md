@@ -2,7 +2,7 @@
 
 The files in this directory hold the raw data of **CommonCodes**.
 
-* [`about.desc`](./v2/about.desc)  
+* [`about`](./v2/about)  
   The first section in the man page, copied over and preceded with the text
    _"CommonCodes - "_.  
   The contents of this file will be put into the `meta` tag with the

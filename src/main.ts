@@ -21,7 +21,7 @@ const RAW_DIR = realpathSync(ROOT_DIR + "/raw");
 const SRC_DIR = realpathSync(ROOT_DIR + "/src");
 
 const METADATA_FILENAME = "metadata.yaml";
-const ABOUT_FILENAME = "about.desc";
+const ABOUT_FILENAME = "about";
 const DESCRIPTION_FILENAME = "description.desc";
 const EXIT_STATUS_TABLE_FILENAME = "exit_status_table";
 const FOOTNOTES_FILENAME = "footnotes.desc";
