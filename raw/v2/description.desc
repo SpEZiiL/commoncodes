@@ -20,15 +20,16 @@ Some ranges have been kept empty so that developers may add error messages of
 If statuses in these ranges are defined then they should always be documented.
  Again in the {c --help} summary and in the manpage.
 
-In the following table, these rules apply for the messages:
+In the table of the following section, these rules, which are similar to command
+ usage patterns, apply for the messages:
 
 * Italic and/or underlined symbols are placeholders for other text that should
    get replaced for real messages.
   In places were formatting does not exist, placeholders are wrapped in angle
    brackets ({c <}{c >}).
 * Text and symbols in bold square brackets may be omitted in real messages.
-* Text and symbols followed by bold ellipsis may be repeated one or more times
-   in real messages.
+* Text and symbols followed by bold ellipsis (three consecutive dots ({c ...}))
+   may be repeated one or more times in real messages.
 * A vertical bar ({c |}) means alteration: either only the left or right side
    may be used.
 
