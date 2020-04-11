@@ -40,11 +40,14 @@ export default class WebpageFormatCreator extends FormatCreator {
 				releaseVersions: releaseVersions,
 				releaseDate: data.metadata.releaseDate,
 				description: data.description,
+				// TODO status code table
 
 				dateFormat: dateFormat,
 				descriptionToHTML(description: Description): string {
 					return descriptionToHTML(description, pretty);
 				},
+				// TODO status code table
+
 				indent(str: string, level: number): string {
 					if(!pretty) return str;
 
