@@ -4,6 +4,8 @@
 html { font-family: 'Ubuntu', sans-serif; }
 code { font-family: 'Ubuntu Mono', monospace; }
 
+body { padding: 8px; }
+
 /* === header =============================================================== */
 
 h1 { text-align: center; }
