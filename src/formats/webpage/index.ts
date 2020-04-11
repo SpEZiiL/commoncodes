@@ -1,4 +1,5 @@
 import Exception from "@mfederczuk/custom-exception";
+import dateFormat from "dateformat";
 import * as ejs from "ejs";
 import { PathLike, writeFile } from "fs";
 import { minify as minifyHTML, Options as HTMLMinifierOptions } from "html-minifier";
@@ -25,7 +26,9 @@ export default class WebpageFormatCreator extends FormatCreator {
 		dataSet.forEach((data) => {
 			const ejsData = {
 				escapeForHTMLText: escapeForHTMLText,
-				escapeForHTMLAttr: escapeForHTMLAttr
+				escapeForHTMLAttr: escapeForHTMLAttr,
+
+				dateFormat: dateFormat
 
 				// TODO
 			};
