@@ -35,7 +35,7 @@ namespace UrlLink {
 			title: strOrTuple[1]
 		};
 
-		const match = strOrTuple.match(/^(?<url>.+)\s*("(?<title>.*)")?$/);
+		const match = strOrTuple.match(/^(?<url>.+?)\s*("(?<title>.*)")?$/);
 		if(match === null || match.groups === undefined) return null;
 
 		try {
