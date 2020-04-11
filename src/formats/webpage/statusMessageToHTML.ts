@@ -52,5 +52,7 @@ function statusMessageAtomsToHTML(atoms: readonly StatusMessageAtom[]): string {
 }
 
 export function statusMessageToHTML(statusMessage: StatusMessage): string {
-	return inSpanTag(MESSAGE_CLASS_NAME, statusMessageAtomsToHTML(statusMessage.atoms), false);
+	return `<code class="code-bg">` +
+	       inSpanTag(MESSAGE_CLASS_NAME, statusMessageAtomsToHTML(statusMessage.atoms), false) +
+	       "</code>";
 }
