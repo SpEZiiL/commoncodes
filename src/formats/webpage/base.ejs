@@ -117,5 +117,10 @@
 	</div> <!-- #section_authors.pagesection -->
 	</div> <!-- #release-content -->
 	</main>
+
+	<footer>
+	<span id="footer_copyright-notice">&copy; <%-escapeForHTMLText (copyrightYears[copyrightYears.length - 1].toString()) %> <%- escapeForHTMLText(copyrightHolder.name) %></span>
+	<address id="footer_email-address">&lt;<a href="mailto:<%- escapeForHTMLAttr(copyrightHolder.email) %>"><%- escapeForHTMLText(copyrightHolder.email) %></a>&gt;</address>
+	</footer>
 </body>
 </html>
