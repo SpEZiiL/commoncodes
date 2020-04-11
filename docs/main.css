@@ -12,7 +12,7 @@ h1 { text-align: center; }
 #version-links_text      { font-size: 1.2em;   }
 #version-links_current   { font-weight: bold;  }
 
-/* === body ================================================================= */
+/* === main ================================================================= */
 
 #release-date_container { text-align: center; }
 #release-date_text      { font-style: italic; }
