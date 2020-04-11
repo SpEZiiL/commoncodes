@@ -23,6 +23,8 @@ export default class WebpageFormatCreator extends FormatCreator {
 	}
 
 	create(dataSet: readonly CommonCodesData[]): void {
+		const releaseVersions = dataSet.map((data) => (data.metadata.releaseVersion));
+
 		dataSet.forEach((data) => {
 			const ejsData = {
 				escapeForHTMLText: escapeForHTMLText,
@@ -31,6 +33,7 @@ export default class WebpageFormatCreator extends FormatCreator {
 				generatedDate: this.generatedDate,
 				currentReleaseVersion: data.metadata.releaseVersion,
 				authors: data.metadata.authors,
+				releaseVersions: releaseVersions,
 
 				dateFormat: dateFormat
 
