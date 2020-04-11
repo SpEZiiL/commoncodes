@@ -1,14 +1,14 @@
 import Exception from "@mfederczuk/custom-exception";
 
-export abstract class Element {
+export abstract class DescriptionElement {
 	abstract toString(): string;
 }
 
-export abstract class InlineElement extends Element {
+export abstract class DescriptionInlineElement extends DescriptionElement {
 	abstract toString(): string;
 }
-export namespace InlineElement {
-	export class TextSpan extends InlineElement {
+export namespace DescriptionInlineElement {
+	export class TextSpan extends DescriptionInlineElement {
 		readonly text: string;
 
 		constructor(text: string) {
@@ -27,7 +27,7 @@ export namespace InlineElement {
 		}
 	}
 
-	export class CommandSpan extends InlineElement {
+	export class CommandSpan extends DescriptionInlineElement {
 		constructor(readonly type: CommandSpan.Type, readonly textSpan: TextSpan) {
 			super();
 		}
@@ -106,12 +106,12 @@ export namespace InlineElement {
 	}
 }
 
-export abstract class BlockElement extends Element {
+export abstract class DescriptionBlockElement extends DescriptionElement {
 	abstract toString(): string;
 }
-export namespace BlockElement {
-	export class Paragraph extends BlockElement {
-		constructor(readonly elements: readonly InlineElement[]) {
+export namespace DescriptionBlockElement {
+	export class Paragraph extends DescriptionBlockElement {
+		constructor(readonly elements: readonly DescriptionInlineElement[]) {
 			super();
 		}
 
@@ -120,8 +120,8 @@ export namespace BlockElement {
 		}
 	}
 
-	export class List extends BlockElement {
-		constructor(readonly items: ReadonlyArray<readonly InlineElement[]>) {
+	export class List extends DescriptionBlockElement {
+		constructor(readonly items: ReadonlyArray<readonly DescriptionInlineElement[]>) {
 			super();
 		}
 
@@ -141,7 +141,7 @@ export namespace BlockElement {
 }
 
 export class Description {
-	constructor(readonly atoms: readonly BlockElement[]) {}
+	constructor(readonly atoms: readonly DescriptionBlockElement[]) {}
 
 	toString(): string {
 		return this.atoms.join("").trim();
@@ -149,15 +149,15 @@ export class Description {
 }
 
 /** parameter str shouldn't contain line breaks */
-function parseInlineElementes(str: string): readonly InlineElement[] {
-	const elements: InlineElement[] = [];
+function parseInlineElementes(str: string): readonly DescriptionInlineElement[] {
+	const elements: DescriptionInlineElement[] = [];
 
-	let commandType: (InlineElement.CommandSpan.Type | null) = null;
+	let commandType: (DescriptionInlineElement.CommandSpan.Type | null) = null;
 	let text = "";
 
 	function pushTextSpan(): void {
 		if(text !== "") {
-			elements.push(new InlineElement.TextSpan(text));
+			elements.push(new DescriptionInlineElement.TextSpan(text));
 			text = "";
 		}
 	}
@@ -180,7 +180,7 @@ function parseInlineElementes(str: string): readonly InlineElement[] {
 			// skip whitespace
 			for(; i < l && (str[i].match(/^\s$/) !== null); ++i);
 
-			commandType = InlineElement.CommandSpan.Type.fromCommand(commandStr);
+			commandType = DescriptionInlineElement.CommandSpan.Type.fromCommand(commandStr);
 			if(commandType === null) {
 				throw new Exception(`Unknown command "${commandStr}"`);
 			}
@@ -190,7 +190,7 @@ function parseInlineElementes(str: string): readonly InlineElement[] {
 
 		if(commandType !== null) {
 			if(c === "}") {
-				elements.push(new InlineElement.CommandSpan(commandType, new InlineElement.TextSpan(text)));
+				elements.push(new DescriptionInlineElement.CommandSpan(commandType, new DescriptionInlineElement.TextSpan(text)));
 				commandType = null;
 				text = "";
 
@@ -219,20 +219,20 @@ function parseInlineElementes(str: string): readonly InlineElement[] {
 	return elements;
 }
 
-function optimizeElements(elements: readonly InlineElement[]): readonly InlineElement[] {
-	const optimizedElements: InlineElement[] = [];
+function optimizeElements(elements: readonly DescriptionInlineElement[]): readonly DescriptionInlineElement[] {
+	const optimizedElements: DescriptionInlineElement[] = [];
 
 	elements.forEach((element) => {
-		const lastOptimizedElement = optimizedElements[optimizedElements.length - 1] as (InlineElement | undefined);
+		const lastOptimizedElement = optimizedElements[optimizedElements.length - 1] as (DescriptionInlineElement | undefined);
 		if(lastOptimizedElement === undefined) {
 			optimizedElements.push(element);
 			return; // continue forEach
 		}
 
-		if(element instanceof InlineElement.TextSpan) {
+		if(element instanceof DescriptionInlineElement.TextSpan) {
 			if(element.text !== "") {
-				if(lastOptimizedElement instanceof InlineElement.TextSpan) {
-					optimizedElements[optimizedElements.length - 1] = new InlineElement.TextSpan(lastOptimizedElement.text + element.text);
+				if(lastOptimizedElement instanceof DescriptionInlineElement.TextSpan) {
+					optimizedElements[optimizedElements.length - 1] = new DescriptionInlineElement.TextSpan(lastOptimizedElement.text + element.text);
 				} else {
 					optimizedElements.push(element);
 				}
@@ -248,21 +248,21 @@ function optimizeElements(elements: readonly InlineElement[]): readonly InlineEl
 export function parseDescription(str: string): Description {
 	str = str.trim().replace(/\n{3,}/g, "\n\n");
 
-	const blocks: BlockElement[] = [];
+	const blocks: DescriptionBlockElement[] = [];
 
 	str.split("\n\n").forEach((block) => {
-		let paragraphElements = null as (InlineElement[] | null);
-		let listItems = null as (InlineElement[][] | null);
+		let paragraphElements = null as (DescriptionInlineElement[] | null);
+		let listItems = null as (DescriptionInlineElement[][] | null);
 
 		function pushParagraphElements(): void {
 			if(paragraphElements !== null) {
-				blocks.push(new BlockElement.Paragraph(optimizeElements(paragraphElements)));
+				blocks.push(new DescriptionBlockElement.Paragraph(optimizeElements(paragraphElements)));
 				paragraphElements = null;
 			}
 		}
 		function pushListItems(): void {
 			if(listItems !== null) {
-				blocks.push(new BlockElement.List(listItems.map(optimizeElements)));
+				blocks.push(new DescriptionBlockElement.List(listItems.map(optimizeElements)));
 				listItems = null;
 			}
 		}
@@ -276,7 +276,7 @@ export function parseDescription(str: string): Description {
 				listItems[listItems.length - 1].push(...parseInlineElementes(line.substring(2)));
 			} else if(listItems !== null && line.startsWith("  ")) {
 				if(listItems[listItems.length - 1].length > 0 && !line.startsWith("   ")) {
-					listItems[listItems.length - 1].push(new InlineElement.TextSpan("\n"));
+					listItems[listItems.length - 1].push(new DescriptionInlineElement.TextSpan("\n"));
 				}
 				listItems[listItems.length - 1].push(...parseInlineElementes(line.substring(2)));
 			} else {
@@ -284,7 +284,7 @@ export function parseDescription(str: string): Description {
 				if(paragraphElements === null) paragraphElements = [];
 
 				if(paragraphElements.length > 0 && !line.startsWith(" ")) {
-					paragraphElements.push(new InlineElement.TextSpan("\n"));
+					paragraphElements.push(new DescriptionInlineElement.TextSpan("\n"));
 				}
 				paragraphElements.push(...parseInlineElementes(line));
 			}
