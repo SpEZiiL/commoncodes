@@ -44,6 +44,8 @@ export default class WebpageFormatCreator extends FormatCreator {
 				footnotes: data.footnotes,
 				seeAlsoLinks: data.seeAlso.links,
 				seeAlsoMansite: data.seeAlso.mansite,
+				copyrightYears: data.metadata.copyrightYears,
+				copyrightHolder: data.metadata.copyrightHolder,
 
 				dateFormat: dateFormat,
 				descriptionToHTML(description: Description): string {
