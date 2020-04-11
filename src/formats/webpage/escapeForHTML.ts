@@ -8,6 +8,8 @@ export function escapeForHTMLText(str: string): string {
 
 		if(c === "<") {
 			esc += "&lt;";
+		} else if(c === ">") {
+			esc += "&gt;";
 		} else if(c === "&") {
 			esc += "&amp;";
 		} else if(c === "\n") {
