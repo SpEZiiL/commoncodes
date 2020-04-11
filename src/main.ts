@@ -8,6 +8,7 @@ import * as typesafeArray from "typesafe-array";
 import CommonCodesData from "./CommonCodesData";
 import { parseDescription } from "./description";
 import { ExitStatusTable } from "./exitStatus";
+import FormatCreator from "./formats/FormatCreator";
 import { SeeAlsoLink } from "./seeAlsoLink";
 import { StatusMessageSyntaxError } from "./statusMessage";
 
@@ -112,6 +113,12 @@ try {
 				mansite: seeAlso.mansite
 			}
 		};
+	});
+
+	const formatCreators: FormatCreator[] = [
+	];
+	formatCreators.forEach((formatCreator) => {
+		formatCreator.create(dataSet);
 	});
 } catch(err) {
 	if(err instanceof StatusMessageSyntaxError) {
