@@ -1,8 +1,16 @@
 import Exception from "@mfederczuk/custom-exception";
 import * as ejs from "ejs";
 import { PathLike, writeFile } from "fs";
+import { minify as minifyHTML, Options as HTMLMinifierOptions } from "html-minifier";
 import CommonCodesData from "../../CommonCodesData";
 import FormatCreator from "../FormatCreator";
+
+const HTML_MINIFIER_OPTIONS: HTMLMinifierOptions = {
+	collapseInlineTagWhitespace: true,
+	collapseWhitespace: true,
+	conservativeCollapse: true,
+	removeComments: true
+};
 
 export default class WebpageFormatCreator extends FormatCreator {
 	constructor(private readonly generatedDate: Date,
@@ -20,6 +28,10 @@ export default class WebpageFormatCreator extends FormatCreator {
 
 			ejs.renderFile(this.baseFile.toString(), ejsData, (err, page) => {
 				if(err !== null) throw Exception.fromError(err);
+
+				if(!this.pretty) {
+					page = minifyHTML(page, HTML_MINIFIER_OPTIONS);
+				}
 
 				const majorVersion = data.metadata.releaseVersion.major;
 				const pageFile = `${this.outDir}/v${majorVersion}.html`;
