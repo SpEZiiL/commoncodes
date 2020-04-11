@@ -29,6 +29,7 @@ export default class WebpageFormatCreator extends FormatCreator {
 				escapeForHTMLAttr: escapeForHTMLAttr,
 
 				generatedDate: this.generatedDate,
+				currentReleaseVersion: data.metadata.releaseVersion,
 
 				dateFormat: dateFormat
 
