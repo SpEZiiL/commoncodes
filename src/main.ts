@@ -15,7 +15,9 @@ import { StatusMessageSyntaxError } from "./statusMessage";
 const GENERATED_DATE = new Date();
 
 const ROOT_DIR = realpathSync(__dirname + "/..");
+const DOCS_DIR = realpathSync(ROOT_DIR + "/docs");
 const RAW_DIR = realpathSync(ROOT_DIR + "/raw");
+const SRC_DIR = realpathSync(ROOT_DIR + "/src");
 
 const METADATA_FILENAME = "metadata.yaml";
 const NAME_FILENAME = "name.desc";
