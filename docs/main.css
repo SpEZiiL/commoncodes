@@ -3,3 +3,7 @@
 
 html { font-family: 'Ubuntu', sans-serif; }
 code { font-family: 'Ubuntu Mono', monospace; }
+
+/* === header =============================================================== */
+
+h1 { text-align: center; }
