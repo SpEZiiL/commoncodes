@@ -4,6 +4,7 @@ import { PathLike, writeFile } from "fs";
 import { minify as minifyHTML, Options as HTMLMinifierOptions } from "html-minifier";
 import CommonCodesData from "../../CommonCodesData";
 import FormatCreator from "../FormatCreator";
+import { escapeForHTMLAttr, escapeForHTMLText } from "./escapeForHTML";
 
 const HTML_MINIFIER_OPTIONS: HTMLMinifierOptions = {
 	collapseInlineTagWhitespace: true,
@@ -23,6 +24,9 @@ export default class WebpageFormatCreator extends FormatCreator {
 	create(dataSet: readonly CommonCodesData[]): void {
 		dataSet.forEach((data) => {
 			const ejsData = {
+				escapeForHTMLText: escapeForHTMLText,
+				escapeForHTMLAttr: escapeForHTMLAttr
+
 				// TODO
 			};
 
