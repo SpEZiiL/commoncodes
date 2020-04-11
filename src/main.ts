@@ -21,7 +21,7 @@ const RAW_DIR = realpathSync(ROOT_DIR + "/raw");
 const SRC_DIR = realpathSync(ROOT_DIR + "/src");
 
 const METADATA_FILENAME = "metadata.yaml";
-const NAME_FILENAME = "name.desc";
+const ABOUT_FILENAME = "about.desc";
 const DESCRIPTION_FILENAME = "description.desc";
 const EXIT_STATUS_TABLE_FILENAME = "exit_status_table";
 const FOOTNOTES_FILENAME = "footnotes.desc";
@@ -70,8 +70,8 @@ try {
 			throw new Exception(`Invalid ${METADATA_FILENAME} file`);
 		}
 
-		const nameFileContents = readFileSync(`${versionDir}/${NAME_FILENAME}`).toString();
-		const name = parseDescription(nameFileContents);
+		const aboutFileContents = readFileSync(`${versionDir}/${ABOUT_FILENAME}`).toString();
+		const about = parseDescription(aboutFileContents);
 
 		const descriptionFileContents = readFileSync(`${versionDir}/${DESCRIPTION_FILENAME}`).toString();
 		const description = parseDescription(descriptionFileContents);
@@ -105,7 +105,7 @@ try {
 				releaseDate: metadata.release_date
 			},
 
-			name: name,
+			about: about,
 			description: description,
 			exitStatusTable: exitStatusTable,
 			footnotes: footnotes,

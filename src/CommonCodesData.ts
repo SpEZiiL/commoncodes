@@ -15,7 +15,7 @@ export default interface CommonCodesData {
 		readonly releaseDate: Date;
 	};
 
-	readonly name: Description;
+	readonly about: Description;
 	readonly description: Description;
 	readonly exitStatusTable: ExitStatusTable;
 	readonly footnotes: Description;

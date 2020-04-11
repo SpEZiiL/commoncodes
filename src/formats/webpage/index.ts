@@ -37,6 +37,7 @@ export default class WebpageFormatCreator extends FormatCreator {
 				generatedDate: this.generatedDate,
 				currentReleaseVersion: data.metadata.releaseVersion,
 				authors: data.metadata.authors,
+				about: data.about,
 				releaseVersions: releaseVersions,
 				releaseDate: data.metadata.releaseDate,
 				description: data.description,
