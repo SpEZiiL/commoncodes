@@ -28,6 +28,8 @@ export default class WebpageFormatCreator extends FormatCreator {
 				escapeForHTMLText: escapeForHTMLText,
 				escapeForHTMLAttr: escapeForHTMLAttr,
 
+				generatedDate: this.generatedDate,
+
 				dateFormat: dateFormat
 
 				// TODO
