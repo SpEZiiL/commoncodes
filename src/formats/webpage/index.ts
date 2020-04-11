@@ -4,7 +4,9 @@ import * as ejs from "ejs";
 import { PathLike, writeFile } from "fs";
 import { minify as minifyHTML, Options as HTMLMinifierOptions } from "html-minifier";
 import CommonCodesData from "../../CommonCodesData";
+import { Description } from "../../description";
 import FormatCreator from "../FormatCreator";
+import { descriptionToHTML } from "./descriptionToHTML";
 import { escapeForHTMLAttr, escapeForHTMLText } from "./escapeForHTML";
 
 const HTML_MINIFIER_OPTIONS: HTMLMinifierOptions = {
@@ -23,6 +25,8 @@ export default class WebpageFormatCreator extends FormatCreator {
 	}
 
 	create(dataSet: readonly CommonCodesData[]): void {
+		const pretty = this.pretty;
+
 		const releaseVersions = dataSet.map((data) => (data.metadata.releaseVersion));
 
 		dataSet.forEach((data) => {
@@ -36,7 +40,10 @@ export default class WebpageFormatCreator extends FormatCreator {
 				releaseVersions: releaseVersions,
 				releaseDate: data.metadata.releaseDate,
 
-				dateFormat: dateFormat
+				dateFormat: dateFormat,
+				descriptionToHTML(description: Description): string {
+					return descriptionToHTML(description, pretty);
+				}
 
 				// TODO
 			};
