@@ -43,6 +43,11 @@ export default class WebpageFormatCreator extends FormatCreator {
 				dateFormat: dateFormat,
 				descriptionToHTML(description: Description): string {
 					return descriptionToHTML(description, pretty);
+				},
+				indent(str: string, level: number): string {
+					if(!pretty) return str;
+
+					return str.replace(/\n/g, "\n" + "\t".repeat(level));
 				}
 
 				// TODO
