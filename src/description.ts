@@ -141,10 +141,10 @@ export namespace DescriptionBlockElement {
 }
 
 export class Description {
-	constructor(readonly atoms: readonly DescriptionBlockElement[]) {}
+	constructor(readonly elements: readonly DescriptionBlockElement[]) {}
 
 	toString(): string {
-		return this.atoms.join("").trim();
+		return this.elements.join("").trim();
 	}
 }
 
