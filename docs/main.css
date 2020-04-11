@@ -16,3 +16,17 @@ h1 { text-align: center; }
 
 #release-date_container { text-align: center; }
 #release-date_text      { font-style: italic; }
+
+.proper-name { font-weight: bold; }
+
+.message { letter-spacing: 1px; }
+.message_control { font-weight: bold; }
+.message_placeholder {
+	font-style: italic;
+	text-decoration: underline;
+}
+.message_special-placeholder {
+	font-style: italic;
+	font-weight: bold;
+	text-decoration: underline;
+}
