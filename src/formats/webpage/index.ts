@@ -34,6 +34,7 @@ export default class WebpageFormatCreator extends FormatCreator {
 				currentReleaseVersion: data.metadata.releaseVersion,
 				authors: data.metadata.authors,
 				releaseVersions: releaseVersions,
+				releaseDate: data.metadata.releaseDate,
 
 				dateFormat: dateFormat
 
