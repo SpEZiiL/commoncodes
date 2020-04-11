@@ -93,6 +93,28 @@
 			<%_ }); -%>
 		</p>
 	</div> <!-- #section_see-also.pagesection -->
+
+	<div id="section_authors" class="pagesection">
+		<h2>Authors</h2>
+
+		<ul>
+			<%_ authors.forEach((author) => { -%>
+			<li>
+				<%_ if(author.name !== undefined) { -%>
+				<%- author.name %>
+				<%_ } -%>
+				<%_ -%>
+				<%_ if(author.email !== undefined) { -%>
+				&lt;<a href="mailto:<%- escapeForHTMLAttr(author.email) %>"><%- escapeForHTMLText(author.email) %></a>>
+				<%_ } -%>
+				<%_ -%>
+				<%_ if(author.url !== undefined) { -%>
+				(<a href="<%- escapeForHTMLAttr(author.url) %>"><%- escapeForHTMLText(author.url) %></a>)
+				<%_ } -%>
+			</li>
+			<%_ }); -%>
+		</ul>
+	</div> <!-- #section_authors.pagesection -->
 	</div> <!-- #release-content -->
 	</main>
 </body>
