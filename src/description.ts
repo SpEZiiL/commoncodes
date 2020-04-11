@@ -81,9 +81,8 @@ export namespace DescriptionInlineElement {
 			static readonly CODE                = new Type(3, "CODE",                "c");
 			static readonly MESSAGE             = new Type(4, "MESSAGE",             "m");
 			static readonly MESSAGE_PLACEHOLDER = new Type(5, "MESSAGE_PLACEHOLDER", "mp");
-			static readonly MESSAGE_CONTROL     = new Type(6, "MESSAGE_CONTROL",     "mc");
-			static readonly CURLY_BRACE_OPEN    = new Type(7, "CURLY_BRACE_OPEN",    ["cb", "cbo"]);
-			static readonly CURLY_BRACE_CLOSED  = new Type(8, "CURLY_BRACE_CLOSED",  "cbc");
+			static readonly CURLY_BRACE_OPEN    = new Type(6, "CURLY_BRACE_OPEN",    ["cb", "cbo"]);
+			static readonly CURLY_BRACE_CLOSED  = new Type(7, "CURLY_BRACE_CLOSED",  "cbc");
 
 			static from(name: string): (Type | null) {
 				for(const value of Type._values) {
