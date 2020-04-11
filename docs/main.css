@@ -1,5 +1,5 @@
 @import url("https://mfederczuk.github.io/darkpage/v1.min.css");
 @import url('https://fonts.googleapis.com/css?family=Ubuntu|Ubuntu+Mono&display=swap');
 
-*              { font-family: 'Ubuntu', sans-serif; }
-code, pre code { font-family: 'Ubuntu Mono', monospace; }
+html { font-family: 'Ubuntu', sans-serif; }
+code { font-family: 'Ubuntu Mono', monospace; }
