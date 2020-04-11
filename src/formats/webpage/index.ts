@@ -58,8 +58,6 @@ export default class WebpageFormatCreator extends FormatCreator {
 
 					return str.replace(/\n/g, "\n" + "\t".repeat(level));
 				}
-
-				// TODO
 			};
 
 			ejs.renderFile(this.baseFile.toString(), ejsData, (err, page) => {
