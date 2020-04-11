@@ -57,21 +57,21 @@
 	</div> <!-- #page-intro -->
 
 	<div id="release-content">
-	<div id="section_description" class="pagesection">
+	<section id="description">
 	<h2>Description</h2>
 
 	<%- indent(descriptionToHTML(description), 1) %>
-	</div> <!-- #section_description.pagesection -->
+	</section> <!-- #description -->
 
 	<!-- TODO exit status table -->
 
-	<div id="section_footnotes" class="pagesection">
+	<section id="footnotes">
 	<h2>Footnotes</h2>
 
 	<%- indent(descriptionToHTML(footnotes), 1) %>
-	</div> <!-- #section_footnotes.pagesection -->
+	</section> <!-- #footnotes -->
 
-	<div id="section_see-also" class="pagesection">
+	<section id="see-also">
 		<h2>See Also</h2>
 
 		<p>
@@ -92,9 +92,9 @@
 				<%_ } -%>
 			<%_ }); -%>
 		</p>
-	</div> <!-- #section_see-also.pagesection -->
+	</section> <!-- #see-also -->
 
-	<div id="section_authors" class="pagesection">
+	<section id="authors">
 		<h2>Authors</h2>
 
 		<ul>
@@ -114,7 +114,7 @@
 			</li>
 			<%_ }); -%>
 		</ul>
-	</div> <!-- #section_authors.pagesection -->
+	</section> <!-- #authors -->
 	</div> <!-- #release-content -->
 	</main>
 
