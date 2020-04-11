@@ -42,6 +42,8 @@ export default class WebpageFormatCreator extends FormatCreator {
 				description: data.description,
 				// TODO status code table
 				footnotes: data.footnotes,
+				seeAlsoLinks: data.seeAlso.links,
+				seeAlsoMansite: data.seeAlso.mansite,
 
 				dateFormat: dateFormat,
 				descriptionToHTML(description: Description): string {
