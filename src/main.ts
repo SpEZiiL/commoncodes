@@ -70,8 +70,11 @@ try {
 			throw new Exception(`Invalid ${METADATA_FILENAME} file`);
 		}
 
-		const aboutFileContents = readFileSync(`${versionDir}/${ABOUT_FILENAME}`).toString();
-		const about = parseDescription(aboutFileContents);
+		const about = readFileSync(`${versionDir}/${ABOUT_FILENAME}`)
+		              .toString()
+		              .trim()
+		              // compress whitespace
+		              .replace(/\s+/g, (substring) => (substring.charAt(0)));
 
 		const descriptionFileContents = readFileSync(`${versionDir}/${DESCRIPTION_FILENAME}`).toString();
 		const description = parseDescription(descriptionFileContents);
