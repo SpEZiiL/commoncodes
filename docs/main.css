@@ -7,3 +7,7 @@ code { font-family: 'Ubuntu Mono', monospace; }
 /* === header =============================================================== */
 
 h1 { text-align: center; }
+
+#version-links_container { text-align: center; }
+#version-links_text      { font-size: 1.2em;   }
+#version-links_current   { font-weight: bold;  }
