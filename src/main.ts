@@ -36,6 +36,8 @@ const majorVersions = ((): number[] => {
 	return majorVersions.sort();
 })();
 
+if(majorVersions.length === 0) throw new Exception("No major versions found");
+
 try {
 	const dataSet = majorVersions.map((majorVersion): CommonCodesData => {
 		const versionDir = `${RAW_DIR}/v${majorVersion}`;
