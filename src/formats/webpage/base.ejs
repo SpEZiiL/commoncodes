@@ -31,6 +31,22 @@
 	<link rel="stylesheet" type="text/css" href="./main.css">
 </head>
 <body>
+	<div id="header">
+	<div id="version-links_container">
+		<span id="version-links_text">
+			[
+			<%_ releaseVersions.sort((a, b) => (b.compare(a))).forEach((releaseVersion, i) => { -%>
+				<%_ if(releaseVersion.compare(currentReleaseVersion) === 0) { -%>
+			<span id="version-links_current"><a href="v<%- escapeForHTMLAttr(releaseVersion.major.toString()) %>.html">v<%- escapeForHTMLText(releaseVersion.format()) %></a></span><%- ((releaseVersions.length - 1) !== i) ? " |" : "" %>
+				<%_ } else { -%>
+			<span class="version-links_other"><a href="v<%- escapeForHTMLAttr(releaseVersion.major.toString()) %>.html">v<%- escapeForHTMLText(releaseVersion.format()) %></a></span><%- ((releaseVersions.length - 1) !== i) ? " |" : "" %>
+				<%_ } -%>
+			<%_ }); -%>
+			]
+		</span>
+	</div> <!-- #version-links_container -->
+	</div> <!-- #header -->
+
 	<div id="body">
 	<div id="page-intro">
 	<h1>CommonCodes v<%- escapeForHTMLText(currentReleaseVersion.format()) %></h1>
