@@ -70,6 +70,29 @@
 
 	<%- indent(descriptionToHTML(footnotes), 1) %>
 	</div> <!-- #section_footnotes.pagesection -->
+
+	<div id="section_see-also" class="pagesection">
+		<h2>See Also</h2>
+
+		<p>
+			<%_ seeAlsoLinks.forEach((seeAlsoLink, i) => { -%>
+				<%_ const link = seeAlsoLink.getLink(); -%>
+				<%_ const urlLink = link[0]; -%>
+				<%_ const manpageReference = link[1]; -%>
+				<%_ -%>
+				<%_ if(urlLink !== null) { -%>
+					<%_ const htmlLinkUrl = escapeForHTMLAttr(urlLink.url.toString()); -%>
+					<%_ if(urlLink.title !== null) { -%>
+			&lt;<a href="<%- htmlLinkUrl %>" title="<%- escapeForHTMLAttr(urlLink.title) %>"><%- htmlLinkUrl %></a>&gt;<%- ((seeAlsoLinks.length - 1) !== i) ? "," : "" %>
+					<%_ } else { -%>
+			&lt;<a href="<%- htmlLinkUrl %>"><%- htmlLinkUrl %></a>&gt;<%- ((seeAlsoLinks.length - 1) !== i) ? "," : "" %>
+					<%_ } -%>
+				<%_ } else if(manpageReference !== null) { -%>
+			<a href="<%- escapeForHTMLAttr(seeAlsoMansite.replace("%%PAGE%%", manpageReference.page).replace("%%SECTION%%", manpageReference.section.toString())) %>"><%- escapeForHTMLText(manpageReference.page) %>(<%- escapeForHTMLText(manpageReference.section.toString()) %>)</a><%- ((seeAlsoLinks.length - 1) !== i) ? "," : "" %>
+				<%_ } -%>
+			<%_ }); -%>
+		</p>
+	</div> <!-- #section_see-also.pagesection -->
 	</div> <!-- #release-content -->
 	</main>
 </body>
