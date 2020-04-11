@@ -119,9 +119,6 @@ These formatting commands are defined:
    the `m` command  
   In web pages, the text is made italic and is underlined  
   In man pages, the text is only underlined
-* `mc` - _message control_  
-  Formats the text the same way as square brackets, parenthesis and ellipsis are
-   displayed in the `m` command  
 * `cb`/`cbo` - _curly brace (open)_  
   Inserts an open curly brace
 * `cbc` - _curly brace closed_  
