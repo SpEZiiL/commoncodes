@@ -2,9 +2,11 @@
 
 The files in this directory hold the raw data of **CommonCodes**.
 
-* [`name.desc`](./v2/name.desc)  
-  The first section in the man page, copied over after trimming and compressing
-   whitespace
+* [`about.desc`](./v2/about.desc)  
+  The first section in the man page, copied over and preceded with the text
+   _"CommonCodes - "_.  
+  The contents of this file will be put into the `meta` tag with the
+   `description` name in the web page.
 * [`description.desc`](./v2/description.desc)  
   The first section in the web page and the second in the man page.  
   Text around curly braces(`{}`) are specially formatted.  
