@@ -8,6 +8,7 @@ import { Description } from "../../description";
 import FormatCreator from "../FormatCreator";
 import { descriptionToHTML } from "./descriptionToHTML";
 import { escapeForHTMLAttr, escapeForHTMLText } from "./escapeForHTML";
+import { statusMessageToHTML } from "./statusMessageToHTML";
 
 const HTML_MINIFIER_OPTIONS: HTMLMinifierOptions = {
 	collapseInlineTagWhitespace: true,
@@ -52,7 +53,7 @@ export default class WebpageFormatCreator extends FormatCreator {
 				descriptionToHTML(description: Description): string {
 					return descriptionToHTML(description, pretty);
 				},
-				// TODO status code table
+				statusMessageToHTML: statusMessageToHTML,
 
 				indent(str: string, level: number): string {
 					if(!pretty) return str;
