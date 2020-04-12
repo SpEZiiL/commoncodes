@@ -63,7 +63,39 @@
 	<%- indent(descriptionToHTML(description), 1) %>
 	</section> <!-- #description -->
 
-	<!-- TODO exit status table -->
+	<section id="exit-status-table">
+	<h2>Exit Status Table</h2>
+
+	<table>
+		<caption>Exit Statuses</caption>
+		<thead>
+			<tr>
+				<th>Code</th>
+				<th>Message</th>
+				<th>Description</th>
+			</tr>
+		</thead>
+		<tbody>
+			<%_ exitStatusTable.forEach((exitStatus) => { -%>
+			<tr>
+				<td class="status-code-table_code">
+					<%_ if(typeof(exitStatus.code) === "number") { -%>
+					<%- exitStatus.code.toString() %>
+					<%_ } else { -%>
+					<%- exitStatus.code.rangeStart.toString() %> - <%- exitStatus.code.rangeEnd.toString() %>
+					<%_ } -%>
+				</td>
+				<td class="status-code-table_message">
+					<%- statusMessageToHTML(exitStatus.message) %>
+				</td>
+				<td class="status-code-table_description">
+					<%- indent(descriptionToHTML(exitStatus.description), 5) %>
+				</td>
+			</tr>
+			<%_ }); -%>
+		</tbody>
+	</table>
+	</section> <!-- #exit-status-table -->
 
 	<section id="footnotes">
 	<h2>Footnotes</h2>
