@@ -14,7 +14,7 @@ export function escapeForHTMLText(str: string): string {
 			esc += "&amp;";
 		} else if(c === "\n") {
 			esc += "<br/>";
-		} else if((codePoint >= 0 && codePoint < 20) || codePoint >= 127) {
+		} else if((codePoint >= 0x0 && codePoint <= 0x1F) || codePoint >= 0x7F) {
 			esc += `&#x${codePoint.toString(16)};`;
 		} else {
 			esc += c;
@@ -38,7 +38,7 @@ export function escapeForHTMLAttr(str: string): string {
 			esc += "&amp;";
 		} else if(c === "<") {
 			esc += "&lt;";
-		} else if((codePoint >= 0 && codePoint < 20) || codePoint >= 127) {
+		} else if((codePoint >= 0x0 && codePoint <= 0x1F) || codePoint >= 0x7F) {
 			esc += `&#x${codePoint.toString(16)};`;
 		} else {
 			esc += c;
