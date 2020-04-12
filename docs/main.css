@@ -33,7 +33,18 @@ h1 { text-align: center; }
 	text-decoration: underline;
 }
 
-/* TODO exit status table */
+#exit-status-table table {
+	border-collapse: collapse;
+	width: 100%;
+}
+#exit-status-table table caption { display: none; }
+#exit-status-table table tr { border-bottom: 1px solid #3F3F3F; }
+#exit-status-table table td.status-code-table_code {
+	letter-spacing: 1px;
+	padding-left: 8px;
+	padding-right: 8px;
+	text-align: center;
+}
 
 /* === footer =============================================================== */
 
