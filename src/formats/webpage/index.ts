@@ -42,7 +42,7 @@ export default class WebpageFormatCreator extends FormatCreator {
 				releaseVersions: releaseVersions,
 				releaseDate: data.metadata.releaseDate,
 				description: data.description,
-				// TODO status code table
+				exitStatusTable: data.exitStatusTable,
 				footnotes: data.footnotes,
 				seeAlsoLinks: data.seeAlso.links,
 				seeAlsoMansite: data.seeAlso.mansite,
