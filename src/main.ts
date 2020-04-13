@@ -9,6 +9,7 @@ import CommonCodesData from "./CommonCodesData";
 import { parseDescription } from "./description";
 import { ExitStatusTable } from "./exitStatus";
 import FormatCreator from "./formats/FormatCreator";
+import ManpageFormatCreator from "./formats/manpage";
 import WebpageFormatCreator from "./formats/webpage";
 import { SeeAlsoLink } from "./seeAlsoLink";
 import { StatusMessageSyntaxError } from "./statusMessage";
@@ -143,7 +144,8 @@ try {
 	const formatCreators: FormatCreator[] = [
 		new WebpageFormatCreator(GENERATED_DATE,
 		                         SRC_DIR + "/formats/webpage/base.ejs",
-		                         DOCS_DIR)
+		                         DOCS_DIR),
+		new ManpageFormatCreator(GENERATED_DATE, ROOT_DIR)
 	];
 	formatCreators.forEach((formatCreator) => {
 		formatCreator.create(dataSet);
