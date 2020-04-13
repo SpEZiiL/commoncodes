@@ -32,18 +32,13 @@ const sourceStyle = chalk.bold;
 const errorStyle = chalk.red.bold;
 const warningStyle = chalk.yellow.bold;
 
-const majorVersions = ((): number[] => {
-	const entries = readdirSync(RAW_DIR);
-
-	const majorVersions: number[] = [];
-
-	entries.forEach((entry) => {
-		const match = entry.match(/^v([1-9][0-9]*)$/);
-		if(match !== null) majorVersions.push(Number(match[1]));
-	});
-
-	return majorVersions.sort();
-})();
+const majorVersions = readdirSync(RAW_DIR).map((entry) => {
+	const match = entry.match(/^v([1-9][0-9]*)$/);
+	if(match !== null) return Number(match[1]);
+	return -1;
+}).filter((majorVersion) => {
+	return majorVersion !== -1;
+}).sort();
 
 if(majorVersions.length === 0) throw new Exception("No major versions found");
 
