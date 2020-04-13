@@ -1,7 +1,7 @@
 # CommonCodes #
 
 [version_shield]: https://img.shields.io/badge/version-1.0.0-blue.svg
-[latest_release]: https://mfederczuk.github.io/commoncodes/v/1.0.0.html "Latest Release"
+[latest_release]: https://mfederczuk.github.io/commoncodes "Latest Release"
 [![version: 1.0.0][version_shield]][latest_release]
 [![Changelog](https://img.shields.io/badge/-Changelog-blue.svg)](./CHANGELOG.md "Changelog")
 
