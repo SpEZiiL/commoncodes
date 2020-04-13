@@ -30,6 +30,7 @@ export default class WebpageFormatCreator extends FormatCreator {
 
 		const releaseVersions = dataSet.map((data) => (data.metadata.releaseVersion));
 
+		// generate one file for each release
 		dataSet.forEach((data) => {
 			const ejsData = {
 				escapeForHTMLText: escapeForHTMLText,
@@ -62,6 +63,8 @@ export default class WebpageFormatCreator extends FormatCreator {
 				}
 			};
 
+			// we do all these async so that we can start generating the other
+			// files as soon as possible, saving a little bit of time
 			ejs.renderFile(this.baseFile.toString(), ejsData, (err, page) => {
 				if(err !== null) throw Exception.fromError(err);
 
@@ -71,7 +74,7 @@ export default class WebpageFormatCreator extends FormatCreator {
 
 				const majorVersion = data.metadata.releaseVersion.major;
 				const pageFile = `${this.outDir}/v${majorVersion}.html`;
-				const options = { mode: 0o644 };
+				const options = { mode: 0o644 }; // -rw-r--r--
 
 				writeFile(pageFile, page, options, (err) => {
 					if(err !== null) throw Exception.fromError(err);

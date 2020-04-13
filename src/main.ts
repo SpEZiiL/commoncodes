@@ -32,6 +32,9 @@ const sourceStyle = chalk.bold;
 const errorStyle = chalk.red.bold;
 const warningStyle = chalk.yellow.bold;
 
+// Get all major versions from the raw directory.
+// Every directory with the pattern /^v([1-9][0-9]*)$/ will be seen as an
+// individual release.
 const majorVersions = readdirSync(RAW_DIR).map((entry) => {
 	const match = entry.match(/^v([1-9][0-9]*)$/);
 	if(match !== null) return Number(match[1]);
@@ -43,6 +46,7 @@ const majorVersions = readdirSync(RAW_DIR).map((entry) => {
 if(majorVersions.length === 0) throw new Exception("No major versions found");
 
 try {
+	// Read in and parse the different versions.
 	const dataSet = majorVersions.map((majorVersion): CommonCodesData => {
 		const versionDir = `${RAW_DIR}/v${majorVersion}`;
 
@@ -120,6 +124,7 @@ try {
 			}
 		};
 
+		// make sure that the authors are valid
 		commonCodesData.metadata.authors.forEach((author) => {
 			if(author.name === undefined &&
 			   author.email === undefined &&
@@ -128,6 +133,7 @@ try {
 				throw new Exception("Empty author");
 			}
 
+			// just warn about author without name
 			if(author.name === undefined) {
 				console.warn(`${sourceStyle(`${versionDir}/${METADATA_FILENAME}:`)} ${warningStyle("warning:")} Author name is empty`);
 			}
@@ -136,6 +142,7 @@ try {
 		return commonCodesData;
 	});
 
+	// here are the different formats defined that will be generated
 	const formatCreators: FormatCreator[] = [
 		new WebpageFormatCreator(GENERATED_DATE,
 		                         SRC_DIR + "/formats/webpage/base.ejs",
