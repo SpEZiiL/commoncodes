@@ -27,6 +27,7 @@ const EXIT_STATUS_TABLE_FILENAME = "exit_status_table";
 const FOOTNOTES_FILENAME = "footnotes.desc";
 const SEE_ALSO_FILENAME = "see_also.yaml";
 
+const locationStyle = chalk.bold;
 const errorStyle = chalk.red.bold;
 
 const majorVersions = ((): number[] => {
