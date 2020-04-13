@@ -4,5 +4,5 @@ authors:
 copyright_years:  [2019, 2020]
 copyright_holder: Michael Federczuk <federczuk.michael@protonmail.com>
 
-version: '2.0.0-beta'
-date:    '2020-03-08'
+release_version: 2.0.0-beta
+release_date:    2020-03-08

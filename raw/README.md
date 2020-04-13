@@ -43,8 +43,8 @@ The files in this directory hold the raw data of **CommonCodes**.
   * `authors` - the full list of contributors
   * `copyright_years` - the full list of yeards in which revisions were released
   * `copyright_holder` - the copyright holder
-  * `version` - the full version name
-  * `date` - the last date this version was changed
+  * `release_version` - the full version name
+  * `release_date` - the date this version was released
 
 ## Description Format ##
 
