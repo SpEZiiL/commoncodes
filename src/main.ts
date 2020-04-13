@@ -28,7 +28,7 @@ const FOOTNOTES_FILENAME = "footnotes.desc";
 const METADATA_FILENAME = "metadata.yaml";
 const SEE_ALSO_FILENAME = "see_also.yaml";
 
-const locationStyle = chalk.bold;
+const sourceStyle = chalk.bold;
 const errorStyle = chalk.red.bold;
 const warningStyle = chalk.yellow.bold;
 
@@ -134,7 +134,7 @@ try {
 			}
 
 			if(author.name === undefined) {
-				console.warn(`${locationStyle(`${versionDir}/${METADATA_FILENAME}:`)} ${warningStyle("warning:")} Author name is empty`);
+				console.warn(`${sourceStyle(`${versionDir}/${METADATA_FILENAME}:`)} ${warningStyle("warning:")} Author name is empty`);
 			}
 		});
 
