@@ -43,7 +43,7 @@ The files in this directory hold the raw data of **CommonCodes**.
 * [`metadata.yaml`](./v2/metadata.yaml)  
   Holds metadata for the specific version of **CommonCodes**
   * `authors` - the full list of contributors
-  * `copyright_years` - the full list of yeards in which revisions were released
+  * `copyright_years` - the full list of years in which revisions were released
   * `copyright_holder` - the copyright holder
   * `release_version` - the full version name
   * `release_date` - the date this version was released
