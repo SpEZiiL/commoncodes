@@ -8,10 +8,8 @@ export function escapeForTroff(str: string): string {
 		const c = str.charAt(i);
 		const codePoint = c.codePointAt(0) as number;
 
-		if(c === "\\") {
-			esc += "\\\\";
-		} else if(c === "-") {
-			esc += "\\-";
+		if(c.match(/^[\\\-]$/)) {
+			esc += `\\${c}`;
 		} else if(c === "\n") {
 			esc += "\n.br\n";
 		} else if((codePoint >= 0 && codePoint <= 0x1F) || (codePoint >= 0x7F && codePoint <= 0xFFFF)) {
