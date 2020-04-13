@@ -30,7 +30,7 @@
 .\}
 ..
 
-.TH commoncodes 7 "0.1.0" "May 01, 2019" "CommonCodes man page"
+.TH commoncodes 7 "0.2.0" "May 05, 2019" "CommonCodes man page"
 .SH NAME
 CommonCodes \- Standardized list of commonly used exit statuses
 
@@ -48,7 +48,7 @@ that range from 64 to 78.
 
 .B GNU
 .B Bash
-uses the exit status 2 to indicate incorrect usage of a shell builtins.
+uses the exit status 2 to indicate incorrect usage of shell builtins.
 .B Bash
 also uses codes above 125 for special exit statuses like termination by a sent
 signal.
@@ -65,7 +65,27 @@ either in the
 .I --help
 summary or in the manpage.
 
+In the following table, these rules apply for the messages:
+.IP \[bu] 2
+Italic and/or underlined symbols are placeholders for other text that should
+get replaced for real messages.
+.IP \[bu]
+Text and symbols in bold square brackets may be ommitted in real messages.
+.IP \[bu]
+Text and symbols followed by bold ellipsis may be repeated one or more times in
+real messages.
+.IP \[bu]
+In real messages, only one field of text and symbols may be displayed if they
+are separated by bold vertical bars(\c
+.BI | \c
+).
+
 .SH STATUS CODE TABLE
+.B
+.IP "Exit Code" 12
+.B Message
+.br
+.B Description
 .IP 0
 success
 .br
@@ -130,11 +150,17 @@ The item in question is of the wrong type.
 .IP 20
 ?
 .IP 21
-?
+.rbi "network error" "[" "" ": " "" "info" "" "]"
+.br
+A general network error occurred.
 .IP 22
-?
+no network connection
+.br
+No network connection is established.
 .IP 23
-?
+connection timed out
+.br
+A network request took too long and timed out.
 .IP 24
 .rbi "arithmetic error" "[" "" ": " "" "info" "" "]"
 .br
@@ -154,11 +180,13 @@ An overflow or underflow happened and it has critical effects on the program.
 .br
 A general memory error occured.
 .IP 29
-not enough memory
+.rbi "not enough " "[" "" "heap " "]" "" "memory"
 .br
-There was not enough memory to allocate a block of data.
+There was not enough free memory on the heap to allocate a block of data.
 .IP 30
-?
+stack overflow error
+.br
+A stack overflow occurred.
 .IP 31
 .rbi "emergency stop" "[" "" ": " "" "info" "" "]"
 .br
