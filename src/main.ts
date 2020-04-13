@@ -29,6 +29,7 @@ const SEE_ALSO_FILENAME = "see_also.yaml";
 
 const locationStyle = chalk.bold;
 const errorStyle = chalk.red.bold;
+const warningStyle = chalk.yellow.bold;
 
 const majorVersions = ((): number[] => {
 	const entries = readdirSync(RAW_DIR);
