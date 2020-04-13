@@ -131,25 +131,25 @@ try {
 	});
 } catch(err) {
 	if(err instanceof StatusMessageSyntaxError) {
-		const errorColor = chalk.red.bold;
+		const errorStyle = chalk.red.bold;
 
 		let msg = "";
 
-		msg += errorColor("error:");
+		msg += errorStyle("error:");
 		msg += " " + err.problem.getMessage();
 
 		msg += "\n";
 
 		msg += "\t";
 		msg += err.faultyStatusMessage.substring(0, err.rangeStart);
-		msg += errorColor(err.faultyStatusMessage.substr(err.rangeStart, err.rangeLength));
+		msg += errorStyle(err.faultyStatusMessage.substr(err.rangeStart, err.rangeLength));
 		msg += err.faultyStatusMessage.substring(err.rangeStart + err.rangeLength);
 
 		msg += "\n";
 
 		msg += "\t";
 		msg += " ".repeat(err.rangeStart);
-		msg += errorColor("^" + "~".repeat(err.rangeLength - 1));
+		msg += errorStyle("^" + "~".repeat(err.rangeLength - 1));
 
 		console.error(msg);
 		process.exitCode = 1;
