@@ -101,7 +101,7 @@ try {
 			throw new Exception(`Invalid ${SEE_ALSO_FILENAME} file`);
 		}
 
-		return {
+		const commonCodesData = {
 			metadata: {
 				authors: metadata.authors.map(parsePerson),
 
@@ -123,6 +123,21 @@ try {
 				mansite: seeAlso.mansite
 			}
 		};
+
+		commonCodesData.metadata.authors.forEach((author) => {
+			if(author.name === undefined &&
+			   author.email === undefined &&
+			   author.url === undefined) {
+
+				throw new Exception("Empty author");
+			}
+
+			if(author.name === undefined) {
+				console.warn(`${locationStyle(`${versionDir}/${METADATA_FILENAME}:`)} ${warningStyle("warning:")} Author name is empty`);
+			}
+		});
+
+		return commonCodesData;
 	});
 
 	const formatCreators: FormatCreator[] = [
