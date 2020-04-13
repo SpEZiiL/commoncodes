@@ -53,8 +53,9 @@
   A general network error occurred.
 29 no network connection
   No network connection is established.
-30 connection timed out
+30 connection timed out[: waited <ms> ms]
   A network request took too long and timed out.
+  {mp ms} may be how many milliseconds were waited.
 31 arithmetic error[: <info>]
   A general arithmetic error occurred.
 32-47 <<(custom feedback statuses)>>
