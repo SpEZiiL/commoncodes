@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>CommonCodes v0.1.0</title>
+	<title>CommonCodes v0.2.0</title>
 	<meta charset="utf-8">
 	<meta name="author" content="Michael Federczuk">
 	<meta name="description" content="Standardized list of commonly used exit statuses">
 	<meta name="keywords" content="commoncodes">
 	<link rel="stylesheet" type="text/css" href="https://speziil.github.io/css-dark-theme/v/latest.css">
 	<link rel="stylesheet" type="text/css" href="../versions.css">
+	<link rel="stylesheet" type="text/css" href="../diff.css">
 </head>
 <body>
 	<div id="header">
@@ -17,19 +18,19 @@
 			<span class="version-links_other"><a href="0.3.0.html">v0.3.0</a></span> |
 			<span class="version-links_other"><a href="0.2.0...0.3.0.html">...</a></span> |
 			<span class="version-links_other"><a href="0.2.0.html">v0.2.0</a></span> |
-			<span class="version-links_other"><a href="0.1.0...0.2.0.html">...</a></span> |
-			<span id="version-links_current">v0.1.0</span>
+			<span id="version-links_current">...</span> |
+			<span class="version-links_other"><a href="0.1.0.html">v0.1.0</a></span>
 			]
 		</span> <!-- #version-links_text -->
 	</div> <!-- #version-links_container -->
-	</div> <!-- #header -->
+	</div> <!-- #header-->
 
 	<div id="body">
 	<div id="page-intro">
-	<h1>CommonCodes v0.1.0</h1>
-
+	<h1>CommonCodes v0.2.0</h1>
+	
 	<div id="version-date_container">
-		<span id="version-date_text">May 2, 2019</span>
+		<span id="version-date_text">May 5, 2019</span>
 	</div> <!-- #version-date_container -->
 
 	<div id="version-warning_container">
@@ -56,7 +57,7 @@
 
 	<p>
 		<strong>GNU</strong> <strong>Bash</strong> uses the exit status 2 to
-		indicate incorrect usage of a shell builtins.
+		indicate incorrect usage of <span class="diff_deletion">a </span> shell builtins.
 		<strong>Bash</strong> also uses codes above 125 for special exit
 		statuses like termination by a sent signal.<br>
 		<strong>CommonCodes</strong> adopts both of these rules, using 2 as
@@ -70,6 +71,31 @@
 		documented, either in the <code>--help</code> summary or in the
 		manpage.
 	</p>
+
+	<div class="diff_addition">
+	<p>
+		In the following table, these rules apply for the messages:
+	</p>
+
+	<ul>
+		<li>
+			Italic and/or underlined symbols are placeholders for other text
+			that should get replaced for real messages.
+		</li>
+		<li>
+			Text and symbols in bold square brackets may be ommitted in real
+			messages.
+		</li>
+		<li>
+			Text and symbols followed by bold ellipsis may be repeated one or
+			more times in real messages.
+		</li>
+		<li>
+			In real messages, only one field of text and symbols may be
+			displayed if they are separated by bold vertical bars(<span class="synopsis_controls">|</span>).
+		</li>
+	</ul>
+	</div>
 	</div> <!-- #section_description.pagesection -->
 
 	<div id="section_status-code-table" class="pagesection">
@@ -79,7 +105,7 @@
 		<caption>Status Codes</caption>
 		<thead>
 			<tr>
-				<th>Code</th>
+				<th>Exit Code</th>
 				<th>Message</th>
 				<th>Description</th>
 			</tr>
@@ -185,23 +211,23 @@
 			</tr>
 			<tr>
 				<td>21</td>
-				<td>?</td>
-				<td></td>
+				<td><span class="diff_addition">network error<span class="synopsis_controls">[</span>: <span class="synopsis_placeholder">info</span><span class="synopsis_controls">]</span></span><span class="diff_deletion">?</span></td>
+				<td><span class="diff_addition">A general network error occurred.</span></td>
 			</tr>
 			<tr>
 				<td>22</td>
-				<td>?</td>
-				<td></td>
+				<td><span class="diff_addition">no network connection</span><span class="diff_deletion">?</span></td>
+				<td><span class="diff_addition">No network connection is established.</span></td>
 			</tr>
 			<tr>
 				<td>23</td>
-				<td>?</td>
-				<td></td>
+				<td><span class="diff_addition">connection timed out</span><span class="diff_deletion">?</span></td>
+				<td><span class="diff_addition">A network request took too long and timed out.</span></td>
 			</tr>
 			<tr>
 				<td>24</td>
 				<td>arithmetic error<span class="synopsis_controls">[</span>: <span class="synopsis_placeholder">info</span><span class="synopsis_controls">]</span></td>
-				<td>A general arithmetic error occured.</td>
+				<td>A general arithmetic error occurred.</td>
 			</tr>
 			<tr>
 				<td>25</td>
@@ -224,17 +250,17 @@
 			<tr>
 				<td>28</td>
 				<td>memory error<span class="synopsis_controls">[</span>: <span class="synopsis_placeholder">info</span><span class="synopsis_controls">]</span></td>
-				<td>A general memory error occured.</td>
+				<td>A general memory error occurred.</td>
 			</tr>
 			<tr>
 				<td>29</td>
-				<td>not enough memory</td>
-				<td>There was not enough memory to allocate a block of data.</td>
+				<td>not enough <span class="diff_addition"><span class="synopsis_controls">[</span>heap <span class="synopsis_controls">]</span></span>memory</td>
+				<td>There was not enough <span class="diff_addition">free </span>memory <span class="diff_addition">on the heap </span>to allocate a block of data.</td>
 			</tr>
 			<tr>
 				<td>30</td>
-				<td>?</td>
-				<td></td>
+				<td><span class="diff_addition">stack overflow error</span><span class="diff_deletion">?</span></td>
+				<td><span class="diff_addition">A stack overflow occurred.</span></td>
 			</tr>
 			<tr>
 				<td>31</td>

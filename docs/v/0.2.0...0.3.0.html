@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>CommonCodes v0.1.0</title>
+	<title>CommonCodes v0.3.0</title>
 	<meta charset="utf-8">
 	<meta name="author" content="Michael Federczuk">
 	<meta name="description" content="Standardized list of commonly used exit statuses">
 	<meta name="keywords" content="commoncodes">
 	<link rel="stylesheet" type="text/css" href="https://speziil.github.io/css-dark-theme/v/latest.css">
 	<link rel="stylesheet" type="text/css" href="../versions.css">
+	<link rel="stylesheet" type="text/css" href="../diff.css">
 </head>
 <body>
 	<div id="header">
@@ -15,29 +16,26 @@
 		<span id="version-links_text">
 			[
 			<span class="version-links_other"><a href="0.3.0.html">v0.3.0</a></span> |
-			<span class="version-links_other"><a href="0.2.0...0.3.0.html">...</a></span> |
+			<span id="version-links_current">...</span> |
 			<span class="version-links_other"><a href="0.2.0.html">v0.2.0</a></span> |
 			<span class="version-links_other"><a href="0.1.0...0.2.0.html">...</a></span> |
-			<span id="version-links_current">v0.1.0</span>
+			<span class="version-links_other"><a href="0.1.0.html">v0.1.0</a></span>
 			]
-		</span> <!-- #version-links_text -->
+		</span>
 	</div> <!-- #version-links_container -->
 	</div> <!-- #header -->
 
 	<div id="body">
 	<div id="page-intro">
-	<h1>CommonCodes v0.1.0</h1>
-
+	<h1>CommonCodes v0.3.0</h1>
+	
 	<div id="version-date_container">
-		<span id="version-date_text">May 2, 2019</span>
+		<span id="version-date_text">May 6, 2019</span>
 	</div> <!-- #version-date_container -->
 
-	<div id="version-warning_container">
-		<span id="version-warning_text">
-			You are viewing and older version of CommonCodes, click
-			<a href="latest.html">here</a> to view the latest version.
-		</span> <!-- #version-warning_text -->
-	</div> <!-- #version-warning_container -->
+	<div id="version-notice_container">
+		<span id="version-notice_text">latest release</span>
+	</div> <!-- #version-notice_container -->
 	</div> <!-- #page-intro -->
 
 	<div id="release-content">
@@ -56,7 +54,7 @@
 
 	<p>
 		<strong>GNU</strong> <strong>Bash</strong> uses the exit status 2 to
-		indicate incorrect usage of a shell builtins.
+		indicate incorrect usage of shell builtins.
 		<strong>Bash</strong> also uses codes above 125 for special exit
 		statuses like termination by a sent signal.<br>
 		<strong>CommonCodes</strong> adopts both of these rules, using 2 as
@@ -70,6 +68,29 @@
 		documented, either in the <code>--help</code> summary or in the
 		manpage.
 	</p>
+
+	<p>
+		In the following table, these rules apply for the messages:
+	</p>
+
+	<ul>
+		<li>
+			Italic and/or underlined symbols are placeholders for other text
+			that should get replaced for real messages.
+		</li>
+		<li>
+			Text and symbols in bold square brackets may be ommitted in real
+			messages.
+		</li>
+		<li>
+			Text and symbols followed by bold ellipsis may be repeated one or
+			more times in real messages.
+		</li>
+		<li>
+			In real messages, only one field of text and symbols may be
+			displayed if they are separated by bold vertical bars(<span class="synopsis_controls">|</span>).
+		</li>
+	</ul>
 	</div> <!-- #section_description.pagesection -->
 
 	<div id="section_status-code-table" class="pagesection">
@@ -79,7 +100,7 @@
 		<caption>Status Codes</caption>
 		<thead>
 			<tr>
-				<th>Code</th>
+				<th>Exit Code</th>
 				<th>Message</th>
 				<th>Description</th>
 			</tr>
@@ -124,21 +145,41 @@
 			</tr>
 			<tr>
 				<td>5</td>
-				<td><span class="synopsis_controls">[</span><span class="synopsis_placeholder">option</span>: <span class="synopsis_controls">]</span><span class="synopsis_placeholder">argument</span>: invalid argument<span class="synopsis_controls">[</span>: <span class="synopsis_placeholder">info</span><span class="synopsis_controls">]</span></td>
-				<td>The argument is invalid and cannot be used.</td>
+				<td><span class="diff_deletion"><span class="synopsis_controls">[</span></span><span class="synopsis_placeholder">option</span>: <span class="diff_deletion"><span class="diff_deletion"><span class="synopsis_controls">]</span><span class="synopsis_placeholder">argument</span>: </span></span>invalid <span class="diff_addition">option</span><span class="diff_deletion">argument<span class="synopsis_controls">[</span>: <span class="synopsis_placeholder">info</span><span class="synopsis_controls">]</span></span></td>
+				<td>The <span class="diff_addition">entered option is not specified in the program</span><span class="diff_deletion">argument is invalid and cannot be used</span>.</td>
 			</tr>
 			<tr>
 				<td>6</td>
+				<td><span class="synopsis_controls">[</span><span class="synopsis_placeholder">option</span>: <span class="synopsis_controls">]</span><span class="synopsis_placeholder">argument</span>: <span class="diff_addition">invalid argument<span class="synopsis_controls">[</span>: <span class="synopsis_placeholder">info</span><span class="synopsis_controls">]</span></span><span class="diff_deletion">not a<span class="synopsis_controls">[</span>n<span class="synopsis_controls">]</span> <span class="synopsis_controls">(</span>number<span class="synopsis_controls">|</span>integer<span class="synopsis_controls">)</span></span></td>
+				<td>
+					The argument is <span class="diff_addition">invalid and cannot be used</span><span class="diff_deletion">not a valid number or is not a valid integer</span>.<br>
+					<span class="diff_deletion">If a valid decimal number has been entered and this exit status is returned then you must convert the decimal number into an integer. </span>
+				</td>
+			</tr>
+			<tr>
+				<td>7</td>
+				<td>
+					<span class="diff_addition">argument #<span class="synopsis_placeholder">n</span>: may not be <span class="synopsis_controls">(</span>empty<span class="synopsis_controls">|</span>blank<span class="synopsis_controls">)</span></span><br>
+					<span class="diff_deletion"><span class="synopsis_controls">[</span><span class="synopsis_placeholder">option</span>: <span class="synopsis_controls">]</span><span class="synopsis_placeholder">argument</span>: does not match: <span class="synopsis_placeholder">pattern</span></span>
+				</td>
+				<td>
+					<span class="diff_addition">Program can not work with empty or blank argument.¶<br>
+					"Blank" means none or only whitespace characters.</span><br>
+					<span class="diff_deletion">The argument does not match the pattern provided. The pattern can be glob, regex or any other pattern matching system. </span>
+				</td>
+			</tr>
+			<tr class="diff_addition">
+				<td>8</td>
 				<td><span class="synopsis_controls">[</span><span class="synopsis_placeholder">option</span>: <span class="synopsis_controls">]</span><span class="synopsis_placeholder">argument</span>: not a<span class="synopsis_controls">[</span>n<span class="synopsis_controls">]</span> <span class="synopsis_controls">(</span>number<span class="synopsis_controls">|</span>integer<span class="synopsis_controls">)</span></td>
 				<td>
-					The argument is not a valid number or is not a valid integer.<br>
+					The argument is not a valid number or is not a valid integer.¶<br>
 					If a valid decimal number has been entered and this exit
 					status is returned then you must convert the decimal number
 					into an integer.
 				</td>
 			</tr>
-			<tr>
-				<td>7</td>
+			<tr class="diff_addition">
+				<td>9</td>
 				<td><span class="synopsis_controls">[</span><span class="synopsis_placeholder">option</span>: <span class="synopsis_controls">]</span><span class="synopsis_placeholder">argument</span>: does not match: <span class="synopsis_placeholder">pattern</span></td>
 				<td>
 					The argument does not match the pattern provided. The
@@ -147,7 +188,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td>8 - 15</td>
+				<td><span class="diff_addition">10</span><span class="diff_deletion">8</span> - 15</td>
 				<td><span class="synopsis_controls">(custom usage errors)</span></td>
 				<td>
 					Usage errors defined by the developer of the program. These
@@ -185,56 +226,57 @@
 			</tr>
 			<tr>
 				<td>21</td>
-				<td>?</td>
-				<td></td>
+				<td><span class="diff_addition">?</span><span class="diff_deletion">network error<span class="synopsis_controls">[</span>: <span class="synopsis_placeholder">info</span><span class="synopsis_controls">]</span></span></td>
+				<td><span class="diff_deletion">A general network error occurred.</span></td>
 			</tr>
 			<tr>
 				<td>22</td>
-				<td>?</td>
-				<td></td>
+				<td><span class="diff_addition">network error<span class="synopsis_controls">[</span>: <span class="synopsis_placeholder">info</span><span class="synopsis_controls">]</span></span><span class="diff_deletion">no network connection</span></td>
+				<td><span class="diff_addition">A general network error occurred</span><span class="diff_deletion">No network connection is established</span>.</td>
 			</tr>
 			<tr>
 				<td>23</td>
-				<td>?</td>
-				<td></td>
+				<td><span class="diff_addition">no network connection</span><span class="diff_deletion">connection timed out</span></td>
+				<td><span class="diff_addition">No network connection is established</span><span class="diff_deletion">A network request took too long and timed out</span>.</td>
 			</tr>
 			<tr>
 				<td>24</td>
-				<td>arithmetic error<span class="synopsis_controls">[</span>: <span class="synopsis_placeholder">info</span><span class="synopsis_controls">]</span></td>
-				<td>A general arithmetic error occured.</td>
+				<td><span class="diff_addition">connection timed out</span><span class="diff_deletion">arithmetic error<span class="synopsis_controls">[</span>: <span class="synopsis_placeholder">info</span><span class="synopsis_controls">]</span></span></td>
+				<td>A <span class="diff_addition">network request took too long and timed out</span><span class="diff_deletion">general arithmetic error occurred</span>.</td>
 			</tr>
 			<tr>
 				<td>25</td>
-				<td>divided by 0 error</td>
-				<td>A division by 0 was tried to be executed and there was no fallback option.</td>
+				<td><span class="diff_addition">arithmetic</span><span class="diff_deletion">divided by 0</span> error<span class="diff_addition"><span class="synopsis_controls">[</span>: <span class="synopsis_placeholder">info</span><span class="synopsis_controls">]</span></span></td>
+				<td>A <span class="diff_addition">general arithmetic error occurred</span><span class="diff_deletion">division by 0 was tried to be executed and there was no fallback option</span>.</td>
 			</tr>
 			<tr>
 				<td>26</td>
-				<td><span class="synopsis_controls">(</span>overflow<span class="synopsis_controls">|</span>underflow<span class="synopsis_controls">)</span> error</td>
-				<td>
-					An overflow or underflow happened and it has critical
-					effects on the program.
-				</td>
+				<td><span class="diff_addition">divided by 0</span><span class="diff_deletion"><span class="synopsis_controls">(</span>overflow<span class="synopsis_controls">|</span>underflow<span class="synopsis_controls">)</span></span> error</td>
+				<td><span class="diff_addition">A division by 0 was tried to be executed and there was no fallback option</span><span class="diff_deletion">An overflow or underflow happened and it has critical
+					effects on the program</span>.</td>
 			</tr>
 			<tr>
 				<td>27</td>
-				<td>?</td>
-				<td></td>
+				<td><span class="diff_addition"><span class="synopsis_controls">(</span>overflow<span class="synopsis_controls">|</span>underflow<span class="synopsis_controls">)</span> error</span><span class="diff_deletion">?</span></td>
+				<td>
+					<span class="diff_addition">An overflow or underflow happened and it has critical
+					effects on the program</span>.
+				</td>
 			</tr>
 			<tr>
 				<td>28</td>
 				<td>memory error<span class="synopsis_controls">[</span>: <span class="synopsis_placeholder">info</span><span class="synopsis_controls">]</span></td>
-				<td>A general memory error occured.</td>
+				<td>A general memory error occurred.</td>
 			</tr>
 			<tr>
 				<td>29</td>
-				<td>not enough memory</td>
-				<td>There was not enough memory to allocate a block of data.</td>
+				<td>not enough <span class="synopsis_controls">[</span>heap <span class="synopsis_controls">]</span>memory</td>
+				<td>There was not enough free memory on the heap to allocate a block of data.</td>
 			</tr>
 			<tr>
 				<td>30</td>
-				<td>?</td>
-				<td></td>
+				<td>stack overflow error</td>
+				<td>A stack overflow occurred.</td>
 			</tr>
 			<tr>
 				<td>31</td>
@@ -368,7 +410,7 @@
 				<td>
 					General internal fault.<br>
 					An internal fault happens when preconditions prevent the
-					program to advance to a stage where user input is awaited.
+					program to advance to a <span class="diff_addition">next </span>stage <span class="diff_addition">of execution</span><span class="diff_deletion">where user input is awaited</span>.
 				</td>
 			</tr>
 			<tr>
@@ -383,9 +425,9 @@
 				<td>124</td>
 				<td>script was <span class="synopsis_controls">[</span>not <span class="synopsis_controls">]</span>called interactively</td>
 				<td>
-					The script can either only be executed interactively (using
-					command "." or "source"), or not interactively (executing
-					via "./").
+					The <span class="diff_addition">shell </span>script can either only be executed interactively
+					(using command "." or "source"), or not interactively
+					(executing via "./").
 				</td>
 			</tr>
 			<tr>
@@ -407,6 +449,14 @@
 		when distributing for <strong>BSD</strong> systems.
 	</p>
 	</div> <!-- #section_footnotes.pagesection -->
+
+	<div id="section_see-also" class="pagesection diff_addition">
+		<h2>See Also</h2>
+
+		<p>
+			&lt;<a href="https://github.com/SpEZiiL/commoncodes" title="CommonCodes GitHub Repository">https://github.com/SpEZiiL/commoncodes</a>&gt;
+		</p>
+	</div> <!-- #section_see-also.pagesection -->
 	</div> <!-- #release-content -->
 	</div> <!-- #body -->
 
