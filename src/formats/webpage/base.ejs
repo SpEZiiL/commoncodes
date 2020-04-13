@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html class="darkpage" lang="en" data-generated="<%- escapeForHTMLAttr(dateFormat(generatedDate, "isoUtcDateTime")) %>">
+<head>
+	<title>CommonCodes v<%- escapeForHTMLText(currentReleaseVersion.format()) %></title>
+	<meta charset="utf-8">
+	<meta name="author" content="<%- escapeForHTMLAttr(authors[0].name) %>">
+	<meta name="description" content="<%- escapeForHTMLAttr(about) %>">
+	<meta name="keywords" content="commoncodes">
+	<!-- #region faviconit.com favicons -->
+	<link rel="shortcut icon" href="./img/favicon/favicon.ico">
+	<link rel="icon" sizes="16x16 32x32 64x64" href="./img/favicon/favicon.ico">
+	<link rel="icon" type="image/png" sizes="196x196" href="./img/favicon/favicon-192.png">
+	<link rel="icon" type="image/png" sizes="160x160" href="./img/favicon/favicon-160.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="./img/favicon/favicon-96.png">
+	<link rel="icon" type="image/png" sizes="64x64" href="./img/favicon/favicon-64.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="./img/favicon/favicon-32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="./img/favicon/favicon-16.png">
+	<link rel="apple-touch-icon" href="./img/favicon/favicon-57.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="./img/favicon/favicon-114.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="./img/favicon/favicon-72.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="./img/favicon/favicon-144.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="./img/favicon/favicon-60.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="./img/favicon/favicon-120.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="./img/favicon/favicon-76.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="./img/favicon/favicon-152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="./img/favicon/favicon-180.png">
+	<meta name="msapplication-TileColor" content="#FFFFFF">
+	<meta name="msapplication-TileImage" content="./img/favicon/favicon-144.png">
+	<meta name="msapplication-config" content="./img/favicon/browserconfig.xml">
+	<!-- #endregion -->
+	<link rel="stylesheet" type="text/css" href="./main.css">
+</head>
+<body>
+	<header>
+	<div id="version-links_container">
+		<span id="version-links_text">
+			[
+			<%_ releaseVersions.sort((a, b) => (b.compare(a))).forEach((releaseVersion, i) => { -%>
+				<%_ if(releaseVersion.compare(currentReleaseVersion) === 0) { -%>
+			<span id="version-links_current"><a href="v<%- escapeForHTMLAttr(releaseVersion.major.toString()) %>.html">v<%- escapeForHTMLText(releaseVersion.format()) %></a></span><%- ((releaseVersions.length - 1) !== i) ? " |" : "" %>
+				<%_ } else { -%>
+			<span class="version-links_other"><a href="v<%- escapeForHTMLAttr(releaseVersion.major.toString()) %>.html">v<%- escapeForHTMLText(releaseVersion.format()) %></a></span><%- ((releaseVersions.length - 1) !== i) ? " |" : "" %>
+				<%_ } -%>
+			<%_ }); -%>
+			]
+		</span>
+	</div> <!-- #version-links_container -->
+	</header>
+
+	<main>
+	<div id="page-intro">
+	<h1>CommonCodes v<%- escapeForHTMLText(currentReleaseVersion.format()) %></h1>
+
+	<div id="release-date_container">
+		<span id="release-date_text"><%- escapeForHTMLText(dateFormat(releaseDate, "mmmm d, yyyy")) %></span>
+	</div> <!-- #release-date_container -->
+	</div> <!-- #page-intro -->
+
+	<div id="release-content">
+	<section id="description">
+	<h2>Description</h2>
+
+	<%- indent(descriptionToHTML(description), 1) %>
+	</section> <!-- #description -->
+
+	<section id="exit-status-table">
+	<h2>Exit Status Table</h2>
+
+	<table>
+		<caption>Exit Statuses</caption>
+		<thead>
+			<tr>
+				<th>Code</th>
+				<th>Message</th>
+				<th>Description</th>
+			</tr>
+		</thead>
+		<tbody>
+			<%_ exitStatusTable.forEach((exitStatus) => { -%>
+			<tr>
+				<td class="status-code-table_code">
+					<%_ if(typeof(exitStatus.code) === "number") { -%>
+					<%- exitStatus.code.toString() %>
+					<%_ } else { -%>
+					<%- exitStatus.code.rangeStart.toString() %> - <%- exitStatus.code.rangeEnd.toString() %>
+					<%_ } -%>
+				</td>
+				<td class="status-code-table_message">
+					<%- statusMessageToHTML(exitStatus.message) %>
+				</td>
+				<td class="status-code-table_description">
+					<%- indent(descriptionToHTML(exitStatus.description), 5) %>
+				</td>
+			</tr>
+			<%_ }); -%>
+		</tbody>
+	</table>
+	</section> <!-- #exit-status-table -->
+
+	<section id="footnotes">
+	<h2>Footnotes</h2>
+
+	<%- indent(descriptionToHTML(footnotes), 1) %>
+	</section> <!-- #footnotes -->
+
+	<section id="see-also">
+		<h2>See Also</h2>
+
+		<p>
+			<%_ seeAlsoLinks.forEach((seeAlsoLink, i) => { -%>
+				<%_ const link = seeAlsoLink.getLink(); -%>
+				<%_ const urlLink = link[0]; -%>
+				<%_ const manpageReference = link[1]; -%>
+				<%_ -%>
+				<%_ if(urlLink !== null) { -%>
+					<%_ const htmlLinkUrl = escapeForHTMLAttr(urlLink.url.toString()); -%>
+					<%_ if(urlLink.title !== null) { -%>
+			&lt;<a href="<%- htmlLinkUrl %>" title="<%- escapeForHTMLAttr(urlLink.title) %>"><%- htmlLinkUrl %></a>&gt;<%- ((seeAlsoLinks.length - 1) !== i) ? "," : "" %>
+					<%_ } else { -%>
+			&lt;<a href="<%- htmlLinkUrl %>"><%- htmlLinkUrl %></a>&gt;<%- ((seeAlsoLinks.length - 1) !== i) ? "," : "" %>
+					<%_ } -%>
+				<%_ } else if(manpageReference !== null) { -%>
+			<a href="<%- escapeForHTMLAttr(seeAlsoMansite.replace("%%PAGE%%", manpageReference.page).replace("%%SECTION%%", manpageReference.section.toString())) %>"><%- escapeForHTMLText(manpageReference.page) %>(<%- escapeForHTMLText(manpageReference.section.toString()) %>)</a><%- ((seeAlsoLinks.length - 1) !== i) ? "," : "" %>
+				<%_ } -%>
+			<%_ }); -%>
+		</p>
+	</section> <!-- #see-also -->
+
+	<section id="authors">
+		<h2>Authors</h2>
+
+		<ul>
+			<%_ authors.forEach((author) => { -%>
+			<li>
+				<%_ if(author.name !== undefined) { -%>
+				<%- author.name %>
+				<%_ } -%>
+				<%_ -%>
+				<%_ if(author.email !== undefined) { -%>
+				&lt;<a href="mailto:<%- escapeForHTMLAttr(author.email) %>"><%- escapeForHTMLText(author.email) %></a>&gt;
+				<%_ } -%>
+				<%_ -%>
+				<%_ if(author.url !== undefined) { -%>
+				(<a href="<%- escapeForHTMLAttr(author.url) %>"><%- escapeForHTMLText(author.url) %></a>)
+				<%_ } -%>
+			</li>
+			<%_ }); -%>
+		</ul>
+	</section> <!-- #authors -->
+	</div> <!-- #release-content -->
+	</main>
+
+	<footer>
+	<span id="footer_copyright-notice">&copy; <%-escapeForHTMLText (copyrightYears[copyrightYears.length - 1].toString()) %> <%- escapeForHTMLText(copyrightHolder.name) %></span>
+	<address id="footer_email-address">&lt;<a href="mailto:<%- escapeForHTMLAttr(copyrightHolder.email) %>"><%- escapeForHTMLText(copyrightHolder.email) %></a>&gt;</address>
+	</footer>
+</body>
+</html>

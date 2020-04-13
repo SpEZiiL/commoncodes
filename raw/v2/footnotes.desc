@@ -1,0 +1,4 @@
+Since exit code 2 (generic usage error) and exit code 64 (command line usage
+ error) are basically the same, it is recommended to use code 2 when
+ distributing for {p GNU/Linux} systems and code 64 when distributing for {p BSD}
+ systems.

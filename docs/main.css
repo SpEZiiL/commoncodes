@@ -1,0 +1,51 @@
+@import url("https://mfederczuk.github.io/darkpage/v1.min.css");
+@import url('https://fonts.googleapis.com/css?family=Ubuntu|Ubuntu+Mono&display=swap');
+
+html { font-family: 'Ubuntu', sans-serif; }
+code { font-family: 'Ubuntu Mono', monospace; }
+
+body { padding: 8px; }
+
+/* === header =============================================================== */
+
+h1 { text-align: center; }
+
+#version-links_container { text-align: center; }
+#version-links_text      { font-size: 1.2em;   }
+#version-links_current   { font-weight: bold;  }
+
+/* === main ================================================================= */
+
+#release-date_container { text-align: center; }
+#release-date_text      { font-style: italic; }
+
+.proper-name { font-weight: bold; }
+
+.message { letter-spacing: 1px; }
+.message_control { font-weight: bold; }
+.message_placeholder {
+	font-style: italic;
+	text-decoration: underline;
+}
+.message_special-placeholder {
+	font-style: italic;
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+#exit-status-table table {
+	border-collapse: collapse;
+	width: 100%;
+}
+#exit-status-table table caption { display: none; }
+#exit-status-table table tr { border-bottom: 1px solid #3F3F3F; }
+#exit-status-table table td.status-code-table_code {
+	letter-spacing: 1px;
+	padding-left: 8px;
+	padding-right: 8px;
+	text-align: center;
+}
+
+/* === footer =============================================================== */
+
+footer { text-align: center; }

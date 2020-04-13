@@ -1,0 +1,32 @@
+#!/bin/bash
+#  -*- sh -*-
+# vim: syntax=sh
+# code: language=shellscript
+
+readonly root="$(realpath "$(dirname "$0")")"
+readonly local_ts_node="$root/node_modules/.bin/ts-node"
+readonly local_eslint="$root/node_modules/.bin/eslint"
+
+if [ ! -f "$local_ts_node" ]; then
+	if ! command -v npm >/dev/null; then
+		echo "$0: npm: missing program" >&2
+		exit 48
+	fi
+
+	if ! cd "$root"; then
+		exit 49
+	fi
+
+	npm install
+fi
+
+declare src_files=()
+mapfile -t src_files < <(find "$root" -type f \( -wholename "$root/src/*" -name '*.ts' \))
+readonly src_files
+
+if [ -f "$local_eslint" ]; then
+	"$local_eslint" "${src_files[@]}" &&
+			"$local_ts_node" 'src/main.ts'
+else
+	"$local_ts_node" 'src/main.ts'
+fi

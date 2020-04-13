@@ -1,0 +1,42 @@
+{p CommonCodes} is an attempt to create a standardized list of program exit
+ statuses.
+
+{p CommonCodes} includes the 15 exit codes defined by {p BSD} in {c sysexits.h}
+ that range from 64 to 78.
+
+{p GNU} {p Bash} uses the exit status 2 to indicate incorrect usage of shell
+ builtins. {p Bash} also uses codes above 125 for special exit statuses like
+ termination by a sent signal.
+{p CommonCodes} adopts both of these rules, using 2 as a generic usage error and
+ not defining any codes above 125.
+
+If you're going to use the {p CommonCodes} standard in your program, be sure to
+ document it. A good place would be both the {c --help} summary and the programs
+ manpage.
+It is recommended to always add which exact version is being used.
+
+Some ranges have been kept empty so that developers may add error messages of
+ their own, tailored to the program that they are writing.
+If statuses in these ranges are defined then they should always be documented.
+ Again in the {c --help} summary and in the manpage.
+
+In the table of the following section, these rules, which are similar to command
+ usage patterns, apply for the messages:
+
+* Italic and/or underlined symbols are placeholders for other text that should
+   get replaced for real messages.
+  In places were formatting does not exist, placeholders are wrapped in angle
+   brackets ({c <}{c >})
+* Text and symbols in bold parenthesis are grouped
+* Text and symbols in bold square brackets may be omitted in real messages
+* Text and symbols followed by bold ellipsis (three consecutive dots ({c ...}))
+   may be repeated one or more times in real messages
+* A vertical bar ({c |}) means alteration: either only the left or right side
+   may be used
+
+Some status messages have the suffix {m [: <info>]} appendend to them and a lot
+ of usage errors about arguments also contain the placeholder {mp option}.
+{mp info} may be more information on what the error represents and why it
+ happened.
+{mp option} may be either a {p POSIX} short option or a {p GNU} long option, if
+ that option received the argument that is invalid instead the program itself.

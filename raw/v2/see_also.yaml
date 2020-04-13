@@ -1,0 +1,7 @@
+links:
+  - https://github.com/mfederczuk/commoncodes "CommonCodes Repository Page"
+  - grep(1)
+  - glob(7)
+  - regex(7)
+
+mansite: https://linux.die.net/man/%%SECTION%%/%%PAGE%%
