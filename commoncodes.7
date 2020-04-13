@@ -1,0 +1,274 @@
+.de bir
+.while (0 < \\n[.$]) \{\
+.BI "\\$1" "\\$2" \c
+\\$3\c
+.shift 3
+.\}
+..
+
+.de ibr
+.while (0 < \\n[.$]) \{\
+.IB "\\$1" "\\$2" \c
+\\$3\c
+.shift 3
+.\}
+..
+
+.de rib
+.while (0 < \\c[.$]) \{\
+\\$1\c
+.IB "\\$2" "\\$3" \c
+.shift 3
+.\}
+..
+
+.de rbi
+.while (0 < \\n[.$]) \{\
+\\$1\c
+.BI "\\$2" "\\$3" \c
+.shift 3
+.\}
+..
+
+.TH commoncodes 7 "0.1.0" "May 01, 2019" "CommonCodes man page"
+.SH NAME
+CommonCodes \- Standardized list of commonly used exit statuses
+
+.SH DESCRIPTION
+.B CommonCodes
+is an attempt to standardize the meaning of exit statuses of programs written
+for Unix like systems.
+
+.B CommonCodes
+includes the 15 exit codes defined by
+.B BSD
+in 
+.I sysexits.h
+that range from 64 to 78.
+
+.B GNU
+.B Bash
+uses the exit status 2 to indicate incorrect usage of a shell builtins.
+.B Bash
+also uses codes above 125 for special exit statuses like termination by a sent
+signal.
+.br
+.B CommonCodes
+adopts both of these rules, using 2 as a generic usage error and not defining
+any codes above 125.
+
+Some ranges have been kept empty so that developers may add error messages of
+their own, tailored to the program that they are writing.
+.br
+If codes in these ranges are defined then they should always be documented,
+either in the
+.I --help
+summary or in the manpage.
+
+.SH STATUS CODE TABLE
+.IP 0
+success
+.br
+.rbi "The program executed successfully or the " "--help " "" "or the " "--version " "" "options were specified."
+.IP 1
+.rbi "generic error" "[" "" ": " "" "info" "" "]"
+.br
+Any other error that doesn't fit in any other category.
+.IP 2
+.rbi "generic usage error" "[" "" ": " "" "info" "" "]"
+.br
+Any other program usage error that doesn't fit in any other category.
+.IP 3
+.bir "[" "option" ": " "]" "" "missing argument(s)" "[" "" ": " "" "arguments" "" "...]"
+.br
+Not enough arguments have been passed down to the program or to an option of the
+program.
+.IP 4
+.bir "[" "option" ": " "]" "" "too many arguments" "[" "" ": " "" "n" "" "]"
+.br
+Too many arguments have been passed down to the program or to an option of the
+program.
+.IP 5
+.bir "[" "option" ": " "]" "argument" ": invalid argument" "[" "" ": " "" "info" "" "]"
+.br
+The argument is invalid  and cannot be used.
+.IP 6
+.bir "[" "option" ": " "]" "argument" ": not a" "[" "" "n" "]" "" " " "(" "" "number" "|" "" "integer" ")"
+.br
+The argument is not a valid number or is not a valid integer.
+.br
+If a valid decimal number has been entered and this exit status is returned then
+you must convert the decimal number into an integer.
+.br
+.IP 7
+.bir "[" "option" ": " "]" "argument" ": does not match: " "" "pattern"
+.br
+The argument does not match the pattern provided. The pattern can be glob, regex
+or any other pattern matching system.
+.IP "8 - 15"
+.B "(custom usage errors)"
+.br
+Usage errors defined by the developer of the program. These should always be
+documented.
+.IP 16
+.bir "" "item" ": no such " "" "itemtype" "" "[[" "" ", " "" "itemtype" "" "]..." "" " or " "" "itemtype" "" "]"
+.br
+The item in question could not be found.
+.br
+.I item
+can be things like paths, etc. and
+.I itemtype
+can be things like regular files, directories, etc.
+.IP 17
+.bir "" "item" ": not a" "[" "" "n" "]" "" " " "" "itemtype" "" "[[" "" ", " "" "itemtype" "" "]..." "" " or " "" "itemtype" "" "]"
+.br
+The item in question is of the wrong type.
+.IP 18
+?
+.IP 19
+?
+.IP 20
+?
+.IP 21
+?
+.IP 22
+?
+.IP 23
+?
+.IP 24
+.rbi "arithmetic error" "[" "" ": " "" "info" "" "]"
+.br
+A general arithmetic error occured.
+.IP 25
+divided by 0 error
+.br
+A division by 0 was tried to be executed and there was no fallback option.
+.IP 26
+.bir "(" "" "overflow" "|" "" "underflow" ")" "" " error"
+.br
+An overflow or underflow happened and it has critical effects on the program.
+.IP 27
+?
+.IP 28
+.rbi "memory error" "[" "" ": " "" "info" "" "]"
+.br
+A general memory error occured.
+.IP 29
+not enough memory
+.br
+There was not enough memory to allocate a block of data.
+.IP 30
+?
+.IP 31
+.rbi "emergency stop" "[" "" ": " "" "info" "" "]"
+.br
+The program was intentionally halted by the developer because a value is invalid
+and can't be worked with.
+.IP "32 - 63"
+.B (custom errors)
+.br
+General custom errors defined by the developer. These should always be
+documented.
+.IP 64
+.rbi "command line usage error" "[" "" ": " "" "info" "" "]"
+.br
+The command was used incorrectly, e.g., with the wrong number of arguments, a
+bad flag, a bad syntax in a parameter, or whatever.
+.IP 65
+.rbi "data format error" "[" "" ": " "" "info" "" "]"
+.br
+The input data was incorrect in some way.
+.IP 66
+.rbi "cannot open input" "[" "" ": " "" "info" "" "]"
+.br
+An input file (not a system file) did not exist or was not readable.  This could
+also include errors like "No message" to a mailer (if it cared to catch it).
+.IP 67
+.rbi "addressee unknown" "[" "" ": " "" "info" "" "]"
+.br
+The user specified did not exist.
+.IP 68
+.rbi "host name unknown" "[" "" ": " "" "info" "" "]"
+.br
+The host specified did not exist.
+.IP 69
+.rbi "service unavailable" "[" "" ": " "" "info" "" "]"
+.br
+A service is unavailable.  This can occur if a support program or file does not
+exist.
+.IP 70
+.rbi "internal software error" "[" "" ": " "" "info" "" "]"
+.br
+An internal software error has been detected.
+.IP 71
+.rbi "system error" "[" "" ": " "" "info" "" "]"
+.br
+An operating system error has been detected.
+.IP 72
+.rbi "critical OS file missing" "[" "" ": " "" "info" "" "]"
+.br
+Some system file (e.g., /etc/passwd, /etc/utmp, etc.) does not exist, cannot be
+opened, or has some sort of error (e.g., syntax error).
+.IP 73
+.rbi "can't create (user) output file" "[" "" ": " "" "info" "" "]"
+.br
+A (user specified) output file cannot be created.
+.IP 74
+.rbi "input/output error" "[" "" ": " "" "info" "" "]"
+.br
+An error occurred while doing I/O on some file.
+.IP 75
+.rbi "temp failure" "[" "" ": " "" "info" "" "]"
+.br
+Temporary failure, indicating something that is not really an error.
+.IP 76
+.rbi "remote error in protocol" "[" "" ": " "" "info" "" "]"
+.br
+The remote system returned something that was "not possible" during a protocol
+exchange.
+.IP 77
+.rbi "permission denied" "[" "" ": " "" "info" "" "]"
+.br
+You did not have sufficient permission to perform the operation.
+.IP 78
+.rbi "configuration error" "[" "" ": " "" "info" "" "]"
+.br
+Something was found in an unconfigured or misconfigured state.
+.IP "79 - 99"
+.B (custom configuration errors)
+.br
+Configuration, property and setting errors defined by the developer. These
+should always be documented.
+.IP 100
+.rbi "generic internal fault" "[" "" ": " "" "info" "" "]"
+.br
+General internal fault.
+.br
+An internal fault happens when preconditions prevent the program to advance to a
+stage where user input is awaited.
+.IP "101 - 123"
+.B (custom internal faults)
+.br
+Different internal faults, defined by the developer. These should always be
+documented.
+.IP 124
+.rbi "script was " "[" "" "not " "]" "" "called interactively"
+.br
+The script can either only be executed interactively (using command "." or
+"source"), or not interactively (executing via "./").
+.IP 125
+unknown error
+.br
+Cause of error is not known, not even to the developer.
+
+.SH FOOTNOTES
+Since exit code 2 (generic usage error) and exit code 64 (command line usage
+error) are basically the same, it is recommended to use code 2 when distributing
+for
+.B GNU/Linux
+systems and code 64 when distributing for
+.B BSD
+systems.
+
+.SH AUTHOR
+Michael Federczuk <federczuk.michael@hotmail.com>
