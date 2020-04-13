@@ -2,18 +2,18 @@
 
 The files in this directory hold the raw data of **CommonCodes**.
 
-* [`about`](./v2/about)  
+* [`about`](./v3/about)  
   The first section in the man page, copied over and preceded with the text
    _"CommonCodes - "_.  
   The contents of this file will be put into the `meta` tag with the
    `description` name in the web page.
-* [`description.desc`](./v2/description.desc)  
+* [`description.desc`](./v3/description.desc)  
   The first section in the web page and the second in the man page.  
   Text around curly braces(`{}`) are specially formatted.  
   Dependent on the format, what exactly is done differs.  
   Read more about this format in the [next section](#description-format) of this
    file
-* [`status_code_table`](./v2/status_code_table)  
+* [`status_code_table`](./v3/status_code_table)  
   The table with all the status codes.  
   Each status has three parts to it:
   1. The exit code(s)  
@@ -28,11 +28,11 @@ The files in this directory hold the raw data of **CommonCodes**.
      Written after the exit code and status message line.  
      Each line of the description needs to start with two spaces.  
      The entirety of the description uses the same format as the
-      [`description`](./v2/description) file
-* [`footnotes.desc`](./v2/footnotes.desc)  
+      [`description`](./v3/description) file
+* [`footnotes.desc`](./v3/footnotes.desc)  
   Section after the status code table.  
-  Same format as the [`description`](./v2/description) file
-* [`see_also.yaml`](./v2/see_also.yaml)  
+  Same format as the [`description`](./v3/description) file
+* [`see_also.yaml`](./v3/see_also.yaml)  
   The last section with some links and references.
   * `links` - a list of URLs or man page references  
     URLs will be wrapped into angle brackets.  
@@ -41,7 +41,7 @@ The files in this directory hold the raw data of **CommonCodes**.
      will reference to the link specified in the `mansite` field
   * `mansite` - the URL of an online man site. This link must contain a
      `%%SECTION%%` and a `%%PAGE%%` substring.
-* [`metadata.yaml`](./v2/metadata.yaml)  
+* [`metadata.yaml`](./v3/metadata.yaml)  
   Holds metadata for the specific version of **CommonCodes**
   * `authors` - the full list of contributors
   * `copyright_years` - the full list of years in which revisions were released
