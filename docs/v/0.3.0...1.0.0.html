@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>CommonCodes v0.3.0</title>
+	<title>CommonCodes v1.0.0</title>
 	<meta charset="utf-8">
 	<meta name="author" content="Michael Federczuk">
 	<meta name="description" content="Standardized list of commonly used exit statuses">
@@ -15,9 +15,9 @@
 		<span id="version-links_text">
 			[
 			<span class="version-links_other"><a href="1.0.0.html">v1.0.0</a></span> |
-			<span class="version-links_other"><a href="0.3.0...1.0.0.html">...</a></span> |
-			<span class="version-links_other"><a href="0.3.0.html">v0.3.0</a></span> |
 			<span id="version-links_current">...</span> |
+			<span class="version-links_other"><a href="0.3.0.html">v0.3.0</a></span> |
+			<span class="version-links_other"><a href="0.2.0...0.3.0.html">...</a></span> |
 			<span class="version-links_other"><a href="0.2.0.html">v0.2.0</a></span> |
 			<span class="version-links_other"><a href="0.1.0...0.2.0.html">...</a></span> |
 			<span class="version-links_other"><a href="0.1.0.html">v0.1.0</a></span>
@@ -28,18 +28,15 @@
 
 	<div id="body">
 	<div id="page-intro">
-	<h1>CommonCodes v0.3.0</h1>
+	<h1>CommonCodes v1.0.0</h1>
 	
 	<div id="version-date_container">
-		<span id="version-date_text">May 6, 2019</span>
+		<span id="version-date_text">May 11, 2019</span>
 	</div> <!-- #version-date_container -->
 
-	<div id="version-warning_container">
-		<span id="version-warning_text">
-			You are viewing and older version of CommonCodes, click
-			<a href="latest.html">here</a> to view the latest version.
-		</span> <!-- #version-warning_text -->
-	</div> <!-- #version-warning_container -->
+	<div id="version-notice_container">
+		<span id="version-notice_text">latest release</span>
+	</div> <!-- #version-notice_container -->
 	</div> <!-- #page-intro -->
 
 	<div id="release-content">
@@ -48,7 +45,9 @@
 
 	<p>
 		<strong>CommonCodes</strong> is an attempt to standardize the meaning of
-		exit statuses of programs written for Unix like systems.
+		exit statuses of programs written for
+		<span class="diff_addition"><strong>Unix</strong></span><span class="diff_deletion">Unix</span>
+		like systems.
 	</p>
 
 	<p>
@@ -65,15 +64,28 @@
 		a generic usage error and not defining any codes above 125.
 	</p>
 
-	<p>
-		Some ranges have been kept empty so that developers may add error
-		messages of their own, tailored to the program that they are writing.<br>
-		If codes in these ranges are defined then they should always be
-		documented, either in the <code>--help</code> summary or in the manpage.
+	<p class="diff_addition">
+		If you're going to use the <strong>CommonCodes</strong> standard in your
+		program, be sure to document it. A good place would be both the
+		<code>--help</code> summary and the programs manpage.<br>
+		It is recommended to always add which exact version is being used.
 	</p>
 
 	<p>
-		In the following table, these rules apply for the messages:
+		Some ranges have been kept empty so that developers may add error
+		messages of their own, tailored to the program that they are writing.<br>
+		If <span class="diff_addition">statuses</span><span class="diff_deletion">codes</span>
+		in these ranges are defined then they should
+		<span class="diff_addition">also </span>always be
+		documented<span class="diff_addition">.</span><span class="diff_deletion">,</span>
+		<span class="diff_addition">Again</span><span class="diff_deletion">either</span>
+		in the <code>--help</code> summary <span class="diff_addition">and</span><span class="diff_deletion">or</span>
+		in the manpage.
+	</p>
+
+	<p>
+		In the following table, these rules apply for the
+		<span class="diff_addition">status </span>messages:
 	</p>
 
 	<ul>
@@ -94,6 +106,19 @@
 			displayed if they are separated by bold vertical bars(<span class="synopsis_controls">|</span>).
 		</li>
 	</ul>
+
+	<p class="diff_addition">
+		Some status messages have the suffix
+		<span class="synopsis_controls">[</span>: <span class="synopsis_placeholder">info</span><span class="synopsis_controls">]</span>
+		appendend to them and a lot of usage errors about arguments also contain
+		the placeholder <span class="synopsis_placeholder">option</span>.<br>
+		<span class="synopsis_placeholder">info</span> may be more information
+		on what the error represents and why it happened.<br>
+		<span class="synopsis_placeholder">option</span> may be either a
+		<strong>POSIX</strong> short option or a <strong>GNU</strong> long
+		option, if that option received the argument that is invalid except the
+		program itself.
+	</p>
 	</div> <!-- #section_description.pagesection -->
 
 	<div id="section_status-code-table" class="pagesection">
@@ -134,10 +159,12 @@
 			</tr>
 			<tr>
 				<td>3</td>
-				<td><span class="synopsis_controls">[</span><span class="synopsis_placeholder">option</span>: <span class="synopsis_controls">]</span>missing argument(s)<span class="synopsis_controls">[</span>: <span class="synopsis_placeholder">arguments</span><span class="synopsis_controls">...]</span></td>
+				<td><span class="synopsis_controls">[</span><span class="synopsis_placeholder">option</span>: <span class="synopsis_controls">]</span>missing argument<span class="synopsis_controls">[</span>s<span class="synopsis_controls">]</span><span class="synopsis_controls">[</span>: <span class="synopsis_placeholder">arguments</span><span class="synopsis_controls">...]</span></td>
 				<td>
 					Not enough arguments have been passed down to the program or
-					to an option of the program.
+					to an option of the program.<br>
+					<span class="synopsis_placeholder">arguments</span> may be
+					the placeholder name of the missing arguments.
 				</td>
 			</tr>
 			<tr>
@@ -145,43 +172,67 @@
 				<td><span class="synopsis_controls">[</span><span class="synopsis_placeholder">option</span>: <span class="synopsis_controls">]</span>too many arguments<span class="synopsis_controls">[</span>: <span class="synopsis_placeholder">n</span><span class="synopsis_controls">]</span></td>
 				<td>
 					Too many arguments have been passed down to the program or
-					to an option of the program.
+					to an option of the program.<br>
+					<span class="synopsis_placeholder">n</span> may be the
+					amount of arguments that are not needed.
 				</td>
 			</tr>
-			<tr class="diff_addition">
+			<tr>
 				<td>5</td>
 				<td><span class="synopsis_placeholder">option</span>: invalid option</td>
 				<td>
 					The entered option is not specified in the program.
 				</td>
 			</tr>
+			<tr class="diff_addition">
+				<td>6</td>
+				<td><span class="synopsis_placeholder">option</span>: unexpected option</td>
+				<td>
+					The seen option at this position with the set combination
+					and order of arguments and other options is invalid.
+				</td>
+			</tr>
 			<tr>
-				<td><span class="diff_addition">6</span><span class="diff_deletion">5</span></td>
+				<td><span class="diff_addition">7</span><span class="diff_deletion">6</span></td>
 				<td><span class="synopsis_controls">[</span><span class="synopsis_placeholder">option</span>: <span class="synopsis_controls">]</span><span class="synopsis_placeholder">argument</span>: invalid argument<span class="synopsis_controls">[</span>: <span class="synopsis_placeholder">info</span><span class="synopsis_controls">]</span></td>
 				<td>
 					The argument is invalid and cannot be used.
 				</td>
 			</tr>
 			<tr class="diff_addition">
-				<td>7</td>
-				<td>argument #<span class="synopsis_placeholder">n</span>: may not be <span class="synopsis_controls">(</span>empty<span class="synopsis_controls">|</span>blank<span class="synopsis_controls">)</span></td>
+				<td>8</td>
+				<td><span class="synopsis_placeholder">argument</span>: unknown <span class="synopsis_controls">[</span>sub<span class="synopsis_controls">]</span>command</td>
 				<td>
-					Program can not work with empty or blank argument.<br>
-					"Blank" means none or only whitespace characters.
-				</td>
-			</tr>
-			<tr>
-				<td><span class="diff_addition">8</span><span class="diff_deletion">6</span></td>
-				<td><span class="synopsis_controls">[</span><span class="synopsis_placeholder">option</span>: <span class="synopsis_controls">]</span><span class="synopsis_placeholder">argument</span>: not a<span class="synopsis_controls">[</span>n<span class="synopsis_controls">]</span> <span class="synopsis_controls">(</span>number<span class="synopsis_controls">|</span>integer<span class="synopsis_controls">)</span></td>
-				<td>
-					The argument is not a valid number or is not a valid integer.<br>
-					If a valid decimal number has been entered and this exit
-					status is returned then you must convert the decimal number
-					into an integer.
+					The entered (sub)command of the program is not known.
 				</td>
 			</tr>
 			<tr>
 				<td><span class="diff_addition">9</span><span class="diff_deletion">7</span></td>
+				<td><span class="synopsis_controls">[</span><span class="synopsis_placeholder">option</span>: <span class="synopsis_controls">]</span>argument <span class="synopsis_controls">[</span><span class="synopsis_placeholder">n</span>: <span class="synopsis_controls">]</span>may not be <span class="synopsis_controls">(</span>empty<span class="synopsis_controls">|</span>blank<span class="synopsis_controls">)</span></td>
+				<td>
+					Program can not work with empty or blank argument.<br>
+					"Blank" means none or only whitespace characters.<span class="diff_addition">¶<br>
+					<span class="synopsis_placeholder">n</span> is the position
+					of the argument that is empty/blank and is only really
+					needed when the program/option needs multiple arguments.</span>
+				</td>
+			</tr>
+			<tr>
+				<td><span class="diff_addition">10</span><span class="diff_deletion">8</span></td>
+				<td><span class="synopsis_controls">[</span><span class="synopsis_placeholder">option</span>: <span class="synopsis_controls">]</span><span class="synopsis_placeholder">argument</span>: not a <span class="synopsis_controls">(</span>number<span class="synopsis_controls">|</span>integer<span class="synopsis_controls">)</span></td>
+				<td>
+					The argument is not a valid number or is not a valid integer.
+				</td>
+			</tr>
+			<tr class="diff_addition">
+				<td>11</td>
+				<td><span class="synopsis_controls">[</span><span class="synopsis_placeholder">option</span>: <span class="synopsis_controls">]</span><span class="synopsis_placeholder">argument</span>: out of range<span class="synopsis_controls">[</span> (<span class="synopsis_placeholder">relational_op</span> <span class="synopsis_placeholder">limit</span>)<span class="synopsis_controls">]</span></td>
+				<td>
+					The numerical argument is out of the given range.
+				</td>
+			</tr>
+			<tr>
+				<td><span class="diff_addition">12</span><span class="diff_deletion">9</span></td>
 				<td><span class="synopsis_controls">[</span><span class="synopsis_placeholder">option</span>: <span class="synopsis_controls">]</span><span class="synopsis_placeholder">argument</span>: does not match: <span class="synopsis_placeholder">pattern</span></td>
 				<td>
 					The argument does not match the pattern provided.
@@ -190,7 +241,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td><span class="diff_addition">10</span><span class="diff_deletion">8</span> - 15</td>
+				<td>1<span class="diff_addition">3</span><span class="diff_deletion">0</span> - <span class="diff_addition">23</span><span class="diff_deletion">15</span></td>
 				<td><span class="synopsis_controls">(custom usage errors)</span></td>
 				<td>
 					Usage errors defined by the developer of the program.
@@ -198,7 +249,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td>16</td>
+				<td><span class="diff_addition">24</span><span class="diff_deletion">16</span></td>
 				<td><span class="synopsis_placeholder">item</span>: no such <span class="synopsis_placeholder">itemtype</span><span class="synopsis_controls">[[</span>, <span class="synopsis_placeholder">itemtype</span><span class="synopsis_controls">]...</span> or <span class="synopsis_placeholder">itemtype</span><span class="synopsis_controls">]</span></td>
 				<td>
 					The item in question could not be found.<br>
@@ -208,62 +259,62 @@
 				</td>
 			</tr>
 			<tr>
-				<td>17</td>
+				<td><span class="diff_addition">25</span><span class="diff_deletion">17</span></td>
 				<td><span class="synopsis_placeholder">item</span>: not a<span class="synopsis_controls">[</span>n<span class="synopsis_controls">]</span> <span class="synopsis_placeholder">itemtype</span><span class="synopsis_controls">[[</span>, <span class="synopsis_placeholder">itemtype</span><span class="synopsis_controls">]...</span> or <span class="synopsis_placeholder">itemtype</span><span class="synopsis_controls">]</span></td>
 				<td>
 					The item in question is of the wrong type.
 				</td>
 			</tr>
-			<tr>
+			<tr class="diff_deletion">
 				<td>18</td>
 				<td>?</td>
 				<td></td>
 			</tr>
-			<tr>
+			<tr class="diff_deletion">
 				<td>19</td>
 				<td>?</td>
 				<td></td>
 			</tr>
-			<tr>
+			<tr class="diff_deletion">
 				<td>20</td>
 				<td>?</td>
 				<td></td>
 			</tr>
-			<tr class="diff_addition">
+			<tr class="diff_deletion">
 				<td>21</td>
 				<td>?</td>
 				<td></td>
 			</tr>
 			<tr>
-				<td>2<span class="diff_addition">2</span><span class="diff_deletion">1</span></td>
+				<td>2<span class="diff_addition">6</span><span class="diff_deletion">2</span></td>
 				<td>network error<span class="synopsis_controls">[</span>: <span class="synopsis_placeholder">info</span><span class="synopsis_controls">]</span></td>
 				<td>
 					A general network error occurred.
 				</td>
 			</tr>
 			<tr>
-				<td>2<span class="diff_addition">3</span><span class="diff_deletion">2</span></td>
+				<td>2<span class="diff_addition">7</span><span class="diff_deletion">3</span></td>
 				<td>no network connection</td>
 				<td>
 					No network connection is established.
 				</td>
 			</tr>
 			<tr>
-				<td>2<span class="diff_addition">4</span><span class="diff_deletion">3</span></td>
+				<td>2<span class="diff_addition">8</span><span class="diff_deletion">4</span></td>
 				<td>connection timed out</td>
 				<td>
 					A network request took too long and timed out.
 				</td>
 			</tr>
 			<tr>
-				<td>2<span class="diff_addition">5</span><span class="diff_deletion">4</span></td>
+				<td>2<span class="diff_addition">9</span><span class="diff_deletion">5</span></td>
 				<td>arithmetic error<span class="synopsis_controls">[</span>: <span class="synopsis_placeholder">info</span><span class="synopsis_controls">]</span></td>
 				<td>
 					A general arithmetic error occurred.
 				</td>
 			</tr>
 			<tr>
-				<td>2<span class="diff_addition">6</span><span class="diff_deletion">5</span></td>
+				<td><span class="diff_addition">30</span><span class="diff_deletion">26</span></td>
 				<td>divided by 0 error</td>
 				<td>
 					A division by 0 was tried to be executed and there was no
@@ -271,7 +322,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td>2<span class="diff_addition">7</span><span class="diff_deletion">6</span></td>
+				<td><span class="diff_addition">31</span><span class="diff_deletion">27</span></td>
 				<td><span class="synopsis_controls">(</span>overflow<span class="synopsis_controls">|</span>underflow<span class="synopsis_controls">)</span> error</td>
 				<td>
 					An overflow or underflow happened and it has critical
@@ -279,18 +330,13 @@
 				</td>
 			</tr>
 			<tr class="diff_deletion">
-				<td>27</td>
-				<td>?</td>
-				<td></td>
-			</tr>
-			<tr>
 				<td>28</td>
 				<td>memory error<span class="synopsis_controls">[</span>: <span class="synopsis_placeholder">info</span><span class="synopsis_controls">]</span></td>
 				<td>
 					A general memory error occurred.
 				</td>
 			</tr>
-			<tr>
+			<tr class="diff_deletion">
 				<td>29</td>
 				<td>not enough <span class="synopsis_controls">[</span>heap <span class="synopsis_controls">]</span>memory</td>
 				<td>
@@ -298,14 +344,14 @@
 					block of data.
 				</td>
 			</tr>
-			<tr>
+			<tr class="diff_deletion">
 				<td>30</td>
 				<td>stack overflow error</td>
 				<td>
 					A stack overflow occurred.
 				</td>
 			</tr>
-			<tr>
+			<tr class="diff_deletion">
 				<td>31</td>
 				<td>emergency stop<span class="synopsis_controls">[</span>: <span class="synopsis_placeholder">info</span><span class="synopsis_controls">]</span></td>
 				<td>
@@ -313,8 +359,18 @@
 					because a value is invalid and can't be worked with.
 				</td>
 			</tr>
+			<tr class="diff_addition">
+				<td>32 - 47</td>
+				<td><span class="synopsis_controls">(custom feedback statuses)</span></td>
+				<td>
+					Custom exit codes defined by the developer that aren't
+					actually errors, but rather, feedback for the program user.<br>
+					For example, the program <strong>grep</strong> exits with
+					code 1 when it couldn't match an entered pattern.
+				</td>
+			</tr>
 			<tr>
-				<td>32 - 63</td>
+				<td><span class="diff_addition">48</span><span class="diff_deletion">32</span> - 63</td>
 				<td><span class="synopsis_controls">(custom errors)</span></td>
 				<td>
 					General custom errors defined by the developer.
@@ -439,7 +495,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td>79 - 99</td>
+				<td>79 - 9<span class="diff_addition">8</span><span class="diff_deletion">9</span></td>
 				<td><span class="synopsis_controls">(custom configuration errors)</span></td>
 				<td>
 					Configuration, property and setting errors defined by the
@@ -447,32 +503,60 @@
 					These should always be documented.
 				</td>
 			</tr>
-			<tr>
+			<tr class="diff_addition">
+				<td>99</td>
+				<td>memory error<span class="synopsis_controls">[</span>: <span class="synopsis_placeholder">info</span><span class="synopsis_controls">]</span></td>
+				<td>
+					A general memory error occurred.
+				</td>
+			</tr>
+			<tr class="diff_addition">
 				<td>100</td>
+				<td>not enough <span class="synopsis_controls">[</span>heap <span class="synopsis_controls">]</span>memory</td>
+				<td>
+					There was not enough free memory on the heap to allocate a
+					block of data.
+				</td>
+			</tr>
+			<tr class="diff_addition">
+				<td>101</td>
+				<td>stack overflow error</td>
+				<td>
+					A stack overflow occurred.
+				</td>
+			</tr>
+			<tr>
+				<td>10<span class="diff_addition">2</span><span class="diff_deletion">0</span></td>
 				<td>generic internal fault<span class="synopsis_controls">[</span>: <span class="synopsis_placeholder">info</span><span class="synopsis_controls">]</span></td>
 				<td>
 					General internal fault.<br>
 					An internal fault happens when preconditions prevent the
-					program to advance to a <span class="diff_addition">next </span>stage
-					<span class="diff_addition">of execution</span><span class="diff_deletion">where
-						user input is awaited</span>.
+					program to advance to a next stage of execution.
 				</td>
 			</tr>
 			<tr>
-				<td>101 - 123</td>
+				<td>10<span class="diff_addition">3</span><span class="diff_deletion">1</span> - 12<span class="diff_addition">2</span><span class="diff_deletion">3</span></td>
 				<td><span class="synopsis_controls">(custom internal faults)</span></td>
 				<td>
 					Different internal faults, defined by the developer.
 					These should always be documented.
 				</td>
 			</tr>
+			<tr class="diff_addition">
+				<td>123</td>
+				<td>emergency stop<span class="synopsis_controls">[</span>: <span class="synopsis_placeholder">info</span><span class="synopsis_controls">]</span></td>
+				<td>
+					The program was intentionally halted by the developer
+					because a value is invalid and can't be worked with.
+				</td>
+			</tr>
 			<tr>
 				<td>124</td>
 				<td>script was <span class="synopsis_controls">[</span>not <span class="synopsis_controls">]</span>called interactively</td>
 				<td>
-					The <span class="diff_addition">shell </span>script can
-					either only be executed interactively (using command "." or
-					"source"), or not interactively (executing via "./").
+					The shell script can either only be executed interactively
+					(using command "." or "source"), or not interactively
+					(executing via "./").
 				</td>
 			</tr>
 			<tr>
@@ -497,11 +581,12 @@
 	</p>
 	</div> <!-- #section_footnotes.pagesection -->
 
-	<div id="section_see-also" class="pagesection diff_addition">
+	<div id="section_see-also" class="pagesection">
 		<h2>See Also</h2>
 
 		<p>
-			&lt;<a href="https://github.com/SpEZiiL/commoncodes" title="CommonCodes GitHub Repository">https://github.com/SpEZiiL/commoncodes</a>&gt;
+			&lt;<a href="https://github.com/SpEZiiL/commoncodes" title="CommonCodes GitHub Repository">https://github.com/SpEZiiL/commoncodes</a>&gt;<span class="diff_addition">,
+			<a href="https://linux.die.net/man/1/grep">grep(1)</a></span>
 		</p>
 	</div> <!-- #section_see-also.pagesection -->
 	</div> <!-- #release-content -->
