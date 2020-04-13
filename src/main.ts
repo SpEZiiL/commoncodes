@@ -1,5 +1,4 @@
 import Exception from "@mfederczuk/custom-exception";
-import chalk from "chalk";
 import { readdirSync, readFileSync, realpathSync } from "fs";
 import * as jsyaml from "js-yaml";
 import parsePerson from "parse-author";
@@ -11,6 +10,7 @@ import { ExitStatusTable } from "./exitStatus";
 import FormatCreator from "./formats/FormatCreator";
 import ManpageFormatCreator from "./formats/manpage";
 import WebpageFormatCreator from "./formats/webpage";
+import log from "./log";
 import { SeeAlsoLink } from "./seeAlsoLink";
 import { StatusMessageSyntaxError } from "./statusMessage";
 
@@ -27,10 +27,6 @@ const EXIT_STATUS_TABLE_FILENAME = "exit_status_table";
 const FOOTNOTES_FILENAME = "footnotes.desc";
 const METADATA_FILENAME = "metadata.yaml";
 const SEE_ALSO_FILENAME = "see_also.yaml";
-
-const sourceStyle = chalk.bold;
-const errorStyle = chalk.red.bold;
-const warningStyle = chalk.yellow.bold;
 
 function main(): (number | void) {
 	// Get all major versions from the raw directory.
@@ -136,7 +132,7 @@ function main(): (number | void) {
 
 				// just warn about author without name
 				if(author.name === undefined) {
-					console.warn(`${sourceStyle(`${versionDir}/${METADATA_FILENAME}:`)} ${warningStyle("warning:")} Author name is empty`);
+					log.source(`${versionDir}/${METADATA_FILENAME}`).warning("author name is empty");
 				}
 			});
 
@@ -157,23 +153,22 @@ function main(): (number | void) {
 		if(err instanceof StatusMessageSyntaxError) {
 			let msg = "";
 
-			msg += errorStyle("error:");
-			msg += " " + err.problem.getMessage();
+			msg += err.problem.getMessage();
 
 			msg += "\n";
 
-			msg += "\t";
+			msg += " ";
 			msg += err.faultyStatusMessage.substring(0, err.rangeStart);
-			msg += errorStyle(err.faultyStatusMessage.substr(err.rangeStart, err.rangeLength));
+			msg += log.errorStyle(err.faultyStatusMessage.substr(err.rangeStart, err.rangeLength));
 			msg += err.faultyStatusMessage.substring(err.rangeStart + err.rangeLength);
 
 			msg += "\n";
 
-			msg += "\t";
+			msg += " ";
 			msg += " ".repeat(err.rangeStart);
-			msg += errorStyle("^" + "~".repeat(err.rangeLength - 1));
+			msg += log.errorStyle("^" + "~".repeat(err.rangeLength - 1));
 
-			console.error(msg);
+			log.error(msg);
 			return 1;
 		} else {
 			throw err;
