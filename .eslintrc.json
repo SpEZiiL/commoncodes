@@ -42,6 +42,7 @@
 		"no-invalid-this": "error",
 		"no-mixed-spaces-and-tabs": "off",
 		"no-regex-spaces": "off",
+		"no-useless-escape": "off",
 		"no-var": "error",
 		"prefer-const": "warn",
 		"prefer-exponentiation-operator": "warn",
