@@ -22,7 +22,8 @@ The files in this directory hold the raw data of **CommonCodes**.
       interpreted as beginning and end of a code range
   2. The status message  
      After the exit code, separated by whitespace, it has a special format,
-      similar to command usage patterns
+     similar to command usage patterns.  
+     Read more about it [here](#status-message-format).
   3. The description  
      Written after the exit code and status message line.  
      Each line of the description needs to start with two spaces.  
@@ -125,3 +126,26 @@ These formatting commands are defined:
   Inserts an open curly brace
 * `cbc` - _curly brace closed_  
   Inserts a closed curly brace
+
+## Status Message Format ##
+
+Symbols wrapped inside angle brackets (`<``>`) are placeholders for other text
+ that should ger replaced for real messages.
+
+Text and symbols in parenthesis are grouped.
+
+Text and symbols in square brackets may be omitted in real messages.
+
+Text and symbols followed by bold ellipsis (three consecutive dots (`...`)) may
+ be repeated one or more times in real messages.
+
+A vertical bar (`|`) means alteration: either only the left or right side may be
+ used.
+
+The following characters need to be escaped using a backslash:
+
+* angle brackets (`<``>`)
+* parenthesis (`(``)`)
+* square brackets (`[``]`)
+* three consecutive dots (`...`)
+* vertical bar (`|`)
