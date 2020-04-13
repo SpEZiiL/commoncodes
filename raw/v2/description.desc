@@ -27,6 +27,7 @@ In the table of the following section, these rules, which are similar to command
    get replaced for real messages.
   In places were formatting does not exist, placeholders are wrapped in angle
    brackets ({c <}{c >})
+* Text and symbols in bold parenthesis are grouped
 * Text and symbols in bold square brackets may be omitted in real messages
 * Text and symbols followed by bold ellipsis (three consecutive dots ({c ...}))
    may be repeated one or more times in real messages
