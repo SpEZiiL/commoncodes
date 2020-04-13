@@ -1,5 +1,5 @@
 import Exception from "@mfederczuk/custom-exception";
-import { StatusMessage, StatusMessageAtom } from "../../statusMessage";
+import { StatusMessage, StatusMessageAlteration, StatusMessageAtom, StatusMessageGroup, StatusMessageIteration, StatusMessageLiteral, StatusMessagePlaceholder } from "../../statusMessage";
 import { escapeForTroff } from "./escapeForTroff";
 
 function italic(str: string, escape: boolean): string {
@@ -10,7 +10,7 @@ function bold(str: string, escape: boolean): string {
 }
 
 function statusMessageAtomToTroff(atom: StatusMessageAtom): string {
-	if(atom instanceof StatusMessageAtom.Placeholder) {
+	if(atom instanceof StatusMessagePlaceholder) {
 		if(atom.special) {
 			return bold(atom.placeholder, true);
 		} else {
@@ -18,11 +18,11 @@ function statusMessageAtomToTroff(atom: StatusMessageAtom): string {
 		}
 	}
 
-	if(atom instanceof StatusMessageAtom.Literal) {
+	if(atom instanceof StatusMessageLiteral) {
 		return escapeForTroff(atom.literal);
 	}
 
-	if(atom instanceof StatusMessageAtom.Group) {
+	if(atom instanceof StatusMessageGroup) {
 		const parenPair: [string, string] = (atom.optional ? ["[", "]"] : ["(", ")"]);
 
 		return bold(parenPair[0], true) +
@@ -30,12 +30,12 @@ function statusMessageAtomToTroff(atom: StatusMessageAtom): string {
 		       bold(parenPair[1], true);
 	}
 
-	if(atom instanceof StatusMessageAtom.Iteration) {
+	if(atom instanceof StatusMessageIteration) {
 		return statusMessageAtomToTroff(atom.atom) +
 		       bold("...", true);
 	}
 
-	if(atom instanceof StatusMessageAtom.Alteration) {
+	if(atom instanceof StatusMessageAlteration) {
 		return statusMessageAtomsToTroff(atom.leftAtoms) +
 		       bold("|", true) +
 		       statusMessageAtomsToTroff(atom.rightAtoms);

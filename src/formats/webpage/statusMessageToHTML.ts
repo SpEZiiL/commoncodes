@@ -1,5 +1,5 @@
 import Exception from "@mfederczuk/custom-exception";
-import { StatusMessage, StatusMessageAtom } from "../../statusMessage";
+import { StatusMessage, StatusMessageAlteration, StatusMessageAtom, StatusMessageGroup, StatusMessageIteration, StatusMessageLiteral, StatusMessagePlaceholder } from "../../statusMessage";
 import { escapeForHTMLText } from "./escapeForHTML";
 
 function inSpanTag(className: string, text: string, escape: boolean): string {
@@ -14,16 +14,16 @@ const MESSAGE_SPECIAL_PLACEHOLDER_CLASS_NAME = "message_special-placeholder";
 const MESSAGE_LITERAL_CLASS_NAME             = "message_literal";
 
 function statusMessageAtomToHTML(atom: StatusMessageAtom): string {
-	if(atom instanceof StatusMessageAtom.Placeholder) {
+	if(atom instanceof StatusMessagePlaceholder) {
 		const className = (atom.special ? MESSAGE_SPECIAL_PLACEHOLDER_CLASS_NAME : MESSAGE_PLACEHOLDER_CLASS_NAME);
 		return inSpanTag(className, atom.placeholder, true);
 	}
 
-	if(atom instanceof StatusMessageAtom.Literal) {
+	if(atom instanceof StatusMessageLiteral) {
 		return inSpanTag(MESSAGE_LITERAL_CLASS_NAME, atom.literal, true);
 	}
 
-	if(atom instanceof StatusMessageAtom.Group) {
+	if(atom instanceof StatusMessageGroup) {
 		const parenPair: [string, string] = (atom.optional ? ["[", "]"] : ["(", ")"]);
 
 		return inSpanTag(MESSAGE_CONTROL_CLASS_NAME, parenPair[0], true) +
@@ -31,12 +31,12 @@ function statusMessageAtomToHTML(atom: StatusMessageAtom): string {
 		       inSpanTag(MESSAGE_CONTROL_CLASS_NAME, parenPair[1], true);
 	}
 
-	if(atom instanceof StatusMessageAtom.Iteration) {
+	if(atom instanceof StatusMessageIteration) {
 		return statusMessageAtomToHTML(atom.atom) +
 		       inSpanTag(MESSAGE_CONTROL_CLASS_NAME, "...", true);
 	}
 
-	if(atom instanceof StatusMessageAtom.Alteration) {
+	if(atom instanceof StatusMessageAlteration) {
 		return statusMessageAtomsToHTML(atom.leftAtoms) +
 		       inSpanTag(MESSAGE_CONTROL_CLASS_NAME, "|", true) +
 		       statusMessageAtomsToHTML(atom.rightAtoms);

@@ -1,6 +1,6 @@
 import Exception from "@mfederczuk/custom-exception";
 import { Description, DescriptionBlockElement, DescriptionInlineElement } from "../../description";
-import { parseStatusMessage, StatusMessage, StatusMessageAtom } from "../../statusMessage";
+import { parseStatusMessage, StatusMessage, StatusMessagePlaceholder } from "../../statusMessage";
 import { escapeForTroff } from "./escapeForTroff";
 import { statusMessageToTroff } from "./statusMessageToTroff";
 
@@ -26,7 +26,7 @@ function descriptionInlineElementToTroff(inlineElement: DescriptionInlineElement
 				return statusMessageToTroff(parseStatusMessage(text));
 			}
 			case(DescriptionInlineElement.CommandSpan.Type.MESSAGE_PLACEHOLDER): {
-				const statusMessage = new StatusMessage([new StatusMessageAtom.Placeholder(text)]);
+				const statusMessage = new StatusMessage([new StatusMessagePlaceholder(text)]);
 				return statusMessageToTroff(statusMessage);
 			}
 			case(DescriptionInlineElement.CommandSpan.Type.CURLY_BRACE_OPEN): {

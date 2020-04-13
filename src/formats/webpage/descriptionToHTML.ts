@@ -1,6 +1,6 @@
 import Exception from "@mfederczuk/custom-exception";
 import { Description, DescriptionBlockElement, DescriptionInlineElement } from "../../description";
-import { parseStatusMessage, StatusMessage, StatusMessageAtom } from "../../statusMessage";
+import { parseStatusMessage, StatusMessage, StatusMessagePlaceholder } from "../../statusMessage";
 import { escapeForHTMLText } from "./escapeForHTML";
 import { statusMessageToHTML } from "./statusMessageToHTML";
 
@@ -36,7 +36,7 @@ function descriptionInlineElementToHTML(inlineElement: DescriptionInlineElement,
 				return statusMessageToHTML(parseStatusMessage(text));
 			}
 			case(DescriptionInlineElement.CommandSpan.Type.MESSAGE_PLACEHOLDER): {
-				const statusMessage = new StatusMessage([new StatusMessageAtom.Placeholder(text)]);
+				const statusMessage = new StatusMessage([new StatusMessagePlaceholder(text)]);
 				return statusMessageToHTML(statusMessage);
 			}
 			case(DescriptionInlineElement.CommandSpan.Type.CURLY_BRACE_OPEN): {

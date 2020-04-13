@@ -3,92 +3,87 @@ import Exception from "@mfederczuk/custom-exception";
 export abstract class StatusMessageAtom {
 	abstract toString(): string;
 }
-export namespace StatusMessageAtom {
-	// <>
-	// <<>>
-	export class Placeholder extends StatusMessageAtom {
-		constructor(readonly placeholder: string,
-		            readonly special: boolean = false) {
-			super();
 
-			if(!special) {
-				if(placeholder.match(/^\w+$/i) === null) {
-					throw new Exception("Invalid placeholder");
-				}
-			} else {
-				if(placeholder.includes(">>")) {
-					throw new Exception("Invalid placeholder");
-				}
+// <>
+// <<>>
+export class StatusMessagePlaceholder extends StatusMessageAtom {
+	constructor(readonly placeholder: string,
+	            readonly special: boolean = false) {
+		super();
+
+		if(!special) {
+			if(placeholder.match(/^\w+$/i) === null) {
+				throw new Exception("Invalid placeholder");
 			}
-
-		}
-
-		toString(): string {
-			if(!this.special) {
-				return `<${this.placeholder}>`;
-			} else {
-				return `<<${this.placeholder}>>`;
+		} else {
+			if(placeholder.includes(">>")) {
+				throw new Exception("Invalid placeholder");
 			}
 		}
+
 	}
 
-	// foobar
-	export class Literal extends StatusMessageAtom {
-		constructor(readonly literal: string) {
-			super();
-		}
-
-		toString(): string {
-			return this.literal.replace("<", "\\<")
-			                   .replace(">", "\\>")
-			                   .replace("(", "\\(")
-			                   .replace(")", "\\)")
-			                   .replace("[", "\\[")
-			                   .replace("]", "\\]")
-			                   .replace("...", "\\...")
-			                   .replace("|", "\\|")
-			                   .replace("\\", "\\\\");
+	toString(): string {
+		if(!this.special) {
+			return `<${this.placeholder}>`;
+		} else {
+			return `<<${this.placeholder}>>`;
 		}
 	}
-
-	// ()
-	// []
-	export class Group extends StatusMessageAtom {
-		constructor(readonly atoms: readonly StatusMessageAtom[],
-		            readonly optional: boolean = false) {
-			super();
-		}
-
-		toString(): string {
-			if(!this.optional) {
-				return `(${this.atoms.join("")})`;
-			} else {
-				return `[${this.atoms.join("")}]`;
-			}
-		}
+}
+// foobar
+export class StatusMessageLiteral extends StatusMessageAtom {
+	constructor(readonly literal: string) {
+		super();
 	}
 
-	// ...
-	export class Iteration extends StatusMessageAtom {
-		constructor(readonly atom: StatusMessageAtom) {
-			super();
-		}
-
-		toString(): string {
-			return `${this.atom}...`;
-		}
+	toString(): string {
+		return this.literal.replace("<", "\\<")
+		                   .replace(">", "\\>")
+		                   .replace("(", "\\(")
+		                   .replace(")", "\\)")
+		                   .replace("[", "\\[")
+		                   .replace("]", "\\]")
+		                   .replace("...", "\\...")
+		                   .replace("|", "\\|")
+		                   .replace("\\", "\\\\");
+	}
+}
+// ()
+// []
+export class StatusMessageGroup extends StatusMessageAtom {
+	constructor(readonly atoms: readonly StatusMessageAtom[],
+	            readonly optional: boolean = false) {
+		super();
 	}
 
-	// |
-	export class Alteration extends StatusMessageAtom {
-		constructor(readonly leftAtoms: readonly StatusMessageAtom[],
-		            readonly rightAtoms: readonly StatusMessageAtom[]) {
-			super();
+	toString(): string {
+		if(!this.optional) {
+			return `(${this.atoms.join("")})`;
+		} else {
+			return `[${this.atoms.join("")}]`;
 		}
+	}
+}
+// ...
+export class StatusMessageIteration extends StatusMessageAtom {
+	constructor(readonly atom: StatusMessageAtom) {
+		super();
+	}
 
-		toString(): string {
-			return `${this.leftAtoms}|${this.rightAtoms}`;
-		}
+	toString(): string {
+		return `${this.atom}...`;
+	}
+}
+// |
+export class StatusMessageAlteration extends StatusMessageAtom {
+	constructor(readonly leftAtoms: readonly StatusMessageAtom[],
+	            readonly rightAtoms: readonly StatusMessageAtom[]) {
+		super();
+	}
+
+	toString(): string {
+		return `${this.leftAtoms}|${this.rightAtoms}`;
 	}
 }
 
@@ -167,13 +162,13 @@ export function parseStatusMessage(str: string): StatusMessage {
 			}
 
 			const lastAtom = atoms[atoms.length - 1];
-			if(lastAtom instanceof StatusMessageAtom.Iteration) {
+			if(lastAtom instanceof StatusMessageIteration) {
 				throw new StatusMessageSyntaxError(str, i - 3, 6, StatusMessageSyntaxError.Problem.ITERATED_OVER_ITERATION);
-			} else if(lastAtom instanceof StatusMessageAtom.Literal) {
+			} else if(lastAtom instanceof StatusMessageLiteral) {
 				throw new StatusMessageSyntaxError(str, i, 3, StatusMessageSyntaxError.Problem.ITERATED_OVER_LITERAL);
 			}
 
-			atoms[atoms.length - 1] = new StatusMessageAtom.Iteration(lastAtom);
+			atoms[atoms.length - 1] = new StatusMessageIteration(lastAtom);
 
 			i += 3;
 		} else if(c === "<") {
@@ -204,7 +199,7 @@ export function parseStatusMessage(str: string): StatusMessage {
 			}
 
 			try {
-				atoms.push(new StatusMessageAtom.Placeholder(placeholder, special));
+				atoms.push(new StatusMessagePlaceholder(placeholder, special));
 			} catch(err) {
 				if(!special) {
 					throw new StatusMessageSyntaxError(str, i - placeholder.length, placeholder.length, StatusMessageSyntaxError.Problem.INVALID_PLACEHOLDER, err);
@@ -244,7 +239,7 @@ export function parseStatusMessage(str: string): StatusMessage {
 			}
 
 			try {
-				atoms.push(new StatusMessageAtom.Group(parseStatusMessage(contents).atoms, c !== "("));
+				atoms.push(new StatusMessageGroup(parseStatusMessage(contents).atoms, c !== "("));
 			} catch(err) {
 				if(err instanceof StatusMessageSyntaxError) {
 					throw new StatusMessageSyntaxError(str, begin + 1 + err.rangeStart, err.rangeLength, err.problem, err);
@@ -262,7 +257,7 @@ export function parseStatusMessage(str: string): StatusMessage {
 				const leftAtoms = atoms;
 				++i;
 				const rightAtoms = parseStatusMessage(str.substring(i)).atoms;
-				atoms = [new StatusMessageAtom.Alteration(leftAtoms, rightAtoms)];
+				atoms = [new StatusMessageAlteration(leftAtoms, rightAtoms)];
 				i = l;
 			} catch(err) {
 				if(err instanceof StatusMessageSyntaxError) {
@@ -277,10 +272,10 @@ export function parseStatusMessage(str: string): StatusMessage {
 			}
 
 			const lastAtom = atoms[atoms.length - 1];
-			if(lastAtom instanceof StatusMessageAtom.Literal) {
-				atoms[atoms.length - 1] = new StatusMessageAtom.Literal(lastAtom.literal + c);
+			if(lastAtom instanceof StatusMessageLiteral) {
+				atoms[atoms.length - 1] = new StatusMessageLiteral(lastAtom.literal + c);
 			} else {
-				atoms.push(new StatusMessageAtom.Literal(c));
+				atoms.push(new StatusMessageLiteral(c));
 			}
 
 			++i;
