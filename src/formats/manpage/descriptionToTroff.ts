@@ -50,9 +50,9 @@ function descriptionInlineElementsToTroff(inlineElements: readonly DescriptionIn
 	}).join("");
 }
 
-function descriptionBlockElementToTroff(blockElement: DescriptionBlockElement): string {
+function descriptionBlockElementToTroff(blockElement: DescriptionBlockElement, paragraph: boolean): string {
 	if(blockElement instanceof DescriptionBlockElement.Paragraph) {
-		return ".P\n" +
+		return (paragraph ? ".P\n" : "") +
 		       descriptionInlineElementsToTroff(blockElement.elements);
 	}
 
@@ -66,8 +66,8 @@ function descriptionBlockElementToTroff(blockElement: DescriptionBlockElement): 
 	throw new Exception("Unsupported description block element");
 }
 
-export function descriptionToTroff(description: Description): string {
+export function descriptionToTroff(description: Description, paragraph: boolean): string {
 	return description.elements.map((element) => {
-		return descriptionBlockElementToTroff(element);
+		return descriptionBlockElementToTroff(element, paragraph);
 	}).join("\n\n");
 }
