@@ -22,7 +22,7 @@
   The argument is invalid and cannot be used.
 8 <argument>: unknown [sub]command
   The entered (sub)command of the program is not known.
-9 [<option>: ]argument [<n>: ]may not be (empty|blank)
+9 [<option>: ]argument [<n>: ]must not be (empty|blank)
   The program can not work with empty or blank argument.
   "Blank" means none or only whitespace characters.
   {mp n} is the position of the argument that is empty/blank and is only really
