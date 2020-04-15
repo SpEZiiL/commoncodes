@@ -10,6 +10,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 [Unreleased]: https://github.com/mfederczuk/commoncodes/compare/v2.0.0...develop
 
+### Changed ###
+
+* status 9 message
+  * `[<option>: ]argument [<n>: ]may not be (empty|blank)` →
+     `[<option>: ]argument [<n>: ]must not be (empty|blank)`
+
 ## [2.0.0] - 2020-04-13 ##
 
 [2.0.0]: https://github.com/mfederczuk/commoncodes/compare/v1.0.0...v2.0.0
