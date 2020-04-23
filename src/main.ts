@@ -29,6 +29,10 @@ const METADATA_FILENAME = "metadata.yaml";
 const SEE_ALSO_FILENAME = "see_also.yaml";
 
 function main(args: readonly string[]): (number | void) {
+	const pretty = args.some((v) => {
+		return /^(--pretty?|-.*p.*)$/.test(v);
+	});
+
 	// Get all major versions from the raw directory.
 	// Every directory with the pattern /^v([1-9][0-9]*)$/ will be seen as an
 	// individual release.
@@ -143,7 +147,8 @@ function main(args: readonly string[]): (number | void) {
 		const formatCreators: FormatCreator[] = [
 			new WebpageFormatCreator(GENERATED_DATE,
 			                         SRC_DIR + "/formats/webpage/base.ejs",
-			                         DOCS_DIR),
+			                         DOCS_DIR,
+			                         pretty),
 			new ManpageFormatCreator(GENERATED_DATE, ROOT_DIR)
 		];
 		formatCreators.forEach((formatCreator) => {
