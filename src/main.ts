@@ -28,7 +28,7 @@ const FOOTNOTES_FILENAME = "footnotes.desc";
 const METADATA_FILENAME = "metadata.yaml";
 const SEE_ALSO_FILENAME = "see_also.yaml";
 
-function main(): (number | void) {
+function main(args: readonly string[]): (number | void) {
 	// Get all major versions from the raw directory.
 	// Every directory with the pattern /^v([1-9][0-9]*)$/ will be seen as an
 	// individual release.
@@ -176,5 +176,5 @@ function main(): (number | void) {
 	}
 }
 
-const exc = main();
+const exc = main(process.argv.slice(2));
 if(typeof(exc) === "number") process.exitCode = exc;
