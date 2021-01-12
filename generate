@@ -1,32 +1,24 @@
-#!/bin/bash
-#  -*- sh -*-
+#!/bin/sh
+# -*- sh -*-
 # vim: syntax=sh
 # code: language=shellscript
 
-readonly root="$(realpath "$(dirname "$0")")"
-readonly local_ts_node="$root/node_modules/.bin/ts-node"
-readonly local_eslint="$root/node_modules/.bin/eslint"
+root_dir_path="$(realpath "$(dirname "$0")")" || exit
+readonly root_dir_path
+readonly local_ts_node="$root_dir_path/node_modules/.bin/ts-node"
+readonly local_eslint="$root_dir_path/node_modules/.bin/eslint"
 
-if [ ! -f "$local_ts_node" ]; then
-	if ! command -v npm >/dev/null; then
+if [ ! -x "$local_ts_node" ]; then
+	if ! command -v npm > '/dev/null'; then
 		echo "$0: npm: missing program" >&2
 		exit 48
 	fi
 
-	if ! cd "$root"; then
-		exit 49
-	fi
-
-	npm install
+	{ cd "$root_dir_path" && npm install; } || exit
 fi
 
-declare src_files=()
-mapfile -t src_files < <(find "$root" -type f \( -wholename "$root/src/*" -name '*.ts' \))
-readonly src_files
-
-if [ -f "$local_eslint" ]; then
-	"$local_eslint" "${src_files[@]}" &&
-			"$local_ts_node" 'src/main.ts' "$@"
-else
+if [ -x "$local_eslint" ]; then
+	find "$root_dir_path" -type f \( -wholename "$root_dir_path/src/*" -name '*.ts' \) -print0 |
+			xargs -0 "$local_eslint" "$@"
+fi &&
 	"$local_ts_node" 'src/main.ts' "$@"
-fi
