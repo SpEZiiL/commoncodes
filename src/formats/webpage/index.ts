@@ -69,7 +69,7 @@ export default class WebpageFormatCreator extends FormatCreator {
 				if(err !== null) throw Exception.fromError(err);
 
 				if(!this.pretty) {
-					page = minifyHTML(page, HTML_MINIFIER_OPTIONS);
+					page = minifyHTML(page, HTML_MINIFIER_OPTIONS).trim();
 				}
 
 				const majorVersion = data.metadata.releaseVersion.major;
