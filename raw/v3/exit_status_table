@@ -59,8 +59,6 @@
 30 connection timed out[: waited <ms> ms]
   A network request took too long and timed out.
   {mp ms} may be how many milliseconds were waited.
-31 arithmetic error[: <info>]
-  A general arithmetic error occurred.
 32-47 <<(custom feedback statuses)>>
   Custom exit codes defined by the developer that aren't actually errors, but
    rather, feedback for the program user. These should always be documented.
@@ -113,12 +111,10 @@
 99 <filename>: filename too long
   The name of the file is too long.
   Important distinction: this should be a {s filename} and {e NOT} a {s pathname}.
-100 memory error[: <info>]
-  A general memory error occurred.
-101 not enough [heap ]memory
-  There was not enough free memory on the heap to allocate a block of data.
-102 stack overflow error
-  A stack overflow occurred.
+100 out of memory
+  There was not enough free memory on the heap to allocate data.
+101 no space left on device
+  There was not enough free storage on the disk to write.
 103 generic internal fault[: <info>]
   Generic internal fault.
   An internal fault happens when preconditions prevent the program to advance to
