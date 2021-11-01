@@ -51,7 +51,7 @@ try {
 		const versionDir = `${RAW_DIR}/v${majorVersion}`;
 
 		const metadataFileContents = readFileSync(`${versionDir}/${METADATA_FILENAME}`).toString();
-		const metadata = jsyaml.safeLoad(metadataFileContents) as {
+		const metadata = jsyaml.load(metadataFileContents) as {
 			readonly authors?: unknown;
 
 			// eslint-disable-next-line camelcase
@@ -90,7 +90,7 @@ try {
 		const footnotes = parseDescription(footnotesFileContents);
 
 		const seeAlsoFileContents = readFileSync(`${versionDir}/${SEE_ALSO_FILENAME}`).toString();
-		const seeAlso = jsyaml.safeLoad(seeAlsoFileContents) as {
+		const seeAlso = jsyaml.load(seeAlsoFileContents) as {
 			readonly links?: unknown;
 			readonly mansite?: unknown;
 		};
