@@ -115,8 +115,8 @@
   Important distinction: this should be a {s filename} and {e NOT} a {s pathname}.
 100 memory error[: <info>]
   A general memory error occurred.
-101 not enough [heap ]memory
-  There was not enough free memory on the heap to allocate a block of data.
+101 not enough [(heap|kernel) ]memory
+  There was not enough free memory (either heap or kernel memory) to perform an operation.
 102 stack overflow error
   A stack overflow occurred.
 103 generic internal fault[: <info>]
