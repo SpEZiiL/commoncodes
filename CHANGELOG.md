@@ -6,6 +6,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.1.0] - 2021-11-01 ##
+
+[2.1.0]: https://github.com/mfederczuk/commoncodes/compare/v2.0.0...v2.1.0
+
+### Changed ###
+
+* status 101 (`not enough memory`) message and description
+  * message: `not enough [heap ]memory` → `not enough [(heap|kernel) ]memory`
+  * description: _"**[...]** free memory on the heap to allocate a block of data."_ →
+     _"**[...]** free memory (either heap or kernel memory) to perform an operation."_
+
 ## [2.0.0] - 2020-04-13 ##
 
 [2.0.0]: https://github.com/mfederczuk/commoncodes/compare/v1.0.0...v2.0.0
@@ -52,6 +63,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 * status 30: `divided by 0 error`
 * status 31: `(overflow|underflow) error`
+
+## [1.1.0] - 2021-11-01 ##
+
+[1.1.0]: https://github.com/mfederczuk/commoncodes/compare/v1.0.0...v1.1.0
+
+### Changed ###
+
+* status 100 (`not enough memory`) message and description
+  * message: `not enough [heap ]memory` → `not enough [(heap|kernel) ]memory`
+  * description: _"**[...]** free memory on the heap to allocate a block of data."_ →
+     _"**[...]** free memory (either heap or kernel memory) to perform an operation."_
 
 ## [1.0.0] - 2019-05-11 ##
 
