@@ -84,7 +84,9 @@ export default class ManpageFormatCreator extends FormatCreator {
 		        }).join(".br\n");
 
 		const outFile = this.outDir + "/commoncodes.7";
-		writeFile(outFile, file, (err) => {
+		const options = { mode: 0o644 }; // -rw-r--r--
+
+		writeFile(outFile, file, options, (err) => {
 			if(err !== null) throw Exception.fromError(err);
 			console.log(`Finished generating ${outFile}`);
 		});
