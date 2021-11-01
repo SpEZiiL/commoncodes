@@ -20,13 +20,13 @@ export default class ManpageFormatCreator extends FormatCreator {
 
 			file += `.\\" generated: ${dateFormat(this.generatedDate, "isoUtcDateTime")}`;
 
-			file += "\n\n";
+			file += "\n";
 
 			file += ".TH" +
-			        " commoncodes" +
+			        " COMMONCODES" +
 			        " 7" +
+			        ` "${dateFormat(data.metadata.releaseDate, "yyyy-mm-dd")}"` +
 			        ` "${data.metadata.releaseVersion.format()}"` +
-			        ` "${dateFormat(data.metadata.releaseDate, "mmmm d, yyyy")}"` +
 			        ` "CommonCodes man page"`;
 
 			file += "\n\n";
