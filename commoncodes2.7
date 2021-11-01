@@ -1,0 +1,296 @@
+.\" generated: 2021-11-01T20:09:33Z
+.TH COMMONCODES 7 "2021-11-01" "2.1.0" "CommonCodes man page"
+
+.SH NAME
+.P
+CommonCodes \- Standardized list of commonly used exit statuses
+
+.SH DESCRIPTION
+.P
+\fBCommonCodes\fR is an attempt to create a standardized list of program exit statuses.
+
+.P
+\fBCommonCodes\fR includes the 15 exit codes defined by \fBBSD\fR in \fI\,sysexits.h\/\fR that range from 64 to 78.
+
+.P
+\fBGNU\fR \fBBash\fR uses the exit status 2 to indicate incorrect usage of shell builtins. \fBBash\fR also uses codes above 125 for special exit statuses like termination by a sent signal.
+.br
+\fBCommonCodes\fR adopts both of these rules, using 2 as a generic usage error and not defining any codes above 125.
+
+.P
+If you're going to use the \fBCommonCodes\fR standard in your program, be sure to document it. A good place would be both the \fI\,\-\-help\/\fR summary and the programs manpage.
+.br
+It is recommended to always add which exact version is being used.
+
+.P
+Some ranges have been kept empty so that developers may add error messages of their own, tailored to the program that they are writing.
+.br
+If statuses in these ranges are defined then they should always be documented. Again in the \fI\,\-\-help\/\fR summary and in the manpage.
+
+.P
+In the table of the following section, these rules, which are similar to command usage patterns, apply for the messages:
+
+.IP \[bu] 2
+Italic and/or underlined symbols are placeholders for other text that should get replaced for real messages.
+.br
+In places were formatting does not exist, placeholders are wrapped in angle brackets (\fI\,<\/\fR\fI\,>\/\fR)
+.IP \[bu]
+Text and symbols in bold parenthesis are grouped
+.IP \[bu]
+Text and symbols in bold square brackets may be omitted in real messages
+.IP \[bu]
+Text and symbols followed by bold ellipsis (three consecutive dots (\fI\,...\/\fR)) may be repeated one or more times in real messages
+.IP \[bu]
+A vertical bar (\fI\,|\/\fR) means alteration: either only the left or right side may be used
+.P
+
+.P
+Some status messages have the suffix \fB[\fR: \fI\,info\/\fR\fB]\fR appendend to them and a lot of usage errors about arguments also contain the placeholder \fI\,option\/\fR.
+.br
+\fI\,info\/\fR may be more information on what the error represents and why it happened.
+.br
+\fI\,option\/\fR may be either a \fBPOSIX\fR short option or a \fBGNU\fR long option, if that option received the argument that is invalid instead the program itself.
+
+.SH EXIT STATUS TABLE
+.IP "\fBExit Code\fR" 12
+\fBMessage\fR
+.br
+\fBDescription\fR
+.IP "0"
+success
+.br
+The program executed successfully or the \fI\,\-\-help\/\fR or the \fI\,\-\-version\/\fR options were specified.
+.IP "1"
+generic error\fB[\fR: \fI\,info\/\fR\fB]\fR
+.br
+Any other error that doesn't fit in any other category.
+.IP "2"
+generic usage error\fB[\fR: \fI\,info\/\fR\fB]\fR
+.br
+Any other program usage error that doesn't fit in any other category.
+.IP "3"
+\fB[\fR\fI\,option\/\fR: \fB]\fRmissing argument\fB[\fRs\fB]\fR\fB[\fR: \fI\,arguments\/\fR\fB...\fR\fB]\fR
+.br
+Not enough arguments have been passed down to the program or to an option of the program.
+.br
+\fI\,arguments\/\fR may be the placeholder name of the missing arguments.
+.IP "4"
+\fB[\fR\fI\,option\/\fR: \fB]\fRtoo many arguments\fB[\fR: \fI\,n\/\fR\fB]\fR
+.br
+Too many arguments have been passed down to the program or to an option of the program.
+.br
+\fI\,n\/\fR may be the amount of arguments that are not needed.
+.IP "5"
+\fI\,option\/\fR: invalid option
+.br
+The entered option is not specified in the program.
+.IP "6"
+\fI\,option\/\fR: unexpected option
+.br
+The spotted option at this position with the combination and order of arguments and other options is invalid.
+.IP "7"
+\fB[\fR\fI\,option\/\fR: \fB]\fR\fI\,argument\/\fR: invalid argument\fB[\fR: \fI\,info\/\fR\fB]\fR
+.br
+The argument is invalid and cannot be used.
+.IP "8"
+\fI\,argument\/\fR: unknown \fB[\fRsub\fB]\fRcommand
+.br
+The entered (sub)command of the program is not known.
+.IP "9"
+\fB[\fR\fI\,option\/\fR: \fB]\fRargument \fB[\fR\fI\,n\/\fR: \fB]\fRmay not be \fB(\fRempty\fB|\fRblank\fB)\fR
+.br
+The program can not work with empty or blank argument.
+.br
+"Blank" means none or only whitespace characters.
+.br
+\fI\,n\/\fR is the position of the argument that is empty/blank and is only really needed when the program/option needs multiple arguments.
+.IP "10"
+\fB[\fR\fI\,option\/\fR: \fB]\fR\fI\,argument\/\fR: not a\fB[\fRn\fB]\fR \fB(\fRnumber\fB|\fRinteger\fB)\fR
+.br
+The argument is not a valid number or is not a valid integer.
+.IP "11"
+\fB[\fR\fI\,option\/\fR: \fB]\fR\fI\,argument\/\fR: out of range\fB[\fR (\fI\,relational_op\/\fR \fI\,limit\/\fR)\fB]\fR
+.br
+The numerical argument is out of the given range.
+.br
+\fI\,relational_op\/\fR may be the four relational operators: \fI\,<=\/\fR, \fI\,<\/\fR, \fI\,>\/\fR or \fI\,>=\/\fR
+.br
+\fI\,limit\/\fR may either be the minimum, floor, maximum or ceiling value.
+.IP "12"
+\fB[\fR\fI\,option\/\fR: \fB]\fR\fI\,argument\/\fR: does not match: \fI\,pattern\/\fR
+.br
+The argument does not match the pattern provided. The pattern can be \fBglob\fR, \fBregex\fR or any other pattern matching system.
+.IP "13 - 23"
+\fB(custom usage errors)\fR
+.br
+Usage errors defined by the developer of the program. These should always be documented.
+.IP "24"
+\fI\,item\/\fR: no such \fI\,itemtype\/\fR\fB[\fR\fB[\fR, \fI\,itemtype\/\fR\fB]\fR\fB...\fR or \fI\,itemtype\/\fR\fB]\fR
+.br
+The item in question could not be found.
+.br
+\fI\,item\/\fR can be things like paths, etc. and \fI\,itemtype\/\fR can be things like regular files, directories, etc.
+.IP "25"
+\fI\,item\/\fR: \fI\,itemtype\/\fR already exists
+.br
+The item in question already exists and is of type \fI\,itemtype\/\fR.
+.IP "26"
+\fI\,item\/\fR: not a\fB[\fRn\fB]\fR \fI\,itemtype\/\fR\fB[\fR\fB[\fR, \fI\,itemtype\/\fR\fB]\fR\fB...\fR or \fI\,itemtype\/\fR\fB]\fR
+.br
+The item in question is of the wrong type.
+.IP "27"
+\fI\,program\/\fR: program missing
+.br
+An external program is required but could not have been found.
+.br
+If \fI\,program\/\fR is not an absolute path, then the program could not have been found in the system \fI\,PATH\/\fR.
+.IP "28"
+network error\fB[\fR: \fI\,info\/\fR\fB]\fR
+.br
+A general network error occurred.
+.IP "29"
+no network connection
+.br
+No network connection is established.
+.IP "30"
+connection timed out\fB[\fR: waited \fI\,ms\/\fR ms\fB]\fR
+.br
+A network request took too long and timed out.
+.br
+\fI\,ms\/\fR may be how many milliseconds were waited.
+.IP "31"
+arithmetic error\fB[\fR: \fI\,info\/\fR\fB]\fR
+.br
+A general arithmetic error occurred.
+.IP "32 - 47"
+\fB(custom feedback statuses)\fR
+.br
+Custom exit codes defined by the developer that aren't actually errors, but rather, feedback for the program user. These should always be documented.
+.br
+For example, the program \fBgrep\fR exits with code 1 when it couldn't match an entered pattern.
+.IP "48 - 63"
+\fB(custom errors)\fR
+.br
+General custom errors defined by the developer. These should always be documented.
+.IP "64"
+command line usage error\fB[\fR: \fI\,info\/\fR\fB]\fR
+.br
+The command was used incorrectly, e.g., with the wrong number of arguments, a bad flag, a bad syntax in a parameter, or whatever.
+.IP "65"
+data format error\fB[\fR: \fI\,info\/\fR\fB]\fR
+.br
+The input data was incorrect in some way.
+.IP "66"
+cannot open input\fB[\fR: \fI\,info\/\fR\fB]\fR
+.br
+An input file (not a system file) did not exist or was not readable. This could also include errors like "No message" to a mailer (if it cared to catch it).
+.IP "67"
+addressee unknown\fB[\fR: \fI\,info\/\fR\fB]\fR
+.br
+The user specified did not exist.
+.IP "68"
+host name unknown\fB[\fR: \fI\,info\/\fR\fB]\fR
+.br
+The host specified did not exist.
+.IP "69"
+service unavailable\fB[\fR: \fI\,info\/\fR\fB]\fR
+.br
+A service is unavailable. This can occur if a support program or file does not exist.
+.IP "70"
+internal software error\fB[\fR: \fI\,info\/\fR\fB]\fR
+.br
+An internal software error has been detected.
+.IP "71"
+system error\fB[\fR: \fI\,info\/\fR\fB]\fR
+.br
+An operating system error has been detected.
+.IP "72"
+critical OS file missing\fB[\fR: \fI\,info\/\fR\fB]\fR
+.br
+Some system file (e.g., \fI\,/etc/passwd\/\fR, \fI\,/etc/utmp\/\fR, etc.) does not exist, cannot be opened, or has some sort of error (e.g., syntax error).
+.IP "73"
+can't create \fB(\fRuser\fB)\fR output file\fB[\fR: \fI\,info\/\fR\fB]\fR
+.br
+A (user specified) output file cannot be created.
+.IP "74"
+input/output error\fB[\fR: \fI\,info\/\fR\fB]\fR
+.br
+An error occurred while doing I/O on some file.
+.IP "75"
+temp failure\fB[\fR: \fI\,info\/\fR\fB]\fR
+.br
+Temporary failure, indicating something that is not really an error.
+.IP "76"
+remote error in protocol\fB[\fR: \fI\,info\/\fR\fB]\fR
+.br
+The remote system returned something that was "not possible" during a protocol exchange.
+.IP "77"
+permission denied\fB[\fR: \fI\,info\/\fR\fB]\fR
+.br
+You did not have sufficient permission to perform the operation.
+.IP "78"
+configuration error\fB[\fR: \fI\,info\/\fR\fB]\fR
+.br
+Something was found in an unconfigured or misconfigured state.
+.IP "79 - 97"
+\fB(custom configuration errors)\fR
+.br
+Configuration, property and setting errors defined by the developer. These should always be documented.
+.IP "98"
+\fI\,path\/\fR: too many levels of symbolic links
+.br
+Too many symlinks were encountered when trying to resolve the realpath.
+.IP "99"
+\fI\,filename\/\fR: filename too long
+.br
+The name of the file is too long.
+.br
+Important distinction: this should be a \fBfilename\fR and \fI\,NOT\/\fR a \fBpathname\fR.
+.IP "100"
+memory error\fB[\fR: \fI\,info\/\fR\fB]\fR
+.br
+A general memory error occurred.
+.IP "101"
+not enough \fB[\fR\fB(\fRheap\fB|\fRkernel\fB)\fR \fB]\fRmemory
+.br
+There was not enough free memory (either heap or kernel memory) to perform an operation.
+.IP "102"
+stack overflow error
+.br
+A stack overflow occurred.
+.IP "103"
+generic internal fault\fB[\fR: \fI\,info\/\fR\fB]\fR
+.br
+Generic internal fault.
+.br
+An internal fault happens when preconditions prevent the program to advance to a next stage of execution.
+.IP "104 - 122"
+\fB(custom internal faults)\fR
+.br
+Different internal faults, defined by the developer. These should always be documented.
+.IP "123"
+emergency stop\fB[\fR: \fI\,info\/\fR\fB]\fR
+.br
+The program was intentionally halted by the developer because a value is invalid and can't be worked with.
+.IP "124"
+script was \fB[\fRnot \fB]\fRcalled interactively
+.br
+The shell script can either only be executed interactively (using command "\fI\,.\/\fR" or "\fI\,source\/\fR"), or not interactively (executing via "\fI\,./\/\fR").
+.IP "125"
+unknown error
+.br
+Cause of error is not known, not even to the developer.
+.P
+
+.SH FOOTNOTES
+.P
+Since exit code 2 (generic usage error) and exit code 64 (command line usage error) are basically the same, it is recommended to use code 2 when distributing for \fBGNU/Linux\fR systems and code 64 when distributing for \fBBSD\fR systems.
+
+.SH SEE ALSO
+.P
+<https://github.com/mfederczuk/commoncodes>, grep(1), glob(7), regex(7)
+
+.SH AUTHORS
+.P
+Michael Federczuk
+<federczuk.michael@protonmail.com>

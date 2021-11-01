@@ -107,8 +107,8 @@
    should always be documented.
 99 memory error[: <info>]
   A general memory error occurred.
-100 not enough [heap ]memory
-  There was not enough free memory on the heap to allocate a block of data.
+100 not enough [(heap|kernel) ]memory
+  There was not enough free memory (either heap or kernel memory) to perform an operation.
 101 stack overflow error
   A stack overflow occurred.
 102 generic internal fault[: <info>]

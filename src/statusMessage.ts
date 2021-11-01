@@ -206,11 +206,12 @@ export function parseStatusMessage(str: string): StatusMessage {
 			try {
 				atoms.push(new StatusMessageAtom.Placeholder(placeholder, special));
 			} catch(err) {
-				if(!special) {
-					throw new StatusMessageSyntaxError(str, i - placeholder.length, placeholder.length, StatusMessageSyntaxError.Problem.INVALID_PLACEHOLDER, err);
-				} else {
-					throw new StatusMessageSyntaxError(str, i - placeholder.length, placeholder.length, StatusMessageSyntaxError.Problem.INVALID_SPECIAL_PLACEHOLDER, err);
+				if(err instanceof Exception) {
+					const problem = (special ? StatusMessageSyntaxError.Problem.INVALID_PLACEHOLDER : StatusMessageSyntaxError.Problem.INVALID_SPECIAL_PLACEHOLDER);
+					throw new StatusMessageSyntaxError(str, i - placeholder.length, placeholder.length, problem, err);
 				}
+
+				throw err;
 			}
 
 			i += (!special ? 1 : 2);
