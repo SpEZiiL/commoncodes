@@ -18,7 +18,7 @@
 		"html-minifier": "^4.0.0",
 		"js-yaml": "^4.1.0",
 		"parse-author": "^2.0.0",
-		"semver": "^7.3.5",
+		"semver": "^7.5.2",
 		"ts-node": "^10.4.0",
 		"typesafe-array": "^1.0.0",
 		"typescript": "^4.4.4"
